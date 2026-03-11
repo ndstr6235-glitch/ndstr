@@ -1,0 +1,716 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vertex Capital | Investice s perspektivou</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- INVESTOR MODAL -->
+<div class="investor-modal-overlay" id="investorModal">
+    <div class="investor-modal">
+        <div class="investor-modal-logo">
+            <div class="logo-icon" style="width:48px;height:48px;font-size:22px;">V</div>
+        </div>
+        <h2>Upozorneni</h2>
+        <p>Tento web je urcen pouze pro<br><strong>kvalifikovane investory</strong></p>
+        <p class="investor-modal-text">Nejste-li kvalifikovanym investorem dle zakona c. 240/2013 Sb., stranky prosim opustte.</p>
+        <button class="btn btn-primary btn-lg" id="investorAccept">Zavrit a pokracovat</button>
+        <a href="https://google.com" class="investor-modal-leave">Nejsem kvalifikovany investor</a>
+    </div>
+</div>
+
+<!-- NAVBAR -->
+<nav class="navbar" id="navbar">
+    <div class="container nav-container">
+        <a href="#" class="logo">
+            <div class="logo-icon">V</div>
+            <span>Vertex <strong>Capital</strong></span>
+        </a>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="#o-nas">O spolecnosti</a></li>
+            <li><a href="#fond">Fond</a></li>
+            <li><a href="#vykonnost">Vykonnost</a></li>
+            <li><a href="#analytika">Analytika</a></li>
+            <li><a href="#tym">Tym</a></li>
+            <li><a href="#kontakt">Kontakt</a></li>
+        </ul>
+        <a href="#kontakt" class="btn btn-nav">Chci investovat</a>
+        <button class="mobile-toggle" id="mobileToggle" aria-label="Menu">
+            <span></span><span></span><span></span>
+        </button>
+    </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-overlay"></div>
+    <div class="container hero-content">
+        <div class="hero-badge">Fond kvalifikovanych investoru</div>
+        <h1>Stabilni <span class="text-gradient">zhodnoceni</span><br>vaseho kapitalu</h1>
+        <p class="hero-subtitle">Spojujeme konzervativni spravu aktiv s inovativnimi investicnimi strategiemi. Vase prostredky pracuji v realnych aktivech s meritelnym dopadem.</p>
+        <div class="hero-cta">
+            <a href="#fond" class="btn btn-primary btn-lg">Prozkoumat fond</a>
+            <a href="#kontakt" class="btn btn-outline btn-lg">Kontaktovat nas</a>
+        </div>
+        <div class="hero-stats">
+            <div class="stat">
+                <span class="stat-number" data-target="850">0</span><span class="stat-suffix"> mil.</span>
+                <span class="stat-label">Spravovana aktiva (CZK)</span>
+            </div>
+            <div class="stat">
+                <span class="stat-number" data-target="127">0</span>
+                <span class="stat-label">Aktivnich investoru</span>
+            </div>
+            <div class="stat">
+                <span class="stat-number" data-target="6">0</span><span class="stat-suffix"> let</span>
+                <span class="stat-label">Na trhu</span>
+            </div>
+        </div>
+    </div>
+    <div class="hero-scroll">
+        <div class="scroll-indicator"></div>
+    </div>
+</section>
+
+<!-- TRUST BAR -->
+<section class="trust-bar">
+    <div class="container">
+        <div class="trust-items">
+            <div class="trust-item">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                <span>Aktiva zajistena nemovitostmi</span>
+            </div>
+            <div class="trust-item">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                <span>Registrace u CNB</span>
+            </div>
+            <div class="trust-item">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                <span>Mesicni reporting</span>
+            </div>
+            <div class="trust-item">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                <span>Osobni pristup ke kazdemu klientovi</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- O NAS -->
+<section class="section section-about" id="o-nas">
+    <div class="container">
+        <div class="section-header">
+            <span class="section-tag">O spolecnosti</span>
+            <h2>Budujeme hodnotu <span class="text-gradient">s rozvahou</span></h2>
+            <p class="section-desc">Vertex Capital je ceska investicni spolecnost zamerena na spravu aktiv kvalifikovanych investoru. Od roku 2020 spojujeme zkusenosti z realitniho trhu, financnich trhu a udrzitelnych projektu.</p>
+        </div>
+        <div class="about-grid">
+            <div class="about-card">
+                <div class="about-icon">
+                    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+                </div>
+                <h3>Diverzifikace</h3>
+                <p>Portfolio rozlozene do vice sektoru minimalizuje riziko a maximalizuje stabilitu vynosu v ruznych trznich podminkach.</p>
+            </div>
+            <div class="about-card">
+                <div class="about-icon">
+                    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                </div>
+                <h3>Bezpecnost</h3>
+                <p>Kazda investice je zajistena realnym aktivem. Dodrzujeme konzervativni LTV ratio a prubezne monitorujeme kvalitu zajisteni.</p>
+            </div>
+            <div class="about-card">
+                <div class="about-icon">
+                    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+                </div>
+                <h3>Transparentnost</h3>
+                <p>Pravidelne reporty, jasna poplatkova struktura a otevrena komunikace. Investori maji pristup k detailnimu prehledu portfolia.</p>
+            </div>
+            <div class="about-card">
+                <div class="about-icon">
+                    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg>
+                </div>
+                <h3>Inovace</h3>
+                <p>Investujeme do budoucnosti - od technologii recyklace az po moderni realitni projekty s durazem na udrzitelnost a ESG principy.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- FOND -->
+<section class="section section-fund" id="fond">
+    <div class="container">
+        <div class="section-header">
+            <span class="section-tag">Investicni fond</span>
+            <h2>Tri pilire <span class="text-gradient">naseho portfolia</span></h2>
+            <p class="section-desc">Nase strategie stoji na trech vzajemne se doplnujicich investicnich pilirech, ktere zajistuji stabilitu i rustovy potencial.</p>
+        </div>
+
+        <div class="fund-grid">
+            <!-- Pillar 1: Real Estate -->
+            <div class="fund-card">
+                <div class="fund-card-header">
+                    <div class="fund-icon fund-icon-re">
+                        <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+                    </div>
+                    <div class="fund-return">
+                        <span class="fund-return-value">8-12 %</span>
+                        <span class="fund-return-label">cileny vynos p.a.</span>
+                    </div>
+                </div>
+                <h3>Nemovitostni strategie</h3>
+                <p>Akvizice nemovitosti pod trzni cenou, revitalizace a prodej. Zamerne na rezidencni a komercni nemovitosti v CR a SR.</p>
+                <ul class="fund-features">
+                    <li>LTV max. 65 %</li>
+                    <li>Zajisteni zastavnim pravem</li>
+                    <li>Prumerna doba drzeni 6-18 mesicu</li>
+                    <li>Podil na portfoliu: 45 %</li>
+                </ul>
+                <div class="fund-allocation">
+                    <div class="allocation-bar" style="--width: 45%"></div>
+                </div>
+            </div>
+
+            <!-- Pillar 2: Green / ESG -->
+            <div class="fund-card fund-card-featured">
+                <div class="fund-card-badge">Hlavni strategie</div>
+                <div class="fund-card-header">
+                    <div class="fund-icon fund-icon-esg">
+                        <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/><path d="M7 13.5s1.5 2 5 2 5-2 5-2"/><path d="M8 9.5c.5-1 1.5-1 2 0"/><path d="M14 9.5c.5-1 1.5-1 2 0"/></svg>
+                    </div>
+                    <div class="fund-return">
+                        <span class="fund-return-value">10-15 %</span>
+                        <span class="fund-return-label">cileny vynos p.a.</span>
+                    </div>
+                </div>
+                <h3>ESG a zelene projekty</h3>
+                <p>Investice do technologii recyklace, obnovitelnych zdroju energie a cirkularni ekonomiky s pozitivnim dopadem na zivotni prostredi.</p>
+                <ul class="fund-features">
+                    <li>Recyklace a pyrolyza plastu</li>
+                    <li>Fotovoltaicke systemy</li>
+                    <li>Technologie cisteni vody</li>
+                    <li>Podil na portfoliu: 35 %</li>
+                </ul>
+                <div class="fund-allocation">
+                    <div class="allocation-bar" style="--width: 35%"></div>
+                </div>
+            </div>
+
+            <!-- Pillar 3: Financial Markets -->
+            <div class="fund-card">
+                <div class="fund-card-header">
+                    <div class="fund-icon fund-icon-fin">
+                        <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+                    </div>
+                    <div class="fund-return">
+                        <span class="fund-return-value">6-10 %</span>
+                        <span class="fund-return-label">cileny vynos p.a.</span>
+                    </div>
+                </div>
+                <h3>Financni trhy</h3>
+                <p>Systematicke strategie na financnich trzich vyuzivajici automatizovane obchodni systemy (AOS) s rizenymi riziky.</p>
+                <ul class="fund-features">
+                    <li>Algoritmicke obchodovani</li>
+                    <li>Menove pary a komodity</li>
+                    <li>Maximalni drawdown 15 %</li>
+                    <li>Podil na portfoliu: 20 %</li>
+                </ul>
+                <div class="fund-allocation">
+                    <div class="allocation-bar" style="--width: 20%"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Investment tiers -->
+        <div class="invest-tiers">
+            <h3>Jak investovat</h3>
+            <div class="tiers-grid">
+                <div class="tier-card">
+                    <div class="tier-label">Standardni vstup</div>
+                    <div class="tier-amount">od 1 000 000 CZK</div>
+                    <ul>
+                        <li>Primy vstup do fondu</li>
+                        <li>0 % vstupni poplatek</li>
+                        <li>Mesicni reporting</li>
+                        <li>Osobni portfolio manazer</li>
+                    </ul>
+                    <a href="#kontakt" class="btn btn-primary">Kontaktovat nas</a>
+                </div>
+                <div class="tier-card tier-premium">
+                    <div class="tier-label">Premium</div>
+                    <div class="tier-amount">od 5 000 000 CZK</div>
+                    <ul>
+                        <li>Vse ze Standardniho</li>
+                        <li>Individualni investicni strategie</li>
+                        <li>Prioritni pristup k novym projektum</li>
+                        <li>Ctvrletni osobni konzultace</li>
+                    </ul>
+                    <a href="#kontakt" class="btn btn-gold">Domluvit schuzku</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- VYKONNOST -->
+<section class="section section-performance" id="vykonnost">
+    <div class="container">
+        <div class="section-header">
+            <span class="section-tag">Vykonnost</span>
+            <h2>Prokazatelne <span class="text-gradient">vysledky</span></h2>
+            <p class="section-desc">Historicka vykonnost naseho fondu od zalozeni. Minule vynosy nejsou zarukou budoucich vysledku.</p>
+        </div>
+
+        <div class="performance-grid">
+            <div class="chart-container">
+                <canvas id="performanceChart"></canvas>
+            </div>
+            <div class="performance-stats">
+                <div class="perf-stat">
+                    <span class="perf-label">Kumulativni vynos (2020-2025)</span>
+                    <span class="perf-value text-gradient">+47.8 %</span>
+                </div>
+                <div class="perf-stat">
+                    <span class="perf-label">Prumerny rocni vynos</span>
+                    <span class="perf-value">9.2 %</span>
+                </div>
+                <div class="perf-stat">
+                    <span class="perf-label">Nejlepsi rok (2021)</span>
+                    <span class="perf-value">+14.1 %</span>
+                </div>
+                <div class="perf-stat">
+                    <span class="perf-label">Nejhorsi rok (2022)</span>
+                    <span class="perf-value negative">+3.2 %</span>
+                </div>
+                <div class="perf-stat">
+                    <span class="perf-label">Max. drawdown</span>
+                    <span class="perf-value negative">-6.4 %</span>
+                </div>
+                <div class="perf-stat">
+                    <span class="perf-label">Sharpe ratio</span>
+                    <span class="perf-value">1.42</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="performance-table-wrap">
+            <table class="performance-table">
+                <thead>
+                    <tr>
+                        <th>Rok</th>
+                        <th>Q1</th>
+                        <th>Q2</th>
+                        <th>Q3</th>
+                        <th>Q4</th>
+                        <th>Celkem</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>2025</td>
+                        <td class="positive">+2.1 %</td>
+                        <td class="positive">+2.8 %</td>
+                        <td class="positive">+1.9 %</td>
+                        <td class="muted">-</td>
+                        <td class="positive strong">+6.9 %</td>
+                    </tr>
+                    <tr>
+                        <td>2024</td>
+                        <td class="positive">+2.4 %</td>
+                        <td class="positive">+3.1 %</td>
+                        <td class="positive">+2.6 %</td>
+                        <td class="positive">+2.2 %</td>
+                        <td class="positive strong">+10.7 %</td>
+                    </tr>
+                    <tr>
+                        <td>2023</td>
+                        <td class="positive">+1.8 %</td>
+                        <td class="positive">+2.5 %</td>
+                        <td class="positive">+1.4 %</td>
+                        <td class="positive">+2.1 %</td>
+                        <td class="positive strong">+8.0 %</td>
+                    </tr>
+                    <tr>
+                        <td>2022</td>
+                        <td class="positive">+1.2 %</td>
+                        <td class="negative">-0.3 %</td>
+                        <td class="positive">+0.8 %</td>
+                        <td class="positive">+1.5 %</td>
+                        <td class="positive strong">+3.2 %</td>
+                    </tr>
+                    <tr>
+                        <td>2021</td>
+                        <td class="positive">+3.2 %</td>
+                        <td class="positive">+3.8 %</td>
+                        <td class="positive">+4.1 %</td>
+                        <td class="positive">+2.5 %</td>
+                        <td class="positive strong">+14.1 %</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <p class="disclaimer">* Uvedene vynosy jsou historicke a nepredstavuji zaruku budoucich vysledku. Hodnota investice muze klesat i rust. Investice je urcena pouze pro kvalifikovane investory ve smyslu zakona c. 240/2013 Sb.</p>
+    </div>
+</section>
+
+<!-- PORTFOLIO ANALYTICS -->
+<section class="section section-analytics" id="analytika">
+    <div class="container">
+        <div class="section-header">
+            <span class="section-tag">Analytika portfolia</span>
+            <h2>Detailni <span class="text-gradient">pohled na data</span></h2>
+            <p class="section-desc">Transparentni prehled o slozeni a vykonnosti naseho portfolia v realnem case.</p>
+        </div>
+
+        <div class="analytics-grid">
+            <!-- Portfolio Allocation Donut -->
+            <div class="analytics-card">
+                <h3>Alokace portfolia</h3>
+                <div class="chart-wrap">
+                    <canvas id="allocationChart"></canvas>
+                </div>
+            </div>
+
+            <!-- Sector Performance Bar Chart -->
+            <div class="analytics-card">
+                <h3>Vykonnost podle sektoru (2025)</h3>
+                <div class="chart-wrap">
+                    <canvas id="sectorChart"></canvas>
+                </div>
+            </div>
+
+            <!-- Monthly Returns Heatmap -->
+            <div class="analytics-card analytics-card-wide">
+                <h3>Mesicni vynosy - heatmapa</h3>
+                <div class="heatmap-container" id="heatmapContainer">
+                    <!-- Generated by JS -->
+                </div>
+            </div>
+        </div>
+
+        <!-- Market Ticker -->
+        <div class="market-ticker" id="marketTicker">
+            <div class="ticker-track" id="tickerTrack">
+                <!-- Filled by JS -->
+            </div>
+        </div>
+
+        <!-- Live-style counters -->
+        <div class="analytics-live" id="liveStats">
+            <div class="live-stat">
+                <span class="live-dot"></span>
+                <span class="live-label">NAV fondu</span>
+                <span class="live-value" id="liveNav">1.1847 CZK</span>
+            </div>
+            <div class="live-stat">
+                <span class="live-dot"></span>
+                <span class="live-label">Zmena dnes</span>
+                <span class="live-value" id="liveDayChange">+0.03 %</span>
+            </div>
+            <div class="live-stat">
+                <span class="live-dot"></span>
+                <span class="live-label">EUR/CZK</span>
+                <span class="live-value" id="liveEurCzk">--</span>
+            </div>
+            <div class="live-stat">
+                <span class="live-dot"></span>
+                <span class="live-label">Zmena YTD</span>
+                <span class="live-value positive" id="liveYtd">+6.9 %</span>
+            </div>
+            <div class="live-stat">
+                <span class="live-dot"></span>
+                <span class="live-label">Aktualizace</span>
+                <span class="live-value" id="liveTime">--:--:--</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- SECURITY -->
+<section class="section section-security">
+    <div class="container">
+        <div class="security-grid">
+            <div class="security-content">
+                <span class="section-tag">Bezpecnost</span>
+                <h2>Jak chranime <span class="text-gradient">vasi investici</span></h2>
+                <div class="security-item">
+                    <div class="security-number">01</div>
+                    <div>
+                        <h4>Zajisteni realnym majetkem</h4>
+                        <p>Kazda investice je zajistena zastavnim pravem k nemovitosti s LTV max. 65 %. Oceneni provadi nezavisly znalec.</p>
+                    </div>
+                </div>
+                <div class="security-item">
+                    <div class="security-number">02</div>
+                    <div>
+                        <h4>Diverzifikace portfolia</h4>
+                        <p>Prostredky jsou rozlozeny do desitky projektu napric sektory. Zadny projekt nepresahuje 15 % portfolia.</p>
+                    </div>
+                </div>
+                <div class="security-item">
+                    <div class="security-number">03</div>
+                    <div>
+                        <h4>Risk management</h4>
+                        <p>Dedikovany analyticky tym prubezne monitoruje vsechny investice. Pravidelne stress-testy a scenarove analyzy.</p>
+                    </div>
+                </div>
+                <div class="security-item">
+                    <div class="security-number">04</div>
+                    <div>
+                        <h4>Pravidelny reporting</h4>
+                        <p>Mesicni report o stavu portfolia, ctvrletni detailni analyza a rocni auditovana ucetni zaverka.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="security-visual">
+                <div class="shield-graphic">
+                    <div class="shield-ring shield-ring-1"></div>
+                    <div class="shield-ring shield-ring-2"></div>
+                    <div class="shield-ring shield-ring-3"></div>
+                    <div class="shield-center">
+                        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- TEAM -->
+<section class="section section-team" id="tym">
+    <div class="container">
+        <div class="section-header">
+            <span class="section-tag">Nas tym</span>
+            <h2>Vedeni <span class="text-gradient">spolecnosti</span></h2>
+            <p class="section-desc">Za kazdym rozhodnutim stoji tym zkusenych profesionalu s desitkami let praxe v oblastech financi, realit a technologii.</p>
+        </div>
+        <div class="team-grid">
+            <div class="team-card">
+                <div class="team-avatar">
+                    <div class="avatar-placeholder">MN</div>
+                </div>
+                <h4>Ing. Martin Novak, MBA</h4>
+                <span class="team-role">CEO & zakladatel</span>
+                <p>15 let v investicnim bankovnictvi. Driv portfolio manazer ve spolecnostech CSOB Asset Management a J&T Banka.</p>
+            </div>
+            <div class="team-card">
+                <div class="team-avatar">
+                    <div class="avatar-placeholder">PK</div>
+                </div>
+                <h4>Ing. Petra Kralova, Ph.D.</h4>
+                <span class="team-role">Hlavni analytik</span>
+                <p>12 let v oblasti risk managementu. Doktorat z financni matematiky na UK. Specializace na kvantitativni analyzu.</p>
+            </div>
+            <div class="team-card">
+                <div class="team-avatar">
+                    <div class="avatar-placeholder">JD</div>
+                </div>
+                <h4>JUDr. Jan Dvorak</h4>
+                <span class="team-role">Pravni reditel</span>
+                <p>20 let praxe v oblasti korporatniho a investicniho prava. Driv partner v mezinarodni advokacni kancelari.</p>
+            </div>
+            <div class="team-card">
+                <div class="team-avatar">
+                    <div class="avatar-placeholder">LS</div>
+                </div>
+                <h4>Ing. Lukas Svoboda</h4>
+                <span class="team-role">Realitni reditel</span>
+                <p>10 let v developerskem sektoru. Rizeni akvizic v hodnote presahujici 2 mld. CZK. Certifikace RICS.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- PROCESS -->
+<section class="section section-process">
+    <div class="container">
+        <div class="section-header">
+            <span class="section-tag">Proces</span>
+            <h2>Jak to <span class="text-gradient">funguje</span></h2>
+        </div>
+        <div class="process-grid">
+            <div class="process-step">
+                <div class="process-number">1</div>
+                <h4>Uvodni konzultace</h4>
+                <p>Bezplatna schuzka, na ktere probereme vase cile, horizont a rizikovy profil.</p>
+            </div>
+            <div class="process-connector"></div>
+            <div class="process-step">
+                <div class="process-number">2</div>
+                <h4>Investicni navrh</h4>
+                <p>Pripravime individualni strategii a poskytneme kompletni dokumentaci vcetne statutu.</p>
+            </div>
+            <div class="process-connector"></div>
+            <div class="process-step">
+                <div class="process-number">3</div>
+                <h4>Podpis a vklad</h4>
+                <p>Po schvaleni podminek podpisete smlouvu a provedete vklad na segregovany ucet.</p>
+            </div>
+            <div class="process-connector"></div>
+            <div class="process-step">
+                <div class="process-number">4</div>
+                <h4>Sprava a reporting</h4>
+                <p>Vas kapital pracuje. Dostavate pravidelne reporty a mate pristup k online portalu.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CTA -->
+<section class="section section-cta">
+    <div class="container">
+        <div class="cta-box">
+            <h2>Pripraveni investovat <span class="text-gradient">s perspektivou?</span></h2>
+            <p>Domluvte si nezavaznou konzultaci s nasim investicnim tymem. Probereme vase moznosti a pripravime navrh na miru.</p>
+            <a href="#kontakt" class="btn btn-primary btn-lg">Domluvit schuzku</a>
+        </div>
+    </div>
+</section>
+
+<!-- KONTAKT -->
+<section class="section section-contact" id="kontakt">
+    <div class="container">
+        <div class="section-header">
+            <span class="section-tag">Kontakt</span>
+            <h2>Spojte se <span class="text-gradient">s nami</span></h2>
+        </div>
+        <div class="contact-grid">
+            <div class="contact-info">
+                <div class="contact-item">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                    <div>
+                        <h4>Adresa</h4>
+                        <p>Vodickova 710/31<br>110 00 Praha 1</p>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                    <div>
+                        <h4>Telefon</h4>
+                        <p>+420 800 123 456</p>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                    <div>
+                        <h4>E-mail</h4>
+                        <p>info@vertexcapital.cz</p>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                    <div>
+                        <h4>Uredni hodiny</h4>
+                        <p>Po - Pt: 9:00 - 17:00</p>
+                    </div>
+                </div>
+            </div>
+            <form class="contact-form" id="contactForm">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="name">Jmeno a prijmeni</label>
+                        <input type="text" id="name" name="name" required placeholder="Jan Novak">
+                    </div>
+                    <div class="form-group">
+                        <label for="email">E-mail</label>
+                        <input type="email" id="email" name="email" required placeholder="jan@email.cz">
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="phone">Telefon</label>
+                        <input type="tel" id="phone" name="phone" placeholder="+420 xxx xxx xxx">
+                    </div>
+                    <div class="form-group">
+                        <label for="amount">Planovana investice</label>
+                        <select id="amount" name="amount">
+                            <option value="">Vyberte rozsah</option>
+                            <option value="1-3m">1 - 3 mil. CZK</option>
+                            <option value="3-5m">3 - 5 mil. CZK</option>
+                            <option value="5-10m">5 - 10 mil. CZK</option>
+                            <option value="10m+">10+ mil. CZK</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="message">Zprava</label>
+                    <textarea id="message" name="message" rows="4" placeholder="Jak vam muzeme pomoci?"></textarea>
+                </div>
+                <div class="form-group form-checkbox">
+                    <input type="checkbox" id="consent" required>
+                    <label for="consent">Souhlasim se zpracovanim osobnich udaju za ucelem kontaktovani. Vice informaci v nasich zasadach ochrany osobnich udaju.</label>
+                </div>
+                <button type="submit" class="btn btn-primary btn-lg btn-full">Odeslat poptavku</button>
+            </form>
+        </div>
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+    <div class="container">
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <a href="#" class="logo">
+                    <div class="logo-icon">V</div>
+                    <span>Vertex <strong>Capital</strong></span>
+                </a>
+                <p>Vertex Capital s.r.o. je registrovana u Ceske narodni banky jako osoba podle par. 15 zakona c. 240/2013 Sb. Registrace u CNB neznamena dohled ze strany CNB.</p>
+            </div>
+            <div class="footer-links">
+                <h4>Navigace</h4>
+                <a href="#o-nas">O spolecnosti</a>
+                <a href="#fond">Fond</a>
+                <a href="#vykonnost">Vykonnost</a>
+                <a href="#tym">Tym</a>
+                <a href="#kontakt">Kontakt</a>
+            </div>
+            <div class="footer-links">
+                <h4>Dokumenty</h4>
+                <a href="#">Statut fondu</a>
+                <a href="#">Sdeleni klicovych informaci</a>
+                <a href="#">Zasady ochrany udaju</a>
+                <a href="#">Obchodni podminky</a>
+                <a href="#">Reklamacni rad</a>
+            </div>
+            <div class="footer-links">
+                <h4>Pravni informace</h4>
+                <a href="#">ICO: 12345678</a>
+                <a href="#">Registrace CNB</a>
+                <a href="#">GDPR</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Vertex Capital s.r.o. Vsechna prava vyhrazena.</p>
+            <p class="footer-disclaimer">Investice je urcena pouze pro kvalifikovane investory ve smyslu zakona c. 240/2013 Sb. Hodnota investice muze klesat i rust. Minule vynosy nejsou zarukou budoucich vysledku.</p>
+        </div>
+    </div>
+</footer>
+
+<!-- COOKIE CONSENT -->
+<div class="cookie-banner" id="cookieBanner">
+    <div class="cookie-content">
+        <div class="cookie-text">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            <p>Tento web pouziva cookies pro zlepseni funkcnosti a analyzu navstevnosti. Pokracovanim v prohlizeni souhlasitee s jejich pouzitim.</p>
+        </div>
+        <div class="cookie-actions">
+            <button class="btn btn-primary" id="cookieAcceptAll">Prijmout vse</button>
+            <button class="btn btn-cookie-secondary" id="cookieNecessary">Jen nezbytne</button>
+            <button class="btn btn-cookie-link" id="cookieSettings">Nastaveni</button>
+        </div>
+    </div>
+</div>
+
+<!-- SCRIPTS -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+<script src="script.js"></script>
+
+</body>
+</html>
