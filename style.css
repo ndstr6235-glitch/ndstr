@@ -1638,6 +1638,8 @@ img, canvas, video, svg {
     border: 1px solid var(--border);
     border-radius: var(--radius);
     padding: 28px;
+    overflow: hidden;
+    min-width: 0;
 }
 
 .analytics-card h3 {
@@ -1654,11 +1656,14 @@ img, canvas, video, svg {
 .chart-wrap {
     height: 280px;
     position: relative;
+    max-width: 100%;
+    overflow: hidden;
 }
 
 .chart-wrap canvas {
     width: 100% !important;
     height: 100% !important;
+    max-width: 100%;
 }
 
 /* Heatmap */
@@ -1941,6 +1946,8 @@ img, canvas, video, svg {
     .contact-form { padding: 24px; }
     .cta-box { padding: 48px 24px; }
     .analytics-grid { grid-template-columns: 1fr; }
+    .analytics-card { padding: 20px; }
+    .chart-wrap { height: 260px; }
     .analytics-live { flex-direction: column; gap: 12px; padding: 16px 20px; }
     .cookie-content { flex-direction: column; text-align: center; }
     .cookie-actions { justify-content: center; flex-wrap: wrap; }
