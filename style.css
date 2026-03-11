@@ -46,8 +46,7 @@ body {
 }
 
 #page-wrapper {
-    overflow-x: clip;
-    overflow-y: visible;
+    overflow-x: hidden;
     width: 100%;
     position: relative;
 }
@@ -263,7 +262,8 @@ img, canvas, video, svg {
 .hero-content {
     position: relative;
     z-index: 2;
-    padding: 120px 0 80px;
+    padding-top: 120px;
+    padding-bottom: 80px;
 }
 
 .hero-badge {
@@ -1952,7 +1952,7 @@ img, canvas, video, svg {
 
 @media (max-width: 480px) {
     .container { padding: 0 16px; }
-    .hero-content { padding: 100px 0 60px; }
+    .hero-content { padding-top: 100px; padding-bottom: 60px; }
     .hero h1 { font-size: 28px; }
     .hero-subtitle { font-size: 16px; }
     .section-header h2 { font-size: 24px; }
