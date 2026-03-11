@@ -611,6 +611,41 @@ document.addEventListener('DOMContentLoaded', () => {
         } catch(e) { console.warn('BTC fetch failed:', e); }
     }
 
+    // ── Gold & Silver fetcher (Swissquote) ──
+    async function fetchGoldSilver() {
+        // Gold (Zlato)
+        const cfgGold = marketConfig['Zlato'] || {};
+        if (cfgGold.mode !== 'manual') {
+            try {
+                const res = await fetch('https://forex-data-feed.swissquote.com/public-quotes/bboquotes/instrument/XAU/USD');
+                const data = await res.json();
+                if (data && data[0] && data[0].spreadProfilePrices && data[0].spreadProfilePrices[0]) {
+                    const bid = data[0].spreadProfilePrices[0].bid;
+                    const oldPrice = marketData['Zlato'].price;
+                    marketData['Zlato'].price = bid;
+                    marketData['Zlato'].change = oldPrice ? ((bid - oldPrice) / oldPrice) * 100 : 0;
+                    marketData['Zlato'].source = 'api';
+                }
+            } catch(e) { console.warn('Gold (XAU/USD) fetch failed:', e); }
+        }
+
+        // Silver (Stribro)
+        const cfgSilver = marketConfig['Stribro'] || {};
+        if (cfgSilver.mode !== 'manual') {
+            try {
+                const res = await fetch('https://forex-data-feed.swissquote.com/public-quotes/bboquotes/instrument/XAG/USD');
+                const data = await res.json();
+                if (data && data[0] && data[0].spreadProfilePrices && data[0].spreadProfilePrices[0]) {
+                    const bid = data[0].spreadProfilePrices[0].bid;
+                    const oldPrice = marketData['Stribro'].price;
+                    marketData['Stribro'].price = bid;
+                    marketData['Stribro'].change = oldPrice ? ((bid - oldPrice) / oldPrice) * 100 : 0;
+                    marketData['Stribro'].source = 'api';
+                }
+            } catch(e) { console.warn('Silver (XAG/USD) fetch failed:', e); }
+        }
+    }
+
     // ── Add small random fluctuations to manual items for realism ──
     function tickManualItems() {
         Object.keys(marketData).forEach(key => {
@@ -668,6 +703,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // ── Initialize ──
     fetchEurCzk();
     fetchBtc();
+    fetchGoldSilver();
     updateLiveDisplay();
     buildTicker();
 
@@ -675,6 +711,7 @@ document.addEventListener('DOMContentLoaded', () => {
     setInterval(tickNav, 3000);
     setInterval(fetchEurCzk, refreshInterval * 1000);
     setInterval(fetchBtc, refreshInterval * 1000);
+    setInterval(fetchGoldSilver, refreshInterval * 1000);
     setInterval(tickManualItems, 5000);
     setInterval(() => {
         const timeEl = document.getElementById('liveTime');

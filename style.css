@@ -35,6 +35,7 @@
 html {
     scroll-behavior: smooth;
     scroll-padding-top: 80px;
+    overflow-x: hidden;
 }
 
 body {
@@ -43,12 +44,18 @@ body {
     background: var(--bg);
     line-height: 1.6;
     -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+}
+
+img, canvas, video, svg {
+    max-width: 100%;
 }
 
 .container {
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 24px;
+    width: 100%;
 }
 
 .text-gradient {
@@ -85,6 +92,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    max-width: 100%;
 }
 
 .logo {
@@ -288,6 +296,7 @@ body {
     display: flex;
     gap: 16px;
     margin-bottom: 64px;
+    flex-wrap: wrap;
 }
 
 .btn {
@@ -353,6 +362,7 @@ body {
 .hero-stats {
     display: flex;
     gap: 48px;
+    flex-wrap: wrap;
 }
 
 .stat {
@@ -428,6 +438,7 @@ body {
     display: flex;
     justify-content: space-between;
     gap: 24px;
+    flex-wrap: wrap;
 }
 
 .trust-item {
@@ -865,8 +876,10 @@ body {
 
 .performance-table-wrap {
     overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
     border-radius: var(--radius-sm);
     border: 1px solid var(--border);
+    max-width: 100%;
 }
 
 .performance-table {
@@ -1142,6 +1155,8 @@ body {
     display: flex;
     align-items: flex-start;
     gap: 0;
+    flex-wrap: wrap;
+    justify-content: center;
 }
 
 .process-step {
@@ -1448,6 +1463,8 @@ body {
     box-shadow: 0 25px 80px rgba(0,0,0,0.3);
     transform: translateY(0) scale(1);
     transition: transform 0.4s ease;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
 }
 
 .investor-modal-overlay.hidden .investor-modal {
@@ -1530,6 +1547,7 @@ body {
     align-items: center;
     justify-content: space-between;
     gap: 24px;
+    width: 100%;
 }
 
 .cookie-text {
@@ -1557,6 +1575,7 @@ body {
     align-items: center;
     gap: 10px;
     flex-shrink: 0;
+    flex-wrap: wrap;
 }
 
 .btn-cookie-secondary {
@@ -1637,6 +1656,7 @@ body {
 
 .heatmap-table {
     width: 100%;
+    min-width: 600px;
     border-collapse: collapse;
     font-size: 13px;
     text-align: center;
@@ -1685,6 +1705,9 @@ body {
     border-radius: var(--radius);
     padding: 20px 32px;
     gap: 24px;
+    flex-wrap: wrap;
+    max-width: 100%;
+    overflow: hidden;
 }
 
 .live-stat {
@@ -1755,6 +1778,7 @@ body {
     margin-bottom: 16px;
     overflow: hidden;
     position: relative;
+    max-width: 100%;
 }
 
 .market-ticker::before,
@@ -1905,8 +1929,27 @@ body {
     .contact-form { padding: 24px; }
     .cta-box { padding: 48px 24px; }
     .analytics-grid { grid-template-columns: 1fr; }
-    .analytics-live { flex-direction: column; gap: 12px; }
+    .analytics-live { flex-direction: column; gap: 12px; padding: 16px 20px; }
     .cookie-content { flex-direction: column; text-align: center; }
     .cookie-actions { justify-content: center; flex-wrap: wrap; }
+    .cookie-text { flex-direction: column; align-items: center; }
     .investor-modal { padding: 32px 24px; }
+    .heatmap-container { -webkit-overflow-scrolling: touch; }
+    .performance-table { min-width: 500px; }
+}
+
+@media (max-width: 480px) {
+    .container { padding: 0 16px; }
+    .hero-content { padding: 100px 0 60px; }
+    .hero h1 { font-size: 28px; }
+    .hero-subtitle { font-size: 16px; }
+    .section-header h2 { font-size: 24px; }
+    .investor-modal { padding: 24px 16px; margin: 0 8px; }
+    .investor-modal h2 { font-size: 22px; }
+    .cta-box { padding: 36px 16px; }
+    .cta-box h2 { font-size: 24px; }
+    .tier-card { padding: 28px 20px; }
+    .tier-amount { font-size: 22px; }
+    .btn-lg { padding: 14px 24px; font-size: 14px; }
+    .stat-number, .stat-suffix { font-size: 28px; }
 }

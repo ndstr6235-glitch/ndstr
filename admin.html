@@ -38,7 +38,7 @@
             margin: 0; padding: 0; box-sizing: border-box;
         }
 
-        html { scroll-behavior: smooth; }
+        html { scroll-behavior: smooth; overflow-x: hidden; }
 
         body {
             font-family: 'Inter', -apple-system, sans-serif;
@@ -46,6 +46,7 @@
             background: var(--bg);
             line-height: 1.6;
             -webkit-font-smoothing: antialiased;
+            overflow-x: hidden;
         }
 
         /* ── Login Screen ── */
@@ -165,6 +166,8 @@
         .main-content {
             margin-left: var(--sidebar-width); flex: 1;
             padding: 32px 40px; min-height: 100vh;
+            max-width: 100%;
+            overflow-x: hidden;
         }
 
         .content-header {
@@ -460,16 +463,34 @@
         .refresh-row input:focus { border-color: var(--accent); }
         .refresh-row span { font-size: 13px; color: var(--text-muted); }
 
+        /* ── Table scroll wrappers ── */
+        .table-scroll-wrap {
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+            max-width: 100%;
+        }
+
+        img, canvas, video, svg { max-width: 100%; }
+
         /* ── Responsive ── */
         @media (max-width: 1024px) {
             .stats-grid { grid-template-columns: repeat(2, 1fr); }
             .form-grid, .team-edit-grid, .tier-edit-grid { grid-template-columns: 1fr; }
         }
         @media (max-width: 768px) {
+            .admin-layout { flex-direction: column; }
             .sidebar { width: 100%; height: auto; position: relative; }
             .main-content { margin-left: 0; padding: 24px 16px; }
             .stats-grid { grid-template-columns: 1fr; }
             .form-grid-3 { grid-template-columns: 1fr; }
+            .card { padding: 20px 16px; overflow-x: auto; }
+            .market-table { min-width: 500px; }
+            .perf-edit-table { min-width: 500px; }
+            .btn-group { flex-wrap: wrap; }
+            .refresh-row { flex-wrap: wrap; }
+            .login-box { padding: 32px 24px; margin: 0 16px; }
+            .toast { left: 16px; right: 16px; bottom: 16px; }
+            .content-header h1 { font-size: 20px; }
         }
     </style>
 </head>
@@ -1119,8 +1140,8 @@
             refresh_interval: 60,
             items: [
                 { id: 'eurczk', name: 'EUR/CZK', mode: 'auto', price: '25.15', change: '+0.02', api_url: 'https://api.frankfurter.dev/v1/latest?base=EUR&symbols=CZK', api_note: 'Frankfurter API' },
-                { id: 'gold', name: 'Zlato (XAU/USD)', mode: 'manual', price: '2935', change: '+0.35', api_url: '', api_note: 'CoinGecko free API nepodporuje primo zlato - pouzijte manualni zadani' },
-                { id: 'silver', name: 'Stribro (XAG/USD)', mode: 'manual', price: '32.50', change: '+0.18', api_url: '', api_note: '' },
+                { id: 'gold', name: 'Zlato (XAU/USD)', mode: 'auto', price: '2935', change: '+0.35', api_url: 'https://forex-data-feed.swissquote.com/public-quotes/bboquotes/instrument/XAU/USD', api_note: 'Swissquote API' },
+                { id: 'silver', name: 'Stribro (XAG/USD)', mode: 'auto', price: '32.50', change: '+0.18', api_url: 'https://forex-data-feed.swissquote.com/public-quotes/bboquotes/instrument/XAG/USD', api_note: 'Swissquote API' },
                 { id: 'btcusd', name: 'BTC/USD', mode: 'auto', price: '87200', change: '+1.25', api_url: 'https://api.coingecko.com/api/v3/simple/price?ids=bitcoin&vs_currencies=usd&include_24hr_change=true', api_note: 'CoinGecko API' },
                 { id: 'sp500', name: 'S&P 500', mode: 'manual', price: '5842', change: '+0.32', api_url: '', api_note: '' },
                 { id: 'dax', name: 'DAX', mode: 'manual', price: '19245', change: '+0.45', api_url: '', api_note: '' },
