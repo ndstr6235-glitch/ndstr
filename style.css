@@ -35,7 +35,6 @@
 html {
     scroll-behavior: smooth;
     scroll-padding-top: 80px;
-    overflow-x: hidden;
 }
 
 body {
@@ -44,7 +43,13 @@ body {
     background: var(--bg);
     line-height: 1.6;
     -webkit-font-smoothing: antialiased;
-    overflow-x: hidden;
+}
+
+#page-wrapper {
+    overflow-x: clip;
+    overflow-y: visible;
+    width: 100%;
+    position: relative;
 }
 
 img, canvas, video, svg {
@@ -229,7 +234,7 @@ img, canvas, video, svg {
     min-height: 100vh;
     display: flex;
     align-items: center;
-    overflow-x: hidden;
+    overflow: hidden;
 }
 
 .hero-bg {
@@ -460,6 +465,7 @@ img, canvas, video, svg {
    ============================================================ */
 .section {
     padding: 100px 0;
+    overflow: hidden;
 }
 
 .section-header {
@@ -954,6 +960,7 @@ img, canvas, video, svg {
    ============================================================ */
 .section-security {
     background: var(--bg-alt);
+    overflow: hidden;
 }
 
 .security-grid {
@@ -1205,6 +1212,7 @@ img, canvas, video, svg {
 .section-cta {
     background: var(--bg-alt);
     padding: 80px 0;
+    overflow: hidden;
 }
 
 .cta-box {
@@ -1214,17 +1222,19 @@ img, canvas, video, svg {
     padding: 80px 60px;
     position: relative;
     overflow: hidden;
+    max-width: 100%;
 }
 
 .cta-box::before {
     content: '';
     position: absolute;
     top: -50%;
-    right: -20%;
-    width: 400px;
-    height: 400px;
+    right: -10%;
+    width: 300px;
+    height: 300px;
     background: radial-gradient(circle, rgba(201,168,76,0.1), transparent 70%);
     border-radius: 50%;
+    pointer-events: none;
 }
 
 .cta-box h2 {
@@ -1371,6 +1381,7 @@ img, canvas, video, svg {
     background: var(--bg-dark);
     color: rgba(255,255,255,0.5);
     padding: 60px 0 30px;
+    overflow: hidden;
 }
 
 .footer-grid {
@@ -1612,6 +1623,7 @@ img, canvas, video, svg {
    ============================================================ */
 .section-analytics {
     background: var(--bg-alt);
+    overflow: hidden;
 }
 
 .analytics-grid {
