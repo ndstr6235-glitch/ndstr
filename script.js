@@ -4,6 +4,42 @@
 
 document.addEventListener('DOMContentLoaded', () => {
 
+    // ── Load admin config from localStorage ──
+    let adminConfig = {};
+    try {
+        const raw = localStorage.getItem('vc_admin_config');
+        if (raw) adminConfig = JSON.parse(raw);
+    } catch(e) {}
+
+    // Helper to get config value with fallback
+    const cfg = (path, fallback) => {
+        const keys = path.split('.');
+        let val = adminConfig;
+        for (const k of keys) {
+            if (val && typeof val === 'object' && k in val) val = val[k];
+            else return fallback;
+        }
+        return val;
+    };
+
+    // ── Apply text content from admin config ──
+    function applyContentConfig() {
+        const heroTitle = document.querySelector('.hero h1');
+        const heroSub = document.querySelector('.hero-subtitle');
+        const heroBadge = document.querySelector('.hero-badge');
+
+        if (heroTitle && cfg('content.heroTitle', null)) {
+            heroTitle.innerHTML = cfg('content.heroTitle', '');
+        }
+        if (heroSub && cfg('content.heroSubtitle', null)) {
+            heroSub.textContent = cfg('content.heroSubtitle', '');
+        }
+        if (heroBadge && cfg('content.heroBadge', null)) {
+            heroBadge.textContent = cfg('content.heroBadge', '');
+        }
+    }
+    applyContentConfig();
+
     // ── Navbar scroll effect ──
     const navbar = document.getElementById('navbar');
     const handleScroll = () => {
@@ -464,23 +500,46 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // ══════════════════════════════════════════════════════════════
-    //  LIVE DATA ENGINE
+    //  LIVE DATA ENGINE (with admin config + real APIs)
     // ══════════════════════════════════════════════════════════════
 
-    // ── State ──
+    const marketConfig = cfg('market', {});
+
+    // ── Market data store ──
+    const marketData = {
+        'EUR/CZK': { price: 25.15, change: 0, source: 'init' },
+        'BTC/USD': { price: 87200, change: 0, source: 'init' },
+        'Zlato': { price: 2935, change: 0, source: 'init' },
+        'Stribro': { price: 33.5, change: 0, source: 'init' },
+        'S&P 500': { price: 5842, change: 0, source: 'init' },
+        'DAX': { price: 19245, change: 0, source: 'init' },
+        'PX Index': { price: 1587, change: 0, source: 'init' },
+        'Ropa Brent': { price: 72.4, change: 0, source: 'init' },
+    };
+
+    // Load manual overrides from config
+    Object.keys(marketData).forEach(key => {
+        const cfgKey = key.replace(/[^a-zA-Z]/g, '');
+        const itemCfg = marketConfig[cfgKey] || {};
+        if (itemCfg.mode === 'manual' && itemCfg.price) {
+            marketData[key].price = parseFloat(itemCfg.price) || marketData[key].price;
+            marketData[key].change = parseFloat(itemCfg.change) || 0;
+            marketData[key].source = 'manual';
+        }
+    });
+
+    // ── NAV State ──
     const liveState = {
-        nav: 1.1847,
-        navBase: 1.1847,
+        nav: cfg('fund.nav', 1.1847),
+        navBase: cfg('fund.nav', 1.1847),
         dayChange: 0.03,
-        ytd: 6.9,
-        eurCzk: null,
-        eurCzkBase: null,
+        ytd: cfg('fund.ytd', 6.9),
     };
 
     // ── Flash animation helper ──
     function flashValue(el, direction) {
         el.classList.remove('flash-up', 'flash-down');
-        void el.offsetWidth; // reflow
+        void el.offsetWidth;
         el.classList.add(direction === 'up' ? 'flash-up' : 'flash-down');
     }
 
@@ -492,9 +551,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const eurEl = document.getElementById('liveEurCzk');
         const timeEl = document.getElementById('liveTime');
 
-        if (navEl) {
-            navEl.textContent = liveState.nav.toFixed(4) + ' CZK';
-        }
+        if (navEl) navEl.textContent = liveState.nav.toFixed(4) + ' CZK';
         if (dayEl) {
             const sign = liveState.dayChange >= 0 ? '+' : '';
             dayEl.textContent = sign + liveState.dayChange.toFixed(2) + ' %';
@@ -504,9 +561,7 @@ document.addEventListener('DOMContentLoaded', () => {
             ytdEl.textContent = '+' + liveState.ytd.toFixed(1) + ' %';
             ytdEl.className = 'live-value positive';
         }
-        if (eurEl && liveState.eurCzk !== null) {
-            eurEl.textContent = liveState.eurCzk.toFixed(3);
-        }
+        if (eurEl) eurEl.textContent = marketData['EUR/CZK'].price.toFixed(3);
         if (timeEl) {
             const now = new Date();
             const pad = n => String(n).padStart(2, '0');
@@ -514,42 +569,58 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    // ── Simulate micro NAV movements ──
+    // ── NAV micro-ticks ──
     function tickNav() {
-        const change = (Math.random() - 0.48) * 0.0003; // slight upward bias
+        const change = (Math.random() - 0.48) * 0.0003;
         const oldNav = liveState.nav;
         liveState.nav = Math.max(liveState.nav + change, 0.9);
         liveState.dayChange = ((liveState.nav - liveState.navBase) / liveState.navBase) * 100;
-
         const navEl = document.getElementById('liveNav');
         if (navEl) flashValue(navEl, liveState.nav >= oldNav ? 'up' : 'down');
-
         updateLiveDisplay();
     }
 
-    // ── Fetch real EUR/CZK rate ──
+    // ── API Fetchers ──
     async function fetchEurCzk() {
+        const cfgItem = marketConfig['EURCZK'] || {};
+        if (cfgItem.mode === 'manual') return;
         try {
             const res = await fetch('https://api.frankfurter.dev/v1/latest?base=EUR&symbols=CZK');
             const data = await res.json();
-            if (data && data.rates && data.rates.CZK) {
-                const oldRate = liveState.eurCzk;
-                liveState.eurCzk = data.rates.CZK;
-                if (!liveState.eurCzkBase) liveState.eurCzkBase = data.rates.CZK;
+            if (data?.rates?.CZK) {
+                const oldPrice = marketData['EUR/CZK'].price;
+                marketData['EUR/CZK'].price = data.rates.CZK;
+                marketData['EUR/CZK'].source = 'api';
                 const eurEl = document.getElementById('liveEurCzk');
-                if (eurEl && oldRate !== null) {
-                    flashValue(eurEl, liveState.eurCzk >= oldRate ? 'up' : 'down');
-                }
-                updateLiveDisplay();
+                if (eurEl) flashValue(eurEl, data.rates.CZK >= oldPrice ? 'up' : 'down');
             }
-        } catch (e) {
-            // Fallback - simulate a rate
-            if (!liveState.eurCzk) {
-                liveState.eurCzk = 25.15 + (Math.random() - 0.5) * 0.2;
-                liveState.eurCzkBase = liveState.eurCzk;
-                updateLiveDisplay();
+        } catch(e) { console.warn('EUR/CZK fetch failed:', e); }
+    }
+
+    async function fetchBtc() {
+        const cfgItem = marketConfig['BTCUSD'] || {};
+        if (cfgItem.mode === 'manual') return;
+        try {
+            const res = await fetch('https://api.coingecko.com/api/v3/simple/price?ids=bitcoin&vs_currencies=usd&include_24hr_change=true');
+            const data = await res.json();
+            if (data?.bitcoin) {
+                marketData['BTC/USD'].price = data.bitcoin.usd;
+                marketData['BTC/USD'].change = data.bitcoin.usd_24h_change || 0;
+                marketData['BTC/USD'].source = 'api';
             }
-        }
+        } catch(e) { console.warn('BTC fetch failed:', e); }
+    }
+
+    // ── Add small random fluctuations to manual items for realism ──
+    function tickManualItems() {
+        Object.keys(marketData).forEach(key => {
+            if (marketData[key].source === 'manual' || marketData[key].source === 'init') {
+                const base = marketData[key].price;
+                const noise = (Math.random() - 0.5) * base * 0.001;
+                marketData[key].price = base + noise;
+                marketData[key].change = (Math.random() - 0.45) * 1.5;
+            }
+        });
     }
 
     // ── Market Ticker ──
@@ -557,56 +628,54 @@ document.addEventListener('DOMContentLoaded', () => {
         const tickerTrack = document.getElementById('tickerTrack');
         if (!tickerTrack) return;
 
-        // Market data with simulated prices
-        const markets = [
-            { symbol: 'EUR/CZK', price: () => liveState.eurCzk || 25.15, change: () => ((liveState.eurCzk || 25.15) - (liveState.eurCzkBase || 25.15)) / (liveState.eurCzkBase || 25.15) * 100 },
-            { symbol: 'PX Index', price: () => 1587 + Math.random() * 12 - 6, change: () => (Math.random() - 0.4) * 1.2 },
-            { symbol: 'S&P 500', price: () => 5842 + Math.random() * 30 - 15, change: () => (Math.random() - 0.45) * 0.8 },
-            { symbol: 'DAX', price: () => 19245 + Math.random() * 80 - 40, change: () => (Math.random() - 0.4) * 1.0 },
-            { symbol: 'EUR/USD', price: () => 1.0845 + (Math.random() - 0.5) * 0.003, change: () => (Math.random() - 0.5) * 0.3 },
-            { symbol: 'Zlato', price: () => 2935 + Math.random() * 15 - 7, change: () => (Math.random() - 0.35) * 0.6 },
-            { symbol: 'Ropa Brent', price: () => 72.4 + Math.random() * 2 - 1, change: () => (Math.random() - 0.5) * 1.5 },
-            { symbol: 'BTC/USD', price: () => 87200 + Math.random() * 800 - 400, change: () => (Math.random() - 0.45) * 3 },
-            { symbol: 'VX Fund NAV', price: () => liveState.nav, change: () => liveState.dayChange },
+        const tickerItems = [
+            'EUR/CZK', 'PX Index', 'S&P 500', 'DAX',
+            'Zlato', 'Stribro', 'Ropa Brent', 'BTC/USD'
         ];
 
         function renderTicker() {
             let html = '';
-            // Duplicate for infinite scroll
             for (let rep = 0; rep < 2; rep++) {
-                markets.forEach(m => {
-                    const price = m.price();
-                    const change = m.change();
-                    const isUp = change >= 0;
-                    const priceStr = price >= 1000 ? price.toFixed(0) : price >= 10 ? price.toFixed(2) : price.toFixed(4);
-                    const changeStr = (isUp ? '+' : '') + change.toFixed(2) + '%';
+                tickerItems.forEach(key => {
+                    const m = marketData[key];
+                    if (!m) return;
+                    const isUp = m.change >= 0;
+                    const priceStr = m.price >= 10000 ? m.price.toFixed(0) :
+                                     m.price >= 100 ? m.price.toFixed(1) :
+                                     m.price >= 10 ? m.price.toFixed(2) : m.price.toFixed(3);
+                    const changeStr = (isUp ? '+' : '') + m.change.toFixed(2) + '%';
+                    const srcBadge = m.source === 'api' ? ' *' : '';
                     html += `<span class="ticker-item">
-                        <span class="ticker-symbol">${m.symbol}</span>
+                        <span class="ticker-symbol">${key}</span>
                         <span class="ticker-price">${priceStr}</span>
                         <span class="ticker-change ${isUp ? 'up' : 'down'}">${changeStr}</span>
                     </span>`;
                 });
+                // Add fund NAV to ticker
+                html += `<span class="ticker-item">
+                    <span class="ticker-symbol">VX Fund NAV</span>
+                    <span class="ticker-price">${liveState.nav.toFixed(4)}</span>
+                    <span class="ticker-change ${liveState.dayChange >= 0 ? 'up' : 'down'}">${liveState.dayChange >= 0 ? '+' : ''}${liveState.dayChange.toFixed(2)}%</span>
+                </span>`;
             }
             tickerTrack.innerHTML = html;
         }
 
         renderTicker();
-        // Update ticker values every 8 seconds
         setInterval(renderTicker, 8000);
     }
 
-    // ── Initialize live data ──
+    // ── Initialize ──
     fetchEurCzk();
+    fetchBtc();
     updateLiveDisplay();
     buildTicker();
 
-    // NAV ticks every 3 seconds
+    const refreshInterval = parseInt(cfg('market.refreshInterval', '60')) || 60;
     setInterval(tickNav, 3000);
-
-    // Refresh EUR/CZK every 60 seconds
-    setInterval(fetchEurCzk, 60000);
-
-    // Update clock every second
+    setInterval(fetchEurCzk, refreshInterval * 1000);
+    setInterval(fetchBtc, refreshInterval * 1000);
+    setInterval(tickManualItems, 5000);
     setInterval(() => {
         const timeEl = document.getElementById('liveTime');
         if (timeEl) {
