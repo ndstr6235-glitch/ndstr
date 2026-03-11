@@ -1090,11 +1090,24 @@ img, canvas, video, svg {
     background: var(--bg-card);
     overflow: hidden;
     transition: var(--transition);
+    text-decoration: none;
+    color: inherit;
+    display: block;
+    cursor: pointer;
 }
 
 .team-card-v2:hover {
     box-shadow: var(--shadow-lg);
     transform: translateY(-4px);
+    border-color: rgba(212,175,55,0.3);
+}
+
+.team-card-v2:hover .tc-link {
+    color: var(--accent);
+}
+
+.team-card-v2:hover .tc-photo-placeholder {
+    transform: scale(1.03);
 }
 
 .tc-photo {
@@ -1110,6 +1123,7 @@ img, canvas, video, svg {
     display: flex;
     align-items: center;
     justify-content: center;
+    transition: transform 0.4s ease;
 }
 
 .tc-photo-placeholder svg {
@@ -1165,65 +1179,26 @@ img, canvas, video, svg {
     margin-bottom: 16px;
 }
 
-.tc-details {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-    margin-bottom: 16px;
-    padding-top: 16px;
-    border-top: 1px solid var(--border);
-}
-
-.tc-detail-item {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    font-size: 13px;
-    color: var(--text-light);
-}
-
-.tc-detail-item svg {
-    color: var(--accent);
-    flex-shrink: 0;
-}
-
-.tc-actions {
-    display: flex;
-    gap: 8px;
-}
-
-.tc-btn {
+.tc-link {
     display: inline-flex;
     align-items: center;
-    gap: 6px;
-    padding: 8px 16px;
-    border-radius: var(--radius-sm);
-    font-size: 12px;
+    gap: 4px;
+    font-size: 13px;
     font-weight: 600;
-    text-decoration: none;
-    transition: var(--transition);
-    cursor: pointer;
-}
-
-.tc-btn-primary {
-    background: linear-gradient(135deg, var(--accent), var(--accent-dark));
-    color: var(--primary-dark);
-}
-
-.tc-btn-primary:hover {
-    box-shadow: 0 4px 12px rgba(201,168,76,0.3);
-    transform: translateY(-1px);
-}
-
-.tc-btn-outline {
-    background: transparent;
-    border: 1px solid var(--border);
     color: var(--text-light);
+    margin-top: 12px;
+    padding-top: 12px;
+    border-top: 1px solid var(--border);
+    transition: color 0.2s;
+    width: 100%;
 }
 
-.tc-btn-outline:hover {
-    border-color: var(--accent);
-    color: var(--accent);
+.tc-link svg {
+    transition: transform 0.2s;
+}
+
+.team-card-v2:hover .tc-link svg {
+    transform: translateX(3px);
 }
 
 /* ============================================================
