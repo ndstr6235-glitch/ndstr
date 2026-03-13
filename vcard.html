@@ -370,7 +370,7 @@
                     </div>
                     <div class="vcard-row-text">
                         <div class="vcard-row-label">Adresa</div>
-                        <div class="vcard-row-value">Na Prikope 15, 110 00 Praha 1</div>
+                        <div class="vcard-row-value">Vinohradska 2396/184, 130 00 Praha 3</div>
                     </div>
                 </div>
             </div>
@@ -490,7 +490,7 @@ document.getElementById('btnDownloadVcf').addEventListener('click', function() {
         'TEL;TYPE=WORK,VOICE:' + m.phone.replace(/\s/g, ''),
         'EMAIL;TYPE=WORK:' + m.email,
         'URL:https://invx10.vercel.app',
-        'ADR;TYPE=WORK:;;Na Prikope 15;Praha;;110 00;Czech Republic',
+        'ADR;TYPE=WORK:;;Vinohradska 2396/184;Praha;;130 00;Czech Republic',
         'END:VCARD'
     ].join('\r\n');
     const blob = new Blob([vcf], { type: 'text/vcard;charset=utf-8' });

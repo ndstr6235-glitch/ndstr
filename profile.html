@@ -888,7 +888,7 @@ sidebarEl.innerHTML = `
             </a>
             <div class="pf-contact-row">
                 <div class="pf-contact-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
-                <div><div class="pf-contact-label">Kancelar</div><div class="pf-contact-value">Na Prikope 15, Praha 1</div></div>
+                <div><div class="pf-contact-label">Kancelar</div><div class="pf-contact-value">Vinohradska 2396/184, Praha 3</div></div>
             </div>
         </div>
     </div>
@@ -959,7 +959,7 @@ document.getElementById('btnVcf').addEventListener('click', function() {
         'TEL;TYPE=WORK,VOICE:' + m.phone.replace(/\s/g, ''),
         'EMAIL;TYPE=WORK:' + m.email,
         'URL:https://invx10.vercel.app',
-        'ADR;TYPE=WORK:;;Na Prikope 15;Praha;;110 00;Czech Republic',
+        'ADR;TYPE=WORK:;;Vinohradska 2396/184;Praha;;130 00;Czech Republic',
         'END:VCARD'
     ].join('\r\n');
     const blob = new Blob([vcf], { type: 'text/vcard;charset=utf-8' });
