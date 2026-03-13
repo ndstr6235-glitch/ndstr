@@ -327,9 +327,9 @@ document.addEventListener('DOMContentLoaded', () => {
         new Chart(allocCanvas.getContext('2d'), {
             type: 'doughnut',
             data: {
-                labels: ['Nemovitosti', 'ESG projekty', 'Financni trhy', 'Hotovost'],
+                labels: ['Development & vystavba', 'Facility management', 'Pronajem & skladovani', 'Hotovost'],
                 datasets: [{
-                    data: [45, 35, 15, 5],
+                    data: [50, 30, 15, 5],
                     backgroundColor: [
                         '#2d5a8e',
                         '#059669',
@@ -390,22 +390,22 @@ document.addEventListener('DOMContentLoaded', () => {
                 labels: ['Q1', 'Q2', 'Q3'],
                 datasets: [
                     {
-                        label: 'Nemovitosti',
-                        data: [2.8, 3.1, 2.4],
+                        label: 'Development & vystavba',
+                        data: [3.2, 3.8, 2.9],
                         backgroundColor: barGradient1,
                         borderRadius: 6,
                         borderSkipped: false,
                     },
                     {
-                        label: 'ESG projekty',
-                        data: [3.5, 4.2, 3.1],
+                        label: 'Facility management',
+                        data: [2.1, 2.5, 2.2],
                         backgroundColor: barGradient2,
                         borderRadius: 6,
                         borderSkipped: false,
                     },
                     {
-                        label: 'Financni trhy',
-                        data: [1.2, 1.8, 0.9],
+                        label: 'Pronajem & skladovani',
+                        data: [1.5, 1.9, 1.3],
                         backgroundColor: barGradient3,
                         borderRadius: 6,
                         borderSkipped: false,
