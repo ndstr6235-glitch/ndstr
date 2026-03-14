@@ -6,6 +6,7 @@
     <title>BuildFund | Admin Panel</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/qrcode-generator@1.4.4/qrcode.min.js"></script>
     <style>
         /* ============================================================
            BUILDFUND - Admin Panel Styles
@@ -385,6 +386,13 @@
             flex-shrink: 0;
         }
         .team-edit-card .form-group { margin-bottom: 12px; }
+        .team-qr-section { margin-top: 16px; padding-top: 16px; border-top: 1px solid var(--border); }
+        .team-qr-row { display: flex; gap: 20px; }
+        .team-qr-item { flex: 1; text-align: center; }
+        .team-qr-item label { display: block; font-size: 12px; font-weight: 600; color: var(--text-light); margin-bottom: 8px; text-transform: uppercase; letter-spacing: 0.5px; }
+        .team-qr-box { width: 120px; height: 120px; margin: 0 auto 8px; background: #fff; border-radius: 8px; padding: 8px; border: 1px solid var(--border); }
+        .team-qr-link { display: inline-block; font-size: 12px; color: var(--accent); text-decoration: none; font-weight: 500; }
+        .team-qr-link:hover { text-decoration: underline; }
 
         /* ── Pillar Cards ── */
         .pillar-card {
@@ -1131,10 +1139,10 @@
             }
         },
         team: [
-            { initials: 'TB', name: 'Ing. Tomas Berger, MBA', role: 'CEO & zakladatel', bio: '18 let ve stavebnictvi a developmentu. Driv ridici pozice ve Skanska a Metrostav. Realizoval projekty v hodnote pres 3 mld. CZK.' },
-            { initials: 'KM', name: 'Ing. Katerina Machova', role: 'Provozni reditelka', bio: '14 let v oblasti facility managementu a outsourcingu. Driv na vedoucich pozicich ve spolecnostech ISS a Sodexo.' },
-            { initials: 'PV', name: 'JUDr. Pavel Vlcek', role: 'Pravni reditel', bio: '16 let praxe ve stavebnim a realitnim pravu. Driv partner v Havel & Partners. Specializace na developerske projekty.' },
-            { initials: 'DP', name: 'Ing. David Prochazka, MRICS', role: 'Reditel akvizic', bio: '12 let v akvizicich nemovitosti a asset managementu. Driv Penta Real Estate a CTP. Certifikace RICS.' }
+            { initials: 'TB', profileKey: 'berger', name: 'Ing. Tomas Berger, MBA', role: 'CEO & zakladatel', bio: '18 let ve stavebnictvi a developmentu. Driv ridici pozice ve Skanska a Metrostav. Realizoval projekty v hodnote pres 2 mld. CZK.' },
+            { initials: 'KM', profileKey: 'machova', name: 'Ing. Katerina Machova', role: 'Provozni reditelka', bio: '14 let v oblasti facility managementu a outsourcingu. Driv na vedoucich pozicich ve spolecnostech ISS a Sodexo.' },
+            { initials: 'PV', profileKey: 'vlcek', name: 'JUDr. Pavel Vlcek', role: 'Pravni reditel', bio: '16 let praxe ve stavebnim a realitnim pravu. Driv partner v Havel & Partners. Specializace na developerske projekty.' },
+            { initials: 'DP', profileKey: 'prochazka', name: 'Ing. David Prochazka, MRICS', role: 'Reditel akvizic', bio: '12 let v akvizicich nemovitosti a asset managementu. Driv Penta Real Estate a CTP. Certifikace RICS.' }
         ],
         market: {
             refresh_interval: 60,
@@ -1438,8 +1446,11 @@
     // ── Team Cards ──
     function buildTeamCards() {
         const grid = document.getElementById('teamGrid');
+        const baseUrl = window.location.origin + window.location.pathname.replace(/\/[^/]*$/, '/');
         let html = '';
         config.team.forEach((member, i) => {
+            const profileUrl = baseUrl + 'profile.html?m=' + (member.profileKey || '');
+            const vcardUrl = baseUrl + 'vcard.html?m=' + (member.profileKey || '');
             html += '<div class="team-edit-card">';
             html += '<div class="team-card-header">';
             html += '<div class="team-initials-preview" id="teamInitialsPreview_' + i + '">' + escHtml(member.initials) + '</div>';
@@ -1449,9 +1460,38 @@
             html += '<div class="form-group"><label>Jmeno</label><input type="text" id="team_' + i + '_name" value="' + escAttr(member.name) + '"></div>';
             html += '<div class="form-group"><label>Role</label><input type="text" id="team_' + i + '_role" value="' + escAttr(member.role) + '"></div>';
             html += '<div class="form-group"><label>Bio</label><textarea id="team_' + i + '_bio" rows="3">' + escHtml(member.bio) + '</textarea></div>';
+            html += '<div class="team-qr-section">';
+            html += '<div class="team-qr-row">';
+            html += '<div class="team-qr-item"><label>QR — Profil</label><div class="team-qr-box" id="teamQrProfile_' + i + '"></div><a href="' + escAttr(profileUrl) + '" target="_blank" class="team-qr-link">Otevrit profil</a></div>';
+            html += '<div class="team-qr-item"><label>QR — Vizitka</label><div class="team-qr-box" id="teamQrVcard_' + i + '"></div><a href="' + escAttr(vcardUrl) + '" target="_blank" class="team-qr-link">Otevrit vizitku</a></div>';
+            html += '</div></div>';
             html += '</div>';
         });
         grid.innerHTML = html;
+        // Generate QR codes
+        config.team.forEach((member, i) => {
+            const profileUrl = baseUrl + 'profile.html?m=' + (member.profileKey || '');
+            const vcardUrl = baseUrl + 'vcard.html?m=' + (member.profileKey || '');
+            generateQR('teamQrProfile_' + i, profileUrl);
+            generateQR('teamQrVcard_' + i, vcardUrl);
+        });
+    }
+
+    function generateQR(containerId, url) {
+        try {
+            var qr = qrcode(0, 'M');
+            qr.addData(url);
+            qr.make();
+            var el = document.getElementById(containerId);
+            if (el) {
+                el.innerHTML = qr.createSvgTag(4, 0);
+                var svg = el.querySelector('svg');
+                if (svg) { svg.style.width = '100%'; svg.style.height = '100%'; }
+            }
+        } catch (e) {
+            var el = document.getElementById(containerId);
+            if (el) el.innerHTML = '<span style="color:#999;font-size:12px;">Chyba QR</span>';
+        }
     }
 
     window.updateTeamPreview = function(i) {
@@ -1468,6 +1508,7 @@
             member.name = getVal('team_' + i + '_name');
             member.role = getVal('team_' + i + '_role');
             member.bio = getVal('team_' + i + '_bio');
+            // profileKey is not editable, preserved as-is
         });
     }
 
