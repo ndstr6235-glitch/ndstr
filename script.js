@@ -106,7 +106,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // ── Scroll reveal animations ──
     const revealElements = document.querySelectorAll(
-        '.about-card, .fund-card, .team-card, .security-item, .process-step, .perf-stat, .tier-card'
+        '.about-card, .fund-card, .team-card, .security-item, .process-step, .perf-stat, .tier-card, .project-card, .award-item, .media-item'
     );
 
     // Track the sequential index of each element so stagger delays work
