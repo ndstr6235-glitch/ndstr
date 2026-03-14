@@ -1444,11 +1444,14 @@
     }
 
     // ── Team Cards ──
+    const PROFILE_KEYS = { 'TB': 'berger', 'KM': 'machova', 'PV': 'vlcek', 'DP': 'prochazka' };
+
     function buildTeamCards() {
         const grid = document.getElementById('teamGrid');
         const baseUrl = window.location.origin + window.location.pathname.replace(/\/[^/]*$/, '/');
         let html = '';
         config.team.forEach((member, i) => {
+            if (!member.profileKey) member.profileKey = PROFILE_KEYS[member.initials] || member.initials.toLowerCase();
             const profileUrl = baseUrl + 'profile.html?m=' + (member.profileKey || '');
             const vcardUrl = baseUrl + 'vcard.html?m=' + (member.profileKey || '');
             html += '<div class="team-edit-card">';
