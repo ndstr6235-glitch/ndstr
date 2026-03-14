@@ -1,0 +1,1769 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vertex Capital | Investorský portál</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+    <style>
+        /* ============================================================
+           VERTEX CAPITAL - Investor Portal Styles
+           Dark Dashboard Theme
+           ============================================================ */
+        :root {
+            --sidebar-bg: #111827;
+            --sidebar-hover: #1f2937;
+            --sidebar-active: #1e293b;
+            --sidebar-width: 260px;
+            --accent: #d4af37;
+            --accent-light: #e8ca5a;
+            --accent-dark: #b8962d;
+            --bg: #0c1117;
+            --bg-card: rgba(255,255,255,0.03);
+            --bg-card-hover: rgba(255,255,255,0.06);
+            --text: #e2e8f0;
+            --text-light: #94a3b8;
+            --text-muted: #64748b;
+            --border: rgba(255,255,255,0.06);
+            --border-light: rgba(255,255,255,0.1);
+            --success: #10b981;
+            --success-bg: rgba(16,185,129,0.12);
+            --danger: #ef4444;
+            --danger-bg: rgba(239,68,68,0.12);
+            --warning: #f59e0b;
+            --info: #3b82f6;
+            --info-bg: rgba(59,130,246,0.12);
+            --radius: 12px;
+            --radius-sm: 8px;
+            --radius-lg: 16px;
+            --shadow: 0 1px 3px rgba(0,0,0,0.3), 0 4px 12px rgba(0,0,0,0.2);
+            --transition: 0.2s ease;
+            --glow: 0 0 20px rgba(212,175,55,0.15);
+        }
+
+        *, *::before, *::after {
+            margin: 0; padding: 0; box-sizing: border-box;
+        }
+
+        html { scroll-behavior: smooth; overflow-x: hidden; }
+
+        body {
+            font-family: 'Inter', -apple-system, sans-serif;
+            color: var(--text);
+            background: var(--bg);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+            overflow-x: hidden;
+        }
+
+        /* ── Scrollbar ── */
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: transparent; }
+        ::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.1); border-radius: 3px; }
+        ::-webkit-scrollbar-thumb:hover { background: rgba(255,255,255,0.2); }
+
+        /* ── Login Screen ── */
+        .login-overlay {
+            position: fixed; inset: 0; z-index: 9999;
+            background: linear-gradient(135deg, #0c1829 0%, #111827 50%, #1a2744 100%);
+            display: flex; align-items: center; justify-content: center;
+        }
+        .login-overlay.hidden { display: none; }
+        .login-particles {
+            position: absolute; inset: 0; overflow: hidden; pointer-events: none;
+        }
+        .login-particles::before,
+        .login-particles::after {
+            content: '';
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(80px);
+            opacity: 0.3;
+        }
+        .login-particles::before {
+            width: 400px; height: 400px;
+            background: radial-gradient(circle, rgba(212,175,55,0.2), transparent);
+            top: -100px; right: -100px;
+            animation: float 8s ease-in-out infinite;
+        }
+        .login-particles::after {
+            width: 300px; height: 300px;
+            background: radial-gradient(circle, rgba(26,47,74,0.4), transparent);
+            bottom: -80px; left: -80px;
+            animation: float 10s ease-in-out infinite reverse;
+        }
+        @keyframes float {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            50% { transform: translate(30px, -30px) scale(1.1); }
+        }
+
+        .login-box {
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 20px;
+            padding: 52px 44px;
+            width: 100%; max-width: 420px;
+            text-align: center;
+            backdrop-filter: blur(24px);
+            position: relative;
+            z-index: 1;
+            box-shadow: 0 24px 80px rgba(0,0,0,0.4);
+        }
+        .login-logo {
+            width: 64px; height: 64px; border-radius: 16px;
+            background: linear-gradient(135deg, var(--accent), var(--accent-light));
+            display: flex; align-items: center; justify-content: center;
+            font-size: 30px; font-weight: 800; color: #111827;
+            margin: 0 auto 28px;
+            box-shadow: var(--glow);
+            font-family: 'Playfair Display', serif;
+        }
+        .login-box h1 {
+            color: #fff; font-size: 24px; font-weight: 700; margin-bottom: 6px;
+            font-family: 'Playfair Display', serif;
+        }
+        .login-box .login-sub {
+            color: rgba(255,255,255,0.4); font-size: 14px; margin-bottom: 36px;
+        }
+        .login-box input[type="password"] {
+            width: 100%; padding: 14px 18px; border-radius: 10px;
+            border: 1px solid rgba(255,255,255,0.1);
+            background: rgba(255,255,255,0.05); color: #fff;
+            font-size: 15px; font-family: inherit; outline: none;
+            transition: border-color var(--transition), box-shadow var(--transition);
+            margin-bottom: 18px;
+        }
+        .login-box input[type="password"]:focus {
+            border-color: var(--accent);
+            box-shadow: 0 0 0 3px rgba(212,175,55,0.15);
+        }
+        .login-box input[type="password"]::placeholder { color: rgba(255,255,255,0.25); }
+        .login-btn {
+            width: 100%; padding: 14px; border: none; border-radius: 10px;
+            background: linear-gradient(135deg, var(--accent), var(--accent-light));
+            color: #111827; font-size: 15px; font-weight: 600;
+            font-family: inherit; cursor: pointer;
+            transition: opacity var(--transition), transform var(--transition), box-shadow var(--transition);
+        }
+        .login-btn:hover { opacity: 0.9; transform: translateY(-1px); box-shadow: var(--glow); }
+        .login-error {
+            color: var(--danger); font-size: 13px; margin-top: 14px;
+            min-height: 20px;
+        }
+
+        /* ── Layout ── */
+        .portal-layout {
+            display: flex; min-height: 100vh;
+        }
+        .portal-layout.hidden { display: none; }
+
+        /* ── Sidebar ── */
+        .sidebar {
+            width: var(--sidebar-width); background: var(--sidebar-bg);
+            position: fixed; top: 0; left: 0; bottom: 0;
+            display: flex; flex-direction: column;
+            z-index: 100; overflow-y: auto;
+            border-right: 1px solid var(--border);
+        }
+        .sidebar-header {
+            padding: 24px 20px; border-bottom: 1px solid rgba(255,255,255,0.06);
+        }
+        .sidebar-header a {
+            display: flex; align-items: center; gap: 12px;
+            text-decoration: none;
+        }
+        .sidebar-logo {
+            width: 38px; height: 38px; border-radius: 10px;
+            background: linear-gradient(135deg, var(--accent), var(--accent-light));
+            display: flex; align-items: center; justify-content: center;
+            font-size: 18px; font-weight: 800; color: #111827;
+            flex-shrink: 0;
+            font-family: 'Playfair Display', serif;
+        }
+        .sidebar-brand { color: #fff; font-size: 14px; font-weight: 600; line-height: 1.3; }
+        .sidebar-brand strong { font-weight: 700; display: block; font-size: 15px; }
+        .sidebar-brand small { display: block; font-size: 11px; color: rgba(255,255,255,0.35); font-weight: 400; margin-top: 2px; }
+
+        .sidebar-back {
+            display: flex; align-items: center; gap: 6px;
+            padding: 8px 20px; margin: 0;
+            color: rgba(255,255,255,0.3); font-size: 12px; font-weight: 400;
+            text-decoration: none; transition: color var(--transition);
+            border-bottom: 1px solid rgba(255,255,255,0.04);
+        }
+        .sidebar-back:hover { color: rgba(255,255,255,0.6); }
+        .sidebar-back svg { width: 14px; height: 14px; }
+
+        .sidebar-nav { padding: 16px 12px; flex: 1; }
+        .nav-item {
+            display: flex; align-items: center; gap: 12px;
+            padding: 11px 14px; border-radius: 8px;
+            color: rgba(255,255,255,0.55); font-size: 14px; font-weight: 500;
+            cursor: pointer; transition: all var(--transition);
+            margin-bottom: 2px; text-decoration: none;
+            border: none; background: none; width: 100%; text-align: left;
+            font-family: inherit;
+        }
+        .nav-item:hover { background: var(--sidebar-hover); color: rgba(255,255,255,0.85); }
+        .nav-item.active {
+            background: var(--sidebar-active); color: #fff;
+            box-shadow: inset 3px 0 0 var(--accent);
+        }
+        .nav-item svg { width: 18px; height: 18px; flex-shrink: 0; opacity: 0.7; }
+        .nav-item.active svg { opacity: 1; }
+
+        .nav-section-label {
+            font-size: 10px; font-weight: 700; text-transform: uppercase;
+            letter-spacing: 1.2px; color: rgba(255,255,255,0.2);
+            padding: 16px 14px 6px; margin-top: 4px;
+        }
+
+        .sidebar-footer {
+            padding: 16px 20px; border-top: 1px solid rgba(255,255,255,0.06);
+        }
+        .sidebar-user {
+            display: flex; align-items: center; gap: 10px; margin-bottom: 10px;
+        }
+        .sidebar-avatar {
+            width: 34px; height: 34px; border-radius: 50%;
+            background: linear-gradient(135deg, #1a2f4a, #2a4d73);
+            display: flex; align-items: center; justify-content: center;
+            font-size: 13px; font-weight: 700; color: var(--accent);
+            flex-shrink: 0;
+        }
+        .sidebar-user-info { font-size: 13px; font-weight: 500; color: rgba(255,255,255,0.7); line-height: 1.3; }
+        .sidebar-user-info small { display: block; font-size: 11px; color: rgba(255,255,255,0.3); font-weight: 400; }
+        .sidebar-footer button {
+            display: flex; align-items: center; gap: 8px;
+            color: rgba(255,255,255,0.35); font-size: 13px;
+            background: none; border: none; cursor: pointer;
+            font-family: inherit; padding: 6px 0;
+            transition: color var(--transition);
+        }
+        .sidebar-footer button:hover { color: var(--danger); }
+        .sidebar-footer button svg { width: 16px; height: 16px; }
+
+        /* ── Mobile Menu ── */
+        .mobile-header {
+            display: none; position: fixed; top: 0; left: 0; right: 0;
+            z-index: 200; background: var(--sidebar-bg);
+            padding: 14px 20px; border-bottom: 1px solid var(--border);
+            align-items: center; justify-content: space-between;
+        }
+        .mobile-header-left { display: flex; align-items: center; gap: 10px; }
+        .hamburger {
+            background: none; border: none; cursor: pointer; padding: 4px;
+            color: rgba(255,255,255,0.7);
+        }
+        .hamburger svg { width: 22px; height: 22px; }
+        .sidebar-overlay {
+            display: none; position: fixed; inset: 0; z-index: 99;
+            background: rgba(0,0,0,0.6); backdrop-filter: blur(4px);
+        }
+
+        /* ── Main Content ── */
+        .main-content {
+            margin-left: var(--sidebar-width); flex: 1;
+            padding: 36px 44px; min-height: 100vh;
+            max-width: 100%; overflow-x: hidden;
+        }
+
+        .content-header {
+            margin-bottom: 32px;
+        }
+        .content-header h1 {
+            font-size: 26px; font-weight: 700; color: var(--text);
+            margin-bottom: 4px; font-family: 'Playfair Display', serif;
+        }
+        .content-header p {
+            font-size: 14px; color: var(--text-muted);
+        }
+
+        /* ── Section Visibility ── */
+        .section { display: none; animation: fadeSection 0.3s ease; }
+        .section.active { display: block; }
+        @keyframes fadeSection {
+            from { opacity: 0; transform: translateY(8px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* ── Stat Cards ── */
+        .stats-grid {
+            display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px;
+            margin-bottom: 32px;
+        }
+        .stat-card {
+            background: var(--bg-card);
+            border-radius: var(--radius);
+            border: 1px solid var(--border);
+            padding: 24px;
+            box-shadow: var(--shadow);
+            transition: border-color var(--transition), transform var(--transition);
+            position: relative; overflow: hidden;
+        }
+        .stat-card:hover {
+            border-color: var(--border-light);
+            transform: translateY(-2px);
+        }
+        .stat-card::before {
+            content: ''; position: absolute; top: 0; left: 0; right: 0;
+            height: 2px; opacity: 0;
+            transition: opacity var(--transition);
+        }
+        .stat-card:hover::before { opacity: 1; }
+        .stat-card.gold::before { background: linear-gradient(90deg, var(--accent), var(--accent-light)); }
+        .stat-card.green::before { background: linear-gradient(90deg, var(--success), #34d399); }
+        .stat-card.blue::before { background: linear-gradient(90deg, var(--info), #60a5fa); }
+
+        .stat-icon {
+            width: 42px; height: 42px; border-radius: 10px;
+            display: flex; align-items: center; justify-content: center;
+            margin-bottom: 16px;
+        }
+        .stat-icon svg { width: 20px; height: 20px; }
+        .stat-icon.gold { background: rgba(212,175,55,0.12); color: var(--accent); }
+        .stat-icon.green { background: var(--success-bg); color: var(--success); }
+        .stat-icon.blue { background: var(--info-bg); color: var(--info); }
+
+        .stat-label { font-size: 13px; color: var(--text-muted); margin-bottom: 6px; font-weight: 500; }
+        .stat-val { font-size: 26px; font-weight: 700; color: var(--text); letter-spacing: -0.5px; }
+        .stat-val .stat-unit { font-size: 14px; font-weight: 500; color: var(--text-muted); margin-left: 4px; }
+        .stat-change { display: inline-flex; align-items: center; gap: 4px; font-size: 13px; font-weight: 600; margin-top: 4px; }
+        .stat-change.positive { color: var(--success); }
+        .stat-change.negative { color: var(--danger); }
+        .stat-sub { font-size: 12px; color: var(--text-muted); margin-top: 4px; }
+
+        /* ── Cards ── */
+        .card {
+            background: var(--bg-card);
+            border-radius: var(--radius);
+            border: 1px solid var(--border);
+            padding: 28px;
+            margin-bottom: 24px;
+            box-shadow: var(--shadow);
+        }
+        .card-title {
+            font-size: 16px; font-weight: 600; color: var(--text);
+            margin-bottom: 20px; display: flex; align-items: center; gap: 10px;
+        }
+        .card-title svg { width: 18px; height: 18px; color: var(--accent); }
+
+        .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+        .grid-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 20px; }
+
+        /* ── Notifications ── */
+        .notif-list { list-style: none; }
+        .notif-item {
+            display: flex; align-items: flex-start; gap: 12px;
+            padding: 14px 0; border-bottom: 1px solid var(--border);
+        }
+        .notif-item:last-child { border-bottom: none; }
+        .notif-dot {
+            width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; margin-top: 7px;
+        }
+        .notif-dot.success { background: var(--success); box-shadow: 0 0 8px rgba(16,185,129,0.4); }
+        .notif-dot.info { background: var(--info); box-shadow: 0 0 8px rgba(59,130,246,0.4); }
+        .notif-text { font-size: 14px; color: var(--text-light); line-height: 1.5; }
+        .notif-date { font-size: 12px; color: var(--text-muted); margin-top: 2px; }
+
+        /* ── Quick Project Cards ── */
+        .project-quick {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 22px;
+            cursor: pointer;
+            transition: all var(--transition);
+        }
+        .project-quick:hover {
+            border-color: var(--accent);
+            transform: translateY(-3px);
+            box-shadow: var(--glow);
+        }
+        .project-quick-name { font-size: 15px; font-weight: 600; color: var(--text); margin-bottom: 4px; }
+        .project-quick-loc { font-size: 12px; color: var(--text-muted); margin-bottom: 14px; }
+        .project-quick-row { display: flex; justify-content: space-between; align-items: center; }
+        .project-quick-return { font-size: 20px; font-weight: 700; color: var(--success); }
+        .project-quick-return span { font-size: 13px; font-weight: 500; }
+
+        /* ── Status Badges ── */
+        .badge {
+            display: inline-flex; align-items: center; gap: 5px;
+            padding: 4px 10px; border-radius: 20px;
+            font-size: 11px; font-weight: 600; text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        .badge.active { background: var(--success-bg); color: var(--success); }
+        .badge.construction { background: rgba(245,158,11,0.12); color: var(--warning); }
+        .badge.deposit { background: var(--info-bg); color: var(--info); }
+        .badge.payout { background: var(--success-bg); color: var(--success); }
+        .badge.report { background: var(--info-bg); color: var(--info); }
+        .badge.annual { background: rgba(168,85,247,0.12); color: #a855f7; }
+        .badge.tax { background: rgba(245,158,11,0.12); color: var(--warning); }
+        .badge.contract { background: rgba(212,175,55,0.12); color: var(--accent); }
+        .badge.legal { background: rgba(255,255,255,0.08); color: var(--text-light); }
+
+        /* ── Project Cards (Moje projekty) ── */
+        .project-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-lg);
+            margin-bottom: 20px;
+            overflow: hidden;
+            transition: border-color var(--transition);
+        }
+        .project-card:hover { border-color: var(--border-light); }
+        .project-card-header {
+            padding: 28px; cursor: pointer;
+            display: flex; align-items: flex-start; justify-content: space-between;
+        }
+        .project-card-header:hover { background: var(--bg-card-hover); }
+        .project-info { flex: 1; }
+        .project-name { font-size: 18px; font-weight: 700; color: var(--text); margin-bottom: 4px; }
+        .project-loc { font-size: 13px; color: var(--text-muted); margin-bottom: 12px; display: flex; align-items: center; gap: 6px; }
+        .project-loc svg { width: 14px; height: 14px; }
+        .project-stats-row { display: flex; gap: 32px; }
+        .project-stat-item { }
+        .project-stat-label { font-size: 11px; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 2px; }
+        .project-stat-val { font-size: 18px; font-weight: 700; }
+        .project-stat-val.money { color: var(--text); }
+        .project-stat-val.return { color: var(--success); }
+        .project-expand-icon {
+            color: var(--text-muted); transition: transform var(--transition);
+            margin-top: 8px;
+        }
+        .project-expand-icon svg { width: 20px; height: 20px; }
+        .project-card.expanded .project-expand-icon { transform: rotate(180deg); }
+
+        .project-card-body {
+            max-height: 0; overflow: hidden;
+            transition: max-height 0.4s ease;
+        }
+        .project-card.expanded .project-card-body {
+            max-height: 600px;
+        }
+        .project-card-body-inner {
+            padding: 0 28px 28px;
+            border-top: 1px solid var(--border);
+            padding-top: 24px;
+        }
+
+        /* Progress bar */
+        .progress-wrap { margin-bottom: 20px; }
+        .progress-label { display: flex; justify-content: space-between; margin-bottom: 6px; font-size: 13px; }
+        .progress-label span:first-child { color: var(--text-light); }
+        .progress-label span:last-child { color: var(--accent); font-weight: 600; }
+        .progress-bar {
+            height: 6px; background: rgba(255,255,255,0.06); border-radius: 3px; overflow: hidden;
+        }
+        .progress-fill {
+            height: 100%; border-radius: 3px;
+            background: linear-gradient(90deg, var(--accent), var(--accent-light));
+            transition: width 0.6s ease;
+        }
+
+        /* Timeline */
+        .timeline { position: relative; padding-left: 28px; }
+        .timeline::before {
+            content: ''; position: absolute; left: 7px; top: 8px; bottom: 8px;
+            width: 2px; background: rgba(255,255,255,0.06);
+        }
+        .timeline-item { position: relative; padding-bottom: 18px; }
+        .timeline-item:last-child { padding-bottom: 0; }
+        .timeline-dot {
+            position: absolute; left: -24px; top: 5px;
+            width: 12px; height: 12px; border-radius: 50%;
+        }
+        .timeline-dot.done { background: var(--success); box-shadow: 0 0 8px rgba(16,185,129,0.3); }
+        .timeline-dot.current {
+            background: var(--accent);
+            box-shadow: 0 0 12px rgba(212,175,55,0.4);
+            animation: pulse-dot 2s ease-in-out infinite;
+        }
+        .timeline-dot.pending { background: rgba(255,255,255,0.15); }
+        @keyframes pulse-dot {
+            0%, 100% { box-shadow: 0 0 8px rgba(212,175,55,0.3); transform: scale(1); }
+            50% { box-shadow: 0 0 16px rgba(212,175,55,0.5); transform: scale(1.2); }
+        }
+        .timeline-date { font-size: 11px; color: var(--text-muted); margin-bottom: 2px; }
+        .timeline-event { font-size: 14px; color: var(--text-light); font-weight: 500; }
+        .timeline-event.current-ev { color: var(--accent); font-weight: 600; }
+
+        /* ── Transactions Table ── */
+        .tx-table { width: 100%; border-collapse: collapse; }
+        .tx-table th {
+            text-align: left; font-size: 11px; font-weight: 600;
+            color: var(--text-muted); text-transform: uppercase;
+            letter-spacing: 0.5px; padding: 12px 14px;
+            border-bottom: 1px solid var(--border-light);
+        }
+        .tx-table td {
+            padding: 16px 14px; border-bottom: 1px solid var(--border);
+            font-size: 14px; vertical-align: middle;
+        }
+        .tx-table tr:last-child td { border-bottom: none; }
+        .tx-table tr:hover td { background: rgba(255,255,255,0.02); }
+        .tx-amount { font-weight: 600; font-variant-numeric: tabular-nums; }
+        .tx-amount.positive { color: var(--info); }
+        .tx-amount.negative { color: var(--success); }
+
+        /* ── Summary Stats Row ── */
+        .summary-row {
+            display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;
+            margin-bottom: 28px;
+        }
+        .summary-item {
+            background: var(--bg-card); border: 1px solid var(--border);
+            border-radius: var(--radius); padding: 22px; text-align: center;
+        }
+        .summary-label { font-size: 13px; color: var(--text-muted); margin-bottom: 6px; }
+        .summary-val { font-size: 24px; font-weight: 700; }
+        .summary-val.green { color: var(--success); }
+        .summary-val.gold { color: var(--accent); }
+
+        /* ── Strategy Toggle ── */
+        .strategy-toggle-wrap {
+            background: var(--bg-card); border: 1px solid var(--border);
+            border-radius: var(--radius); padding: 24px;
+            margin-bottom: 24px;
+            display: flex; align-items: center; justify-content: space-between;
+        }
+        .strategy-label { font-size: 15px; font-weight: 600; color: var(--text); }
+        .strategy-label small { display: block; font-size: 12px; font-weight: 400; color: var(--text-muted); margin-top: 2px; }
+        .strategy-pills {
+            display: flex; background: rgba(255,255,255,0.04); border-radius: 8px; overflow: hidden;
+            border: 1px solid var(--border);
+        }
+        .strategy-pill {
+            padding: 10px 20px; font-size: 13px; font-weight: 500;
+            color: var(--text-muted); cursor: pointer; transition: all var(--transition);
+            border: none; background: none; font-family: inherit;
+        }
+        .strategy-pill.active {
+            background: linear-gradient(135deg, var(--accent), var(--accent-light));
+            color: #111827; font-weight: 600;
+        }
+        .strategy-pill:hover:not(.active) { color: var(--text-light); }
+
+        /* ── Buttons ── */
+        .btn {
+            padding: 10px 20px; border-radius: var(--radius-sm);
+            font-size: 14px; font-weight: 600; font-family: inherit;
+            cursor: pointer; border: none; transition: all var(--transition);
+            display: inline-flex; align-items: center; gap: 6px;
+            text-decoration: none;
+        }
+        .btn-primary {
+            background: linear-gradient(135deg, var(--accent), var(--accent-light));
+            color: #111827;
+        }
+        .btn-primary:hover { opacity: 0.9; transform: translateY(-1px); box-shadow: var(--glow); }
+        .btn-secondary {
+            background: rgba(255,255,255,0.05); color: var(--text-light);
+            border: 1px solid var(--border);
+        }
+        .btn-secondary:hover { background: rgba(255,255,255,0.08); border-color: var(--border-light); }
+        .btn-sm { padding: 7px 14px; font-size: 13px; }
+        .btn-outline-gold {
+            background: transparent; color: var(--accent);
+            border: 1px solid rgba(212,175,55,0.3);
+        }
+        .btn-outline-gold:hover { background: rgba(212,175,55,0.08); border-color: var(--accent); }
+
+        /* ── Document List ── */
+        .doc-list { list-style: none; }
+        .doc-item {
+            display: flex; align-items: center; gap: 16px;
+            padding: 18px 0; border-bottom: 1px solid var(--border);
+            transition: background var(--transition);
+        }
+        .doc-item:last-child { border-bottom: none; }
+        .doc-icon {
+            width: 42px; height: 42px; border-radius: 10px;
+            display: flex; align-items: center; justify-content: center;
+            flex-shrink: 0;
+        }
+        .doc-icon svg { width: 20px; height: 20px; }
+        .doc-icon.report { background: var(--info-bg); color: var(--info); }
+        .doc-icon.annual { background: rgba(168,85,247,0.12); color: #a855f7; }
+        .doc-icon.tax { background: rgba(245,158,11,0.12); color: var(--warning); }
+        .doc-icon.contract { background: rgba(212,175,55,0.12); color: var(--accent); }
+        .doc-icon.legal { background: rgba(255,255,255,0.06); color: var(--text-light); }
+        .doc-info { flex: 1; }
+        .doc-name { font-size: 14px; font-weight: 600; color: var(--text); margin-bottom: 2px; }
+        .doc-date { font-size: 12px; color: var(--text-muted); }
+        .doc-actions { display: flex; align-items: center; gap: 10px; }
+
+        /* ── Calculator ── */
+        .calc-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; }
+        .calc-inputs { display: flex; flex-direction: column; gap: 20px; }
+        .calc-group label {
+            display: block; font-size: 13px; font-weight: 600;
+            color: var(--text-light); margin-bottom: 8px;
+        }
+        .calc-group input {
+            width: 100%; padding: 12px 16px; border-radius: var(--radius-sm);
+            border: 1px solid var(--border); background: rgba(255,255,255,0.04);
+            font-size: 15px; font-family: inherit; color: var(--text);
+            outline: none; transition: border-color var(--transition);
+        }
+        .calc-group input:focus { border-color: var(--accent); }
+        .calc-results { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 24px; }
+        .calc-result-card {
+            background: var(--bg-card); border: 1px solid var(--border);
+            border-radius: var(--radius); padding: 20px; text-align: center;
+        }
+        .calc-result-label { font-size: 12px; color: var(--text-muted); margin-bottom: 6px; }
+        .calc-result-val { font-size: 22px; font-weight: 700; color: var(--accent); }
+        .calc-result-val.green { color: var(--success); }
+
+        /* ── Settings ── */
+        .settings-section { margin-bottom: 32px; }
+        .settings-section h3 {
+            font-size: 16px; font-weight: 600; color: var(--text); margin-bottom: 16px;
+            display: flex; align-items: center; gap: 8px;
+        }
+        .settings-row {
+            display: flex; align-items: center; justify-content: space-between;
+            padding: 16px 0; border-bottom: 1px solid var(--border);
+        }
+        .settings-row:last-child { border-bottom: none; }
+        .settings-row-label { font-size: 14px; font-weight: 500; color: var(--text); }
+        .settings-row-label small { display: block; font-weight: 400; color: var(--text-muted); font-size: 12px; margin-top: 2px; }
+        .settings-val { font-size: 14px; color: var(--text-light); text-align: right; }
+
+        .toggle-switch {
+            position: relative; width: 44px; height: 24px; flex-shrink: 0;
+        }
+        .toggle-switch input { opacity: 0; width: 0; height: 0; }
+        .toggle-slider {
+            position: absolute; inset: 0; cursor: pointer;
+            background: rgba(255,255,255,0.12); border-radius: 12px;
+            transition: background var(--transition);
+        }
+        .toggle-slider::before {
+            content: ''; position: absolute; height: 18px; width: 18px;
+            left: 3px; bottom: 3px; background: #fff; border-radius: 50%;
+            transition: transform var(--transition);
+        }
+        .toggle-switch input:checked + .toggle-slider {
+            background: var(--accent);
+        }
+        .toggle-switch input:checked + .toggle-slider::before {
+            transform: translateX(20px);
+        }
+
+        /* Checkbox styled */
+        .checkbox-row {
+            display: flex; align-items: center; gap: 12px;
+            padding: 12px 0;
+        }
+        .checkbox-row input[type="checkbox"] {
+            width: 18px; height: 18px; accent-color: var(--accent);
+            cursor: pointer;
+        }
+        .checkbox-row label {
+            font-size: 14px; color: var(--text-light); cursor: pointer;
+        }
+
+        /* ── Modal ── */
+        .modal-overlay {
+            position: fixed; inset: 0; z-index: 1000;
+            background: rgba(0,0,0,0.7); backdrop-filter: blur(8px);
+            display: flex; align-items: center; justify-content: center;
+            opacity: 0; pointer-events: none; transition: opacity 0.3s ease;
+        }
+        .modal-overlay.show { opacity: 1; pointer-events: all; }
+        .modal-box {
+            background: #1a2332; border: 1px solid var(--border-light);
+            border-radius: var(--radius-lg); padding: 36px;
+            width: 100%; max-width: 440px;
+            transform: scale(0.95); transition: transform 0.3s ease;
+        }
+        .modal-overlay.show .modal-box { transform: scale(1); }
+        .modal-title { font-size: 20px; font-weight: 700; color: var(--text); margin-bottom: 6px; font-family: 'Playfair Display', serif; }
+        .modal-sub { font-size: 13px; color: var(--text-muted); margin-bottom: 24px; }
+        .modal-input {
+            width: 100%; padding: 14px 16px; border-radius: var(--radius-sm);
+            border: 1px solid var(--border); background: rgba(255,255,255,0.04);
+            font-size: 16px; font-family: inherit; color: var(--text);
+            outline: none; margin-bottom: 20px;
+            transition: border-color var(--transition);
+        }
+        .modal-input:focus { border-color: var(--accent); }
+        .modal-btns { display: flex; gap: 12px; }
+        .modal-btns .btn { flex: 1; justify-content: center; }
+
+        /* ── Chart containers ── */
+        .chart-container { position: relative; width: 100%; }
+        .chart-container.donut { max-width: 280px; margin: 0 auto; }
+
+        /* ── Responsive ── */
+        @media (max-width: 1024px) {
+            .stats-grid { grid-template-columns: repeat(2, 1fr); }
+            .grid-2, .grid-3, .calc-grid { grid-template-columns: 1fr; }
+            .summary-row { grid-template-columns: 1fr; }
+            .project-stats-row { flex-wrap: wrap; gap: 16px; }
+        }
+
+        @media (max-width: 768px) {
+            .sidebar { transform: translateX(-100%); transition: transform 0.3s ease; z-index: 300; }
+            .sidebar.open { transform: translateX(0); }
+            .sidebar-overlay.show { display: block; }
+            .mobile-header { display: flex; }
+            .main-content { margin-left: 0; padding: 80px 20px 36px; }
+            .stats-grid { grid-template-columns: 1fr; }
+            .login-box { margin: 0 20px; padding: 36px 28px; }
+            .strategy-toggle-wrap { flex-direction: column; gap: 16px; align-items: flex-start; }
+            .tx-table { font-size: 13px; }
+            .tx-table th, .tx-table td { padding: 12px 8px; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- ═══════════════ LOGIN OVERLAY ═══════════════ -->
+<div id="loginOverlay" class="login-overlay">
+    <div class="login-particles"></div>
+    <div class="login-box">
+        <div class="login-logo">V</div>
+        <h1>Investorský portál</h1>
+        <p class="login-sub">Vertex Capital s.r.o.</p>
+        <form id="loginForm" onsubmit="return handleLogin(event)">
+            <input type="password" id="loginPass" placeholder="Zadejte heslo" autocomplete="off">
+            <button type="submit" class="login-btn">Přihlásit se</button>
+        </form>
+        <div id="loginError" class="login-error"></div>
+    </div>
+</div>
+
+<!-- ═══════════════ PORTAL LAYOUT ═══════════════ -->
+<div id="portalLayout" class="portal-layout hidden">
+
+    <!-- Mobile Header -->
+    <div class="mobile-header">
+        <div class="mobile-header-left">
+            <button class="hamburger" onclick="toggleSidebar()">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+            </button>
+            <div class="sidebar-logo" style="width:30px;height:30px;font-size:14px;border-radius:7px;">V</div>
+            <span style="color:#fff;font-size:14px;font-weight:600;">Investorský portál</span>
+        </div>
+    </div>
+    <div class="sidebar-overlay" id="sidebarOverlay" onclick="toggleSidebar()"></div>
+
+    <!-- Sidebar -->
+    <aside class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <a href="index.html">
+                <div class="sidebar-logo">V</div>
+                <div class="sidebar-brand">
+                    <strong>Investorský portál</strong>
+                    <small>Vertex Capital s.r.o.</small>
+                </div>
+            </a>
+        </div>
+        <a href="index.html" class="sidebar-back">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg>
+            Zpět na web
+        </a>
+
+        <nav class="sidebar-nav">
+            <div class="nav-section-label">Přehledy</div>
+            <button class="nav-item active" onclick="showSection('dashboard', this)">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
+                Přehled
+            </button>
+            <button class="nav-item" onclick="showSection('projects', this)">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 20h20"/><path d="M5 20V8l7-5 7 5v12"/><path d="M9 20v-6h6v6"/></svg>
+                Moje projekty
+            </button>
+            <div class="nav-section-label">Finance</div>
+            <button class="nav-item" onclick="showSection('transactions', this)">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+                Výnosy & transakce
+            </button>
+            <button class="nav-item" onclick="showSection('documents', this)">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+                Dokumenty
+            </button>
+            <div class="nav-section-label">Nástroje</div>
+            <button class="nav-item" onclick="showSection('calculator', this)">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="2" width="16" height="20" rx="2"/><line x1="8" y1="6" x2="16" y2="6"/><line x1="8" y1="10" x2="10" y2="10"/><line x1="14" y1="10" x2="16" y2="10"/><line x1="8" y1="14" x2="10" y2="14"/><line x1="14" y1="14" x2="16" y2="14"/><line x1="8" y1="18" x2="16" y2="18"/></svg>
+                Kalkulačka
+            </button>
+            <button class="nav-item" onclick="showSection('settings', this)">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+                Nastavení
+            </button>
+        </nav>
+
+        <div class="sidebar-footer">
+            <div class="sidebar-user">
+                <div class="sidebar-avatar">JH</div>
+                <div class="sidebar-user-info">
+                    Jan Horáček
+                    <small>VC-2024-0847</small>
+                </div>
+            </div>
+            <button onclick="handleLogout()">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>
+                Odhlásit se
+            </button>
+        </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+
+        <!-- ═══════════════ PŘEHLED (Dashboard) ═══════════════ -->
+        <div id="sec-dashboard" class="section active">
+            <div class="content-header">
+                <h1>Dobrý den, Jan</h1>
+                <p>Přehled vašeho investičního portfolia • aktualizováno 14. 3. 2026</p>
+            </div>
+
+            <!-- Stats -->
+            <div class="stats-grid">
+                <div class="stat-card gold">
+                    <div class="stat-icon gold">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+                    </div>
+                    <div class="stat-label">Celková investice</div>
+                    <div class="stat-val">2 500 000<span class="stat-unit">CZK</span></div>
+                </div>
+                <div class="stat-card green">
+                    <div class="stat-icon green">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg>
+                    </div>
+                    <div class="stat-label">Aktuální hodnota</div>
+                    <div class="stat-val">2 780 000<span class="stat-unit">CZK</span></div>
+                    <div class="stat-change positive">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="18 15 12 9 6 15"/></svg>
+                        +11,2 % (+280 000 CZK)
+                    </div>
+                </div>
+                <div class="stat-card green">
+                    <div class="stat-icon green">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="5" width="20" height="14" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/></svg>
+                    </div>
+                    <div class="stat-label">Vyplacené výnosy</div>
+                    <div class="stat-val">85 000<span class="stat-unit">CZK</span></div>
+                </div>
+                <div class="stat-card blue">
+                    <div class="stat-icon blue">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                    </div>
+                    <div class="stat-label">Nadcházející výplata</div>
+                    <div class="stat-val">42 350<span class="stat-unit">CZK</span></div>
+                    <div class="stat-sub">15. 4. 2026</div>
+                </div>
+            </div>
+
+            <!-- Notifications + Chart -->
+            <div class="grid-2">
+                <div class="card">
+                    <div class="card-title">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
+                        Oznámení
+                    </div>
+                    <ul class="notif-list" id="notifList"></ul>
+                </div>
+                <div class="card">
+                    <div class="card-title">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21.21 15.89A10 10 0 1 1 8 2.83"/><path d="M22 12A10 10 0 0 0 12 2v10z"/></svg>
+                        Alokace portfolia
+                    </div>
+                    <div class="chart-container donut">
+                        <canvas id="allocationChart"></canvas>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Performance Chart -->
+            <div class="card" style="margin-top: 0;">
+                <div class="card-title">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg>
+                    Vývoj hodnoty portfolia
+                </div>
+                <div class="chart-container" style="height: 300px;">
+                    <canvas id="performanceChart"></canvas>
+                </div>
+            </div>
+
+            <!-- Quick Project Cards -->
+            <div class="card-title" style="margin-bottom: 16px; padding: 0;">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:18px;height:18px;color:var(--accent)"><path d="M2 20h20"/><path d="M5 20V8l7-5 7 5v12"/><path d="M9 20v-6h6v6"/></svg>
+                Vaše projekty
+            </div>
+            <div class="grid-3" id="quickProjects"></div>
+        </div>
+
+        <!-- ═══════════════ MOJE PROJEKTY ═══════════════ -->
+        <div id="sec-projects" class="section">
+            <div class="content-header">
+                <h1>Moje projekty</h1>
+                <p>Detailní přehled všech vašich investičních projektů</p>
+            </div>
+            <div id="projectsList"></div>
+        </div>
+
+        <!-- ═══════════════ VÝNOSY & TRANSAKCE ═══════════════ -->
+        <div id="sec-transactions" class="section">
+            <div class="content-header">
+                <h1>Výnosy & transakce</h1>
+                <p>Přehled vašich výnosů a historie transakcí</p>
+            </div>
+
+            <!-- Summary -->
+            <div class="summary-row">
+                <div class="summary-item">
+                    <div class="summary-label">Celkové výnosy</div>
+                    <div class="summary-val green" id="totalReturns"></div>
+                </div>
+                <div class="summary-item">
+                    <div class="summary-label">Vyplaceno</div>
+                    <div class="summary-val green" id="totalPaid"></div>
+                </div>
+                <div class="summary-item">
+                    <div class="summary-label">K vyplacení</div>
+                    <div class="summary-val gold" id="pendingPay"></div>
+                </div>
+            </div>
+
+            <!-- Strategy Toggle -->
+            <div class="strategy-toggle-wrap">
+                <div class="strategy-label">
+                    Strategie výnosů
+                    <small>Zvolte, jak chcete nakládat s výnosy z investic</small>
+                </div>
+                <div class="strategy-pills">
+                    <button class="strategy-pill active" id="pillReinvest" onclick="setStrategy('reinvest')">Reinvestovat výnosy</button>
+                    <button class="strategy-pill" id="pillPayout" onclick="setStrategy('payout')">Vyplácet na účet</button>
+                </div>
+            </div>
+
+            <!-- Transaction Table -->
+            <div class="card">
+                <div class="card-title">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+                    Historie transakcí
+                </div>
+                <div style="overflow-x: auto;">
+                    <table class="tx-table" id="txTable">
+                        <thead>
+                            <tr>
+                                <th>Datum</th>
+                                <th>Popis</th>
+                                <th>Typ</th>
+                                <th style="text-align:right;">Částka</th>
+                            </tr>
+                        </thead>
+                        <tbody id="txBody"></tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Withdraw button -->
+            <div style="text-align: right; margin-top: 8px;">
+                <button class="btn btn-outline-gold" onclick="openWithdrawModal()">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+                    Požádat o výběr
+                </button>
+            </div>
+        </div>
+
+        <!-- ═══════════════ DOKUMENTY ═══════════════ -->
+        <div id="sec-documents" class="section">
+            <div class="content-header">
+                <h1>Dokumenty</h1>
+                <p>Reporty, smlouvy a důležité dokumenty</p>
+            </div>
+            <div class="card">
+                <ul class="doc-list" id="docList"></ul>
+            </div>
+        </div>
+
+        <!-- ═══════════════ KALKULAČKA ═══════════════ -->
+        <div id="sec-calculator" class="section">
+            <div class="content-header">
+                <h1>Investiční kalkulačka</h1>
+                <p>Spočítejte si potenciální zhodnocení vaší investice</p>
+            </div>
+            <div class="card">
+                <div class="calc-grid">
+                    <div class="calc-inputs">
+                        <div class="calc-group">
+                            <label>Počáteční investice (CZK)</label>
+                            <input type="number" id="calcInvestment" value="1000000" min="100000" step="100000" oninput="updateCalc()">
+                        </div>
+                        <div class="calc-group">
+                            <label>Doba investice (roky)</label>
+                            <input type="number" id="calcYears" value="5" min="1" max="30" oninput="updateCalc()">
+                        </div>
+                        <div class="calc-group">
+                            <label>Očekávaný výnos (% p.a.)</label>
+                            <input type="number" id="calcRate" value="9.5" min="1" max="30" step="0.5" oninput="updateCalc()">
+                        </div>
+                        <div class="calc-results" id="calcResults"></div>
+                    </div>
+                    <div>
+                        <div style="font-size:14px;font-weight:600;color:var(--text);margin-bottom:16px;">Projekce růstu</div>
+                        <div class="chart-container" style="height: 320px;">
+                            <canvas id="calcChart"></canvas>
+                        </div>
+                        <div style="display:flex;gap:20px;margin-top:12px;font-size:12px;color:var(--text-muted);">
+                            <span style="display:flex;align-items:center;gap:6px;">
+                                <span style="width:12px;height:3px;background:var(--accent);border-radius:2px;display:inline-block;"></span>
+                                Vertex Capital fond
+                            </span>
+                            <span style="display:flex;align-items:center;gap:6px;">
+                                <span style="width:12px;height:3px;background:rgba(255,255,255,0.2);border-radius:2px;display:inline-block;"></span>
+                                Bankovní vklad (4 %)
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ═══════════════ NASTAVENÍ ═══════════════ -->
+        <div id="sec-settings" class="section">
+            <div class="content-header">
+                <h1>Nastavení</h1>
+                <p>Váš profil a preference</p>
+            </div>
+            <div class="card">
+                <div class="settings-section">
+                    <h3>
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                        Osobní údaje
+                    </h3>
+                    <div class="settings-row">
+                        <div class="settings-row-label">Jméno a příjmení</div>
+                        <div class="settings-val" id="setName"></div>
+                    </div>
+                    <div class="settings-row">
+                        <div class="settings-row-label">E-mail</div>
+                        <div class="settings-val" id="setEmail"></div>
+                    </div>
+                    <div class="settings-row">
+                        <div class="settings-row-label">Telefon</div>
+                        <div class="settings-val" id="setPhone"></div>
+                    </div>
+                    <div class="settings-row">
+                        <div class="settings-row-label">
+                            ID investora
+                            <small>Vaše unikátní identifikační číslo</small>
+                        </div>
+                        <div class="settings-val" id="setId" style="font-family:monospace;color:var(--accent);"></div>
+                    </div>
+                    <div class="settings-row">
+                        <div class="settings-row-label">Členem od</div>
+                        <div class="settings-val" id="setMember"></div>
+                    </div>
+                </div>
+
+                <div class="settings-section">
+                    <h3>
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg>
+                        Investiční strategie
+                    </h3>
+                    <div class="settings-row">
+                        <div class="settings-row-label">
+                            Reinvestovat výnosy
+                            <small>Výnosy budou automaticky reinvestovány do fondu</small>
+                        </div>
+                        <label class="toggle-switch">
+                            <input type="checkbox" id="settingsStrategy" checked onchange="toggleSettingsStrategy()">
+                            <span class="toggle-slider"></span>
+                        </label>
+                    </div>
+                    <div class="settings-row">
+                        <div class="settings-row-label">
+                            Rizikový profil
+                            <small>Nastavený profil investora</small>
+                        </div>
+                        <div class="settings-val" id="setRisk" style="color:var(--accent);font-weight:600;"></div>
+                    </div>
+                </div>
+
+                <div class="settings-section">
+                    <h3>
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
+                        Notifikace
+                    </h3>
+                    <div class="checkbox-row">
+                        <input type="checkbox" id="notifEmail" checked>
+                        <label for="notifEmail">E-mailová oznámení o výplatách</label>
+                    </div>
+                    <div class="checkbox-row">
+                        <input type="checkbox" id="notifReport" checked>
+                        <label for="notifReport">Upozornění na nové reporty</label>
+                    </div>
+                    <div class="checkbox-row">
+                        <input type="checkbox" id="notifProject" checked>
+                        <label for="notifProject">Aktualizace projektů</label>
+                    </div>
+                    <div class="checkbox-row">
+                        <input type="checkbox" id="notifMarketing">
+                        <label for="notifMarketing">Marketingová sdělení a novinky</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </main>
+</div>
+
+<!-- ═══════════════ WITHDRAWAL MODAL ═══════════════ -->
+<div class="modal-overlay" id="withdrawModal">
+    <div class="modal-box">
+        <div class="modal-title">Požádat o výběr</div>
+        <div class="modal-sub">Zadejte částku, kterou chcete vybrat z vašeho účtu.</div>
+        <input type="number" class="modal-input" id="withdrawAmount" placeholder="Částka v CZK" min="1000" step="1000">
+        <div class="modal-btns">
+            <button class="btn btn-secondary" onclick="closeWithdrawModal()">Zrušit</button>
+            <button class="btn btn-primary" onclick="submitWithdraw()">Odeslat žádost</button>
+        </div>
+    </div>
+</div>
+
+
+<script>
+/* ============================================================
+   VERTEX CAPITAL - Investor Portal Logic
+   ============================================================ */
+
+// ── Demo Investor Data ──
+const INVESTOR = {
+    name: 'Jan Horacek',
+    email: 'horacek@email.cz',
+    phone: '+420 777 123 456',
+    investorId: 'VC-2024-0847',
+    memberSince: '2024-01-15',
+    totalInvested: 2500000,
+    currentValue: 2780000,
+    totalReturn: 11.2,
+    totalReturnCZK: 280000,
+    paidOut: 85000,
+    pendingPayout: 42350,
+    nextPayoutDate: '2026-04-15',
+    strategy: 'reinvest',
+    riskProfile: 'Vyvazeny',
+    projects: [
+        {
+            name: 'Ubytovaci komplex Kraslice',
+            location: 'Kraslice, Karlovarsky kraj',
+            allocated: 1125000,
+            currentValue: 1271250,
+            returnPct: 13.0,
+            status: 'active',
+            share: 45,
+            timeline: [
+                { date: '2024-01', event: 'Vstup do projektu', status: 'done' },
+                { date: '2024-03', event: 'Zahajeni rekonstrukce', status: 'done' },
+                { date: '2024-09', event: 'Kolaudace', status: 'done' },
+                { date: '2024-11', event: 'Plna obsazenost 96%', status: 'done' },
+                { date: '2025-06', event: 'Prvni vyplata vynosu', status: 'done' },
+                { date: '2026-01', event: 'Druha vyplata vynosu', status: 'done' }
+            ]
+        },
+        {
+            name: 'Logisticky areal Plzen',
+            location: 'Plzen, Plzensky kraj',
+            allocated: 750000,
+            currentValue: 817500,
+            returnPct: 9.0,
+            status: 'active',
+            share: 30,
+            timeline: [
+                { date: '2024-01', event: 'Vstup do projektu', status: 'done' },
+                { date: '2024-04', event: 'Podpis najemnich smluv', status: 'done' },
+                { date: '2024-08', event: 'Obsazenost 96%', status: 'done' },
+                { date: '2025-03', event: 'Vyplata vynosu Q1', status: 'done' },
+                { date: '2026-03', event: 'Vyplata vynosu Q1 2026', status: 'done' }
+            ]
+        },
+        {
+            name: 'Kancelarsky komplex Smichov',
+            location: 'Praha 5, Smichov',
+            allocated: 625000,
+            currentValue: 691250,
+            returnPct: 10.6,
+            status: 'construction',
+            share: 25,
+            timeline: [
+                { date: '2024-06', event: 'Vstup do projektu', status: 'done' },
+                { date: '2024-09', event: 'Stavebni povoleni', status: 'done' },
+                { date: '2025-01', event: 'Zahajeni stavby', status: 'done' },
+                { date: '2025-09', event: 'Hruba stavba', status: 'current' },
+                { date: '2026-06', event: 'Kolaudace', status: 'pending' },
+                { date: '2026-09', event: 'Prvni vyplata vynosu', status: 'pending' }
+            ]
+        }
+    ],
+    transactions: [
+        { date: '2024-01-15', type: 'deposit', desc: 'Pocatecni investice', amount: 2500000 },
+        { date: '2025-06-15', type: 'payout', desc: 'Vyplata vynosu — Kraslice Q2', amount: -28500 },
+        { date: '2025-09-15', type: 'payout', desc: 'Vyplata vynosu — Plzen Q3', amount: -14200 },
+        { date: '2026-01-15', type: 'payout', desc: 'Vyplata vynosu — Kraslice Q1', amount: -28300 },
+        { date: '2026-03-15', type: 'payout', desc: 'Vyplata vynosu — Plzen Q1', amount: -14000 }
+    ],
+    notifications: [
+        { date: '2026-03-10', text: 'Projekt Smichov: Hruba stavba dokoncena na 85%', type: 'info' },
+        { date: '2026-03-01', text: 'Vyplata vynosu 14 000 CZK odeslana na vas ucet', type: 'success' },
+        { date: '2026-02-15', text: 'Mesicni report za unor 2026 je k dispozici', type: 'info' },
+        { date: '2026-01-15', text: 'Vyplata vynosu 28 300 CZK — Kraslice Q1', type: 'success' },
+        { date: '2025-12-01', text: 'Projekt Kraslice dosahl obsazenosti 98%', type: 'info' }
+    ],
+    documents: [
+        { name: 'Mesicni report — unor 2026', date: '2026-03-01', type: 'report' },
+        { name: 'Mesicni report — leden 2026', date: '2026-02-01', type: 'report' },
+        { name: 'Rocni report 2025', date: '2026-01-15', type: 'annual' },
+        { name: 'Danove potvrzeni 2025', date: '2026-01-20', type: 'tax' },
+        { name: 'Investicni smlouva', date: '2024-01-15', type: 'contract' },
+        { name: 'Statut fondu', date: '2024-01-15', type: 'legal' }
+    ]
+};
+
+// ── Helpers ──
+function fmtCZK(n) {
+    const abs = Math.abs(n);
+    return abs.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ' ') + ' CZK';
+}
+function fmtDate(d) {
+    const parts = d.split('-');
+    return parts[2] + '. ' + parseInt(parts[1]) + '. ' + parts[0];
+}
+function fmtMonth(d) {
+    const months = ['','leden','únor','březen','duben','květen','červen','červenec','srpen','září','říjen','listopad','prosinec'];
+    const parts = d.split('-');
+    return months[parseInt(parts[1])] + ' ' + parts[0];
+}
+
+// ── Login ──
+function handleLogin(e) {
+    e.preventDefault();
+    const pass = document.getElementById('loginPass').value;
+    if (pass === 'investor2026') {
+        document.getElementById('loginOverlay').classList.add('hidden');
+        document.getElementById('portalLayout').classList.remove('hidden');
+        initPortal();
+    } else {
+        document.getElementById('loginError').textContent = 'Nesprávné heslo. Zkuste to znovu.';
+        document.getElementById('loginPass').value = '';
+        document.getElementById('loginPass').focus();
+    }
+    return false;
+}
+
+function handleLogout() {
+    document.getElementById('loginOverlay').classList.remove('hidden');
+    document.getElementById('portalLayout').classList.add('hidden');
+    document.getElementById('loginPass').value = '';
+    document.getElementById('loginError').textContent = '';
+}
+
+// ── Sidebar Navigation ──
+function showSection(id, btn) {
+    document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+    document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
+    document.getElementById('sec-' + id).classList.add('active');
+    if (btn) btn.classList.add('active');
+    // Close mobile sidebar
+    document.getElementById('sidebar').classList.remove('open');
+    document.getElementById('sidebarOverlay').classList.remove('show');
+}
+
+function toggleSidebar() {
+    document.getElementById('sidebar').classList.toggle('open');
+    document.getElementById('sidebarOverlay').classList.toggle('show');
+}
+
+// ── Strategy Toggle ──
+function setStrategy(s) {
+    INVESTOR.strategy = s;
+    document.getElementById('pillReinvest').classList.toggle('active', s === 'reinvest');
+    document.getElementById('pillPayout').classList.toggle('active', s === 'payout');
+    document.getElementById('settingsStrategy').checked = (s === 'reinvest');
+}
+function toggleSettingsStrategy() {
+    const checked = document.getElementById('settingsStrategy').checked;
+    setStrategy(checked ? 'reinvest' : 'payout');
+}
+
+// ── Withdraw Modal ──
+function openWithdrawModal() {
+    document.getElementById('withdrawModal').classList.add('show');
+    document.getElementById('withdrawAmount').value = '';
+    document.getElementById('withdrawAmount').focus();
+}
+function closeWithdrawModal() {
+    document.getElementById('withdrawModal').classList.remove('show');
+}
+function submitWithdraw() {
+    const amount = parseInt(document.getElementById('withdrawAmount').value);
+    if (!amount || amount < 1000) {
+        alert('Zadejte prosím platnou částku (minimálně 1 000 CZK).');
+        return;
+    }
+    alert('Demo — Vaše žádost o výběr ' + fmtCZK(amount) + ' byla odeslána ke zpracování.');
+    closeWithdrawModal();
+}
+
+// Close modal on overlay click
+document.getElementById('withdrawModal').addEventListener('click', function(e) {
+    if (e.target === this) closeWithdrawModal();
+});
+
+// ── Init Portal ──
+let allocationChart, performanceChart, calcChart;
+
+function initPortal() {
+    renderNotifications();
+    renderQuickProjects();
+    renderProjectsList();
+    renderTransactions();
+    renderDocuments();
+    renderSettings();
+    initCharts();
+    updateCalc();
+}
+
+// ── Notifications ──
+function renderNotifications() {
+    const list = document.getElementById('notifList');
+    list.innerHTML = INVESTOR.notifications.map(n => `
+        <li class="notif-item">
+            <span class="notif-dot ${n.type}"></span>
+            <div>
+                <div class="notif-text">${n.text}</div>
+                <div class="notif-date">${fmtDate(n.date)}</div>
+            </div>
+        </li>
+    `).join('');
+}
+
+// ── Quick Projects ──
+function renderQuickProjects() {
+    const wrap = document.getElementById('quickProjects');
+    wrap.innerHTML = INVESTOR.projects.map((p, i) => `
+        <div class="project-quick" onclick="showSection('projects', document.querySelectorAll('.nav-item')[1])">
+            <div class="project-quick-name">${p.name}</div>
+            <div class="project-quick-loc">${p.location}</div>
+            <div class="project-quick-row">
+                <span class="badge ${p.status}">${p.status === 'active' ? 'Aktivní' : 'Ve výstavbě'}</span>
+                <div class="project-quick-return">+${p.returnPct.toFixed(1)} %</div>
+            </div>
+        </div>
+    `).join('');
+}
+
+// ── Projects List ──
+function renderProjectsList() {
+    const wrap = document.getElementById('projectsList');
+    wrap.innerHTML = INVESTOR.projects.map((p, i) => {
+        const isConstruction = p.status === 'construction';
+        const doneCount = p.timeline.filter(t => t.status === 'done').length;
+        const currentIdx = p.timeline.findIndex(t => t.status === 'current');
+        const progressPct = isConstruction
+            ? Math.round(((currentIdx >= 0 ? currentIdx : doneCount) / (p.timeline.length - 1)) * 100)
+            : 100;
+
+        return `
+        <div class="project-card" id="project-${i}">
+            <div class="project-card-header" onclick="toggleProject(${i})">
+                <div class="project-info">
+                    <div style="display:flex;align-items:center;gap:12px;margin-bottom:4px;">
+                        <span class="project-name">${p.name}</span>
+                        <span class="badge ${p.status}">${p.status === 'active' ? 'Aktivní' : 'Ve výstavbě'}</span>
+                    </div>
+                    <div class="project-loc">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                        ${p.location}
+                    </div>
+                    <div class="project-stats-row">
+                        <div class="project-stat-item">
+                            <div class="project-stat-label">Investováno</div>
+                            <div class="project-stat-val money">${fmtCZK(p.allocated)}</div>
+                        </div>
+                        <div class="project-stat-item">
+                            <div class="project-stat-label">Aktuální hodnota</div>
+                            <div class="project-stat-val money">${fmtCZK(p.currentValue)}</div>
+                        </div>
+                        <div class="project-stat-item">
+                            <div class="project-stat-label">Výnos</div>
+                            <div class="project-stat-val return">+${p.returnPct.toFixed(1)} %</div>
+                        </div>
+                        <div class="project-stat-item">
+                            <div class="project-stat-label">Podíl v portfoliu</div>
+                            <div class="project-stat-val money">${p.share} %</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-expand-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+                </div>
+            </div>
+            <div class="project-card-body">
+                <div class="project-card-body-inner">
+                    ${isConstruction ? `
+                    <div class="progress-wrap">
+                        <div class="progress-label">
+                            <span>Průběh projektu</span>
+                            <span>${progressPct} %</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: ${progressPct}%"></div>
+                        </div>
+                    </div>
+                    ` : ''}
+                    <div style="font-size:14px;font-weight:600;color:var(--text);margin-bottom:16px;">Časová osa projektu</div>
+                    <div class="timeline">
+                        ${p.timeline.map(t => `
+                            <div class="timeline-item">
+                                <div class="timeline-dot ${t.status}"></div>
+                                <div class="timeline-date">${fmtMonth(t.date)}</div>
+                                <div class="timeline-event ${t.status === 'current' ? 'current-ev' : ''}">${t.event}</div>
+                            </div>
+                        `).join('')}
+                    </div>
+                </div>
+            </div>
+        </div>
+        `;
+    }).join('');
+}
+
+function toggleProject(i) {
+    document.getElementById('project-' + i).classList.toggle('expanded');
+}
+
+// ── Transactions ──
+function renderTransactions() {
+    document.getElementById('totalReturns').textContent = fmtCZK(INVESTOR.totalReturnCZK);
+    document.getElementById('totalPaid').textContent = fmtCZK(INVESTOR.paidOut);
+    document.getElementById('pendingPay').textContent = fmtCZK(INVESTOR.pendingPayout);
+
+    const tbody = document.getElementById('txBody');
+    tbody.innerHTML = INVESTOR.transactions.map(tx => {
+        const isDeposit = tx.type === 'deposit';
+        return `
+        <tr>
+            <td style="color:var(--text-muted);white-space:nowrap;">${fmtDate(tx.date)}</td>
+            <td>${tx.desc}</td>
+            <td><span class="badge ${tx.type}">${isDeposit ? 'Vklad' : 'Výplata'}</span></td>
+            <td class="tx-amount ${isDeposit ? 'positive' : 'negative'}" style="text-align:right;white-space:nowrap;">
+                ${isDeposit ? '+' : '−'}${fmtCZK(Math.abs(tx.amount))}
+            </td>
+        </tr>`;
+    }).join('');
+}
+
+// ── Documents ──
+function renderDocuments() {
+    const list = document.getElementById('docList');
+    const iconSvg = {
+        report: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>',
+        annual: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg>',
+        tax: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="5" width="20" height="14" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/></svg>',
+        contract: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4 12.5-12.5z"/></svg>',
+        legal: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>'
+    };
+    const typeLabels = { report: 'Report', annual: 'Roční', tax: 'Daňové', contract: 'Smlouva', legal: 'Právní' };
+
+    list.innerHTML = INVESTOR.documents.map(doc => `
+        <li class="doc-item">
+            <div class="doc-icon ${doc.type}">${iconSvg[doc.type]}</div>
+            <div class="doc-info">
+                <div class="doc-name">${doc.name}</div>
+                <div class="doc-date">${fmtDate(doc.date)}</div>
+            </div>
+            <div class="doc-actions">
+                <span class="badge ${doc.type}">${typeLabels[doc.type]}</span>
+                <button class="btn btn-secondary btn-sm" onclick="alert('Demo — dokument by byl stažen: ${doc.name}')">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                    Stáhnout
+                </button>
+            </div>
+        </li>
+    `).join('');
+}
+
+// ── Settings ──
+function renderSettings() {
+    document.getElementById('setName').textContent = 'Jan Horáček';
+    document.getElementById('setEmail').textContent = INVESTOR.email;
+    document.getElementById('setPhone').textContent = INVESTOR.phone;
+    document.getElementById('setId').textContent = INVESTOR.investorId;
+    document.getElementById('setMember').textContent = fmtDate(INVESTOR.memberSince);
+    document.getElementById('setRisk').textContent = 'Vyvážený';
+    document.getElementById('settingsStrategy').checked = (INVESTOR.strategy === 'reinvest');
+}
+
+// ── Charts ──
+function initCharts() {
+    // Chart.js defaults for dark theme
+    Chart.defaults.color = '#64748b';
+    Chart.defaults.borderColor = 'rgba(255,255,255,0.04)';
+    Chart.defaults.font.family = "'Inter', sans-serif";
+
+    // Allocation Donut
+    const allocCtx = document.getElementById('allocationChart').getContext('2d');
+    allocationChart = new Chart(allocCtx, {
+        type: 'doughnut',
+        data: {
+            labels: INVESTOR.projects.map(p => p.name.split(' ').slice(-1)[0]),
+            datasets: [{
+                data: INVESTOR.projects.map(p => p.share),
+                backgroundColor: ['#d4af37', '#3b82f6', '#a855f7'],
+                borderColor: 'transparent',
+                borderWidth: 0,
+                hoverOffset: 8
+            }]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: true,
+            cutout: '68%',
+            plugins: {
+                legend: {
+                    position: 'bottom',
+                    labels: {
+                        padding: 16,
+                        usePointStyle: true,
+                        pointStyleWidth: 10,
+                        font: { size: 12, weight: '500' }
+                    }
+                },
+                tooltip: {
+                    backgroundColor: '#1a2332',
+                    titleColor: '#e2e8f0',
+                    bodyColor: '#94a3b8',
+                    borderColor: 'rgba(255,255,255,0.1)',
+                    borderWidth: 1,
+                    cornerRadius: 8,
+                    padding: 12,
+                    callbacks: {
+                        label: function(ctx) {
+                            return ctx.label + ': ' + ctx.parsed + ' %';
+                        }
+                    }
+                }
+            }
+        }
+    });
+
+    // Performance Line Chart
+    const perfCtx = document.getElementById('performanceChart').getContext('2d');
+    const months = [];
+    const values = [];
+    let val = 2500000;
+    // Generate monthly data from Jan 2024 to Mar 2026 (27 months)
+    for (let y = 2024; y <= 2026; y++) {
+        const maxM = (y === 2026) ? 3 : 12;
+        const startM = (y === 2024) ? 1 : 1;
+        for (let m = startM; m <= maxM; m++) {
+            const label = m + '/' + y;
+            months.push(label);
+            // Simulate gradual growth with slight variation
+            const monthlyGrowth = 0.008 + Math.sin((months.length * 0.3)) * 0.003;
+            val = val * (1 + monthlyGrowth);
+            values.push(Math.round(val));
+        }
+    }
+    // Adjust last value to match current value
+    values[values.length - 1] = INVESTOR.currentValue;
+
+    const perfGradient = perfCtx.createLinearGradient(0, 0, 0, 300);
+    perfGradient.addColorStop(0, 'rgba(212, 175, 55, 0.2)');
+    perfGradient.addColorStop(1, 'rgba(212, 175, 55, 0)');
+
+    performanceChart = new Chart(perfCtx, {
+        type: 'line',
+        data: {
+            labels: months,
+            datasets: [{
+                label: 'Hodnota portfolia',
+                data: values,
+                borderColor: '#d4af37',
+                backgroundColor: perfGradient,
+                fill: true,
+                tension: 0.4,
+                borderWidth: 2.5,
+                pointRadius: 0,
+                pointHoverRadius: 6,
+                pointHoverBackgroundColor: '#d4af37',
+                pointHoverBorderColor: '#fff',
+                pointHoverBorderWidth: 2
+            }]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            interaction: { intersect: false, mode: 'index' },
+            scales: {
+                x: {
+                    grid: { display: false },
+                    ticks: { maxTicksLimit: 10, font: { size: 11 } }
+                },
+                y: {
+                    grid: { color: 'rgba(255,255,255,0.04)' },
+                    ticks: {
+                        font: { size: 11 },
+                        callback: function(v) {
+                            return (v / 1000000).toFixed(1) + 'M';
+                        }
+                    }
+                }
+            },
+            plugins: {
+                legend: { display: false },
+                tooltip: {
+                    backgroundColor: '#1a2332',
+                    titleColor: '#e2e8f0',
+                    bodyColor: '#94a3b8',
+                    borderColor: 'rgba(255,255,255,0.1)',
+                    borderWidth: 1,
+                    cornerRadius: 8,
+                    padding: 12,
+                    callbacks: {
+                        label: function(ctx) {
+                            return fmtCZK(ctx.parsed.y);
+                        }
+                    }
+                }
+            }
+        }
+    });
+
+    // Calculator chart init
+    updateCalc();
+}
+
+// ── Calculator ──
+function updateCalc() {
+    const investment = parseInt(document.getElementById('calcInvestment').value) || 1000000;
+    const years = parseInt(document.getElementById('calcYears').value) || 5;
+    const rate = parseFloat(document.getElementById('calcRate').value) || 9.5;
+    const bankRate = 4;
+
+    const futureValue = investment * Math.pow(1 + rate / 100, years);
+    const bankValue = investment * Math.pow(1 + bankRate / 100, years);
+    const profit = futureValue - investment;
+
+    // Results
+    document.getElementById('calcResults').innerHTML = `
+        <div class="calc-result-card">
+            <div class="calc-result-label">Budoucí hodnota</div>
+            <div class="calc-result-val">${fmtCZK(Math.round(futureValue))}</div>
+        </div>
+        <div class="calc-result-card">
+            <div class="calc-result-label">Celkový zisk</div>
+            <div class="calc-result-val green">+${fmtCZK(Math.round(profit))}</div>
+        </div>
+    `;
+
+    // Chart
+    const labels = [];
+    const fundData = [];
+    const bankData = [];
+    for (let y = 0; y <= years; y++) {
+        labels.push('Rok ' + y);
+        fundData.push(Math.round(investment * Math.pow(1 + rate / 100, y)));
+        bankData.push(Math.round(investment * Math.pow(1 + bankRate / 100, y)));
+    }
+
+    const ctx = document.getElementById('calcChart');
+    if (!ctx) return;
+
+    if (calcChart) {
+        calcChart.destroy();
+    }
+
+    const calcGradient = ctx.getContext('2d').createLinearGradient(0, 0, 0, 320);
+    calcGradient.addColorStop(0, 'rgba(212, 175, 55, 0.15)');
+    calcGradient.addColorStop(1, 'rgba(212, 175, 55, 0)');
+
+    calcChart = new Chart(ctx, {
+        type: 'line',
+        data: {
+            labels: labels,
+            datasets: [
+                {
+                    label: 'Vertex Capital fond',
+                    data: fundData,
+                    borderColor: '#d4af37',
+                    backgroundColor: calcGradient,
+                    fill: true,
+                    tension: 0.3,
+                    borderWidth: 2.5,
+                    pointRadius: 4,
+                    pointBackgroundColor: '#d4af37',
+                    pointBorderColor: '#0c1117',
+                    pointBorderWidth: 2,
+                    pointHoverRadius: 6
+                },
+                {
+                    label: 'Bankovní vklad (4 %)',
+                    data: bankData,
+                    borderColor: 'rgba(255,255,255,0.2)',
+                    backgroundColor: 'transparent',
+                    fill: false,
+                    tension: 0.3,
+                    borderWidth: 2,
+                    borderDash: [6, 4],
+                    pointRadius: 3,
+                    pointBackgroundColor: 'rgba(255,255,255,0.2)',
+                    pointBorderColor: '#0c1117',
+                    pointBorderWidth: 2,
+                    pointHoverRadius: 5
+                }
+            ]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            interaction: { intersect: false, mode: 'index' },
+            scales: {
+                x: {
+                    grid: { display: false },
+                    ticks: { font: { size: 11 } }
+                },
+                y: {
+                    grid: { color: 'rgba(255,255,255,0.04)' },
+                    ticks: {
+                        font: { size: 11 },
+                        callback: function(v) {
+                            if (v >= 1000000) return (v / 1000000).toFixed(1) + 'M';
+                            return (v / 1000).toFixed(0) + 'K';
+                        }
+                    }
+                }
+            },
+            plugins: {
+                legend: { display: false },
+                tooltip: {
+                    backgroundColor: '#1a2332',
+                    titleColor: '#e2e8f0',
+                    bodyColor: '#94a3b8',
+                    borderColor: 'rgba(255,255,255,0.1)',
+                    borderWidth: 1,
+                    cornerRadius: 8,
+                    padding: 12,
+                    callbacks: {
+                        label: function(ctx) {
+                            return ctx.dataset.label + ': ' + fmtCZK(ctx.parsed.y);
+                        }
+                    }
+                }
+            }
+        }
+    });
+}
+</script>
+</body>
+</html>
