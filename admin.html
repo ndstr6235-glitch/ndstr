@@ -850,11 +850,11 @@
                 <div class="form-grid-3">
                     <div class="form-group">
                         <label>Kumulativni vynos</label>
-                        <input type="text" id="stat_cumulative" placeholder="+47.8 %">
+                        <input type="text" id="stat_cumulative" placeholder="+37.0 %">
                     </div>
                     <div class="form-group">
                         <label>Prumerny rocni vynos</label>
-                        <input type="text" id="stat_avg_annual" placeholder="9.2 %">
+                        <input type="text" id="stat_avg_annual" placeholder="7.4 %">
                     </div>
                     <div class="form-group">
                         <label>Nejlepsi rok</label>
@@ -1064,9 +1064,9 @@
 (function() {
     'use strict';
 
-    const STORAGE_KEY = 'vc_admin_config';
-    const PASSWORD = 'vertex2026';
-    const SESSION_KEY = 'vc_admin_auth';
+    const STORAGE_KEY = 'bf_admin_config';
+    const PASSWORD = 'buildfund2026';
+    const SESSION_KEY = 'bf_admin_auth';
 
     // ── Default configuration ──
     const DEFAULT_CONFIG = {
@@ -1122,8 +1122,8 @@
                 '2021': { q1: '+3.2', q2: '+3.8', q3: '+4.1', q4: '+2.5' }
             },
             stats: {
-                cumulative: '+47.8 %',
-                avg_annual: '9.2 %',
+                cumulative: '+37.0 %',
+                avg_annual: '7.4 %',
                 best_year: '+14.1 %',
                 worst_year: '+3.2 %',
                 max_dd: '-6.4 %',
@@ -1250,8 +1250,8 @@
     window.resetAll = function() {
         if (!confirm('Opravdu chcete smazat VESKEROU konfiguraci? Tato akce je nevratna!')) return;
         localStorage.removeItem(STORAGE_KEY);
-        localStorage.removeItem('vc_investor_dismissed');
-        localStorage.removeItem('vc_cookie_consent');
+        localStorage.removeItem('bf_investor_dismissed');
+        localStorage.removeItem('bf_cookie_consent');
         config = JSON.parse(JSON.stringify(DEFAULT_CONFIG));
         populateAllForms();
         refreshDashboard();
