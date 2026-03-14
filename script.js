@@ -1,5 +1,5 @@
 /* ============================================================
-   VERTEX CAPITAL - JavaScript
+   BUILDFUND - JavaScript
    ============================================================ */
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -106,7 +106,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // ── Scroll reveal animations ──
     const revealElements = document.querySelectorAll(
-        '.about-card, .fund-card, .team-card, .security-item, .process-step, .perf-stat, .tier-card, .project-card, .award-item, .media-item'
+        '.about-card, .fund-card, .team-card, .security-item, .process-step, .perf-stat, .tier-card, .project-card, .award-item, .media-item, .timeline-item, .history-stat'
     );
 
     // Track the sequential index of each element so stagger delays work
@@ -688,7 +688,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 });
                 // Add fund NAV to ticker
                 html += `<span class="ticker-item">
-                    <span class="ticker-symbol">VX Fund NAV</span>
+                    <span class="ticker-symbol">BF Fund NAV</span>
                     <span class="ticker-price">${liveState.nav.toFixed(4)}</span>
                     <span class="ticker-change ${liveState.dayChange >= 0 ? 'up' : 'down'}">${liveState.dayChange >= 0 ? '+' : ''}${liveState.dayChange.toFixed(2)}%</span>
                 </span>`;
@@ -699,6 +699,14 @@ document.addEventListener('DOMContentLoaded', () => {
         renderTicker();
         setInterval(renderTicker, 8000);
     }
+
+    // ── FAQ toggle ──
+    window.toggleFaq = function(btn) {
+        const item = btn.parentElement;
+        const isOpen = item.classList.contains('faq-open');
+        document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('faq-open'));
+        if (!isOpen) item.classList.add('faq-open');
+    };
 
     // ── Initialize ──
     fetchEurCzk();

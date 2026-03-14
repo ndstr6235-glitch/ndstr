@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
-    <title>Vizitka | Vertex Capital</title>
+    <title>Vizitka | BuildFund</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/qrcode-generator@1.4.4/qrcode.min.js"></script>
@@ -321,7 +321,7 @@
 
     <div class="vcard" id="vcardRoot">
         <div class="vcard-header">
-            <div class="vcard-logo">V</div>
+            <div class="vcard-logo">B</div>
             <div class="vcard-avatar" id="vcardAvatar">
                 <svg viewBox="0 0 120 120" fill="none">
                     <circle cx="60" cy="45" r="22" fill="rgba(255,255,255,0.15)"/>
@@ -329,9 +329,9 @@
                     <text x="60" y="52" text-anchor="middle" fill="rgba(255,255,255,0.6)" font-size="20" font-weight="700" font-family="Inter,sans-serif" id="vcardInitials">VC</text>
                 </svg>
             </div>
-            <h1 id="vcardName">Vertex Capital</h1>
+            <h1 id="vcardName">BuildFund</h1>
             <div class="role" id="vcardRole">Investicni fond</div>
-            <div class="company">Vertex Capital s.r.o.</div>
+            <div class="company">BuildFund s.r.o.</div>
         </div>
 
         <div class="vcard-body">
@@ -394,7 +394,7 @@
         </div>
 
         <div class="vcard-footer">
-            <p>Vertex Capital s.r.o. &mdash; <a href="https://invx10.vercel.app">invx10.vercel.app</a></p>
+            <p>BuildFund s.r.o. &mdash; <a href="https://invx10.vercel.app">invx10.vercel.app</a></p>
         </div>
     </div>
 </div>
@@ -406,28 +406,28 @@ const MEMBERS = {
         initials: 'TB',
         role: 'CEO & zakladatel',
         phone: '+420 601 234 567',
-        email: 'berger@vertexcapital.cz',
+        email: 'berger@buildfund.cz',
     },
     machova: {
         name: 'Ing. Katerina Machova',
         initials: 'KM',
         role: 'Provozni reditelka',
         phone: '+420 602 345 678',
-        email: 'machova@vertexcapital.cz',
+        email: 'machova@buildfund.cz',
     },
     vlcek: {
         name: 'JUDr. Pavel Vlcek',
         initials: 'PV',
         role: 'Pravni reditel',
         phone: '+420 603 456 789',
-        email: 'vlcek@vertexcapital.cz',
+        email: 'vlcek@buildfund.cz',
     },
     prochazka: {
         name: 'Ing. David Prochazka, MRICS',
         initials: 'DP',
         role: 'Reditel akvizic',
         phone: '+420 604 567 890',
-        email: 'prochazka@vertexcapital.cz',
+        email: 'prochazka@buildfund.cz',
     }
 };
 
@@ -443,15 +443,15 @@ if (member) {
     document.getElementById('valEmail').textContent = member.email;
     document.getElementById('rowPhone').href = 'tel:' + member.phone.replace(/\s/g, '');
     document.getElementById('rowEmail').href = 'mailto:' + member.email;
-    document.title = member.name + ' | Vertex Capital';
+    document.title = member.name + ' | BuildFund';
 } else {
-    document.getElementById('vcardName').textContent = 'Vertex Capital';
+    document.getElementById('vcardName').textContent = 'BuildFund';
     document.getElementById('vcardRole').textContent = 'Investicni fond';
     document.getElementById('vcardInitials').textContent = 'VC';
     document.getElementById('valPhone').textContent = '+420 601 000 000';
-    document.getElementById('valEmail').textContent = 'info@vertexcapital.cz';
+    document.getElementById('valEmail').textContent = 'info@buildfund.cz';
     document.getElementById('rowPhone').href = 'tel:+420601000000';
-    document.getElementById('rowEmail').href = 'mailto:info@vertexcapital.cz';
+    document.getElementById('rowEmail').href = 'mailto:info@buildfund.cz';
 }
 
 // QR Code
@@ -476,7 +476,7 @@ try {
 
 // Download VCF
 document.getElementById('btnDownloadVcf').addEventListener('click', function() {
-    const m = member || { name: 'Vertex Capital', phone: '+420601000000', email: 'info@vertexcapital.cz', role: 'Investicni fond' };
+    const m = member || { name: 'BuildFund', phone: '+420601000000', email: 'info@buildfund.cz', role: 'Investicni fond' };
     const nameParts = m.name.replace(/\s*(Ing\.|JUDr\.|Ph\.D\.|MBA|,)\s*/g, ' ').trim().split(/\s+/);
     const lastName = nameParts.pop();
     const firstName = nameParts.join(' ');
@@ -485,7 +485,7 @@ document.getElementById('btnDownloadVcf').addEventListener('click', function() {
         'VERSION:3.0',
         'N:' + lastName + ';' + firstName + ';;;',
         'FN:' + m.name,
-        'ORG:Vertex Capital s.r.o.',
+        'ORG:BuildFund s.r.o.',
         'TITLE:' + m.role,
         'TEL;TYPE=WORK,VOICE:' + m.phone.replace(/\s/g, ''),
         'EMAIL;TYPE=WORK:' + m.email,
@@ -497,7 +497,7 @@ document.getElementById('btnDownloadVcf').addEventListener('click', function() {
     const url = URL.createObjectURL(blob);
     const a = document.createElement('a');
     a.href = url;
-    a.download = (memberId || 'vertex-capital') + '.vcf';
+    a.download = (memberId || 'buildfund') + '.vcf';
     a.click();
     URL.revokeObjectURL(url);
 });
@@ -506,7 +506,7 @@ document.getElementById('btnDownloadVcf').addEventListener('click', function() {
 document.getElementById('btnShare').addEventListener('click', function() {
     if (navigator.share) {
         navigator.share({
-            title: (member ? member.name : 'Vertex Capital') + ' | Vizitka',
+            title: (member ? member.name : 'BuildFund') + ' | Vizitka',
             url: window.location.href
         });
     } else {
