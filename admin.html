@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BuildFund | Admin Panel</title>
+    <title>ECG Build | Admin Panel</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/qrcode-generator@1.4.4/qrcode.min.js"></script>
@@ -394,6 +394,94 @@
         .team-qr-link { display: inline-block; font-size: 12px; color: var(--accent); text-decoration: none; font-weight: 500; }
         .team-qr-link:hover { text-decoration: underline; }
 
+        /* ── AI Generator ── */
+        .btn-ai {
+            background: linear-gradient(135deg, #6366f1, #8b5cf6);
+            color: #fff; border: none; padding: 8px 16px;
+            border-radius: var(--radius-sm); font-size: 13px;
+            font-weight: 600; cursor: pointer; font-family: inherit;
+            display: inline-flex; align-items: center; gap: 6px;
+            transition: all var(--transition); margin-top: 8px; width: 100%;
+            justify-content: center;
+        }
+        .btn-ai:hover { opacity: 0.9; transform: translateY(-1px); }
+        .btn-ai svg { width: 16px; height: 16px; }
+
+        .ai-modal-overlay {
+            position: fixed; inset: 0; z-index: 2000;
+            background: rgba(0,0,0,0.5); backdrop-filter: blur(4px);
+            display: flex; align-items: center; justify-content: center;
+            opacity: 0; pointer-events: none; transition: opacity 0.2s ease;
+        }
+        .ai-modal-overlay.visible { opacity: 1; pointer-events: all; }
+        .ai-modal {
+            background: #fff; border-radius: 16px; padding: 32px;
+            width: 100%; max-width: 640px; max-height: 85vh; overflow-y: auto;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+            transform: translateY(20px); transition: transform 0.2s ease;
+        }
+        .ai-modal-overlay.visible .ai-modal { transform: translateY(0); }
+        .ai-modal h2 {
+            font-size: 20px; font-weight: 700; margin-bottom: 4px;
+            display: flex; align-items: center; gap: 10px;
+        }
+        .ai-modal h2 .ai-badge {
+            background: linear-gradient(135deg, #6366f1, #8b5cf6);
+            color: #fff; font-size: 10px; padding: 3px 8px; border-radius: 4px;
+            font-weight: 600; letter-spacing: 0.5px;
+        }
+        .ai-modal .ai-sub { color: var(--text-muted); font-size: 14px; margin-bottom: 24px; }
+        .ai-modal .ai-section { margin-bottom: 20px; }
+        .ai-modal .ai-section-title {
+            font-size: 13px; font-weight: 600; color: var(--text);
+            margin-bottom: 8px; text-transform: uppercase; letter-spacing: 0.5px;
+        }
+        .ai-check-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+        .ai-check-item {
+            display: flex; align-items: center; gap: 8px; padding: 8px 12px;
+            border: 1px solid var(--border); border-radius: var(--radius-sm);
+            cursor: pointer; transition: all var(--transition);
+        }
+        .ai-check-item:hover { border-color: #8b5cf6; background: #f5f3ff; }
+        .ai-check-item input { accent-color: #6366f1; }
+        .ai-check-item label { font-size: 13px; cursor: pointer; flex: 1; }
+        .ai-tone-select {
+            width: 100%; padding: 10px 14px; border: 1px solid var(--border);
+            border-radius: var(--radius-sm); font-size: 14px; font-family: inherit;
+            outline: none; cursor: pointer;
+        }
+        .ai-tone-select:focus { border-color: #8b5cf6; }
+        .ai-preview {
+            background: #f8f9fb; border: 1px solid var(--border);
+            border-radius: var(--radius-sm); padding: 16px;
+            font-size: 13px; line-height: 1.7; max-height: 300px; overflow-y: auto;
+            display: none; margin-top: 16px;
+        }
+        .ai-preview.visible { display: block; }
+        .ai-preview h4 { font-size: 12px; text-transform: uppercase; letter-spacing: 0.5px; color: var(--text-muted); margin: 12px 0 6px; }
+        .ai-preview h4:first-child { margin-top: 0; }
+        .ai-preview p { margin-bottom: 8px; }
+        .ai-preview .ai-tag { display: inline-block; background: #e0e7ff; color: #4338ca; padding: 2px 8px; border-radius: 4px; font-size: 12px; margin: 2px; }
+        .ai-preview .ai-proj { padding: 8px 12px; background: #fff; border: 1px solid var(--border); border-radius: 6px; margin-bottom: 6px; }
+        .ai-btn-row { display: flex; gap: 10px; margin-top: 24px; }
+        .btn-generate {
+            background: linear-gradient(135deg, #6366f1, #8b5cf6);
+            color: #fff; border: none; padding: 12px 24px;
+            border-radius: var(--radius-sm); font-size: 14px; font-weight: 600;
+            cursor: pointer; font-family: inherit; flex: 1;
+            transition: all var(--transition);
+        }
+        .btn-generate:hover { opacity: 0.9; }
+        .btn-generate:disabled { opacity: 0.5; cursor: not-allowed; }
+        .btn-apply-ai {
+            background: var(--success); color: #fff; border: none;
+            padding: 12px 24px; border-radius: var(--radius-sm); font-size: 14px;
+            font-weight: 600; cursor: pointer; font-family: inherit;
+            display: none; transition: all var(--transition);
+        }
+        .btn-apply-ai.visible { display: inline-flex; }
+        .btn-apply-ai:hover { opacity: 0.9; }
+
         /* ── Pillar Cards ── */
         .pillar-card {
             border: 1px solid var(--border); border-radius: var(--radius);
@@ -509,8 +597,8 @@
      ════════════════════════════════════════════════════════════════ -->
 <div class="login-overlay" id="loginOverlay">
     <div class="login-box">
-        <div class="login-logo">B</div>
-        <h1>BuildFund</h1>
+        <div class="login-logo">E</div>
+        <h1>ECG Build</h1>
         <p class="login-sub">Administracni panel</p>
         <form id="loginForm">
             <input type="password" id="loginPassword" placeholder="Zadejte heslo" autocomplete="off" autofocus>
@@ -528,9 +616,9 @@
     <!-- ── Sidebar ── -->
     <aside class="sidebar">
         <div class="sidebar-header">
-            <div class="sidebar-logo">B</div>
+            <div class="sidebar-logo">E</div>
             <div class="sidebar-brand">
-                Build<strong>Fund</strong>
+                ECG <strong>Build</strong>
                 <small>Admin Panel</small>
             </div>
         </div>
@@ -585,7 +673,7 @@
         <div class="admin-section active" id="section-dashboard">
             <div class="content-header">
                 <h1>Dashboard</h1>
-                <p>Prehled administrace BuildFund webu</p>
+                <p>Prehled administrace ECG Build webu</p>
             </div>
 
             <div class="stats-grid">
@@ -666,7 +754,7 @@
                 <div class="card-title">Sekce O spolecnosti</div>
                 <div class="form-group">
                     <label>Popis spolecnosti</label>
-                    <textarea id="about_desc" rows="4" placeholder="BuildFund vznikl z presvedceni, ze nejlepsi investice..."></textarea>
+                    <textarea id="about_desc" rows="4" placeholder="ECG Build vznikl z presvedceni, ze nejlepsi investice..."></textarea>
                 </div>
             </div>
 
@@ -674,7 +762,7 @@
                 <div class="card-title">Sekce Fond</div>
                 <div class="form-group">
                     <label>Popis fondu</label>
-                    <textarea id="fund_desc" rows="4" placeholder="Investicni strategie BuildFund je postavena na trech pilirech..."></textarea>
+                    <textarea id="fund_desc" rows="4" placeholder="Investicni strategie ECG Build je postavena na trech pilirech..."></textarea>
                 </div>
             </div>
 
@@ -982,7 +1070,7 @@
                 <div class="form-grid">
                     <div class="form-group full">
                         <label>Adresa <span class="label-hint">(pouzijte | pro zalomeni radku)</span></label>
-                        <input type="text" id="contact_address" placeholder="Vinohradska 2396/184|130 00 Praha 3">
+                        <input type="text" id="contact_address" placeholder="Namesti 14. rijna 1307/2|150 00 Praha 5 - Smichov">
                     </div>
                     <div class="form-group">
                         <label>Telefon</label>
@@ -990,7 +1078,7 @@
                     </div>
                     <div class="form-group">
                         <label>E-mail</label>
-                        <input type="email" id="contact_email" placeholder="invest@buildfund.cz">
+                        <input type="email" id="contact_email" placeholder="invest@ecgbuild.cz">
                     </div>
                     <div class="form-group full">
                         <label>Uredni hodiny</label>
@@ -1062,6 +1150,53 @@
     </main>
 </div>
 
+<!-- ── AI Profile Generator Modal ── -->
+<div class="ai-modal-overlay" id="aiModal">
+    <div class="ai-modal">
+        <h2>Generovat profil <span class="ai-badge">AI</span></h2>
+        <p class="ai-sub" id="aiModalSub">Generovani profilu pro --</p>
+
+        <div class="ai-section">
+            <div class="ai-section-title">Co generovat</div>
+            <div class="ai-check-grid">
+                <div class="ai-check-item">
+                    <input type="checkbox" id="aiGenBio" checked>
+                    <label for="aiGenBio">Bio / zivotopis</label>
+                </div>
+                <div class="ai-check-item">
+                    <input type="checkbox" id="aiGenExpertise" checked>
+                    <label for="aiGenExpertise">Odborne zamereni</label>
+                </div>
+                <div class="ai-check-item">
+                    <input type="checkbox" id="aiGenProjects" checked>
+                    <label for="aiGenProjects">Projekty</label>
+                </div>
+                <div class="ai-check-item">
+                    <input type="checkbox" id="aiGenTimeline" checked>
+                    <label for="aiGenTimeline">Popis kariery</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="ai-section">
+            <div class="ai-section-title">Ton</div>
+            <select class="ai-tone-select" id="aiTone">
+                <option value="professional">Profesionalni — formalni, fakticke</option>
+                <option value="human" selected>Lidske — autenticke, konkretni detaily</option>
+                <option value="storytelling">Vypravecke — pribehy, anekdoty</option>
+            </select>
+        </div>
+
+        <div class="ai-preview" id="aiPreview"></div>
+
+        <div class="ai-btn-row">
+            <button class="btn btn-secondary" onclick="closeAiModal()">Zrusit</button>
+            <button class="btn-generate" id="aiGenerateBtn" onclick="runAiGenerate()">Generovat</button>
+            <button class="btn-apply-ai" id="aiApplyBtn" onclick="applyAiResult()">Pouzit v profilu</button>
+        </div>
+    </div>
+</div>
+
 <!-- ── Toast ── -->
 <div class="toast" id="toast"></div>
 
@@ -1072,9 +1207,9 @@
 (function() {
     'use strict';
 
-    const STORAGE_KEY = 'bf_admin_config';
-    const PASSWORD = 'buildfund2026';
-    const SESSION_KEY = 'bf_admin_auth';
+    const STORAGE_KEY = 'ecg_admin_config';
+    const PASSWORD = 'ecgbuild2026';
+    const SESSION_KEY = 'ecg_admin_auth';
 
     // ── Default configuration ──
     const DEFAULT_CONFIG = {
@@ -1083,8 +1218,8 @@
             hero_badge: 'Fond kvalifikovanych investoru',
             hero_title: 'Investujte do <span class="text-gradient">realne hodnoty</span>',
             hero_subtitle: 'Propojujeme svet financi a stavebnictvi. Vas kapital pracuje v nemovitostnim developmentu, facility managementu a integrovanich sluzbach - v oborech, kterym rozumime z vlastni praxe.',
-            about_desc: 'BuildFund vznikl z presvedceni, ze nejlepsi investice jsou ty, kterym rozumite. Nasi zakladatele stravili dve desetileti ve stavebnictvi, developmentu a facility managementu.',
-            fund_desc: 'Investicni strategie BuildFund je postavena na trech pilirech, ktere vychazi z nasi praxe ve stavebnictvi a facility managementu.'
+            about_desc: 'ECG Build vznikl z presvedceni, ze nejlepsi investice jsou ty, kterym rozumite. Nasi zakladatele stravili dve desetileti ve stavebnictvi, developmentu a facility managementu.',
+            fund_desc: 'Investicni strategie ECG Build je postavena na trech pilirech, ktere vychazi z nasi praxe ve stavebnictvi a facility managementu.'
         },
         pillars: [
             {
@@ -1142,7 +1277,10 @@
             { initials: 'TB', profileKey: 'berger', name: 'Ing. Tomas Berger, MBA', role: 'CEO & zakladatel', bio: '18 let ve stavebnictvi a developmentu. Driv ridici pozice ve Skanska a Metrostav. Realizoval projekty v hodnote pres 2 mld. CZK.' },
             { initials: 'KM', profileKey: 'machova', name: 'Ing. Katerina Machova', role: 'Provozni reditelka', bio: '14 let v oblasti facility managementu a outsourcingu. Driv na vedoucich pozicich ve spolecnostech ISS a Sodexo.' },
             { initials: 'PV', profileKey: 'vlcek', name: 'JUDr. Pavel Vlcek', role: 'Pravni reditel', bio: '16 let praxe ve stavebnim a realitnim pravu. Driv partner v Havel & Partners. Specializace na developerske projekty.' },
-            { initials: 'DP', profileKey: 'prochazka', name: 'Ing. David Prochazka, MRICS', role: 'Reditel akvizic', bio: '12 let v akvizicich nemovitosti a asset managementu. Driv Penta Real Estate a CTP. Certifikace RICS.' }
+            { initials: 'DP', profileKey: 'prochazka', name: 'Ing. David Prochazka, MRICS', role: 'Reditel akvizic', bio: '12 let v akvizicich nemovitosti a asset managementu. Driv Penta Real Estate a CTP. Certifikace RICS.' },
+            { initials: 'LD', profileKey: 'dvorakova', name: 'Ing. Lucie Dvorakova', role: 'Financni reditelka', bio: '11 let ve financnim rizeni a controllingu. Driv KPMG a Trigema. Specializace na financovani developerskych projektu a reporting investorum.' },
+            { initials: 'MH', profileKey: 'horak', name: 'Mgr. Martin Horak', role: 'Reditel investicnich vztahu', bio: '9 let v private bankingu a sprave kapitalu. Driv J&T Banka a Ceska sporitelna Private Banking. Ziskal pro fond 18 z 24 soucasnych investoru.' },
+            { initials: 'TK', profileKey: 'koubova', name: 'Ing. Tereza Koubova', role: 'Obchodni reditelka', bio: '8 let v komercnich nemovitostech a business developmentu. Driv Cushman & Wakefield a CBRE. Zajistuje najemce a obchodni partnerstvi pro portfolio.' }
         ],
         market: {
             refresh_interval: 60,
@@ -1158,9 +1296,9 @@
             ]
         },
         contact: {
-            address: 'Vinohradska 2396/184|130 00 Praha 3',
+            address: 'Namesti 14. rijna 1307/2|150 00 Praha 5 - Smichov',
             phone: '+420 734 445 666',
-            email: 'invest@buildfund.cz',
+            email: 'invest@ecgbuild.cz',
             hours: 'Po - Pt: 9:00 - 17:00'
         },
         settings: {
@@ -1258,8 +1396,8 @@
     window.resetAll = function() {
         if (!confirm('Opravdu chcete smazat VESKEROU konfiguraci? Tato akce je nevratna!')) return;
         localStorage.removeItem(STORAGE_KEY);
-        localStorage.removeItem('bf_investor_dismissed');
-        localStorage.removeItem('bf_cookie_consent');
+        localStorage.removeItem('ecg_investor_dismissed');
+        localStorage.removeItem('ecg_cookie_consent');
         config = JSON.parse(JSON.stringify(DEFAULT_CONFIG));
         populateAllForms();
         refreshDashboard();
@@ -1444,7 +1582,7 @@
     }
 
     // ── Team Cards ──
-    const PROFILE_KEYS = { 'TB': 'berger', 'KM': 'machova', 'PV': 'vlcek', 'DP': 'prochazka' };
+    const PROFILE_KEYS = { 'TB': 'berger', 'KM': 'machova', 'PV': 'vlcek', 'DP': 'prochazka', 'LD': 'dvorakova', 'MH': 'horak', 'TK': 'koubova' };
 
     function buildTeamCards() {
         const grid = document.getElementById('teamGrid');
@@ -1463,6 +1601,7 @@
             html += '<div class="form-group"><label>Jmeno</label><input type="text" id="team_' + i + '_name" value="' + escAttr(member.name) + '"></div>';
             html += '<div class="form-group"><label>Role</label><input type="text" id="team_' + i + '_role" value="' + escAttr(member.role) + '"></div>';
             html += '<div class="form-group"><label>Bio</label><textarea id="team_' + i + '_bio" rows="3">' + escHtml(member.bio) + '</textarea></div>';
+            html += '<button class="btn-ai" onclick="openAiModal(' + i + ')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg> Generovat profil (AI)</button>';
             html += '<div class="team-qr-section">';
             html += '<div class="team-qr-row">';
             html += '<div class="team-qr-item"><label>QR — Profil</label><div class="team-qr-box" id="teamQrProfile_' + i + '"></div><a href="' + escAttr(profileUrl) + '" target="_blank" class="team-qr-link">Otevrit profil</a></div>';
@@ -1715,6 +1854,427 @@
         if (!str && str !== 0) return '';
         return String(str).replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
     }
+
+    // ══════════════════════════════════════════════════
+    //  AI PROFILE GENERATOR
+    // ══════════════════════════════════════════════════
+
+    let aiCurrentMemberIndex = -1;
+    let aiGeneratedData = null;
+
+    // ECG Build project database for contextual generation
+    const BF_PROJECTS = [
+        { name: 'Ubytovaci komplex Kraslice', value: '45 mil. CZK', type: 'ubytovani', status: 'Dokonceno 2019', detail: 'Rekonstrukce brownfieldu, obsazenost 96%' },
+        { name: 'Rezidencni areal Kladno-Dubi', value: '62 mil. CZK', type: 'rezidencni', status: 'Dokonceno 2021', detail: '100+ ubytovacich mist, 30+ parkovacich' },
+        { name: 'Kancelarske prostory Smichov', value: '85 mil. CZK', type: 'komercni', status: 'V realizaci', detail: '2 500 m² kancelari' },
+        { name: 'Skladovy prostor Plzen', value: '38 mil. CZK', type: 'logisticky', status: 'V provozu', detail: '4 000 m², obsazenost 96%' },
+        { name: 'FM kontrakt Tabor', value: '14 mil. CZK/rok', type: 'FM', status: 'Aktivni', detail: '18 zamestnancu, 3 objekty' },
+        { name: 'Bytovy dum Brno-Lisen', value: '52 mil. CZK', type: 'rezidencni', status: 'V priprave', detail: '18 jednotek, brownfield konverze' }
+    ];
+
+    // Role-specific templates for realistic generation
+    const ROLE_TEMPLATES = {
+        berger: {
+            expertise_pool: [
+                'Rizeni stavebních projektu', 'Developerske akvizice', 'Financni modelovani',
+                'Investorske vztahy', 'Brownfield revitalizace', 'Strategicke planovani',
+                'Rizeni portfolia nemovitosti', 'Business development', 'Jednani s bankami',
+                'Rizeni subdodavatelu', 'Stavebni dozor', 'Due diligence'
+            ],
+            project_roles: ['Vedeni projektu', 'Koordinace rekonstrukce', 'Akvizice pozemku', 'Jednani se stavebnim uradem', 'Vyber objektu', 'Cenove vyjednavani', 'Investorska prezentace', 'Rizeni cash-flow'],
+            bio_fragments: {
+                professional: [
+                    'Tomas Berger je zakladatelem a generalnim reditelem ECG Build. Ve stavebnictvi pusobi od roku 2005.',
+                    'Pred zalozenim fondu ziskal rozsahle zkusenosti ve Skanska (2005-2014) a Metrostavu (2014-2016).',
+                    'Pod jeho vedenim fond spravuje portfolio v hodnote 280 mil. CZK s prumernym rocnim vynosem 7.4%.'
+                ],
+                human: [
+                    'Tomas Berger zacinall jako stavbyvedouci na zateplovani paneloveho domu na Praze 13. Dnes ridi fond s portfoliem za 280 milionu.',
+                    'Ve Skanska stravil devet let — od malesich staveb az po velke komercni zakazky. V Metrostavu pak ridil komercni development a pochopil, jak pomalu korporace rozhoduji o investicich.',
+                    'V roce 2017 zalozil ECG Build s sesti investory z okruhu byvalych kolegu. Dnes ma fond 24 investoru a pct projektu v ruznych fazich.'
+                ],
+                storytelling: [
+                    'Kdyz Tomas Berger v roce 2005 nastoupil na svou prvni stavbu — zatepleni panelaku na Praze 13 — nemell tuseni, ze o dvanact let pozdeji bude ridit vlastni investicni fond.',
+                    'Devet let ve Skanska ho naucilo ridit stavby. Dva roky v Metrostavu ho naucily ridit penize. A frustrace z korporatni byrokracie ho privedla k napadu: co kdybych to udelal po svem?',
+                    'Na jare 2017 obvolal sest byvalych kolegu a partneru. Rekl jim: "Mam pozemek, mam zkusenosti, potrebuju kapital." Vsech sest reklo ano. Tak vznikl ECG Build.'
+                ]
+            }
+        },
+        machova: {
+            expertise_pool: [
+                'Facility management', 'Outsourcing a personalistika', 'Energeticky management',
+                'Rozpoctovani provoznich nakladu', 'Koordinace uklidovych tymu', 'Udrzba nemovitosti',
+                'Rizeni dodavatelskych retezcu', 'BREEAM certifikace', 'ISO standardy',
+                'Sprava komercnich objektu', 'Planovani smenovych provozu', 'KPI management'
+            ],
+            project_roles: ['Nastaveni FM spravy', 'Rizeni provozu', 'Organizace spravy ubytovani', 'Vyber dodavatelu', 'Koordinace uklidovych sluzeb', 'Energeticky audit', 'Personalni zajisteni', 'Optimalizace nakladu'],
+            bio_fragments: {
+                professional: [
+                    'Katerina Machova ridi veskerou provozni cinnost ECG Build, vcetne facility managementu vsech projektu v portfoliu.',
+                    'Pred nastupem do ECG Build stravila 11 let v predních FM spolecnostech — ISS Facility Services a Sodexo.',
+                    'Pod jejim vedenim dosahla interni FM sprava uspory 15% oproti externim dodavatelum.'
+                ],
+                human: [
+                    'Katerina Machova ridi veskerou provozni cinnost fondu — od uklidovych cet v Kraslicich az po smlouvy s dodavateli energii na Smichove.',
+                    'Zacinala v ISS jako koordinatorka smem, propracovala se na regionalni reditelku se 40+ objekty. V Sodexo pak ridila integrovane sluzby pro banky a pojistovny.',
+                    'Jeji prace neni videt na webu, ale bez ni by zadny projekt fondu negeneroval prijem. Ridi 18 lidi v Tabore a koordinuje spravu vsech peti projektu.'
+                ],
+                storytelling: [
+                    'Kdyz se v roce 2017 pripojila k Bergerovi, prvni vec, kterou udelala, bylo najit levnejsiho dodavatele cisticiho prostredku pro Kraslice. Uspora: 23 tisic rocne. Maly zacatek, ale presne tak funguje.',
+                    'V ISS se naucila, ze dobry FM neni o luxusnim vybaveni, ale o tom, ze kdyz v 6 rano dorazite do kancelare, vsechno funguje. Ve 22 hodin funguje taky.',
+                    'Dnes ridi 18 lidi, tri objekty v Tabore a koordinuje spravu celeho portfolia. A porad osobne kontroluje, jestli dodavatel uklidu dodrzuje smlouvu.'
+                ]
+            }
+        },
+        vlcek: {
+            expertise_pool: [
+                'Realitni pravo', 'Stavebni povoleni a uzemni planovani', 'Investicni smlouvy',
+                'Due diligence nemovitosti', 'Korporatni compliance', 'Dluhopisove programy',
+                'Najemni smlouvy', 'Smlouvy o dilo', 'Katastralní pravo',
+                'GDPR a ochrana dat', 'AML compliance', 'Regulatorni zaklady fondu'
+            ],
+            project_roles: ['Pravni strukturace', 'Kupni smlouva', 'Stavebni povoleni', 'Najemni smlouvy', 'Due diligence', 'Jednani s mestskou casti', 'Priprava prospektu', 'Kolaudacni rizeni'],
+            bio_fragments: {
+                professional: [
+                    'Pavel Vlcek ma na starosti kompletni pravni zajisteni fondu — od smluv s investory pres kupni smlouvy az po stavebni povoleni.',
+                    'Pred ECG Build pusobil v predních advokacnich kancelarich: BBH, Linklaters a Havel & Partners, kde se specializoval na realitni pravo.',
+                    'Je autorem pravni struktury fondu vcetne dluhopisoveho programu Harmonie.'
+                ],
+                human: [
+                    'Pavel Vlcek ma na starosti vsechno, co souvisi s pravem — smlouvy s investory, kupni smlouvy na nemovitosti, stavebni povoleni, najemni smlouvy, compliance.',
+                    'Zacinall v BBH jako koncipient — psal kupni smlouvy na byty. V Linklaters delal due diligence pro zahranicni investory. V Havel & Partners uz ridil pravni zajisteni celych developerckych projektu.',
+                    'S Bergerem se zna z doby, kdy mu delal pravni servis pres Havel & Partners. Kdyz Berger rikal, ze chce zalozit fond, Vlcek rekl: "Tak ja ti napisu statut."'
+                ],
+                storytelling: [
+                    'Prvni smlouva, kterou Pavel Vlcek napsal pro ECG Build, mela 47 stran. Dnes by ji napsal na 12. Rika, ze to neni o tom psat mene — je to o tom vedet, co je dulezite.',
+                    'V Linklaters se naucil cist katastr nemovitosti rychleji nez vetSina lidi cte noviny. V Havel & Partners pochopil, ze nejlepsi smlouva je ta, kterou nikdy nemusite pouzit u soudu.',
+                    'Kdyz Berger v 2016 rekl "chci zalozit fond", Vlcek si sedl a behem vikendu napsal prvni verzi statutu. V pondeli ji mail na stole. To je Vlcek — rychly, presny, spolehlivy.'
+                ]
+            }
+        },
+        prochazka: {
+            expertise_pool: [
+                'Ocenovani nemovitosti', 'Akvizicni vyjednavani', 'Due diligence',
+                'Analyza lokalit a trhu', 'Financovani a bankovni jednani', 'Cenove modelovani',
+                'Brownfield identifikace', 'Regionalni analyzy', 'Jednani s municipalitami',
+                'Trzni pruzkumy', 'Investicni analyza', 'Portfolio management'
+            ],
+            project_roles: ['Vyhledani objektu', 'Cenove vyjednavani', 'Due diligence', 'Analyza trhu', 'Identifikace objektu', 'Akvizice', 'Pruzkum lokality', 'Jednani s mestskou casti'],
+            bio_fragments: {
+                professional: [
+                    'David Prochazka vede akvizicni cinnost fondu a zodpovida za vyhledavani a vyhodnocovani investicnich prilezitosti.',
+                    'Pred ECG Build pusobil v Colliers International, Penta Real Estate a CTP Invest, kde ziskal rozsahle zkusenosti s akvizicemi nemovitosti.',
+                    'Pro fond zajistil akvizice v celkovem objemu presahujicim 180 mil. CZK.'
+                ],
+                human: [
+                    'David Prochazka travi hodne casu v aute — jezdi po regionech, prochazi opustene arealy, jedna se starosty a majiteli pozemku.',
+                    'Zacinall jako analytik v Colliers, kde se naucil cist trh. V Penta Real Estate pak aktivne kupoval pozemky pro rezidencni projekty — za 4 roky za 1.5 miliardy.',
+                    'V CTP pochopil, ze prave mensi mesta nabizeji nejlepsi pomer ceny a potencialu. Tento pristup si prinesl do ECG Build, kam nastoupil v roce 2019.'
+                ],
+                storytelling: [
+                    'Kdyz David Prochazka v roce 2019 prisel do ECG Build, prvni tyden stravil v aute. Projel Karlovarsko, Kladensko, Plzensko. Hledal nemovitosti, ktere jeste nikdo nevyhlizí.',
+                    'V Colliers se naucil cist trh. V Penta se naucil vyjednavat. V CTP pochopil, ze nejlepsi dealy se nedejou v Praze. A v ECG Build to vsechno spojil dohromady.',
+                    'Vetsinu svych dealu najde driv, nez se dostanou na verejny trh. Rika, ze tajemstvi je jednoduche: "Proste tam musite byt. Proste musíte mluvit s lidmi."'
+                ]
+            }
+        },
+        dvorakova: {
+            expertise_pool: [
+                'Financni controlling', 'Investorsky reporting', 'Bankovni financovani',
+                'Danove planovani', 'Cash-flow management', 'Ucetni audit',
+                'Financni modelovani', 'Rizeni treasury', 'Compliance a regulace',
+                'Konsolidovana uzaverka', 'Dluhopisova emise', 'Rozpoctovani projektu'
+            ],
+            project_roles: ['Financni model', 'Vyjednavani uverove linky', 'Controlling', 'Optimalizace nakladu', 'Reporting investorum', 'Cash-flow planovani', 'Emise dluhopisu', 'Danove planovani'],
+            bio_fragments: {
+                professional: [
+                    'Lucie Dvorakova zodpovida za kompletni financni rizeni fondu vcetne reportingu, controllingu a bankovniho financovani.',
+                    'Pred nastupem do ECG Build ziskala zkusenosti v KPMG (2011-2015) a Trigema (2015-2020), kde ridila financni planovani rezidencnich projektu.',
+                    'Pod jejim vedenim fond zavedl online investorsky dashboard a systematicky controlling, ktery snizil provozni naklady o 8%.'
+                ],
+                human: [
+                    'Lucie Dvorakova ma na starosti vsechno, co se tyce cisel — od mesicniho reportingu investorum pres danove optimalizace az po vyjednavani uveru s bankami.',
+                    'V KPMG se naucila cist ucetni zaverky tak, ze na prvni pohled vidi, kde firma sika cisla. V Trigeme pak pet let ridila cash-flow projektu v radu stovek milionu.',
+                    'Do ECG Build prisla v roce 2020. Prvni vec, kterou udelala, bylo zavest poradny mesicni reporting. Predtim investori dostavali kvartalni shrnuti na jednu A4. Dnes maji online dashboard.'
+                ],
+                storytelling: [
+                    'Kdyz Lucie v roce 2020 nastoupila do ECG Build, pozadala Bergera o pristup k financnim datum. Dostal email s dvema excelovy soubory. To bylo vsechno. Za mesic mela hotovy dashboard.',
+                    'V KPMG auditovala stavebni firmy a naucila se jednu vec: cisla nikdy nelhou, ale nekdy se schvalne neukazuji ta spravna. V Trigeme se naucila ta spravna cisla pouzivat.',
+                    'Investori ji maji radi, protoze jim odpoví na dotaz do 24 hodin. A protoze jim nikdy nic neprikrashuje — kdyz cisla nejsou dobra, rekne to na rovinu.'
+                ]
+            }
+        },
+        horak: {
+            expertise_pool: [
+                'Private banking', 'Investor relations', 'Capital raising',
+                'Prezentace a pitching', 'Wealth management', 'KYC/AML compliance',
+                'Portfolio poradenstvi', 'Alternativni investice', 'Fundraising',
+                'Networking a events', 'CRM a klientsky servis', 'Due diligence investoru'
+            ],
+            project_roles: ['Distribuce', 'Komunikace s investory', 'Roadshow', 'Akvizice investoru', 'Networking', 'Investorske prezentace', 'Onboarding investoru', 'Ctvrtletni reporting'],
+            bio_fragments: {
+                professional: [
+                    'Martin Horak zodpovida za spravu vztahu s investory fondu a akvizici noveho kapitalu.',
+                    'Pred nastupem do ECG Build pusobil v J&T Banka a Ceske sporitelne Private Banking, kde spravoval portfolia HNW klientu.',
+                    'Za tri roky ve fondu ziskal 13 novych investoru a zvysil spravovany kapital o 150 mil. CZK.'
+                ],
+                human: [
+                    'Martin Horak ma jednu ulohu — starat se o investory a privadet nove. Neni to o agresivnim prodeji — je to o duvere.',
+                    'V Ceske sporitelne se naucil, ze lide nedavaji penize do produktu, ale lidem, kterym veri. V J&T pak ctyri roky ridil private equity investice pro bohaté klienty.',
+                    'Do ECG Build prisel v 2021, kdyz fond mel 11 investoru. Dnes jich ma 24. Vetsina prisla na doporuceni tech, kteri uz ve fondu jsou.'
+                ],
+                storytelling: [
+                    'Prvni investor, ktereho Martin pro fond ziskal, byl majitel stavebniny z Plzne. Udelal si s nim schuzku v restauraci, ukazal mu fotky Kraslic pred a po. Deal byl hotovy pred dezertem.',
+                    'V J&T se naucil prodavat investice za desitky milionu. V ECG Build se naucil neco tezsiho — prodavat pribehy. Protoze lide neinvestuji do cisel. Investuji do lidi.',
+                    'Zavedl ctvrtletni investorske snidane, kde Berger osobne prezentuje vysledky. Ucast: pres 80%. Rika, ze to neni marketing — je to vztah.'
+                ]
+            }
+        },
+        koubova: {
+            expertise_pool: [
+                'Komercni leasing', 'Najemni vyjednavani', 'Business development',
+                'Trzni analyza nemovitosti', 'Relationship management', 'Regionalni partnerstvi',
+                'Pre-leasing', 'Tenant representation', 'Korporatni vyjednavani',
+                'Pipeline management', 'Cenove strategie', 'Komercni due diligence'
+            ],
+            project_roles: ['Vyhledani najemcu', 'Vyjednavani smluv', 'Pre-leasing', 'Jednani s korporaty', 'Obchodni rozsireni', 'Akvizice klientu', 'Regionalni partnerstvi', 'Trzni analyza'],
+            bio_fragments: {
+                professional: [
+                    'Tereza Koubova zodpovida za obchodni cinnost fondu — zajisteni najemcu, vyjednavani najemnich smluv a rozvoj obchodnich partnerstvi.',
+                    'Pred ECG Build pusobila v CBRE a Cushman & Wakefield, kde se specializovala na komercni leasing prumyslovych a logistickych nemovitosti.',
+                    'Pro fond zajistila obsazenost portfolia nad 95% a celkovy objem pronajatych ploch presahujici 12 000 m².'
+                ],
+                human: [
+                    'Tereza Koubova zajistuje, ze nemovitosti fondu maji najemce a generuji prijem. Bez ni by fond mel hezke budovy, ale prazdne.',
+                    'V CBRE tri roky hledala najemce do kancelari a logistickych parku. V Cushman & Wakefield pak ridila leasing v regionech — presne ty lokality, kde ECG Build pusobi.',
+                    'Do fondu prisla v 2022 na Prochazkovo doporuceni. Prvni uloha: najit najemce pro sklad v Plzni. Za dva mesice mela tri smlouvy a obsazenost 96%.'
+                ],
+                storytelling: [
+                    'Prvni tyden ve fondu si Tereza vzala auto a objela vsechny projekty. Na kazdem si udelala seznam: co chybi, co lze zlepsit, koho by to mohlo zajimat. Za mesic mela tri nove najemce.',
+                    'V CBRE ji naucili cist trh. V Cushman ji naucili vyjednavat. V ECG Build spojila oboje — a pridala to, co velke firmy nemaji: osobni pristup a znalost regionu.',
+                    'Rika, ze nejlepsi obchodni strategie je jednoducha: "Zavolejte, setkejte se, a ukazte jim, proc je tohle lepsi nez to, co maji ted." Funguje to.'
+                ]
+            }
+        }
+    };
+
+    window.openAiModal = function(memberIndex) {
+        aiCurrentMemberIndex = memberIndex;
+        aiGeneratedData = null;
+        const member = config.team[memberIndex];
+        document.getElementById('aiModalSub').textContent = 'Generovani profilu pro ' + (member.name || 'Clen tymu');
+        document.getElementById('aiPreview').className = 'ai-preview';
+        document.getElementById('aiPreview').innerHTML = '';
+        document.getElementById('aiApplyBtn').className = 'btn-apply-ai';
+        document.getElementById('aiGenerateBtn').disabled = false;
+        document.getElementById('aiGenerateBtn').textContent = 'Generovat';
+        document.getElementById('aiModal').classList.add('visible');
+    };
+
+    window.closeAiModal = function() {
+        document.getElementById('aiModal').classList.remove('visible');
+        aiCurrentMemberIndex = -1;
+        aiGeneratedData = null;
+    };
+
+    // Close on overlay click
+    document.getElementById('aiModal').addEventListener('click', function(e) {
+        if (e.target === this) closeAiModal();
+    });
+
+    window.runAiGenerate = function() {
+        const member = config.team[aiCurrentMemberIndex];
+        const profileKey = member.profileKey || PROFILE_KEYS[member.initials] || 'berger';
+        const tone = document.getElementById('aiTone').value;
+        const genBio = document.getElementById('aiGenBio').checked;
+        const genExpertise = document.getElementById('aiGenExpertise').checked;
+        const genProjects = document.getElementById('aiGenProjects').checked;
+        const genTimeline = document.getElementById('aiGenTimeline').checked;
+
+        if (!genBio && !genExpertise && !genProjects && !genTimeline) {
+            showToast('Vyberte alespon jednu sekci k generovani.', 'error');
+            return;
+        }
+
+        const btn = document.getElementById('aiGenerateBtn');
+        btn.disabled = true;
+        btn.textContent = 'Generuji...';
+
+        // Simulate AI processing delay for realism
+        setTimeout(function() {
+            const template = ROLE_TEMPLATES[profileKey] || ROLE_TEMPLATES.berger;
+            aiGeneratedData = {};
+
+            // Generate bio
+            if (genBio) {
+                const fragments = template.bio_fragments[tone] || template.bio_fragments.human;
+                aiGeneratedData.bio = fragments.join(' ');
+            }
+
+            // Generate expertise (pick 5-6 from pool, shuffled)
+            if (genExpertise) {
+                const pool = [...template.expertise_pool];
+                for (let i = pool.length - 1; i > 0; i--) {
+                    const j = Math.floor(Math.random() * (i + 1));
+                    [pool[i], pool[j]] = [pool[j], pool[i]];
+                }
+                aiGeneratedData.expertise = pool.slice(0, 5 + Math.floor(Math.random() * 2));
+            }
+
+            // Generate projects (assign member to ECG Build projects based on role)
+            if (genProjects) {
+                const roleAssignments = {
+                    berger: [0, 1, 2],    // Kraslice, Kladno, Smichov
+                    machova: [4, 0, 2],   // Tabor FM, Kraslice, Smichov
+                    vlcek: [0, 1, 5],     // Kraslice, Kladno, Brno
+                    prochazka: [3, 2, 5],  // Plzen, Smichov, Brno
+                    dvorakova: [2, 3, 5],  // Smichov, Plzen, Brno
+                    horak: [0, 2, 5],     // Kraslice (investor story), Smichov, Brno
+                    koubova: [3, 2, 4]    // Plzen (najemci), Smichov, Tabor FM
+                };
+                const projectIndices = roleAssignments[profileKey] || [0, 1, 2];
+                const roles = template.project_roles;
+                aiGeneratedData.projects = projectIndices.map((pi, idx) => {
+                    const proj = BF_PROJECTS[pi];
+                    const roleIdx1 = (idx * 2) % roles.length;
+                    const roleIdx2 = (idx * 2 + 1) % roles.length;
+                    return {
+                        name: proj.name,
+                        role: roles[roleIdx1] + ', ' + roles[roleIdx2].toLowerCase(),
+                        result: proj.status + ', ' + proj.detail
+                    };
+                });
+            }
+
+            // Generate timeline descriptions
+            if (genTimeline) {
+                aiGeneratedData.timelineNote = generateTimelineDesc(profileKey, tone);
+            }
+
+            // Show preview
+            renderAiPreview();
+            btn.textContent = 'Generovat znovu';
+            btn.disabled = false;
+            document.getElementById('aiApplyBtn').className = 'btn-apply-ai visible';
+        }, 800 + Math.random() * 600);
+    };
+
+    function generateTimelineDesc(profileKey, tone) {
+        const descs = {
+            berger: {
+                professional: 'Kariérni postup od stavbyvedouciho pres projektoveho reditele az po zakladatele investicniho fondu. Klicove zkusenosti: rizeni staveb, komercni development, investorske vztahy.',
+                human: 'Zacinall na staveništi, dnes ridi fond. Kazda pozice ho naucila neco jineho — Skanska rizeni lidi, Metrostav rizeni penez, ECG Build rizeni vsecho dohromady.',
+                storytelling: 'Pribeh cloveka, ktery zacinall s helnou a metrem a dnes ridi investicni fond za 280 milionu. Ne proto, ze mel stesti — ale proto, ze 18 let delal to same, jen porad lepe.'
+            },
+            machova: {
+                professional: 'Specialistka na facility management s vice nez 14 lety zkusenosti. Postupny rust od koordinacnich pozic po kompletni rizeni provoznich sluzeb investicniho fondu.',
+                human: 'Od planovani uklidovych smen v ISS az po rizeni celeho provozu fondu. Kazdy objekt, ktery ECG Build spravuje, prosel jejima rukama.',
+                storytelling: 'Rika, ze FM neni o tom mit hezkou kancelar. Je to o tom, ze kdyz v 6 rano prijdete, vsechno funguje. A ve 22 hodin taky. To je jeji meritko kvality.'
+            },
+            vlcek: {
+                professional: 'Pravnik se specializaci na realitni pravo, stavebni legislativu a investicni struktury. Zkusenosti z prednich mezinarodnich i ceskych kancelari.',
+                human: 'Od psani kupnich smluv na byty az po pravni strukturaci celeho fondu. Vetsinu casu travi ctenim katastru a telefonovanim na stavebni urady — a nema s tim problem.',
+                storytelling: 'Kdyz mu Berger rekl, ze chce zalozit fond, sedl si a behem vikendu napsal statut. V pondeli ho mel na stole. Od te doby je pravni oporou vseho, co ECG Build dela.'
+            },
+            prochazka: {
+                professional: 'Akvizicni specialista s rozsahlymi zkusenostmi z mezinarodnich poradenskych firem a developerskych spolecnosti. Celkovy objem zrealizovanych akvizic presahuje 1.5 mld. CZK.',
+                human: 'Jezdi po regionech, prochazi opustene arealy, jedná s majiteli. Vetsinu dealu najde driv, nez se dostanou na verejny trh. To je jeho superpower.',
+                storytelling: 'Prvni tyden v ECG Build stravil v aute. Projel tri kraje. Nasel tri nemovitosti. Jednu z nich — sklad v Plzni — fond koupil o pul roku pozdeji.'
+            },
+            dvorakova: {
+                professional: 'Financni specialistka s 11 lety zkusenosti v auditu, controllingu a financnim rizeni. Zodpovedna za zavedeni systematickeho reportingu a controllingu ve fondu.',
+                human: 'Prisla do fondu v roce 2020, kdyz Berger uz nestacil ridit finance sam. Za mesic mela hotovy dashboard. Za rok usetril fond 8% na provoznich nakladech.',
+                storytelling: 'Kdyz nastoupila, fond mel financni data ve dvou excelech. Dnes maji investori online dashboard v realnem case. To je jeji vizitka — poradek v cislech.'
+            },
+            horak: {
+                professional: 'Specialista na investor relations a capital raising s 9 lety zkusenosti v private bankingu. Zodpovedny za rozrust investorske baze z 11 na 24 investoru.',
+                human: 'Prisel v 2021, kdyz fond mel 11 investoru. Za tri roky ziskal 13 novych a zvysil kapital o 150 milionu. Vetsina prisla na doporuceni — to je jeho nejlepsi meritko.',
+                storytelling: 'V J&T prodaval investice za desitky milionu. V ECG Build se naucil neco tezsiho — prodavat pribehy. Protoze lide neinvestuji do cisel. Investuji do lidi.'
+            },
+            koubova: {
+                professional: 'Obchodni specialistka se zamerenem na komercni leasing a business development v regionalnich nemovitostech. Celkovy objem pronajatych ploch presahuje 12 000 m².',
+                human: 'Prisla v 2022, behem dvou mesicu nasla tri najemce pro sklad v Plzni. Dnes ridi veskerou obchodni cinnost fondu — obsazenost portfolia je nad 95%.',
+                storytelling: 'Prvni tyden ve fondu si vzala auto a objela vsechny projekty. Za mesic mela tri nove najemce. Rika, ze obchodni strategie je jednoducha: zavolejte, setkejte se, ukazte.'
+            }
+        };
+        return (descs[profileKey] && descs[profileKey][tone]) || descs.berger.human;
+    }
+
+    function renderAiPreview() {
+        const preview = document.getElementById('aiPreview');
+        let html = '';
+
+        if (aiGeneratedData.bio) {
+            html += '<h4>Bio</h4>';
+            html += '<p>' + escHtml(aiGeneratedData.bio) + '</p>';
+        }
+
+        if (aiGeneratedData.expertise) {
+            html += '<h4>Odborne zamereni</h4>';
+            html += '<div>';
+            aiGeneratedData.expertise.forEach(tag => {
+                html += '<span class="ai-tag">' + escHtml(tag) + '</span> ';
+            });
+            html += '</div>';
+        }
+
+        if (aiGeneratedData.projects) {
+            html += '<h4>Projekty</h4>';
+            aiGeneratedData.projects.forEach(proj => {
+                html += '<div class="ai-proj">';
+                html += '<strong>' + escHtml(proj.name) + '</strong><br>';
+                html += '<span style="color:var(--text-light);font-size:12px;">' + escHtml(proj.role) + '</span><br>';
+                html += '<span style="color:var(--success);font-size:12px;">' + escHtml(proj.result) + '</span>';
+                html += '</div>';
+            });
+        }
+
+        if (aiGeneratedData.timelineNote) {
+            html += '<h4>Poznamka ke kariere</h4>';
+            html += '<p>' + escHtml(aiGeneratedData.timelineNote) + '</p>';
+        }
+
+        preview.innerHTML = html;
+        preview.className = 'ai-preview visible';
+    }
+
+    window.applyAiResult = function() {
+        if (!aiGeneratedData || aiCurrentMemberIndex < 0) return;
+
+        const member = config.team[aiCurrentMemberIndex];
+        const profileKey = member.profileKey || PROFILE_KEYS[member.initials] || 'berger';
+
+        // Apply bio to the admin team card textarea
+        if (aiGeneratedData.bio) {
+            const bioEl = document.getElementById('team_' + aiCurrentMemberIndex + '_bio');
+            if (bioEl) bioEl.value = aiGeneratedData.bio;
+        }
+
+        // Store extended profile data in the member object for profile.html
+        if (aiGeneratedData.expertise) {
+            member._aiExpertise = aiGeneratedData.expertise;
+        }
+        if (aiGeneratedData.projects) {
+            member._aiProjects = aiGeneratedData.projects;
+        }
+        if (aiGeneratedData.timelineNote) {
+            member._aiTimelineNote = aiGeneratedData.timelineNote;
+        }
+
+        // Save the AI-generated data to localStorage so profile.html can use it
+        const aiProfiles = JSON.parse(localStorage.getItem('ecg_ai_profiles') || '{}');
+        aiProfiles[profileKey] = {
+            bio: aiGeneratedData.bio || null,
+            expertise: aiGeneratedData.expertise || null,
+            projects: aiGeneratedData.projects || null,
+            timelineNote: aiGeneratedData.timelineNote || null,
+            generatedAt: new Date().toISOString()
+        };
+        localStorage.setItem('ecg_ai_profiles', JSON.stringify(aiProfiles));
+
+        closeAiModal();
+        showToast('Profil vygenerovan a ulozen! Data budou dostupna na profile.html.', 'success');
+    };
 
     // ══════════════════════════════════════════════════
     //  INIT

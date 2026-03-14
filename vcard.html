@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
-    <title>Vizitka | BuildFund</title>
+    <title>Vizitka | ECG Build</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/qrcode-generator@1.4.4/qrcode.min.js"></script>
@@ -321,7 +321,7 @@
 
     <div class="vcard" id="vcardRoot">
         <div class="vcard-header">
-            <div class="vcard-logo">B</div>
+            <div class="vcard-logo">E</div>
             <div class="vcard-avatar" id="vcardAvatar">
                 <svg viewBox="0 0 120 120" fill="none">
                     <circle cx="60" cy="45" r="22" fill="rgba(255,255,255,0.15)"/>
@@ -329,9 +329,9 @@
                     <text x="60" y="52" text-anchor="middle" fill="rgba(255,255,255,0.6)" font-size="20" font-weight="700" font-family="Inter,sans-serif" id="vcardInitials">VC</text>
                 </svg>
             </div>
-            <h1 id="vcardName">BuildFund</h1>
+            <h1 id="vcardName">ECG Build</h1>
             <div class="role" id="vcardRole">Investicni fond</div>
-            <div class="company">BuildFund s.r.o.</div>
+            <div class="company">Euro Ceramic Group s.r.o.</div>
         </div>
 
         <div class="vcard-body">
@@ -370,7 +370,7 @@
                     </div>
                     <div class="vcard-row-text">
                         <div class="vcard-row-label">Adresa</div>
-                        <div class="vcard-row-value">Vinohradska 2396/184, 130 00 Praha 3</div>
+                        <div class="vcard-row-value">Namesti 14. rijna 1307/2, 150 00 Praha 5</div>
                     </div>
                 </div>
             </div>
@@ -394,7 +394,7 @@
         </div>
 
         <div class="vcard-footer">
-            <p>BuildFund s.r.o. &mdash; <a href="https://invx10.vercel.app">invx10.vercel.app</a></p>
+            <p>Euro Ceramic Group s.r.o. &mdash; <a href="https://invx10.vercel.app">invx10.vercel.app</a></p>
         </div>
     </div>
 </div>
@@ -406,28 +406,49 @@ const MEMBERS = {
         initials: 'TB',
         role: 'CEO & zakladatel',
         phone: '+420 731 284 059',
-        email: 'berger@buildfund.cz',
+        email: 'berger@ecgbuild.cz',
     },
     machova: {
         name: 'Ing. Katerina Machova',
         initials: 'KM',
         role: 'Provozni reditelka',
         phone: '+420 608 413 762',
-        email: 'machova@buildfund.cz',
+        email: 'machova@ecgbuild.cz',
     },
     vlcek: {
         name: 'JUDr. Pavel Vlcek',
         initials: 'PV',
         role: 'Pravni reditel',
         phone: '+420 725 961 348',
-        email: 'vlcek@buildfund.cz',
+        email: 'vlcek@ecgbuild.cz',
     },
     prochazka: {
         name: 'Ing. David Prochazka, MRICS',
         initials: 'DP',
         role: 'Reditel akvizic',
         phone: '+420 602 738 491',
-        email: 'prochazka@buildfund.cz',
+        email: 'prochazka@ecgbuild.cz',
+    },
+    dvorakova: {
+        name: 'Ing. Lucie Dvorakova',
+        initials: 'LD',
+        role: 'Financni reditelka',
+        phone: '+420 776 342 198',
+        email: 'dvorakova@ecgbuild.cz',
+    },
+    horak: {
+        name: 'Mgr. Martin Horak',
+        initials: 'MH',
+        role: 'Reditel investicnich vztahu',
+        phone: '+420 739 512 684',
+        email: 'horak@ecgbuild.cz',
+    },
+    koubova: {
+        name: 'Ing. Tereza Koubova',
+        initials: 'TK',
+        role: 'Obchodni reditelka',
+        phone: '+420 604 287 356',
+        email: 'koubova@ecgbuild.cz',
     }
 };
 
@@ -443,15 +464,15 @@ if (member) {
     document.getElementById('valEmail').textContent = member.email;
     document.getElementById('rowPhone').href = 'tel:' + member.phone.replace(/\s/g, '');
     document.getElementById('rowEmail').href = 'mailto:' + member.email;
-    document.title = member.name + ' | BuildFund';
+    document.title = member.name + ' | ECG Build';
 } else {
-    document.getElementById('vcardName').textContent = 'BuildFund';
+    document.getElementById('vcardName').textContent = 'ECG Build';
     document.getElementById('vcardRole').textContent = 'Investicni fond';
     document.getElementById('vcardInitials').textContent = 'VC';
     document.getElementById('valPhone').textContent = '+420 601 000 000';
-    document.getElementById('valEmail').textContent = 'info@buildfund.cz';
+    document.getElementById('valEmail').textContent = 'info@ecgbuild.cz';
     document.getElementById('rowPhone').href = 'tel:+420601000000';
-    document.getElementById('rowEmail').href = 'mailto:info@buildfund.cz';
+    document.getElementById('rowEmail').href = 'mailto:info@ecgbuild.cz';
 }
 
 // QR Code
@@ -476,7 +497,7 @@ try {
 
 // Download VCF
 document.getElementById('btnDownloadVcf').addEventListener('click', function() {
-    const m = member || { name: 'BuildFund', phone: '+420601000000', email: 'info@buildfund.cz', role: 'Investicni fond' };
+    const m = member || { name: 'ECG Build', phone: '+420601000000', email: 'info@ecgbuild.cz', role: 'Investicni fond' };
     const nameParts = m.name.replace(/\s*(Ing\.|JUDr\.|Ph\.D\.|MBA|,)\s*/g, ' ').trim().split(/\s+/);
     const lastName = nameParts.pop();
     const firstName = nameParts.join(' ');
@@ -485,19 +506,19 @@ document.getElementById('btnDownloadVcf').addEventListener('click', function() {
         'VERSION:3.0',
         'N:' + lastName + ';' + firstName + ';;;',
         'FN:' + m.name,
-        'ORG:BuildFund s.r.o.',
+        'ORG:Euro Ceramic Group s.r.o.',
         'TITLE:' + m.role,
         'TEL;TYPE=WORK,VOICE:' + m.phone.replace(/\s/g, ''),
         'EMAIL;TYPE=WORK:' + m.email,
         'URL:https://invx10.vercel.app',
-        'ADR;TYPE=WORK:;;Vinohradska 2396/184;Praha;;130 00;Czech Republic',
+        'ADR;TYPE=WORK:;;Namesti 14. rijna 1307/2;Praha;;150 00;Czech Republic',
         'END:VCARD'
     ].join('\r\n');
     const blob = new Blob([vcf], { type: 'text/vcard;charset=utf-8' });
     const url = URL.createObjectURL(blob);
     const a = document.createElement('a');
     a.href = url;
-    a.download = (memberId || 'buildfund') + '.vcf';
+    a.download = (memberId || 'ecgbuild') + '.vcf';
     a.click();
     URL.revokeObjectURL(url);
 });
@@ -506,7 +527,7 @@ document.getElementById('btnDownloadVcf').addEventListener('click', function() {
 document.getElementById('btnShare').addEventListener('click', function() {
     if (navigator.share) {
         navigator.share({
-            title: (member ? member.name : 'BuildFund') + ' | Vizitka',
+            title: (member ? member.name : 'ECG Build') + ' | Vizitka',
             url: window.location.href
         });
     } else {

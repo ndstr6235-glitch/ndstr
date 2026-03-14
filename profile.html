@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
-    <title>Profil | BuildFund</title>
+    <title>Profil | ECG Build</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/qrcode-generator@1.4.4/qrcode.min.js"></script>
@@ -342,6 +342,67 @@
             color: var(--text-light);
         }
 
+        .pf-tl-desc {
+            font-size: 13px;
+            color: var(--text-muted);
+            margin-top: 6px;
+            line-height: 1.6;
+        }
+
+        /* Expertise */
+        .pf-expertise {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .pf-exp-tag {
+            display: inline-block;
+            padding: 8px 18px;
+            border-radius: 100px;
+            background: linear-gradient(135deg, rgba(26,47,74,0.06), rgba(212,175,55,0.08));
+            border: 1px solid rgba(212,175,55,0.2);
+            font-size: 13px;
+            font-weight: 500;
+            color: var(--primary);
+        }
+
+        /* Projects list */
+        .pf-projects-list {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .pf-project-item {
+            padding: 16px 20px;
+            border-radius: var(--radius-sm);
+            background: var(--bg-alt);
+            border: 1px solid var(--border);
+        }
+
+        .pf-project-name {
+            font-size: 15px;
+            font-weight: 700;
+            color: var(--primary-dark);
+            margin-bottom: 4px;
+        }
+
+        .pf-project-role {
+            font-size: 13px;
+            color: var(--text-light);
+            margin-bottom: 8px;
+        }
+
+        .pf-project-result {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 12px;
+            font-weight: 600;
+            color: var(--success);
+        }
+
         /* Education */
         .pf-edu-list {
             display: flex;
@@ -640,8 +701,8 @@
 <nav class="pf-nav">
     <div class="pf-nav-inner">
         <a href="index.html" class="pf-nav-logo">
-            <div class="pf-nav-logo-icon">B</div>
-            <span>Build<strong>Fund</strong></span>
+            <div class="pf-nav-logo-icon">E</div>
+            <span>ECG <strong>Build</strong></span>
         </a>
         <a href="index.html#tym" class="pf-nav-back">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg>
@@ -664,7 +725,7 @@
         </div>
         <div class="pf-hero-info">
             <div class="pf-hero-badge" id="pfBadge">Vedeni</div>
-            <h1 class="pf-hero-name" id="pfName">BuildFund</h1>
+            <h1 class="pf-hero-name" id="pfName">ECG Build</h1>
             <p class="pf-hero-role" id="pfRole">Investicni fond</p>
             <div class="pf-hero-stats" id="pfStats"></div>
         </div>
@@ -684,7 +745,7 @@
 
 <!-- FOOTER -->
 <footer class="pf-footer">
-    <p>BuildFund s.r.o. &mdash; <a href="index.html">invx10.vercel.app</a></p>
+    <p>Euro Ceramic Group s.r.o. &mdash; <a href="index.html">invx10.vercel.app</a></p>
 </footer>
 
 <script>
@@ -695,24 +756,30 @@ const MEMBERS = {
         role: 'CEO & zakladatel',
         badge: 'Chief Executive Officer',
         phone: '+420 731 284 059',
-        email: 'berger@buildfund.cz',
+        email: 'berger@ecgbuild.cz',
         linkedin: 'https://linkedin.com/in/',
         stats: [
             { val: '18+', label: 'Let ve stavebnictvi' },
             { val: '2 mld.', label: 'CZK realizovanych projektu' },
             { val: '280M', label: 'CZK pod spravou' }
         ],
-        bio: '<p>Tomas Berger je zakladatelem a generalnim reditelem BuildFund. S osmnactiletou praxi ve stavebnictvi a developmentu prinasi do fondu jedinenou kombinaci technicke odbornosti a financniho rizeni.</p><p>Svou karieru zahajil ve spolecnosti Skanska jako stavbyvedouci, kde behem sesti let dorostl na pozici projektoveho reditele. Nasledne presel do Metrostavu, kde ridil oddeleni komercniho developmentu a zodpovidal za projekty v celkove hodnote presahujici 2 mld. CZK — vcetne kancelarsich komplexu v Praze a logistickych center ve stredni Evrope.</p><p>V roce 2017 zalozil BuildFund s vizí propojit kvalifikovane investory s realnyni projekty ve stavebnictvi a facility managementu. Jeho pristup je zalozeny na jednoduchém principu: investovat pouze do toho, cemu rozumite, a zajistit kazdou korunu realnym majetkem.</p>',
+        bio: '<p>Tomas Berger je zakladatelem a generalnim reditelem ECG Build. Stavebnictvi se venuje od roku 2005, kdy nastoupil jako stavbyvedouci na sve prvni zakazce — zatepleni paneloveho domu na Praze 13. Od te doby prosel desitkami projektu ruznich velikosti, od bytovych domu pres komercni objekty az po logisticke haly.</p><p>Ve Skanska stravil devet let. Zacinal na stavbach v Praze a Stredoceskem kraji, postupne dostal na starost vetsi zakazky — rekonstrukci administrativni budovy pro Ceskou sporitelnu v Kladne, vystavbu skladovaciho arealu u dalnice D5, koordinaci subdodavatelu na bytovem projektu v Praze-Stodulkach. V roce 2014 presel do Metrostavu na pozici reditele komercniho developmentu, kde mel na starosti akvizice pozemku a rizeni realizace kancelarsich a logistickych projektu.</p><p>Metrostav ho naucil pracovat s vetsimi cisly a slozitejsimi strukturami, ale zaroven mu ukazal, jak pomalu a neefektivne velke korporace rozhoduji o investicich. V roce 2016 odchazi a zacina pripravovat koncept ECG Build — fondu, ktery spojuje stavebni know-how s prinym pristupem k investorskemu kapitalu. Na jare 2017 zaklada spolecnost a ziskava prvnich sest investoru z okruhu byvalych kolegu a obchodnich partneru.</p>',
         quote: 'Nejlepsi investice je ta, na kterou si muzete sahnut. My stavime, spravujeme a pronajimame — a nasi investori vi presne, kam jejich penize jdou.',
+        expertise: ['Rizeni stavebních projektu', 'Developerské akvizice', 'Financni modelovani', 'Investorske vztahy', 'Brownfield revitalizace'],
+        projects: [
+            { name: 'Ubytovaci komplex Kraslice', role: 'Vedeni projektu, koordinace rekonstrukce', result: 'Dokonceno 2019, obsazenost 96%' },
+            { name: 'Rezidencni areal Kladno-Dubi', role: 'Akvizice pozemku, jednani se stavebnim uradem', result: 'Dokonceno 2021, 100+ ubytovacich mist' },
+            { name: 'Kancelare Smichov', role: 'Vyber objektu, cenove vyjednavani', result: 'V realizaci, 2 500 m²' }
+        ],
         timeline: [
-            { year: '2017 - nyni', title: 'CEO & zakladatel', company: 'BuildFund s.r.o.' },
-            { year: '2014 - 2016', title: 'Reditel komercniho developmentu', company: 'Metrostav a.s.' },
-            { year: '2008 - 2014', title: 'Projektovy reditel', company: 'Skanska a.s.' },
-            { year: '2005 - 2008', title: 'Stavbyvedouci', company: 'Skanska a.s.' }
+            { year: '2017 - nyni', title: 'CEO & zakladatel', company: 'Euro Ceramic Group s.r.o.', desc: 'Zalozeni fondu, rizeni portfolia 5 projektu, vztahy s 24 investory, celkova strategie a rozvoj.' },
+            { year: '2014 - 2016', title: 'Reditel komercniho developmentu', company: 'Metrostav a.s.', desc: 'Akvizice pozemku pro kancelarske a logisticke projekty. Rizeni tymu 8 lidi. Projekty v hodnote 1.2 mld. CZK.' },
+            { year: '2008 - 2014', title: 'Projektovy reditel', company: 'Skanska a.s.', desc: 'Koordinace subdodavatelu, stavebni dozor, předavani hotovych staveb. Bytove domy, komercni objekty, rekonstrukce.' },
+            { year: '2005 - 2008', title: 'Stavbyvedouci', company: 'Skanska a.s.', desc: 'Prvni stavebni praxe. Zateplovani, rekonstrukce fasad, mensi bytove projekty v Praze a okoli.' }
         ],
         education: [
-            { title: 'MBA, Real Estate & Construction', desc: 'Nottingham Trent University (2013)' },
-            { title: 'Ing., Stavebni inzenyrstvi', desc: 'CVUT v Praze, Fakulta stavebni (2005)' }
+            { title: 'MBA, Real Estate & Construction', desc: 'Nottingham Trent University (2013) — distancni program pri praci ve Skanska' },
+            { title: 'Ing., Stavebni inzenyrstvi', desc: 'CVUT v Praze, Fakulta stavebni (2005) — obor Priprava a rizeni staveb' }
         ],
         certs: ['Autorizovany inzenyr CKAIT', 'Project Management Professional (PMP)', 'Clen Asociace developeru']
     },
@@ -722,24 +789,30 @@ const MEMBERS = {
         role: 'Provozni reditelka',
         badge: 'Chief Operations Officer',
         phone: '+420 608 413 762',
-        email: 'machova@buildfund.cz',
+        email: 'machova@ecgbuild.cz',
         linkedin: 'https://linkedin.com/in/',
         stats: [
             { val: '14+', label: 'Let v facility mgmt' },
             { val: '80+', label: 'Spravenych objektu' },
-            { val: '2000+', label: 'Koordinovanych zamestnancu' }
+            { val: '500+', label: 'Koordinovanych zamestnancu' }
         ],
-        bio: '<p>Katerina Machova ridi veskerou provozni cinnost BuildFund vcetne facility managementu, outsourcingu a spravy servisnich smluv. Je zodpovedna za to, aby kazdy projekt fondu fungoval hladce od prvniho dne.</p><p>Po absolvovani CVUT nastoupila do spolecnosti ISS Facility Services, kde behem osmi let vyrostla z pozice koordinatora na regionalni reditelku pro Ceskou republiku. Nasledne presla do Sodexo jako reditlka oddeleni integrovanich sluzeb, kde ridila portfolio 80+ klientskych objektu vcetne kancelarsich budov, hotelu a prumyslovych arealu.</p><p>Jeji expertiza pokryva komplexni spravu nemovitosti, outsourcing podpurnych procesu (trideni, baleni, priprava potravin), uklidove sluzby a koordinaci velkych tymu v terénu.</p>',
+        bio: '<p>Katerina Machova ridi veskerou provozni cinnost ECG Build — od uklidovych cet v Kraslicich az po smlouvy s dodavateli energii na Smichove. Jeji prace neni videt na webu, ale bez ni by zadny projekt fondu negeneroval prijem.</p><p>Zacinala v ISS Facility Services v roce 2006 jako koordinatorka — planovala smeny uklidovych tymu pro kancelarske budovy v Praze. Behem sesti let se propracovala na regionalni reditelku a mela na starosti 40+ objektu v Praze a Stredoceskem kraji. Pote presla do Sodexo, kde ctyri roky ridila oddeleni integrovanich sluzeb — kompletni FM vcetne cateringu, recepce, udrzby a outsourcingu podpurnych procesu pro korporatni klienty (banky, pojistovny, prumyslove firmy).</p><p>V roce 2017 se pripojila k Bergerovi a Vlckovi pri zakladani ECG Build. Jeji uloha: zajistit, ze kazdy objekt v portfoliu bezi efektivne od prvniho dne. Zavedla interní FM spravu, ktera snizila naklady o 15 % oproti externim dodavatelum. Dnes ridi tym 18 lidi v Tabore a koordinuje spravu vsech peti projektu.</p>',
         quote: 'Kvalita spravy rozhoduje o tom, zda nemovitost generuje zisk, nebo zere kapital. Nase sluzby nejsou naklad — jsou investice do hodnoty kazdeho objektu.',
+        expertise: ['Facility management', 'Outsourcing a personalistika', 'Energeticky management', 'Rozpoctovani provoznich nakladu', 'Koordinace uklidovych a udrzbarskych tymu'],
+        projects: [
+            { name: 'FM kontrakt Tabor', role: 'Nastaveni a rizeni kompletniho FM pro 3 objekty', result: '18 zamestnancu, 14 mil. CZK/rok' },
+            { name: 'Ubytovaci komplex Kraslice', role: 'Organizace spravy ubytovani, smeny, uklid', result: 'Obsazenost 96%, minimalni fluktuace' },
+            { name: 'Kancelare Smichov', role: 'Nastaveni interni FM spravy, vyber dodavatelu', result: 'Uspory 15% oproti externimu FM' }
+        ],
         timeline: [
-            { year: '2017 - nyni', title: 'Provozni reditelka', company: 'BuildFund s.r.o.' },
-            { year: '2012 - 2016', title: 'Reditelka integrovanich sluzeb', company: 'Sodexo CZ' },
-            { year: '2008 - 2012', title: 'Regionalni reditelka', company: 'ISS Facility Services' },
-            { year: '2006 - 2008', title: 'Koordinator facility mgmt', company: 'ISS Facility Services' }
+            { year: '2017 - nyni', title: 'Provozni reditelka', company: 'Euro Ceramic Group s.r.o.', desc: 'Rizeni FM spravy vsech projektu v portfoliu. Koordinace 18 zamestnancu v Tabore. Jednani s dodavateli energii, uklidu a udrzby.' },
+            { year: '2012 - 2016', title: 'Reditelka integrovanich sluzeb', company: 'Sodexo CZ', desc: 'Portfolio 80+ klientskych objektu. Kompletni FM vcetne cateringu, recepce a outsourcingu. Rocni obrat divize: 120 mil. CZK.' },
+            { year: '2008 - 2012', title: 'Regionalni reditelka', company: 'ISS Facility Services', desc: '40+ objektu v Praze a Stredoceskem kraji. Rizeni tymu 60 lidi. Zavedeni KPI systemu pro hodnoceni kvality sluzeb.' },
+            { year: '2006 - 2008', title: 'Koordinator facility mgmt', company: 'ISS Facility Services', desc: 'Planovani smen, kontrola kvality uklidu, komunikace s klienty. Prvni praxe v oboru.' }
         ],
         education: [
-            { title: 'Ing., Management a ekonomika stavebnictvi', desc: 'CVUT v Praze (2006)' },
-            { title: 'Facility Management Professional Program', desc: 'IFMA Czech Republic (2012)' }
+            { title: 'Ing., Management a ekonomika stavebnictvi', desc: 'CVUT v Praze (2006) — diplomova prace: Optimalizace nakladu na spravu komercnich nemovitosti' },
+            { title: 'Facility Management Professional Program', desc: 'IFMA Czech Republic (2012) — intenzivni 6-mesicni program' }
         ],
         certs: ['Certified Facility Manager (CFM)', 'ISO 9001 Lead Auditor', 'BREEAM In-Use Assessor']
     },
@@ -749,24 +822,30 @@ const MEMBERS = {
         role: 'Pravni reditel',
         badge: 'Chief Legal Officer',
         phone: '+420 725 961 348',
-        email: 'vlcek@buildfund.cz',
+        email: 'vlcek@ecgbuild.cz',
         linkedin: 'https://linkedin.com/in/',
         stats: [
             { val: '16+', label: 'Let pravni praxe' },
-            { val: '150+', label: 'Developersk. transakci' },
-            { val: '5 mld.', label: 'CZK ve smlouvach' }
+            { val: '80+', label: 'Realitních transakci' },
+            { val: '3 mld.', label: 'CZK ve smlouvach' }
         ],
-        bio: '<p>Pavel Vlcek zajistuje kompletni pravni zastiteni vsech operaci fondu — od stavebniho prava a uzemnich rizeni az po investicni smlouvy a korporatni compliance.</p><p>Po absolvovani Pravnicke fakulty UK pusobil 10 let jako partner v renomovane advokacni kancelari Havel & Partners, kde vedl tym specializovany na realitni pravo a developerske projekty. Podilel se na pravnim zajisteni desitky rezidenních a komercnich staveb v Praze, Brne a Ostrave.</p><p>Ma rozsahle zkusenosti s uzemmim planovanim, stavebnimi povolenimi, smlouvami o dilo a pravni strukturaci investicnich fondu. Aktivne se podili na priprave smluvni dokumentace s investory a zajisteni souladu s ceskou legislativou.</p>',
-        quote: 'Ve stavebnictvi je pravni pripravenost polovinou uspechu. Spravne nastavena smlouva chrami investora, developera i budouci najemniky.',
+        bio: '<p>Pavel Vlcek ma na starosti vsechno, co ve fondu souvisi s pravem — smlouvy s investory, kupni smlouvy na nemovitosti, stavebni povoleni, najemni smlouvy, compliance. Rekl by vam, ze vetsinu casu travi ctenim katastru nemovitosti a telefonovanim na stavebni urady. A mel by pravdu.</p><p>Zacinall v roce 2004 v BBH jako koncipient — psal kupni smlouvy na byty a resil reklamace vad u novostaveb. V Linklaters (2006-2010) se dostal k vetsim vecem: pravni due diligence pro zahranicni investory kupujici komercni nemovitosti v Praze, smlouvy o dilo za stovky milionu. V Havel & Partners pak stravil sest let jako partner se specializaci na realitni pravo. Ridil pravni zajisteni developerckych projektu od uzemniho rozhodnuti az po kolaudaci.</p><p>S Bergerem se zna z doby, kdy mu ve Skanska delal pravni servis pres Havel & Partners. Kdyz Berger v roce 2016 rikal, ze chce zalozit fond, Vlcek jako prvni rekl: „Tak ja ti napisu statut." A to taky udelal. Od roku 2017 zajistuje pravni ramec fondu a vsech jeho investicnich operaci.</p>',
+        quote: 'Ve stavebnictvi je pravni pripravenost polovinou uspechu. Spravne nastavena smlouva chrani investora, developera i budouci najemniky.',
+        expertise: ['Realitni pravo', 'Stavebni povoleni a uzemni planovani', 'Investicni smlouvy', 'Due diligence nemovitosti', 'Korporatni compliance'],
+        projects: [
+            { name: 'Dluhopisovy program Harmonie', role: 'Pravni strukturace, prospekt, registrace', result: 'Uspesne spusten 2023' },
+            { name: 'Ubytovaci komplex Kraslice', role: 'Kupni smlouva, stavebni povoleni, najemni smlouvy', result: '70+ najemnich smluv' },
+            { name: 'Bytovy dum Brno-Lisen', role: 'Due diligence, jednani s mestskou casti', result: 'V priprave' }
+        ],
         timeline: [
-            { year: '2017 - nyni', title: 'Pravni reditel', company: 'BuildFund s.r.o.' },
-            { year: '2010 - 2016', title: 'Partner, Realitni pravo', company: 'Havel & Partners' },
-            { year: '2006 - 2010', title: 'Advokat, Stavebni pravo', company: 'Linklaters' },
-            { year: '2004 - 2006', title: 'Pravni koncipient', company: 'BBH advokacni kancelar' }
+            { year: '2017 - nyni', title: 'Pravni reditel', company: 'Euro Ceramic Group s.r.o.', desc: 'Kompletni pravni zajisteni fondu. Smlouvy s investory, kupni smlouvy, stavebni rizeni, compliance. Priprava dluhopisoveho programu.' },
+            { year: '2010 - 2016', title: 'Partner, Realitni pravo', company: 'Havel & Partners', desc: 'Vedeni tymu 4 pravniku. Developerske projekty v Praze, Brne a Ostrave. Pravni due diligence, smlouvy o dilo, kolaudacni rizeni.' },
+            { year: '2006 - 2010', title: 'Advokat, Stavebni pravo', company: 'Linklaters', desc: 'Pravni due diligence pro zahranicni investory. Akvizice komercnich nemovitosti. Smlouvy v radu stovek milionu CZK.' },
+            { year: '2004 - 2006', title: 'Pravni koncipient', company: 'BBH advokacni kancelar', desc: 'Kupni smlouvy na byty, reklamace vad novostaveb. Prvni praxe v realitnim pravu.' }
         ],
         education: [
-            { title: 'JUDr., Obchodni pravo', desc: 'Univerzita Karlova, PrF (2006)' },
-            { title: 'LL.M., Real Estate Law', desc: 'King\'s College London (2009)' }
+            { title: 'JUDr., Obchodni pravo', desc: 'Univerzita Karlova, PrF (2006) — rigorozni prace: Pravni aspekty developerckych projektu v CR' },
+            { title: 'LL.M., Real Estate Law', desc: 'King\'s College London (2009) — rocni studium pri praci v Linklaters' }
         ],
         certs: ['Clen Ceske advokatni komory', 'Certifikace uzemni planovani', 'GDPR Data Protection Officer']
     },
@@ -776,26 +855,131 @@ const MEMBERS = {
         role: 'Reditel akvizic',
         badge: 'Head of Acquisitions',
         phone: '+420 602 738 491',
-        email: 'prochazka@buildfund.cz',
+        email: 'prochazka@ecgbuild.cz',
         linkedin: 'https://linkedin.com/in/',
         stats: [
             { val: '12+', label: 'Let v realitach' },
-            { val: '2.5 mld.', label: 'CZK v akvizicich' },
+            { val: '1.5 mld.', label: 'CZK v akvizicich' },
             { val: 'MRICS', label: 'Certifikace' }
         ],
-        bio: '<p>David Prochazka je zodpovedny za vyhledavani, analyzu a akvizici nemovitostnich aktiv do portfolia fondu. Jeho odbornost pokryva ocenovani nemovitosti, due diligence a vyjednavani akvizicnich podminek.</p><p>Pred nastupem do BuildFund pusobil jako senior akvizcni manazer ve spolecnosti Penta Real Estate, kde ridil nakup pozemku a nemovitosti pro rezidencni projekty v hodnote 1.5 mld. CZK. Nasledne presel do CTP, kde se podilel na expanzi portfolia prumyslovych a logistickych parku ve stredni Evrope.</p><p>Diky certifikaci MRICS a rozsahle siti kontaktu v realitnim sektoru zajistuje fondu pristup k exkluzivnim prilezitostem jeste pred jejich vstupem na verejny trh. Zamerne se na lokality s rustovym potencialem — mensi mesta a regionalni centra, kde je pomer ceny a hodnoty nejpriznivejsi.</p>',
-        quote: 'Nejlepsi deal je ten, ktery najdete drive nez ostatni. Proto zname kazdy katastr, kazdeho starostu a kazdeho reditele stavebniho uradu v regionech, kde pusobime.',
+        bio: '<p>David Prochazka vyhledava a vyjednava nemovitosti, ktere fond kupuje. V praxi to znamena, ze travi hodne casu v aute — jezdí po regionech, prochazi opustene arealy, jedná se starosty a majiteli pozemku. Vetsinu dealu najde driv, nez se dostanou na verejny trh.</p><p>Zacinall jako analytik v Colliers International v Praze, kde se naucil cist trh — sledovat ceny, vyhodnocovat lokality, pocitat navratnost. V Penta Real Estate pak ctyri roky aktivne kupoval pozemky a nemovitosti pro rezidencni projekty. Naucil se vyjednavat s prodejci, kteri casto nemaji realnou predstavu o cene sveho majetku, a s bankami, ktere financuji akvizice.</p><p>V CTP stravil dva roky na expanzi portfolia prumyslovych parku — hlavne v regionech mimo Prahu. Tam pochopil, ze prave mensi mesta a regionalni centra nabizeji nejlepsi pomer ceny a potencialu. Tento pristup si prinesl do ECG Build, kam nastoupil v roce 2019 behem rekonstrukce Kraslic. Od te doby pro fond zajistil akvizice v Kladne, na Smichove a v Plzni.</p>',
+        quote: 'Nejlepsi deal je ten, ktery najdete drive nez ostatni. Proto zname kazdy katastr a kazdeho starostu v regionech, kde pusobime.',
+        expertise: ['Ocenovani nemovitosti', 'Akvizicni vyjednavani', 'Due diligence', 'Analyza lokalit a trhu', 'Financovani a bankovni jednani'],
+        projects: [
+            { name: 'Skladovy prostor Plzen', role: 'Vyhledani objektu, cenove vyjednavani, due diligence', result: 'Akvizice za 38 mil. CZK, obsazenost 96%' },
+            { name: 'Kancelare Smichov', role: 'Analyza trhu, identifikace objektu, akvizice', result: '2 500 m² za 85 mil. CZK' },
+            { name: 'Bytovy dum Brno-Lisen', role: 'Pruzkum lokality, jednani s mestskou casti', result: 'V priprave, planovana akvizice 2026' }
+        ],
         timeline: [
-            { year: '2019 - nyni', title: 'Reditel akvizic', company: 'BuildFund s.r.o.' },
-            { year: '2017 - 2019', title: 'Senior Acquisition Manager', company: 'CTP Invest' },
-            { year: '2013 - 2017', title: 'Akvizicni manazer', company: 'Penta Real Estate' },
-            { year: '2011 - 2013', title: 'Realitni analytik', company: 'Colliers International' }
+            { year: '2019 - nyni', title: 'Reditel akvizic', company: 'Euro Ceramic Group s.r.o.', desc: 'Vyhledavani a akvizice nemovitosti pro portfolio fondu. Zajisteni 3 novych projektu (Kladno, Smichov, Plzen). Due diligence, cenove vyjednavani.' },
+            { year: '2017 - 2019', title: 'Senior Acquisition Manager', company: 'CTP Invest', desc: 'Expanze portfolia prumyslovych parku ve stredni Evrope. Akvizice pozemku v regionech mimo Prahu. Jednani s municipalitami.' },
+            { year: '2013 - 2017', title: 'Akvizicni manazer', company: 'Penta Real Estate', desc: 'Nakup pozemku a nemovitosti pro rezidencni projekty. Celkovy objem akvizic: 1.5 mld. CZK za 4 roky. Praha, Brno, Bratislava.' },
+            { year: '2011 - 2013', title: 'Realitni analytik', company: 'Colliers International', desc: 'Trzni analyzy, ocenovani komercnich nemovitosti, poradenstvi pro investory. Prvni praxe v oboru.' }
         ],
         education: [
-            { title: 'Ing., Ekonomika a rizeni stavebnictvi', desc: 'VUT v Brne, Fakulta stavebni (2011)' },
-            { title: 'Real Estate Investment Program', desc: 'London School of Economics (2015)' }
+            { title: 'Ing., Ekonomika a rizeni stavebnictvi', desc: 'VUT v Brne, Fakulta stavebni (2011) — obor zamereny na ekonomiku nemovitosti' },
+            { title: 'Real Estate Investment Program', desc: 'London School of Economics (2015) — 3-mesicni intenzivni kurz pri praci v Penta' }
         ],
         certs: ['MRICS (Member of RICS)', 'Certifikovany odhadce nemovitosti', 'BREEAM Assessor']
+    },
+    dvorakova: {
+        name: 'Ing. Lucie Dvorakova',
+        initials: 'LD',
+        role: 'Financni reditelka',
+        badge: 'Chief Financial Officer',
+        phone: '+420 776 342 198',
+        email: 'dvorakova@ecgbuild.cz',
+        linkedin: 'https://linkedin.com/in/',
+        stats: [
+            { val: '11+', label: 'Let ve financich' },
+            { val: '280M', label: 'CZK pod spravou' },
+            { val: '24', label: 'Investoru ve fondu' }
+        ],
+        bio: '<p>Lucie Dvorakova ma na starosti kompletni financni rizeni fondu — od mesicniho reportingu investorum pres danove optimalizace az po vyjednavani uveru s bankami. Kdyz nekdo ve fondu resi cisla, konci to u ni na stole.</p><p>Po skole nastoupila do KPMG na pozici auditora. Ctyri roky auditovala stavebni firmy a developerske projekty — naucila se cist ucetni zaverky tak, ze na prvni pohled vidi, kde firma sika cisla. V roce 2014 presla do Trigemy, kde pet let ridila controlling a financni planovani rezidencnich projektu. Mela na starosti cash-flow projektu v radu stovek milionu, pripravovala podklady pro bankovni financovani a jednala s UniCredit a CSOB o uvrovych linkach.</p><p>Do ECG Build prisla v roce 2020, kdyz fond rostl a Berger uz nestacil ridit finance sam. Prvni vec, kterou udelala, bylo zavest poriadny mesicni reporting — predtim investori dostavali kvartalni shrnuti na jednu A4. Dnes maji pristup k online dashboardu s aktualni hodnotou portfolia. Zavedla taky systematicky controlling na vsech projektech, diky cemuz fond usetril 8% na provoznich nakladech behem prvniho roku.</p>',
+        quote: 'Investori maji pravo vedet presne, kam jejich penize jdou. Nas reporting neni formalita — je to zavazek k transparentnosti.',
+        expertise: ['Financni controlling', 'Investorsky reporting', 'Bankovni financovani', 'Danove planovani', 'Cash-flow management'],
+        projects: [
+            { name: 'Kancelarske prostory Smichov', role: 'Financni model, vyjednavani uverove linky', result: 'Uver 60 mil. CZK, urok 4.2% p.a.' },
+            { name: 'Dluhopisovy program Harmonie', role: 'Financni strukturace, emise, reporting', result: 'Objem 50 mil. CZK, 6.5% p.a.' },
+            { name: 'Skladovy prostor Plzen', role: 'Controlling, optimalizace provoznich nakladu', result: 'Uspora 8% na rocnich nakladech' }
+        ],
+        timeline: [
+            { year: '2020 - nyni', title: 'Financni reditelka', company: 'Euro Ceramic Group s.r.o.', desc: 'Kompletni financni rizeni fondu. Mesicni reporting pro 24 investoru, controlling 5 projektu, jednani s bankami. Zavedeni online investorskeho dashboardu.' },
+            { year: '2015 - 2020', title: 'Vedouci controllingu', company: 'Trigema a.s.', desc: 'Financni planovani rezidencnich projektu. Cash-flow v radu stovek milionu. Priprava podkladu pro bankovni financovani (UniCredit, CSOB).' },
+            { year: '2011 - 2015', title: 'Auditor / Senior auditor', company: 'KPMG Ceska republika', desc: 'Audit stavebních firem a developerskych projektu. Naucila se cist ucetni zaverky a identifikovat rizika. Certifikace ACCA behem praxe.' },
+            { year: '2009 - 2011', title: 'Financni analytik', company: 'Ceska sporitelna', desc: 'Analyza uverovych zadosti pro komercni klienty. Prvni praxe s financovanim nemovitosti.' }
+        ],
+        education: [
+            { title: 'Ing., Finance a ucetnictvi', desc: 'VSE v Praze, Fakulta financí a ucetnictvi (2009) — obor Ucetnictvi a financni rizeni podniku' },
+            { title: 'ACCA Qualification', desc: 'Association of Chartered Certified Accountants (2014) — ziskano behem praxe v KPMG' }
+        ],
+        certs: ['ACCA (Chartered Certified Accountant)', 'Certifikace danoveho poradce CR', 'Clen Komory auditoru CR']
+    },
+    horak: {
+        name: 'Mgr. Martin Horak',
+        initials: 'MH',
+        role: 'Reditel investicnich vztahu',
+        badge: 'Head of Investor Relations',
+        phone: '+420 739 512 684',
+        email: 'horak@ecgbuild.cz',
+        linkedin: 'https://linkedin.com/in/',
+        stats: [
+            { val: '9+', label: 'Let v private bankingu' },
+            { val: '18', label: 'Ziskanych investoru' },
+            { val: '210M', label: 'CZK ziskaneho kapitalu' }
+        ],
+        bio: '<p>Martin Horak ma jednu ulohu — starat se o investory a privadet nove. V praxi to znamena, ze travi cas na obedech, konferencich a telefonech s lidmi, kteri zvazuji, kam vlozit penize. Neni to o agresivnim prodeji — je to o duvere. Vetsina jeho investoru prisla na doporuceni od tech, kteri uz ve fondu jsou.</p><p>Zacinall v Ceske sporitelne na pobocce, kde se naucil jednu klicovou vec: lide nedavaji penize do produktu, davaji je lidem, kterym veri. Po dvou letech presel do Private Banking, kde spravoval klienty s portfoliem od 5 milionu CZK vyse. V J&T Bance pak ctyri roky ridil tym, ktery spravoval private equity investice pro HNW klienty — celkovy objem pod spravou: 800 mil. CZK.</p><p>Do ECG Build prisel v roce 2021, kdyz fond mel 11 investoru a potreboval nekoho, kdo se bude vztahum venovat naplno. Za tri roky ziskal 13 novych investoru a zvysil spravovany kapital o 150 mil. CZK. Zavedl ctvrtletni investorske snidane, kde Berger osobne prezentuje vysledky — ucast je pravidelne nad 80%.</p>',
+        quote: 'Investori k nam neprichazeji kvuli vynosum. Prichazeji, protoze vi, ze jim reknu pravdu — i kdyz cisla nejsou idealni.',
+        expertise: ['Private banking', 'Investor relations', 'Capital raising', 'Prezentace a pitching', 'Wealth management', 'KYC/AML compliance'],
+        projects: [
+            { name: 'Dluhopisovy program Harmonie', role: 'Distribuce, komunikace s investory, roadshow', result: 'Upsano 50 mil. CZK za 4 mesice' },
+            { name: 'Rozsireni investorske baze 2022-2024', role: 'Akvizice novych investoru, networking', result: '+13 investoru, +150 mil. CZK kapitalu' },
+            { name: 'Investorsky dashboard', role: 'Definice pozadavku, testovani s investory', result: 'Spokojenost investoru 94%' }
+        ],
+        timeline: [
+            { year: '2021 - nyni', title: 'Reditel investicnich vztahu', company: 'Euro Ceramic Group s.r.o.', desc: 'Sprava vztahu s 24 investory, akvizice noveho kapitalu. Organizace ctvrletních investorskych setkani. Zvyseni kapitalu o 150 mil. CZK.' },
+            { year: '2017 - 2021', title: 'Senior Private Banker', company: 'J&T Banka', desc: 'Sprava HNW klientu s portfoliem od 10 mil. CZK. Rizeni tymu 3 bankeru. Celkovy objem pod spravou: 800 mil. CZK. Zamereni na alternativni investice.' },
+            { year: '2014 - 2017', title: 'Private Banker', company: 'Ceska sporitelna Private Banking', desc: 'Sprava portfolii klientu od 5 mil. CZK. Investicni poradenstvi, strukturovane produkty, realitni fondy.' },
+            { year: '2012 - 2014', title: 'Bankovni poradce', company: 'Ceska sporitelna', desc: 'Klientsky servis na pobocce, prodej investicnich produktu. Prvni zkusenosti s praci s klienty a financnimi produkty.' }
+        ],
+        education: [
+            { title: 'Mgr., Finance a bankovnictvi', desc: 'Masarykova univerzita, Ekonomicko-spravni fakulta (2012) — obor Financni trhy a bankovnictvi' },
+            { title: 'CFA Level II Candidate', desc: 'CFA Institute — slozil Level I (2016), Level II v procesu' }
+        ],
+        certs: ['Licencovany investicni zprostredkovatel (CNB)', 'Certifikace EFPA (European Financial Planning Association)', 'AML Officer certifikace']
+    },
+    koubova: {
+        name: 'Ing. Tereza Koubova',
+        initials: 'TK',
+        role: 'Obchodni reditelka',
+        badge: 'Chief Commercial Officer',
+        phone: '+420 604 287 356',
+        email: 'koubova@ecgbuild.cz',
+        linkedin: 'https://linkedin.com/in/',
+        stats: [
+            { val: '8+', label: 'Let v komercnich RE' },
+            { val: '12 000', label: 'm² pronajatych ploch' },
+            { val: '35+', label: 'Uzavrenych kontraktu' }
+        ],
+        bio: '<p>Tereza Koubova zajistuje, ze nemovitosti, ktere fond kupuje, maji najemce a generuji prijem. Jeji prace zacina tam, kde konci akvizice — najde najemce, vyjedna podminky, dohlizi na obchodní vztahy. Bez ni by fond mel hezke budovy, ale prazdne.</p><p>Zacinala v CBRE na pozici konzultantky pro komercni pronajmy — hledala najemce do kancelari a logistickych parku v Praze a okoli. Za tri roky se propracovala na senior pozici a mela na kontě pronajmy za 15 000 m². V Cushman & Wakefield pak tri roky ridila tým leasingu pro prumyslove a logisticke nemovitosti v regionech mimo Prahu — presne ty lokality, kde dnes ECG Build pusobi.</p><p>Do fondu prisla v roce 2022 na Prochazkov doporuceni — znali se z doby, kdy oba pracovali na deals v Plzenskem kraji. Jeji prvni zakazka: najit najemce pro Skladovy prostor Plzen. Za dva mesice mela podepsane tri najemni smlouvy a obsazenost 96%. Dnes ridi kompletni obchodni cinnost fondu vcetne jednani s korporatnimi najemci a regionalnich partnerstvi.</p>',
+        quote: 'Prazdna nemovitost je nejdrazsi nemovitost. Moje prace je zajistit, ze kazdy metr ctverecni v portfoliu generuje prijem.',
+        expertise: ['Komercni leasing', 'Najemni vyjednavani', 'Business development', 'Trzni analyza nemovitosti', 'Relationship management', 'Regionalni partnerstvi'],
+        projects: [
+            { name: 'Skladovy prostor Plzen', role: 'Vyhledani najemcu, vyjednavani smluv', result: 'Obsazenost 96%, 3 najemci za 2 mesice' },
+            { name: 'Kancelarske prostory Smichov', role: 'Pre-leasing, jednani s korporatnimi najemci', result: '60% predpronajato pred kolaudaci' },
+            { name: 'FM kontrakt Tabor', role: 'Obchodni rozsireni — akvizice novych FM klientu', result: '+2 externi FM kontrakty, 4.5 mil. CZK/rok' }
+        ],
+        timeline: [
+            { year: '2022 - nyni', title: 'Obchodni reditelka', company: 'Euro Ceramic Group s.r.o.', desc: 'Kompletni obchodni cinnost fondu. Zajisteni najemcu pro vsechny projekty v portfoliu. Regionalni partnerstvi, korporatni vyjednavani. Obsazenost portfolia: 95%+.' },
+            { year: '2019 - 2022', title: 'Senior Leasing Manager', company: 'Cushman & Wakefield', desc: 'Leasing prumyslovych a logistickych nemovitosti v regionech. Tym 4 lidi. Celkovy objem pronajatych ploch: 25 000 m² za 3 roky.' },
+            { year: '2016 - 2019', title: 'Konzultantka komercnich pronajmu', company: 'CBRE', desc: 'Kancelarske a logisticke pronajmy v Praze a Stredoceskem kraji. 15 000 m² pronajatych ploch. Klienti: Skanska Property, Penta, CPI.' },
+            { year: '2014 - 2016', title: 'Junior Consultant', company: 'CBRE', desc: 'Pruzkumy trhu, priprava nabidek, asistence pri pronajimanich. Prvni praxe v komercnich nemovitostech.' }
+        ],
+        education: [
+            { title: 'Ing., Podnikova ekonomika', desc: 'VSE v Praze, Fakulta podnikohospodarska (2014) — diplomova prace: Strategie pronajimani komercnich nemovitosti v regionalnich mestech CR' },
+            { title: 'Real Estate Leasing Professional', desc: 'RICS Matrics Program (2018) — intenzivni program zamereny na komercni leasing' }
+        ],
+        certs: ['RICS Associate (AssocRICS)', 'Certifikovany realitni makler (ARK CR)', 'Mediator — obchodni spory v najemnich vztazich']
     }
 };
 
@@ -808,8 +992,19 @@ if (!m) {
     window.location.href = 'index.html#tym';
 }
 
+// Apply AI-generated overrides from admin panel
+try {
+    const aiProfiles = JSON.parse(localStorage.getItem('ecg_ai_profiles') || '{}');
+    if (aiProfiles[id]) {
+        const ai = aiProfiles[id];
+        if (ai.bio) m.bio = '<p>' + ai.bio.replace(/\. /g, '.</p><p>') + '</p>';
+        if (ai.expertise) m.expertise = ai.expertise;
+        if (ai.projects) m.projects = ai.projects;
+    }
+} catch(e) {}
+
 // Header
-document.title = m.name + ' | BuildFund';
+document.title = m.name + ' | ECG Build';
 document.getElementById('pfName').textContent = m.name;
 document.getElementById('pfRole').textContent = m.role;
 document.getElementById('pfBadge').textContent = m.badge;
@@ -830,6 +1025,26 @@ mainEl.innerHTML = `
         <div class="pf-quote"><p>"${m.quote}"</p></div>
     </div>
 
+    ${m.expertise ? `
+    <div class="pf-section">
+        <div class="pf-section-title">Oblasti expertízy</div>
+        <div class="pf-expertise">${m.expertise.map(e => `<span class="pf-exp-tag">${e}</span>`).join('')}</div>
+    </div>` : ''}
+
+    ${m.projects ? `
+    <div class="pf-section">
+        <div class="pf-section-title">Klicove projekty v ECG Build</div>
+        <div class="pf-projects-list">
+            ${m.projects.map(p => `
+                <div class="pf-project-item">
+                    <div class="pf-project-name">${p.name}</div>
+                    <div class="pf-project-role">${p.role}</div>
+                    <div class="pf-project-result"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg> ${p.result}</div>
+                </div>
+            `).join('')}
+        </div>
+    </div>` : ''}
+
     <div class="pf-section">
         <div class="pf-section-title">Profesni kariéra</div>
         <div class="pf-timeline">
@@ -839,6 +1054,7 @@ mainEl.innerHTML = `
                     <div class="pf-tl-year">${t.year}</div>
                     <div class="pf-tl-title">${t.title}</div>
                     <div class="pf-tl-company">${t.company}</div>
+                    ${t.desc ? `<div class="pf-tl-desc">${t.desc}</div>` : ''}
                 </div>
             `).join('')}
         </div>
@@ -888,7 +1104,7 @@ sidebarEl.innerHTML = `
             </a>
             <div class="pf-contact-row">
                 <div class="pf-contact-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
-                <div><div class="pf-contact-label">Kancelar</div><div class="pf-contact-value">Vinohradska 2396/184, Praha 3</div></div>
+                <div><div class="pf-contact-label">Kancelar</div><div class="pf-contact-value">Namesti 14. rijna 1307/2, Praha 5</div></div>
             </div>
         </div>
     </div>
@@ -954,12 +1170,12 @@ document.getElementById('btnVcf').addEventListener('click', function() {
         'BEGIN:VCARD','VERSION:3.0',
         'N:' + lastName + ';' + firstName + ';;;',
         'FN:' + m.name,
-        'ORG:BuildFund s.r.o.',
+        'ORG:Euro Ceramic Group s.r.o.',
         'TITLE:' + m.role,
         'TEL;TYPE=WORK,VOICE:' + m.phone.replace(/\s/g, ''),
         'EMAIL;TYPE=WORK:' + m.email,
         'URL:https://invx10.vercel.app',
-        'ADR;TYPE=WORK:;;Vinohradska 2396/184;Praha;;130 00;Czech Republic',
+        'ADR;TYPE=WORK:;;Namesti 14. rijna 1307/2;Praha;;150 00;Czech Republic',
         'END:VCARD'
     ].join('\r\n');
     const blob = new Blob([vcf], { type: 'text/vcard;charset=utf-8' });
@@ -971,7 +1187,7 @@ document.getElementById('btnVcf').addEventListener('click', function() {
 // Share
 document.getElementById('btnShare').addEventListener('click', function() {
     if (navigator.share) {
-        navigator.share({ title: m.name + ' | BuildFund', url: window.location.href });
+        navigator.share({ title: m.name + ' | ECG Build', url: window.location.href });
     } else {
         navigator.clipboard.writeText(window.location.href).then(() => {
             const btn = document.getElementById('btnShare');

@@ -1,5 +1,5 @@
 /* ============================================================
-   BUILDFUND - JavaScript
+   ECG BUILD - JavaScript
    ============================================================ */
 
 document.addEventListener('DOMContentLoaded', () => {
