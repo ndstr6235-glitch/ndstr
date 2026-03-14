@@ -1179,6 +1179,22 @@ img, canvas, video, svg {
     margin-bottom: 16px;
 }
 
+.tc-phone {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 13px;
+    color: #d4af37;
+    margin-top: 10px;
+    font-weight: 500;
+    letter-spacing: 0.3px;
+}
+
+.tc-phone svg {
+    opacity: 0.7;
+    flex-shrink: 0;
+}
+
 .tc-link {
     display: inline-flex;
     align-items: center;
