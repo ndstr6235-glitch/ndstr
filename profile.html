@@ -750,11 +750,43 @@
 
 <script>
 const MEMBERS = {
+    fencl: {
+        name: 'Miroslav Fencl',
+        initials: 'MF',
+        role: 'Zakladatel & predseda',
+        badge: 'Founder & Chairman',
+        phone: '+420 603 871 245',
+        email: 'fencl@ecgbuild.cz',
+        linkedin: 'https://linkedin.com/in/',
+        stats: [
+            { val: '25+', label: 'Let v podnikani' },
+            { val: '1999', label: 'Zalozeni ECG' },
+            { val: '280M', label: 'CZK pod spravou' }
+        ],
+        bio: '<p>Miroslav Fencl zalozil Euro Ceramic Group v roce 1999. Zacinall s dovozem keramickych obkladu a dlazeb z Italie a Spanelska — v dobe, kdy cesky trh zaplaval levnym zbozim z Polska a Ciny, on vsadil na kvalitu. Postupne rozsiroval sortiment o stavebni chemii, sanitarni techniku a kompletni vybaveni koupelen. Behem dvaceti let vybudoval firmu s celostátni distribucí a stabilnim portfoliem odberatelu z rad stavebních firem a developerů.</p><p>Kolem roku 2015 si uvedomil, ze za dvacet let ve stavebninach videl stovky projektu — a ze vetsina tech, co zkrachovaly, nezkrachovaly kvuli spatnemu napadu. Zkrachovaly kvuli spatnemu financovani. Dobry projekt, spatne penize, spatne nacasovani. Rozhodl se, ze to zkusi z druhe strany — ne dodavat material, ale financovat cele projekty.</p><p>V roce 2017 zalozil investicni divizi ECG Build. Najal Bergera ze Skanska jako generalniho reditele, Vlcka na pravo, Machovou na provoz. Prvnich sest investoru byli jeho obchodni partneri z branže, kteri ho znali leta. Dnes fond spravuje portfolio za 280 milionu a Fencl zastava roli predsSedy — schvaluje investice, nastavuje strategii a drzi kontakt s klicovymi investory. Denni provoz nechava na svem tymu.</p>',
+        quote: 'Dvacet let jsem dodaval material na stavby. Ted financuji cele projekty. Princip je stejny — kvalita, spolehlivost a lidi, kterym verite.',
+        expertise: ['Strategicke rizeni', 'Stavebni material a dodavatelske retezce', 'Investicni rozhodovani', 'Obchodni rozvoj', 'Vztahy s klicovymi partnery'],
+        projects: [
+            { name: 'Zalozeni ECG Build', role: 'Zakladatel, kapitalizace, strategicke rozhodnuti', result: 'Fond spravuje 280 mil. CZK, 24 investoru' },
+            { name: 'Ubytovaci komplex Kraslice', role: 'Prvni investice fondu, osobni dohled', result: 'Dokonceno 2019, obsazenost 96%' },
+            { name: 'Dluhopisovy program Harmonie', role: 'Schvaleni emise, osobni garustvi', result: 'Objem 50 mil. CZK, 6.5% p.a.' }
+        ],
+        timeline: [
+            { year: '2017 - nyni', title: 'Zakladatel & predseda', company: 'ECG Build (Euro Ceramic Group s.r.o.)', desc: 'Zalozeni investicni divize. Strategicke rizeni fondu, schvalovani investic, vztahy s klicovymi investory. Portfolio 280 mil. CZK.' },
+            { year: '1999 - nyni', title: 'Jednatel a majitel', company: 'Euro Ceramic Group s.r.o.', desc: 'Zalozeni a budovani firmy od nuly. Dovoz a distribuce stavebnin, keramiky a sanitarni techniky. Celostatni pusobnost, desitky stalych odberatelu.' },
+            { year: '1994 - 1999', title: 'Obchodni manazer', company: 'Stavební firma (OSVO)', desc: 'Prvni podnikatelske zkusenosti. Obchod se stavebnim materialem, budovani kontaktu v branzi. Zaklad pro pozdejsi zalozeni vlastni firmy.' }
+        ],
+        education: [
+            { title: 'Stredni prumyslova skola stavebni', desc: 'Praha — zaklad technickych znalosti ve stavebnictvi' },
+            { title: 'Kurzy managementu a financniho rizeni', desc: 'CMC Graduate School of Business (2010) — manazersky program pri praci' }
+        ],
+        certs: ['Zivnostensky list — Obchod a sluzby', 'Clen Svazu podnikatelu ve stavebnictvi', 'Clen Asociace developeru CR']
+    },
     berger: {
         name: 'Ing. Tomas Berger, MBA',
         initials: 'TB',
-        role: 'CEO & zakladatel',
-        badge: 'Chief Executive Officer',
+        role: 'Generalni reditel',
+        badge: 'CEO — General Director',
         phone: '+420 731 284 059',
         email: 'berger@ecgbuild.cz',
         linkedin: 'https://linkedin.com/in/',
@@ -772,7 +804,7 @@ const MEMBERS = {
             { name: 'Kancelare Smichov', role: 'Vyber objektu, cenove vyjednavani', result: 'V realizaci, 2 500 m²' }
         ],
         timeline: [
-            { year: '2017 - nyni', title: 'CEO & zakladatel', company: 'Euro Ceramic Group s.r.o.', desc: 'Zalozeni fondu, rizeni portfolia 5 projektu, vztahy s 24 investory, celkova strategie a rozvoj.' },
+            { year: '2017 - nyni', title: 'Generalni reditel', company: 'Euro Ceramic Group s.r.o.', desc: 'Zalozeni fondu, rizeni portfolia 5 projektu, vztahy s 24 investory, celkova strategie a rozvoj.' },
             { year: '2014 - 2016', title: 'Reditel komercniho developmentu', company: 'Metrostav a.s.', desc: 'Akvizice pozemku pro kancelarske a logisticke projekty. Rizeni tymu 8 lidi. Projekty v hodnote 1.2 mld. CZK.' },
             { year: '2008 - 2014', title: 'Projektovy reditel', company: 'Skanska a.s.', desc: 'Koordinace subdodavatelu, stavebni dozor, předavani hotovych staveb. Bytove domy, komercni objekty, rekonstrukce.' },
             { year: '2005 - 2008', title: 'Stavbyvedouci', company: 'Skanska a.s.', desc: 'Prvni stavebni praxe. Zateplovani, rekonstrukce fasad, mensi bytove projekty v Praze a okoli.' }
