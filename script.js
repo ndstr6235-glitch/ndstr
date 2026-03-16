@@ -327,7 +327,7 @@ document.addEventListener('DOMContentLoaded', () => {
         new Chart(allocCanvas.getContext('2d'), {
             type: 'doughnut',
             data: {
-                labels: ['Development & vystavba', 'Facility management', 'Pronajem & skladovani', 'Hotovost'],
+                labels: ['Modularni ubytovani', 'Skladove kontejnery', 'Specialni sestavy & kancelare', 'Hotovost'],
                 datasets: [{
                     data: [50, 30, 15, 5],
                     backgroundColor: [
@@ -390,21 +390,21 @@ document.addEventListener('DOMContentLoaded', () => {
                 labels: ['Q1', 'Q2', 'Q3'],
                 datasets: [
                     {
-                        label: 'Development & vystavba',
+                        label: 'Modularni ubytovani',
                         data: [3.2, 3.8, 2.9],
                         backgroundColor: barGradient1,
                         borderRadius: 6,
                         borderSkipped: false,
                     },
                     {
-                        label: 'Facility management',
+                        label: 'Skladove kontejnery',
                         data: [2.1, 2.5, 2.2],
                         backgroundColor: barGradient2,
                         borderRadius: 6,
                         borderSkipped: false,
                     },
                     {
-                        label: 'Pronajem & skladovani',
+                        label: 'Specialni sestavy & kancelare',
                         data: [1.5, 1.9, 1.3],
                         backgroundColor: barGradient3,
                         borderRadius: 6,
