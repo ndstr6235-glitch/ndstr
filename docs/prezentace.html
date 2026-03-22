@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prezentace | Nodis Star s.r.o.</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+        :root {
+            --primary: #1a2f4a;
+            --primary-dark: #0c1829;
+            --accent: #d4af37;
+            --accent-dark: #b8962d;
+            --text: #1a1f2e;
+            --text-light: #556073;
+            --bg: #fafbfc;
+            --border: #dfe3ea;
+        }
+        body {
+            font-family: 'Inter', -apple-system, sans-serif;
+            color: var(--text);
+            background: #e8ebef;
+            line-height: 1.7;
+            font-size: 14px;
+            -webkit-font-smoothing: antialiased;
+        }
+        .doc-actions {
+            max-width: 800px;
+            margin: 24px auto;
+            padding: 0 24px;
+            display: flex;
+            gap: 12px;
+        }
+        .doc-actions a, .doc-actions button {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 20px;
+            border-radius: 10px;
+            font-size: 13px;
+            font-weight: 600;
+            font-family: inherit;
+            text-decoration: none;
+            cursor: pointer;
+            border: none;
+            transition: all 0.2s;
+        }
+        .btn-back { background: rgba(255,255,255,0.9); color: var(--text); border: 1px solid var(--border); }
+        .btn-back:hover { border-color: var(--accent); color: var(--accent); }
+        .btn-print { background: linear-gradient(135deg, var(--accent), var(--accent-dark)); color: var(--primary-dark); }
+        .btn-print:hover { box-shadow: 0 4px 16px rgba(212,175,55,0.4); transform: translateY(-1px); }
+
+        .doc-page {
+            max-width: 800px;
+            margin: 0 auto 40px;
+            background: #fff;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        /* Cover */
+        .cover {
+            background: linear-gradient(160deg, #060b14 0%, #0c1829 25%, #152238 50%, #1a2f4a 75%, #1f3654 100%);
+            padding: 80px 48px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .cover::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background:
+                radial-gradient(ellipse at 20% 50%, rgba(212,175,55,0.08) 0%, transparent 50%),
+                radial-gradient(ellipse at 80% 20%, rgba(42,77,115,0.2) 0%, transparent 40%);
+        }
+        .cover-content { position: relative; z-index: 2; }
+        .cover-star { color: var(--accent); margin-bottom: 24px; }
+        .cover-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 36px;
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 8px;
+        }
+        .cover-company {
+            font-size: 18px;
+            font-weight: 300;
+            color: rgba(255,255,255,0.5);
+            margin-bottom: 32px;
+        }
+        .cover-subtitle {
+            display: inline-block;
+            padding: 8px 24px;
+            border: 1px solid rgba(212,175,55,0.3);
+            border-radius: 100px;
+            color: var(--accent);
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+        .cover-date {
+            margin-top: 48px;
+            font-size: 12px;
+            color: rgba(255,255,255,0.3);
+        }
+        .doc-gold-line {
+            height: 3px;
+            background: linear-gradient(90deg, var(--accent), var(--accent-dark), var(--accent));
+        }
+
+        /* Content */
+        .doc-body { padding: 48px; }
+        .section { margin-bottom: 40px; }
+        .section-tag {
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--accent-dark);
+            margin-bottom: 8px;
+        }
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 22px;
+            font-weight: 700;
+            color: var(--primary-dark);
+            margin-bottom: 16px;
+        }
+        p { margin-bottom: 12px; color: var(--text-light); }
+        p strong { color: var(--text); }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 16px;
+            margin: 24px 0;
+        }
+        .stat-card {
+            background: var(--bg);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 20px;
+            text-align: center;
+        }
+        .stat-val {
+            font-size: 28px;
+            font-weight: 800;
+            color: var(--accent-dark);
+            line-height: 1;
+            margin-bottom: 4px;
+        }
+        .stat-label {
+            font-size: 11px;
+            color: var(--text-light);
+            font-weight: 500;
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 16px;
+            margin: 24px 0;
+        }
+        .product-card {
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 20px;
+            position: relative;
+            overflow: hidden;
+        }
+        .product-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: var(--accent);
+        }
+        .product-name {
+            font-size: 15px;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 4px;
+        }
+        .product-size {
+            font-size: 12px;
+            color: var(--accent-dark);
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+        .product-desc {
+            font-size: 12px;
+            color: var(--text-light);
+            line-height: 1.6;
+        }
+
+        .process-steps {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 12px;
+            margin: 24px 0;
+        }
+        .step {
+            text-align: center;
+            padding: 16px 12px;
+            background: var(--bg);
+            border-radius: 10px;
+            border: 1px solid var(--border);
+        }
+        .step-num {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background: var(--accent);
+            color: var(--primary-dark);
+            font-weight: 800;
+            font-size: 14px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 8px;
+        }
+        .step-title {
+            font-size: 12px;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 4px;
+        }
+        .step-desc {
+            font-size: 11px;
+            color: var(--text-light);
+            line-height: 1.5;
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 16px;
+            margin: 24px 0;
+        }
+        .team-card {
+            background: var(--bg);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 20px;
+            text-align: center;
+        }
+        .team-avatar {
+            width: 56px;
+            height: 56px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: rgba(255,255,255,0.6);
+            font-weight: 700;
+            font-size: 16px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 10px;
+        }
+        .team-name {
+            font-size: 14px;
+            font-weight: 700;
+            color: var(--primary-dark);
+        }
+        .team-role {
+            font-size: 11px;
+            color: var(--text-light);
+        }
+
+        .contact-box {
+            background: linear-gradient(135deg, var(--primary-dark), var(--primary));
+            border-radius: 12px;
+            padding: 32px;
+            color: #fff;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+        }
+        .contact-item-label {
+            font-size: 10px;
+            color: rgba(255,255,255,0.4);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 2px;
+        }
+        .contact-item-value {
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        .disclaimer {
+            margin-top: 32px;
+            padding: 16px 20px;
+            background: #fff9e6;
+            border: 1px solid #f0e6b8;
+            border-radius: 8px;
+            font-size: 11px;
+            color: #8b7a3a;
+            line-height: 1.7;
+        }
+
+        .doc-footer {
+            background: var(--bg);
+            border-top: 1px solid var(--border);
+            padding: 16px 48px;
+            display: flex;
+            justify-content: space-between;
+            font-size: 10px;
+            color: var(--text-light);
+        }
+
+        @media print {
+            body { background: #fff; }
+            .doc-actions { display: none; }
+            .doc-page { box-shadow: none; margin: 0; max-width: none; border-radius: 0; }
+            @page { size: A4; margin: 10mm; }
+            -webkit-print-color-adjust: exact;
+            print-color-adjust: exact;
+            .cover { padding: 60px 40px; }
+            .doc-body { padding: 32px 40px; }
+        }
+        @media (max-width: 600px) {
+            .doc-body { padding: 24px 20px; }
+            .cover { padding: 48px 20px; }
+            .stats-grid, .product-grid, .team-grid { grid-template-columns: 1fr; }
+            .process-steps { grid-template-columns: 1fr 1fr; }
+            .contact-box { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="doc-actions">
+    <a href="../index.html" class="btn-back">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg>
+        Zpět na web
+    </a>
+    <button class="btn-print" onclick="window.print()">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9V2h12v7"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>
+        Stáhnout PDF
+    </button>
+</div>
+
+<div class="doc-page">
+    <!-- COVER -->
+    <div class="cover">
+        <div class="cover-content">
+            <div class="cover-star">
+                <svg width="56" height="56" viewBox="0 0 24 24" fill="none"><polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26" fill="currentColor"/></svg>
+            </div>
+            <div class="cover-title">Nodis Star</div>
+            <div class="cover-company">s.r.o.</div>
+            <div class="cover-subtitle">Prezentace společnosti</div>
+            <div class="cover-date">Březen 2026</div>
+        </div>
+    </div>
+    <div class="doc-gold-line"></div>
+
+    <div class="doc-body">
+
+        <!-- O SPOLEČNOSTI -->
+        <div class="section">
+            <div class="section-tag">O společnosti</div>
+            <div class="section-title">Kdo jsme</div>
+            <p><strong>Nodis Star s.r.o.</strong> je česká společnost zaměřená na návrh, výrobu a dodávky modulárních buňkových jednotek. Vznikla v roce 2024 s cílem přinést na český trh ověřený koncept modulárního bydlení — cenově dostupného, rychle realizovatelného a s moderním designem.</p>
+            <p>Naše buňky slouží jako turistické ubytování, kanceláře, provozovny, stavební zázemí i startovací bydlení. Každý modul je navržený na míru potřebám klienta.</p>
+
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-val">50+</div>
+                    <div class="stat-label">Dodaných jednotek</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-val">14 dní</div>
+                    <div class="stat-label">Průměrná doba výroby</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-val">2024</div>
+                    <div class="stat-label">Rok založení</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- PŘÍBĚH -->
+        <div class="section">
+            <div class="section-tag">Naše cesta</div>
+            <div class="section-title">Od Thajska k českému trhu</div>
+            <p>Zakladatel <strong>Miroslav Fencl</strong> provozuje turistický resort v Thajsku. Právě tam poprvé experimentoval s přestavbou námořních kontejnerů na cenově dostupné ubytování pro turisty. Hosty oslovila kombinace moderního designu, rychlé výstavby a nízké ceny.</p>
+            <p>Postupně zdokonaloval konstrukci, izolaci i interiérový design. Z jednoduchých kontejnerových pokojů vznikly plnohodnotné obytné moduly — <strong>buňky</strong>, které lze postavit za zlomek času i nákladů oproti tradiční stavbě.</p>
+            <p>S nabytými zkušenostmi založil v roce 2024 společnost <strong>Nodis Star s.r.o.</strong> v Praze a přenesl ověřený koncept na český trh — pro turistické resorty, firemní ubytovny, mobilní kanceláře i rezidenční projekty.</p>
+        </div>
+
+        <!-- PRODUKTY -->
+        <div class="section">
+            <div class="section-tag">Naše buňky</div>
+            <div class="section-title">Modulární jednotky na klíč</div>
+            <div class="product-grid">
+                <div class="product-card">
+                    <div class="product-name">Turistické ubytování</div>
+                    <div class="product-size">od 15 m²</div>
+                    <div class="product-desc">Kompaktní jednotky pro kempy, resorty a Airbnb. Plně vybavené — koupelna, kuchyňka, klimatizace.</div>
+                </div>
+                <div class="product-card">
+                    <div class="product-name">Kanceláře a provozovny</div>
+                    <div class="product-size">od 20 m²</div>
+                    <div class="product-desc">Mobilní kancelářské prostory pro firmy, stavby a eventy. Možnost propojení více modulů.</div>
+                </div>
+                <div class="product-card">
+                    <div class="product-name">Rezidenční bydlení</div>
+                    <div class="product-size">od 30 m²</div>
+                    <div class="product-desc">Startovací byty a zaměstnanecké ubytovny. Plnohodnotné jednotky s kompletním zázemím.</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- PROCES -->
+        <div class="section">
+            <div class="section-tag">Jak to funguje</div>
+            <div class="section-title">Od prvního kontaktu k hotové buňce</div>
+            <div class="process-steps">
+                <div class="step">
+                    <div class="step-num">1</div>
+                    <div class="step-title">Konzultace</div>
+                    <div class="step-desc">Probereme vaše potřeby a požadavky</div>
+                </div>
+                <div class="step">
+                    <div class="step-num">2</div>
+                    <div class="step-title">Návrh</div>
+                    <div class="step-desc">Vizualizace, specifikace a kalkulace</div>
+                </div>
+                <div class="step">
+                    <div class="step-num">3</div>
+                    <div class="step-title">Výroba</div>
+                    <div class="step-desc">2–3 týdny včetně vybavení</div>
+                </div>
+                <div class="step">
+                    <div class="step-num">4</div>
+                    <div class="step-title">Dodání</div>
+                    <div class="step-desc">Doprava a kompletní instalace</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- TÝM -->
+        <div class="section">
+            <div class="section-tag">Náš tým</div>
+            <div class="section-title">Lidé za Nodis Star</div>
+            <div class="team-grid">
+                <div class="team-card">
+                    <div class="team-avatar">MF</div>
+                    <div class="team-name">Miroslav Fencl</div>
+                    <div class="team-role">Zakladatel & jednatel</div>
+                </div>
+                <div class="team-card">
+                    <div class="team-avatar">JN</div>
+                    <div class="team-name">Jan Novák</div>
+                    <div class="team-role">Obchodní ředitel</div>
+                </div>
+                <div class="team-card">
+                    <div class="team-avatar">PS</div>
+                    <div class="team-name">Petr Svoboda</div>
+                    <div class="team-role">Provozní ředitel</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- KONTAKT -->
+        <div class="section">
+            <div class="section-tag">Kontakt</div>
+            <div class="section-title">Spojte se s námi</div>
+            <div class="contact-box">
+                <div>
+                    <div class="contact-item-label">Společnost</div>
+                    <div class="contact-item-value">Nodis Star s.r.o.</div>
+                </div>
+                <div>
+                    <div class="contact-item-label">IČO</div>
+                    <div class="contact-item-value">21300101</div>
+                </div>
+                <div>
+                    <div class="contact-item-label">Sídlo</div>
+                    <div class="contact-item-value">Hradecká 2526/3, 130 00 Praha 3</div>
+                </div>
+                <div>
+                    <div class="contact-item-label">E-mail</div>
+                    <div class="contact-item-value">info@nodisstar.cz</div>
+                </div>
+                <div>
+                    <div class="contact-item-label">Telefon</div>
+                    <div class="contact-item-value">+420 777 888 999</div>
+                </div>
+                <div>
+                    <div class="contact-item-label">Datová schránka</div>
+                    <div class="contact-item-value">3tduri7</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SPOLUPRÁCE -->
+        <div class="section">
+            <div class="section-tag">Spolupráce</div>
+            <div class="section-title">Možnost zapojení</div>
+            <p>Nabízíme možnost podílet se na rozvoji naší společnosti prostřednictvím zápůjčky zajištěné směnkou.</p>
+
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-val">od 50 000 Kč</div>
+                    <div class="stat-label">Minimální vstup</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-val">8–12 %</div>
+                    <div class="stat-label">Orientační roční výnos</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-val">12 měsíců</div>
+                    <div class="stat-label">Doba trvání</div>
+                </div>
+            </div>
+
+            <p>Ke každé spolupráci obdržíte kompletní dokumentaci — smlouvu o zápůjčce, směnku a čestné prohlášení. Výše výnosu závisí na objemu a délce spolupráce.</p>
+        </div>
+
+        <!-- DISCLAIMER -->
+        <div class="disclaimer">
+            <strong>Upozornění:</strong> Tento dokument slouží výhradně k informačním účelům a nepředstavuje investiční doporučení, nabídku cenných papírů ani výzvu k investování ve smyslu zákona o podnikání na kapitálovém trhu. Každý zájemce by měl posoudit rizika individuálně.
+        </div>
+    </div>
+
+    <div class="doc-footer">
+        <span>Nodis Star s.r.o. | IČO: 21300101 | Hradecká 2526/3, 130 00 Praha 3</span>
+        <span>Prezentace společnosti — Březen 2026</span>
+    </div>
+</div>
+
+</body>
+</html>
