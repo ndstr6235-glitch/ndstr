@@ -460,7 +460,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // ── Monthly Returns Heatmap ──
     const heatmapContainer = document.getElementById('heatmapContainer');
     if (heatmapContainer) {
-        const months = ['Led', 'Uno', 'Bre', 'Dub', 'Kve', 'Cer', 'Cvc', 'Srp', 'Zar', 'Rij', 'Lis', 'Pro'];
+        const months = ['Led', 'Úno', 'Bře', 'Dub', 'Kvě', 'Čer', 'Čvc', 'Srp', 'Zář', 'Říj', 'Lis', 'Pro'];
         const years = {
             '2025': [0.8, 0.7, 0.6, 0.9, 1.0, 0.9, 1.0, 0.6, 0.3, null, null, null],
             '2024': [0.6, 0.8, 1.0, 0.7, 1.2, 1.2, 0.9, 0.8, 0.9, 0.7, 0.8, 0.7],
@@ -510,7 +510,7 @@ document.addEventListener('DOMContentLoaded', () => {
         'EUR/CZK': { price: 25.15, change: 0, source: 'init' },
         'BTC/USD': { price: 87200, change: 0, source: 'init' },
         'Zlato': { price: 2935, change: 0, source: 'init' },
-        'Stribro': { price: 33.5, change: 0, source: 'init' },
+        'Stříbro': { price: 33.5, change: 0, source: 'init' },
         'S&P 500': { price: 5842, change: 0, source: 'init' },
         'DAX': { price: 19245, change: 0, source: 'init' },
         'PX Index': { price: 1587, change: 0, source: 'init' },
@@ -629,18 +629,18 @@ document.addEventListener('DOMContentLoaded', () => {
             } catch(e) { console.warn('Gold (XAU/USD) fetch failed:', e); }
         }
 
-        // Silver (Stribro)
-        const cfgSilver = marketConfig['Stribro'] || {};
+        // Silver (Stříbro)
+        const cfgSilver = marketConfig['Stříbro'] || {};
         if (cfgSilver.mode !== 'manual') {
             try {
                 const res = await fetch('https://forex-data-feed.swissquote.com/public-quotes/bboquotes/instrument/XAG/USD');
                 const data = await res.json();
                 if (data && data[0] && data[0].spreadProfilePrices && data[0].spreadProfilePrices[0]) {
                     const bid = data[0].spreadProfilePrices[0].bid;
-                    const oldPrice = marketData['Stribro'].price;
-                    marketData['Stribro'].price = bid;
-                    marketData['Stribro'].change = oldPrice ? ((bid - oldPrice) / oldPrice) * 100 : 0;
-                    marketData['Stribro'].source = 'api';
+                    const oldPrice = marketData['Stříbro'].price;
+                    marketData['Stříbro'].price = bid;
+                    marketData['Stříbro'].change = oldPrice ? ((bid - oldPrice) / oldPrice) * 100 : 0;
+                    marketData['Stříbro'].source = 'api';
                 }
             } catch(e) { console.warn('Silver (XAG/USD) fetch failed:', e); }
         }
@@ -665,7 +665,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         const tickerItems = [
             'EUR/CZK', 'PX Index', 'S&P 500', 'DAX',
-            'Zlato', 'Stribro', 'Ropa Brent', 'BTC/USD'
+            'Zlato', 'Stříbro', 'Ropa Brent', 'BTC/USD'
         ];
 
         function renderTicker() {

@@ -316,7 +316,7 @@
 <div class="vcard-page">
     <a href="index.html" class="vcard-back">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg>
-        Zpet na web
+        Zpět na web
     </a>
 
     <div class="vcard" id="vcardRoot">
@@ -370,13 +370,13 @@
                     </div>
                     <div class="vcard-row-text">
                         <div class="vcard-row-label">Adresa</div>
-                        <div class="vcard-row-value">Hradecka 2526/3, 130 00 Praha 3</div>
+                        <div class="vcard-row-value">Hradecká 2526/3, 130 00 Praha 3</div>
                     </div>
                 </div>
             </div>
 
             <div class="vcard-qr-section">
-                <div class="vcard-section-title">QR kod</div>
+                <div class="vcard-section-title">QR kód</div>
                 <div class="qr-wrap" id="qrWrap"></div>
                 <div class="qr-url" id="qrUrl"></div>
             </div>
@@ -483,7 +483,7 @@ document.getElementById('btnDownloadVcf').addEventListener('click', function() {
         'TEL;TYPE=WORK,VOICE:' + m.phone.replace(/\s/g, ''),
         'EMAIL;TYPE=WORK:' + m.email,
         'URL:https://nodisstar.cz',
-        'ADR;TYPE=WORK:;;Hradecka 2526/3;Praha;;130 00;Czech Republic',
+        'ADR;TYPE=WORK:;;Hradecká 2526/3;Praha;;130 00;Czech Republic',
         'END:VCARD'
     ].join('\r\n');
     const blob = new Blob([vcf], { type: 'text/vcard;charset=utf-8' });

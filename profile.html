@@ -855,7 +855,7 @@ sidebarEl.innerHTML = `
             </a>
             <div class="pf-contact-row">
                 <div class="pf-contact-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
-                <div><div class="pf-contact-label">Kancelar</div><div class="pf-contact-value">Hradecka 2526/3, Praha 3</div></div>
+                <div><div class="pf-contact-label">Kancelář</div><div class="pf-contact-value">Hradecká 2526/3, Praha 3</div></div>
             </div>
         </div>
     </div>
@@ -865,7 +865,7 @@ sidebarEl.innerHTML = `
         <div class="pf-actions">
             <a href="vcard.html?m=${id}" class="pf-btn pf-btn-gold">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
-                Digitalni vizitka
+                Digitální vizitka
             </a>
             <button class="pf-btn pf-btn-outline" id="btnVcf">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
@@ -879,7 +879,7 @@ sidebarEl.innerHTML = `
     </div>
 
     <div class="pf-card">
-        <div class="pf-card-title">QR kod profilu</div>
+        <div class="pf-card-title">QR kód profilu</div>
         <div class="pf-qr-wrap">
             <div class="qr-box" id="qrBox"></div>
             <div class="pf-qr-text">Naskenujte pro otevření profilu</div>
@@ -926,7 +926,7 @@ document.getElementById('btnVcf').addEventListener('click', function() {
         'TEL;TYPE=WORK,VOICE:' + m.phone.replace(/\s/g, ''),
         'EMAIL;TYPE=WORK:' + m.email,
         'URL:https://nodisstar.cz',
-        'ADR;TYPE=WORK:;;Hradecka 2526/3;Praha;;130 00;Czech Republic',
+        'ADR;TYPE=WORK:;;Hradecká 2526/3;Praha;;130 00;Czech Republic',
         'END:VCARD'
     ].join('\r\n');
     const blob = new Blob([vcf], { type: 'text/vcard;charset=utf-8' });
