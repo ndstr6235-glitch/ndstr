@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
-    <title>Vizitka | ECG Build</title>
+    <title>Vizitka | Nodis Star</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/qrcode-generator@1.4.4/qrcode.min.js"></script>
@@ -321,7 +321,7 @@
 
     <div class="vcard" id="vcardRoot">
         <div class="vcard-header">
-            <div class="vcard-logo">E</div>
+            <div class="vcard-logo">V</div>
             <div class="vcard-avatar" id="vcardAvatar">
                 <svg viewBox="0 0 120 120" fill="none">
                     <circle cx="60" cy="45" r="22" fill="rgba(255,255,255,0.15)"/>
@@ -329,13 +329,13 @@
                     <text x="60" y="52" text-anchor="middle" fill="rgba(255,255,255,0.6)" font-size="20" font-weight="700" font-family="Inter,sans-serif" id="vcardInitials">VC</text>
                 </svg>
             </div>
-            <h1 id="vcardName">ECG Build</h1>
-            <div class="role" id="vcardRole">Investicni fond</div>
-            <div class="company">Euro Ceramic Group s.r.o.</div>
+            <h1 id="vcardName">Nodis Star</h1>
+            <div class="role" id="vcardRole">Modulární jednotky</div>
+            <div class="company">Nodis Star s.r.o.</div>
         </div>
 
         <div class="vcard-body">
-            <div class="vcard-section-title">Kontaktni udaje</div>
+            <div class="vcard-section-title">Kontaktní údaje</div>
             <div class="vcard-info" id="vcardInfo">
                 <a href="tel:" class="vcard-row" id="rowPhone">
                     <div class="vcard-row-icon">
@@ -355,13 +355,13 @@
                         <div class="vcard-row-value" id="valEmail"></div>
                     </div>
                 </a>
-                <a href="https://invx10.vercel.app" target="_blank" class="vcard-row">
+                <a href="https://nodisstar.cz" target="_blank" class="vcard-row">
                     <div class="vcard-row-icon">
                         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
                     </div>
                     <div class="vcard-row-text">
                         <div class="vcard-row-label">Web</div>
-                        <div class="vcard-row-value">invx10.vercel.app</div>
+                        <div class="vcard-row-value">nodisstar.cz</div>
                     </div>
                 </a>
                 <div class="vcard-row">
@@ -370,7 +370,7 @@
                     </div>
                     <div class="vcard-row-text">
                         <div class="vcard-row-label">Adresa</div>
-                        <div class="vcard-row-value">Namesti 14. rijna 1307/2, 150 00 Praha 5</div>
+                        <div class="vcard-row-value">Hradecka 2526/3, 130 00 Praha 3</div>
                     </div>
                 </div>
             </div>
@@ -384,17 +384,17 @@
             <div class="vcard-actions">
                 <button class="vcard-btn vcard-btn-primary" id="btnDownloadVcf">
                     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-                    Ulozit kontakt (.vcf)
+                    Uložit kontakt (.vcf)
                 </button>
                 <button class="vcard-btn vcard-btn-outline" id="btnShare">
                     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
-                    Sdilet vizitku
+                    Sdílet vizitku
                 </button>
             </div>
         </div>
 
         <div class="vcard-footer">
-            <p>Euro Ceramic Group s.r.o. &mdash; <a href="https://invx10.vercel.app">invx10.vercel.app</a></p>
+            <p>Nodis Star s.r.o. &mdash; <a href="https://nodisstar.cz">nodisstar.cz</a></p>
         </div>
     </div>
 </div>
@@ -404,58 +404,23 @@ const MEMBERS = {
     fencl: {
         name: 'Miroslav Fencl',
         initials: 'MF',
-        role: 'Zakladatel & predseda',
-        phone: '+420 603 871 245',
-        email: 'fencl@ecgbuild.cz',
+        role: 'Zakladatel & jednatel',
+        phone: '+420 777 888 999',
+        email: 'fencl@nodisstar.cz',
     },
-    berger: {
-        name: 'Ing. Tomas Berger, MBA',
-        initials: 'TB',
-        role: 'CEO & zakladatel',
-        phone: '+420 731 284 059',
-        email: 'berger@ecgbuild.cz',
+    novak: {
+        name: 'Jan Novák',
+        initials: 'JN',
+        role: 'Obchodní ředitel',
+        phone: '+420 777 111 222',
+        email: 'novak@nodisstar.cz',
     },
-    machova: {
-        name: 'Ing. Katerina Machova',
-        initials: 'KM',
-        role: 'Provozni reditelka',
-        phone: '+420 608 413 762',
-        email: 'machova@ecgbuild.cz',
-    },
-    vlcek: {
-        name: 'JUDr. Pavel Vlcek',
-        initials: 'PV',
-        role: 'Pravni reditel',
-        phone: '+420 725 961 348',
-        email: 'vlcek@ecgbuild.cz',
-    },
-    prochazka: {
-        name: 'Ing. David Prochazka, MRICS',
-        initials: 'DP',
-        role: 'Reditel akvizic',
-        phone: '+420 602 738 491',
-        email: 'prochazka@ecgbuild.cz',
-    },
-    dvorakova: {
-        name: 'Ing. Lucie Dvorakova',
-        initials: 'LD',
-        role: 'Financni reditelka',
-        phone: '+420 776 342 198',
-        email: 'dvorakova@ecgbuild.cz',
-    },
-    horak: {
-        name: 'Mgr. Martin Horak',
-        initials: 'MH',
-        role: 'Reditel investicnich vztahu',
-        phone: '+420 739 512 684',
-        email: 'horak@ecgbuild.cz',
-    },
-    koubova: {
-        name: 'Ing. Tereza Koubova',
-        initials: 'TK',
-        role: 'Obchodni reditelka',
-        phone: '+420 604 287 356',
-        email: 'koubova@ecgbuild.cz',
+    svoboda: {
+        name: 'Petr Svoboda',
+        initials: 'PS',
+        role: 'Provozní ředitel',
+        phone: '+420 777 333 444',
+        email: 'svoboda@nodisstar.cz',
     }
 };
 
@@ -471,15 +436,15 @@ if (member) {
     document.getElementById('valEmail').textContent = member.email;
     document.getElementById('rowPhone').href = 'tel:' + member.phone.replace(/\s/g, '');
     document.getElementById('rowEmail').href = 'mailto:' + member.email;
-    document.title = member.name + ' | ECG Build';
+    document.title = member.name + ' | Nodis Star';
 } else {
-    document.getElementById('vcardName').textContent = 'ECG Build';
-    document.getElementById('vcardRole').textContent = 'Investicni fond';
-    document.getElementById('vcardInitials').textContent = 'VC';
-    document.getElementById('valPhone').textContent = '+420 601 000 000';
-    document.getElementById('valEmail').textContent = 'info@ecgbuild.cz';
-    document.getElementById('rowPhone').href = 'tel:+420601000000';
-    document.getElementById('rowEmail').href = 'mailto:info@ecgbuild.cz';
+    document.getElementById('vcardName').textContent = 'Nodis Star';
+    document.getElementById('vcardRole').textContent = 'Modulární jednotky';
+    document.getElementById('vcardInitials').textContent = 'NS';
+    document.getElementById('valPhone').textContent = '+420 777 888 999';
+    document.getElementById('valEmail').textContent = 'info@nodisstar.cz';
+    document.getElementById('rowPhone').href = 'tel:+420777888999';
+    document.getElementById('rowEmail').href = 'mailto:info@nodisstar.cz';
 }
 
 // QR Code
@@ -499,12 +464,12 @@ try {
         svg.style.height = '180px';
     }
 } catch(e) {
-    document.getElementById('qrWrap').innerHTML = '<p style="padding:20px;color:#999;">QR kod nelze vygenerovat</p>';
+    document.getElementById('qrWrap').innerHTML = '<p style="padding:20px;color:#999;">QR kód nelze vygenerovat</p>';
 }
 
 // Download VCF
 document.getElementById('btnDownloadVcf').addEventListener('click', function() {
-    const m = member || { name: 'ECG Build', phone: '+420601000000', email: 'info@ecgbuild.cz', role: 'Investicni fond' };
+    const m = member || { name: 'Nodis Star', phone: '+420777888999', email: 'info@nodisstar.cz', role: 'Modulární jednotky' };
     const nameParts = m.name.replace(/\s*(Ing\.|JUDr\.|Ph\.D\.|MBA|,)\s*/g, ' ').trim().split(/\s+/);
     const lastName = nameParts.pop();
     const firstName = nameParts.join(' ');
@@ -513,19 +478,19 @@ document.getElementById('btnDownloadVcf').addEventListener('click', function() {
         'VERSION:3.0',
         'N:' + lastName + ';' + firstName + ';;;',
         'FN:' + m.name,
-        'ORG:Euro Ceramic Group s.r.o.',
+        'ORG:Nodis Star s.r.o.',
         'TITLE:' + m.role,
         'TEL;TYPE=WORK,VOICE:' + m.phone.replace(/\s/g, ''),
         'EMAIL;TYPE=WORK:' + m.email,
-        'URL:https://invx10.vercel.app',
-        'ADR;TYPE=WORK:;;Namesti 14. rijna 1307/2;Praha;;150 00;Czech Republic',
+        'URL:https://nodisstar.cz',
+        'ADR;TYPE=WORK:;;Hradecka 2526/3;Praha;;130 00;Czech Republic',
         'END:VCARD'
     ].join('\r\n');
     const blob = new Blob([vcf], { type: 'text/vcard;charset=utf-8' });
     const url = URL.createObjectURL(blob);
     const a = document.createElement('a');
     a.href = url;
-    a.download = (memberId || 'ecgbuild') + '.vcf';
+    a.download = (memberId || 'nodis-star') + '.vcf';
     a.click();
     URL.revokeObjectURL(url);
 });
@@ -534,14 +499,14 @@ document.getElementById('btnDownloadVcf').addEventListener('click', function() {
 document.getElementById('btnShare').addEventListener('click', function() {
     if (navigator.share) {
         navigator.share({
-            title: (member ? member.name : 'ECG Build') + ' | Vizitka',
+            title: (member ? member.name : 'Nodis Star') + ' | Vizitka',
             url: window.location.href
         });
     } else {
         navigator.clipboard.writeText(window.location.href).then(function() {
             const btn = document.getElementById('btnShare');
             const orig = btn.innerHTML;
-            btn.innerHTML = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg> Odkaz zkopirovan!';
+            btn.innerHTML = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg> Odkaz zkopírován!';
             setTimeout(function() { btn.innerHTML = orig; }, 2000);
         });
     }

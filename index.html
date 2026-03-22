@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
-    <title>ECG Build | Investice s perspektivou</title>
+    <title>Nodis Star | Modulární buňkové jednotky</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
@@ -11,41 +11,21 @@
 <body>
 <div id="page-wrapper">
 
-<!-- INVESTOR MODAL -->
-<div class="investor-modal-overlay" id="investorModal">
-    <div class="investor-modal">
-        <div class="investor-modal-logo">
-            <div class="logo-icon" style="width:52px;height:52px;font-size:15px;letter-spacing:1.5px;border-radius:12px;">ECG</div>
-        </div>
-        <h2>Upozorneni</h2>
-        <p>Tento web je urcen pouze pro<br><strong>kvalifikovane investory</strong></p>
-        <p class="investor-modal-text">Nejste-li kvalifikovanym investorem dle zakona c. 240/2013 Sb., stranky prosim opustte.</p>
-        <button class="btn btn-primary btn-lg" id="investorAccept">Zavrit a pokracovat</button>
-        <a href="https://google.com" class="investor-modal-leave">Nejsem kvalifikovany investor</a>
-    </div>
-</div>
-
 <!-- NAVBAR -->
 <nav class="navbar" id="navbar">
     <div class="container nav-container">
         <a href="#" class="logo">
-            <div class="logo-icon">ECG</div>
-            <div class="logo-divider"></div>
-            <div class="logo-text">
-                <span class="logo-name">ECG Build</span>
-                <span class="logo-sub">Euro Ceramic Group</span>
-            </div>
+            <div class="logo-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"><polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26" fill="currentColor"/></svg></div>
+            <span>Nodis <strong>Star</strong></span>
         </a>
         <ul class="nav-links" id="navLinks">
-            <li><a href="#o-nas">O nas</a></li>
-            <li><a href="#fond">Fond</a></li>
-            <li><a href="#projekty">Projekty</a></li>
-            <li><a href="#vykonnost">Vysledky</a></li>
-            <li><a href="#tym">Tym</a></li>
+            <li><a href="#o-nas">O nás</a></li>
+            <li><a href="#bunky">Naše buňky</a></li>
+            <li><a href="#investice">Investice</a></li>
+            <li><a href="#tym">Tým</a></li>
             <li><a href="#kontakt">Kontakt</a></li>
         </ul>
-        <a href="investor.html" class="btn btn-nav" style="margin-right:8px;background:transparent;border:1px solid rgba(212,175,55,0.4);color:#d4af37;">Portal investora</a>
-        <a href="#kontakt" class="btn btn-nav">Chci investovat</a>
+        <a href="#kontakt" class="btn btn-nav">Kontaktujte nás</a>
         <button class="mobile-toggle" id="mobileToggle" aria-label="Menu">
             <span></span><span></span><span></span>
         </button>
@@ -57,25 +37,25 @@
     <div class="hero-bg"></div>
     <div class="hero-overlay"></div>
     <div class="container hero-content">
-        <div class="hero-badge">Modulární stavby & investice</div>
-        <h1>Stavíme z <span class="text-gradient">buněk</span>. Investujeme do <span class="text-gradient">hodnoty</span>.</h1>
-        <p class="hero-subtitle">Obytné kontejnery, modulární kanceláře, skladové prostory. Stavíme rychle, levně a flexibilně — z buněk, které se dají přesouvat, rozšiřovat a kombinovat. Investujte do segmentu, který roste rychleji než klasický development.</p>
+        <div class="hero-badge">Modulární buňkové jednotky</div>
+        <h1>Moderní <span class="text-gradient">bydlení</span><br>z kontejnerů</h1>
+        <p class="hero-subtitle">Navrhujeme, vyrábíme a dodáváme modulární buňky pro ubytování, kanceláře i komerční využití. Rychle, cenově dostupně a s moderním designem.</p>
         <div class="hero-cta">
-            <a href="#fond" class="btn btn-primary btn-lg">Prozkoumat fond</a>
-            <a href="#kontakt" class="btn btn-outline btn-lg">Kontaktovat nas</a>
+            <a href="#bunky" class="btn btn-primary btn-lg">Naše buňky</a>
+            <a href="#kontakt" class="btn btn-outline btn-lg">Kontaktovat nás</a>
         </div>
         <div class="hero-stats">
             <div class="stat">
-                <span class="stat-number" data-target="220">0</span><span class="stat-suffix"> mil.</span>
-                <span class="stat-label">Spravovana aktiva (CZK)</span>
+                <span class="stat-number" data-target="50">0</span><span class="stat-suffix">+</span>
+                <span class="stat-label">Dodaných jednotek</span>
             </div>
             <div class="stat">
-                <span class="stat-number" data-target="24">0</span>
-                <span class="stat-label">Aktivnich investoru</span>
+                <span class="stat-number" data-target="14">0</span><span class="stat-suffix"> dní</span>
+                <span class="stat-label">Průměrná doba výroby</span>
             </div>
             <div class="stat">
-                <span class="stat-number" data-target="25">0</span><span class="stat-suffix">+ let</span>
-                <span class="stat-label">Ve stavebnictvi</span>
+                <span class="stat-number" data-target="2">0</span><span class="stat-suffix"> roky</span>
+                <span class="stat-label">Na trhu</span>
             </div>
         </div>
     </div>
@@ -89,842 +69,180 @@
     <div class="container">
         <div class="trust-items">
             <div class="trust-item">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-                <span>Modulární buňky & kontejnery</span>
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+                <span>Plnohodnotné obytné jednotky</span>
             </div>
             <div class="trust-item">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
-                <span>25+ let ve stavebnictví</span>
+                <span>Certifikované materiály</span>
             </div>
             <div class="trust-item">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-                <span>Stavba za 3-8 týdnů</span>
+                <span>Výstavba do 3 týdnů</span>
             </div>
             <div class="trust-item">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-                <span>Přesun a znovupoužití</span>
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                <span>Záruka 5 let na konstrukci</span>
             </div>
         </div>
     </div>
 </section>
 
-<!-- O NAS -->
+<!-- O NÁS -->
 <section class="section section-about" id="o-nas">
     <div class="container">
         <div class="section-header">
-            <span class="section-tag">Proc bunky</span>
-            <h2>Modulární stavby <span class="text-gradient">mění trh</span></h2>
-            <p class="section-desc">Klasický development trvá roky a stojí desítky milionů. Modulární buňka stojí na místě za týdny a stojí zlomek. Dá se přesunout, rozšířit, kombinovat. To není budoucnost — to je teď.</p>
+            <span class="section-tag">Naše cesta</span>
+            <h2>Jak vznikla <span class="text-gradient">Nodis Star</span></h2>
+            <p class="section-desc">Za každým úspěšným projektem stojí osobní zkušenost. Příběh Nodis Star se začal psát tisíce kilometrů od České republiky — v tropickém Thajsku.</p>
         </div>
         <div class="about-grid">
             <div class="about-card">
                 <div class="about-icon">
-                    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M12 7V3"/><path d="M7 7V5"/><path d="M17 7V5"/></svg>
+                    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
                 </div>
-                <h3>Obytné buňky</h3>
-                <p>Ubytovny pro pracovníky, dočasné bydlení, stavební zázemí. Kompletně vybavené jednotky s kuchyní, sociálním zázemím a klimatizací. Nasazení za 2-4 týdny.</p>
-            </div>
-            <div class="about-card">
-                <div class="about-icon">
-                    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
-                </div>
-                <h3>Skladové kontejnery</h3>
-                <p>Skladovací prostory z námořních a stavebních kontejnerů. Paletové i volné skladování. Zabezpečené, izolované, přesouvatelné. Ideální pro logistiku a průmysl.</p>
-            </div>
-            <div class="about-card">
-                <div class="about-icon">
-                    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
-                </div>
-                <h3>Modulární kanceláře</h3>
-                <p>Kancelářské sestavy z buněk — od jednoduchého zázemí na stavbě po kompletní open-space. Zateplené, klimatizované, s elektroinstalací a datovými rozvody.</p>
+                <h3>Inspirace z Thajska</h3>
+                <p>Zakladatel Miroslav Fencl provozuje turistický resort v Thajsku. Právě tam poprvé experimentoval s přestavbou námořních kontejnerů na cenově dostupné ubytování pro turisty. Hosty oslovila kombinace moderního designu, rychlé výstavby a nízké ceny.</p>
             </div>
             <div class="about-card">
                 <div class="about-icon">
                     <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg>
                 </div>
-                <h3>Speciální řešení</h3>
-                <p>Dílny, šatny, jídelny, sanitární buňky, vrátnice, technické zázemí. Cokoliv, co potřebujete na stavbě, v areálu nebo ve skladu — postavíme to z buněk.</p>
+                <h3>Od kontejnerů k buňkám</h3>
+                <p>Postupně zdokonaloval konstrukci, izolaci i interiérový design. Z jednoduchých kontejnerových pokojů vznikly plnohodnotné obytné moduly — buňky, které lze postavit za zlomek času i nákladů oproti tradiční stavbě.</p>
+            </div>
+            <div class="about-card">
+                <div class="about-icon">
+                    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+                </div>
+                <h3>Know-how v Česku</h3>
+                <p>S nabytými zkušenostmi založil v roce 2024 společnost Nodis Star s.r.o. v Praze. Cílem je přinést ověřený koncept modulárního bydlení na český trh — pro turistické resorty, firemní ubytovny, mobilní kanceláře i rezidenční projekty.</p>
+            </div>
+            <div class="about-card">
+                <div class="about-icon">
+                    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+                </div>
+                <h3>Široké využití</h3>
+                <p>Naše buňky dnes slouží jako turistické ubytování, dočasné kanceláře, mobilní prodejny, stavební zázemí či startovací bydlení. Každý modul je navržený na míru potřebám klienta.</p>
             </div>
         </div>
     </div>
 </section>
 
-<!-- HISTORIE -->
-<section class="section section-history" id="historie">
+<!-- NAŠE BUŇKY -->
+<section class="section section-fund" id="bunky">
     <div class="container">
         <div class="section-header">
-            <span class="section-tag">Nase cesta</span>
-            <h2>Proc <span class="text-gradient">ECG Build</span> existuje</h2>
-        </div>
-
-        <div class="history-intro">
-            <div class="history-intro-text">
-                <p>Miroslav Fencl zalozil Euro Ceramic Group v roce 1999. Zacinal s keramikou a obklady — dodaval material na stavby po cele republice. Za dvacet let videl, jak se ve stavebnictvi plytva casem i penezi. Klasicka vystavba trva mesice, stoji miliony a kdyz se neco pokazi, opravuje se na miste. Buňky jsou jiny svet — vyrobite je v hale, privezete na misto, za par dni stoji.</p>
-                <p>V roce 2018 Fencl koupil prvni sadu obytnych bunek pro zakazku v Kraslicich. Stavba, ktera by klasicky trvala pul roku, stala za sest tydnu. Od te doby uz nedela nic jineho. V roce 2021 vznikl ECG Build — investicni rameno firmy, ktere propojuje kapital s modularni vystavbou. Zadne abstraktni instrumenty. Ocelove buňky, beton a lidi, co vi co delaji.</p>
-            </div>
-        </div>
-
-        <div class="timeline">
-            <div class="timeline-line"></div>
-
-            <div class="timeline-item timeline-left">
-                <div class="timeline-dot"></div>
-                <div class="timeline-content">
-                    <span class="timeline-year">1999–2015</span>
-                    <h4>Stavebni keramika a obklady</h4>
-                    <p>Fencl zaklada Euro Ceramic Group. Sedmnact let dodava keramiku, obklady a stavebni material na projekty po cele CR. Buduje sit dodavatelu, pozna stavebnictvi zevnitr — od zakladu az po kolaudaci. Firma roste, ale Fencl vidi, jak je klasicka vystavba pomala a draha.</p>
-                </div>
-            </div>
-
-            <div class="timeline-item timeline-right">
-                <div class="timeline-dot"></div>
-                <div class="timeline-content">
-                    <span class="timeline-year">2016–2018</span>
-                    <h4>Prvni bunky a Kraslice</h4>
-                    <p>Fencl narazi na modularni bunky u jednoho z klientu — mobilni kancelare na stavbe. Zacne zjistovat vic. V roce 2018 kupuje prvni sadu obytnych bunek a dostava zakazku v Kraslicich: ubytovani pro agentury a jejich pracovniky. Stavba, ktera by klasicky trvala pul roku, stoji za sest tydnu. Je jasne, ze tohle je budoucnost.</p>
-                </div>
-            </div>
-
-            <div class="timeline-item timeline-left">
-                <div class="timeline-dot"></div>
-                <div class="timeline-content">
-                    <span class="timeline-year">2019–2020</span>
-                    <h4>COVID a boom poptavky</h4>
-                    <p>Pandemie paradoxne nakopne cely byznys. Firmy potrebuji rychle ubytovat pracovniky mimo mestska centra, nemocnice chteji izolacni prostory, logisticke firmy hledaji sklady. Bunky jsou idealni — rychle, prenosne, hygienicke. Kraslice jedou na plno, pridavame kontejnerovy sklad v Plzni. Prochazka se pridava a prinasi poradek do akvizic.</p>
-                </div>
-            </div>
-
-            <div class="timeline-item timeline-right">
-                <div class="timeline-dot"></div>
-                <div class="timeline-content">
-                    <span class="timeline-year">2021–2022</span>
-                    <h4>Vznik ECG Build</h4>
-                    <p>Poptavka prevysuje nase kapacity. Fencl najima Bergera, Vlcka na pravo, Machovou na provoz. Vzniká ECG Build — investicni odnoz, ktera propojuje kapital s modularni vystavbou. Prvni investori jsou lidi z branze — obchodni partneri, kteri videli nase projekty a chteji se podílet. Do konce 2022 mame 18 investoru a tri projekty.</p>
-                </div>
-            </div>
-
-            <div class="timeline-item timeline-left">
-                <div class="timeline-dot"></div>
-                <div class="timeline-content">
-                    <span class="timeline-year">2023–dnes</span>
-                    <h4>Skalovani a nove trhy</h4>
-                    <p>Sest projektu v portfoliu — ubytovaci arealy, kontejnerove sklady, modulární kancelare. Rozjizdime vlastni vyrobu sestav a zaciname dodavat i specialni reseni: sanitarni bunky, technicke zazemi, mobilni dilny. Porad ale plati jedno pravidlo — nedelame nic, cemu nerozumime. Ocel, beton, izolace. Zadne spekulace.</p>
-                </div>
-            </div>
-        </div>
-
-        <div class="history-stats">
-            <div class="history-stat">
-                <span class="history-stat-number">6</span>
-                <span class="history-stat-label">Projektu v portfoliu</span>
-            </div>
-            <div class="history-stat">
-                <span class="history-stat-number">97%</span>
-                <span class="history-stat-label">Obsazenost</span>
-            </div>
-            <div class="history-stat">
-                <span class="history-stat-number">20+</span>
-                <span class="history-stat-label">Investoru</span>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- PROC INVESTOVAT -->
-<section class="section section-security" id="proc-investovat">
-    <div class="container">
-        <div class="security-grid">
-            <div class="security-content">
-                <span class="section-tag">Proc investovat</span>
-                <h2>Smysl <span class="text-gradient">investovani s nami</span></h2>
-                <div class="security-item">
-                    <div class="security-number">01</div>
-                    <div>
-                        <h4>Stavebnictvi roste stabilne</h4>
-                        <p>Cesky stavebni sektor kazdorocne roste. Poptavka po kvalitnim bydleni, kancelarsich prostorech a ubytovacich zarizeni stabilne previsuje nabidku — a to je nase prilezitost.</p>
-                    </div>
-                </div>
-                <div class="security-item">
-                    <div class="security-number">02</div>
-                    <div>
-                        <h4>Facility management je odolny vuci krizim</h4>
-                        <p>Firmy vzdy potrebuji spravu budov, uklid, skladovani a outsourcing. Tyto sluzby generuji stabilni prijem bez ohledu na ekonomicky cyklus — a tvori zaklad nasich vynosu.</p>
-                    </div>
-                </div>
-                <div class="security-item">
-                    <div class="security-number">03</div>
-                    <div>
-                        <h4>Investice do hmotnych aktiv</h4>
-                        <p>Na rozdil od financnich instrumentu investujete do realnych budov, pozemku a infrastruktury. Hodnota techto aktiv je meritelna, pojistitelna a dlouhodobe rostouci.</p>
-                    </div>
-                </div>
-                <div class="security-item">
-                    <div class="security-number">04</div>
-                    <div>
-                        <h4>Kompletni vertikalni model</h4>
-                        <p>Bunky navrhujeme, dodavame, montujeme a spravujeme. Kontrolujeme celou hodnotovou retezec — od vyroby az po pronajem. Zadna zavislost na tretich stranach.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="security-visual">
-                <div class="shield-graphic">
-                    <div class="shield-ring shield-ring-1"></div>
-                    <div class="shield-ring shield-ring-2"></div>
-                    <div class="shield-ring shield-ring-3"></div>
-                    <div class="shield-center">
-                        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- FOND -->
-<section class="section section-fund" id="fond">
-    <div class="container">
-        <div class="section-header">
-            <span class="section-tag">Investicni fond</span>
-            <h2>Tri pilire <span class="text-gradient">naseho portfolia</span></h2>
-            <p class="section-desc">Vsechno, co delame, vychazi z jednoho materialu — ocelovych modularnich bunek. Tri pilire portfolia odpovidaji trem typum poptavky, ktere na trhu vidime. Kazdy generuje prijem jinym zpusobem, dohromady tvori stabilni celek.</p>
+            <span class="section-tag">Naše buňky</span>
+            <h2>Modulární <span class="text-gradient">jednotky na klíč</span></h2>
+            <p class="section-desc">Každá buňka je navržena pro maximální funkčnost, komfort a odolnost. Vybírejte z našich základních typů nebo si nechte navrhnout řešení na míru.</p>
         </div>
 
         <div class="fund-grid">
-            <!-- Pillar 1: Modulární ubytování -->
-            <div class="fund-card fund-card-featured">
-                <div class="fund-card-badge">Hlavni strategie</div>
+            <!-- Type 1: Tourist -->
+            <div class="fund-card">
                 <div class="fund-card-header">
                     <div class="fund-icon fund-icon-re">
                         <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
                     </div>
                     <div class="fund-return">
-                        <span class="fund-return-value">10-14 %</span>
-                        <span class="fund-return-label">cileny vynos p.a.</span>
+                        <span class="fund-return-value">od 15 m²</span>
+                        <span class="fund-return-label">užitná plocha</span>
                     </div>
                 </div>
-                <h3>Modularni ubytovani</h3>
-                <p>Obytne bunky pro agentury, prumyslove firmy a stavebni projekty. Kompletni arealy — ubytovani, socialni zarizeni, kuchynky, spravni budovy. Stavba za 3-8 tydnu, zivotnost 25+ let.</p>
+                <h3>Turistické ubytování</h3>
+                <p>Kompaktní jednotky ideální pro kempy, resorty a Airbnb. Plně vybavené — koupelna, kuchyňka, klimatizace. Moderní design, který hosty osloví.</p>
                 <ul class="fund-features">
-                    <li>Ubytovaci arealy z obytnych bunek</li>
-                    <li>Delnicke ubytovny a firemni ubytovani</li>
-                    <li>Zajisteni fyzickym aktivem — bunky jsou prenosne</li>
-                    <li>Podil na portfoliu: 50 %</li>
+                    <li>Plně vybavený interiér</li>
+                    <li>Voděodolná a zateplená konstrukce</li>
+                    <li>Připojení na sítě i off-grid</li>
+                    <li>Dodání do 14 dnů</li>
                 </ul>
-                <div class="fund-allocation">
-                    <div class="allocation-bar" style="--width: 50%"></div>
-                </div>
             </div>
 
-            <!-- Pillar 2: Skladové kontejnery -->
-            <div class="fund-card">
+            <!-- Type 2: Office -->
+            <div class="fund-card fund-card-featured">
+                <div class="fund-card-badge">Nejoblíbenější</div>
                 <div class="fund-card-header">
                     <div class="fund-icon fund-icon-esg">
-                        <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+                        <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
                     </div>
                     <div class="fund-return">
-                        <span class="fund-return-value">8-11 %</span>
-                        <span class="fund-return-label">cileny vynos p.a.</span>
+                        <span class="fund-return-value">od 20 m²</span>
+                        <span class="fund-return-label">užitná plocha</span>
                     </div>
                 </div>
-                <h3>Skladove kontejnery</h3>
-                <p>Kontejnerove sklady pro logistiku, e-commerce a prumysl. Rychle nasazeni, modularni rozsireni, dlouhodobe pronajmy. Stabilni prijem z firem, ktere potrebuji skladovaci kapacitu hned.</p>
+                <h3>Kanceláře a provozovny</h3>
+                <p>Mobilní kancelářské prostory pro firmy, stavby a eventy. Rychlé nasazení bez stavebního povolení. Možnost propojení více modulů.</p>
                 <ul class="fund-features">
-                    <li>Kontejnerove skladove arealy</li>
-                    <li>Temperovane i netemperovane varianty</li>
-                    <li>Modularni rozsireni dle poptavky</li>
-                    <li>Podil na portfoliu: 30 %</li>
+                    <li>Elektroinstalace a datové rozvody</li>
+                    <li>Klimatizace a vytápění</li>
+                    <li>Možnost skládání do sestav</li>
+                    <li>Certifikace pro komerční provoz</li>
                 </ul>
-                <div class="fund-allocation">
-                    <div class="allocation-bar" style="--width: 30%"></div>
-                </div>
             </div>
 
-            <!-- Pillar 3: Speciální sestavy & kanceláře -->
+            <!-- Type 3: Residential -->
             <div class="fund-card">
                 <div class="fund-card-header">
                     <div class="fund-icon fund-icon-fin">
                         <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
                     </div>
                     <div class="fund-return">
-                        <span class="fund-return-value">7-10 %</span>
-                        <span class="fund-return-label">cileny vynos p.a.</span>
+                        <span class="fund-return-value">od 30 m²</span>
+                        <span class="fund-return-label">užitná plocha</span>
                     </div>
                 </div>
-                <h3>Specialni sestavy a kancelare</h3>
-                <p>Modularni kancelare, sanitarni bunky, technicke zazemi, mobilni dilny. Zakazkova vyroba pro specificke potreby — od stavebnich firem po nemocnice a festivaly.</p>
+                <h3>Rezidenční bydlení</h3>
+                <p>Startovací byty, zaměstnanecké ubytovny nebo dočasné bydlení. Plnohodnotné obytné jednotky s kompletním zázemím pro každodenní život.</p>
                 <ul class="fund-features">
-                    <li>Modularni kancelarske komplexy</li>
-                    <li>Sanitarni a technicke bunky</li>
-                    <li>Zakazkova reseni na miru</li>
-                    <li>Podil na portfoliu: 20 %</li>
+                    <li>Kuchyně, koupelna, obývací prostor</li>
+                    <li>Energeticky úsporný návrh</li>
+                    <li>Životnost 30+ let</li>
+                    <li>Možnost rozšiřování</li>
                 </ul>
-                <div class="fund-allocation">
-                    <div class="allocation-bar" style="--width: 20%"></div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Investment tiers -->
-        <div class="invest-tiers">
-            <h3>Jak investovat</h3>
-            <div class="tiers-grid">
-                <div class="tier-card">
-                    <div class="tier-label">Standardni vstup</div>
-                    <div class="tier-amount">od 1 000 000 CZK</div>
-                    <ul>
-                        <li>Primy vstup do fondu</li>
-                        <li>0 % vstupni poplatek</li>
-                        <li>Mesicni reporting</li>
-                        <li>Osobni portfolio manazer</li>
-                    </ul>
-                    <a href="#kontakt" class="btn btn-primary">Kontaktovat nas</a>
-                </div>
-                <div class="tier-card tier-premium">
-                    <div class="tier-label">Premium</div>
-                    <div class="tier-amount">od 5 000 000 CZK</div>
-                    <ul>
-                        <li>Vse ze Standardniho</li>
-                        <li>Individualni investicni strategie</li>
-                        <li>Prioritni pristup k novym projektum</li>
-                        <li>Ctvrletni osobni konzultace</li>
-                    </ul>
-                    <a href="#kontakt" class="btn btn-gold">Domluvit schuzku</a>
-                </div>
             </div>
         </div>
     </div>
 </section>
 
-<!-- REALIZOVANE PROJEKTY -->
-<section class="section section-projects" id="projekty">
+<!-- INVESTICE -->
+<section class="section section-performance" id="investice">
     <div class="container">
         <div class="section-header">
-            <span class="section-tag">Nase projekty</span>
-            <h2>Realizovane <span class="text-gradient">projekty</span></h2>
-            <p class="section-desc">Kazdy projekt v nasem portfoliu je postaven z modularnich bunek. Od prvniho navrhu po predani klientovi — vse ridime sami. Zde jsou nektere z nasich realizaci.</p>
+            <span class="section-tag">Investiční možnost</span>
+            <h2>Podílejte se na <span class="text-gradient">růstu Nodis Star</span></h2>
+            <p class="section-desc">Nabízíme možnost zapojit se do rozvoje naší společnosti. Spolupráce je jednoduchá, transparentní a přístupná.</p>
         </div>
 
-        <div class="projects-grid">
-            <!-- Project 1: Kraslice — ubytovací areál -->
-            <div class="project-card">
-                <div class="project-image">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
-                    <span class="project-status done">Dokonceno</span>
-                </div>
-                <div class="project-body">
-                    <div class="project-location">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-                        Kraslice, Karlovarsky kraj
-                    </div>
-                    <h3 class="project-name">Ubytovaci areal Kraslice</h3>
-                    <p class="project-desc">Nas prvni projekt. 36 obytnych bunek na byvale prumyslove plose — ubytovani pro agenturni pracovniky a zamestance regionalnich firem. Vcetne sanitarnich bunek, kuchynky a spravni budovy.</p>
-                    <div class="project-metrics">
-                        <div class="project-metric">
-                            <span class="project-metric-value">36</span>
-                            <span class="project-metric-label">Obytnych bunek</span>
-                        </div>
-                        <div class="project-metric">
-                            <span class="project-metric-value">72</span>
-                            <span class="project-metric-label">Luzek</span>
-                        </div>
-                        <div class="project-metric">
-                            <span class="project-metric-value">28</span>
-                            <span class="project-metric-label">mil. CZK</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Project 2: Plzeň — kontejnerový sklad -->
-            <div class="project-card">
-                <div class="project-image">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
-                    <span class="project-status done">Dokonceno</span>
-                </div>
-                <div class="project-body">
-                    <div class="project-location">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-                        Plzen, Plzensky kraj
-                    </div>
-                    <h3 class="project-name">Kontejnerovy sklad Plzen</h3>
-                    <p class="project-desc">Skladovy areal z 24 kontejneru pro logistickou firmu. Temperovane i netemperovane jednotky, rampa pro nakladku. Dlouhodoby pronajem s automatickym prodlouzenim.</p>
-                    <div class="project-metrics">
-                        <div class="project-metric">
-                            <span class="project-metric-value">24</span>
-                            <span class="project-metric-label">Skladovych kontejneru</span>
-                        </div>
-                        <div class="project-metric">
-                            <span class="project-metric-value">98 %</span>
-                            <span class="project-metric-label">Obsazenost</span>
-                        </div>
-                        <div class="project-metric">
-                            <span class="project-metric-value">18</span>
-                            <span class="project-metric-label">mil. CZK</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Project 3: Kladno — ubytování pro automotive -->
-            <div class="project-card">
-                <div class="project-image">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
-                    <span class="project-status done">Dokonceno</span>
-                </div>
-                <div class="project-body">
-                    <div class="project-location">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-                        Kladno, Stredocesky kraj
-                    </div>
-                    <h3 class="project-name">Firemni ubytovna Kladno</h3>
-                    <p class="project-desc">48 obytnych bunek pro zamestance automotive zavodu. Dvoupatrova sestava s chodbikovym systemem, spolecne prostory, pralovna, kantyna ze dvou spojenych bunek.</p>
-                    <div class="project-metrics">
-                        <div class="project-metric">
-                            <span class="project-metric-value">48</span>
-                            <span class="project-metric-label">Obytnych bunek</span>
-                        </div>
-                        <div class="project-metric">
-                            <span class="project-metric-value">120</span>
-                            <span class="project-metric-label">Luzek</span>
-                        </div>
-                        <div class="project-metric">
-                            <span class="project-metric-value">52</span>
-                            <span class="project-metric-label">mil. CZK</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Project 4: Most — modulární kanceláře -->
-            <div class="project-card">
-                <div class="project-image">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-                    <span class="project-status active">V provozu</span>
-                </div>
-                <div class="project-body">
-                    <div class="project-location">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-                        Most, Ustecky kraj
-                    </div>
-                    <h3 class="project-name">Kancelarsky komplex Most</h3>
-                    <p class="project-desc">12 kancelarskych bunek ve dvou radach pro stavebni firmu. Klimatizace, datove rozvody, zasedaci mistnost ze 3 spojenych modulu. Pronajem s opcí odkupu.</p>
-                    <div class="project-metrics">
-                        <div class="project-metric">
-                            <span class="project-metric-value">12</span>
-                            <span class="project-metric-label">Kancelarskych bunek</span>
-                        </div>
-                        <div class="project-metric">
-                            <span class="project-metric-value">360</span>
-                            <span class="project-metric-label">m² kancelari</span>
-                        </div>
-                        <div class="project-metric">
-                            <span class="project-metric-value">14</span>
-                            <span class="project-metric-label">mil. CZK</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Project 5: Sokolov — dočasné ubytování pro stavbu -->
-            <div class="project-card">
-                <div class="project-image">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-                    <span class="project-status active">Aktivni kontrakt</span>
-                </div>
-                <div class="project-body">
-                    <div class="project-location">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-                        Sokolov, Karlovarsky kraj
-                    </div>
-                    <h3 class="project-name">Stavebni zazemí Sokolov</h3>
-                    <p class="project-desc">Docasne ubytovani a zazemi pro delníky na infrastrukturni stavbe. 20 obytnych bunek, 4 sanitarni, 2 kancelarske, sklad naradi. Po skonceni stavby se bunky presunou na dalsi projekt.</p>
-                    <div class="project-metrics">
-                        <div class="project-metric">
-                            <span class="project-metric-value">26</span>
-                            <span class="project-metric-label">Bunek celkem</span>
-                        </div>
-                        <div class="project-metric">
-                            <span class="project-metric-value">18</span>
-                            <span class="project-metric-label">Mesicu kontrakt</span>
-                        </div>
-                        <div class="project-metric">
-                            <span class="project-metric-value">22</span>
-                            <span class="project-metric-label">mil. CZK</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Project 6: Brno — modulární ubytovna -->
-            <div class="project-card">
-                <div class="project-image">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
-                    <span class="project-status planned">Planovano Q3 2026</span>
-                </div>
-                <div class="project-body">
-                    <div class="project-location">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-                        Brno, Jihomoravsky kraj
-                    </div>
-                    <h3 class="project-name">Modularni ubytovna Brno</h3>
-                    <p class="project-desc">Tripatrovy modularni komplex z 60 bunek. Ubytovani pro delnicke agentury v prumyslove zone Brno-Slatina. Vlastni sprava, kantyna, parkoviste. Nas zatim nejvetsi projekt.</p>
-                    <div class="project-metrics">
-                        <div class="project-metric">
-                            <span class="project-metric-value">60</span>
-                            <span class="project-metric-label">Modularnich bunek</span>
-                        </div>
-                        <div class="project-metric">
-                            <span class="project-metric-value">150</span>
-                            <span class="project-metric-label">Luzek</span>
-                        </div>
-                        <div class="project-metric">
-                            <span class="project-metric-value">86</span>
-                            <span class="project-metric-label">mil. CZK</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="projects-summary">
-            <div class="projects-summary-item">
-                <div class="projects-summary-value">220</div>
-                <div class="projects-summary-label">mil. CZK celkova hodnota projektu</div>
-            </div>
-            <div class="projects-summary-item">
-                <div class="projects-summary-value">206</div>
-                <div class="projects-summary-label">Modularnich bunek nasazeno</div>
-            </div>
-            <div class="projects-summary-item">
-                <div class="projects-summary-value">6</div>
-                <div class="projects-summary-label">Projektu v portfoliu</div>
-            </div>
-            <div class="projects-summary-item">
-                <div class="projects-summary-value">4</div>
-                <div class="projects-summary-label">Kraje v CR</div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- PARTNERI & OCENENI -->
-<section class="section section-partners" id="partneri">
-    <div class="container">
-        <div class="section-header">
-            <span class="section-tag" style="color:#d4af37;">Partneri a oceneni</span>
-            <h2 style="color:#fff;">Spolupracujeme s <span class="text-gradient">lídry v oboru</span></h2>
-        </div>
-        <p class="partners-intro">Nase bunky dodavame firmam napric odvetvimi — od prumyslu a logistiky po stavebnictvi a verejny sektor. Spolupracujeme s proverenymy dodavateli a financnimi partnery.</p>
-
-        <div class="partners-logos">
-            <div class="partner-logo"><span>TOITOI</span></div>
-            <div class="partner-logo"><span>Containex</span></div>
-            <div class="partner-logo"><span>KV Stav</span></div>
-            <div class="partner-logo"><span>Unicredit Leasing</span></div>
-            <div class="partner-logo"><span>Manpower CZ</span></div>
-            <div class="partner-logo"><span>DB Schenker</span></div>
-        </div>
-
-        <div class="partners-stats">
-            <div class="partner-stat">
-                <div class="partner-stat-value">45 %</div>
-                <div class="partner-stat-label">Prumysl & automotive</div>
-            </div>
-            <div class="partner-stat">
-                <div class="partner-stat-value">25 %</div>
-                <div class="partner-stat-label">Stavebni firmy</div>
-            </div>
-            <div class="partner-stat">
-                <div class="partner-stat-value">20 %</div>
-                <div class="partner-stat-label">Logistika & e-commerce</div>
-            </div>
-            <div class="partner-stat">
-                <div class="partner-stat-value">10 %</div>
-                <div class="partner-stat-label">Verejny sektor & ostatni</div>
-            </div>
-        </div>
-
-        <div class="awards-media-grid">
-            <div class="awards-block">
-                <div class="block-title">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="7"/><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"/></svg>
-                    Oceneni a certifikace
-                </div>
-                <div class="awards-list">
-                    <div class="award-item">
-                        <div class="award-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="7"/><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"/></svg></div>
-                        <div>
-                            <div class="award-name">Finalista Stavba roku 2024 — kategorie Modularni stavby</div>
-                            <div class="award-desc">Ubytovaci areal Kraslice — 36 bunek, dokonceno za 6 tydnu</div>
-                        </div>
-                    </div>
-                    <div class="award-item">
-                        <div class="award-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></div>
-                        <div>
-                            <div class="award-name">ISO 9001:2015 — Rizeni kvality</div>
-                            <div class="award-desc">Certifikace procesu vyroby a montaze modularnich bunek</div>
-                        </div>
-                    </div>
-                    <div class="award-item">
-                        <div class="award-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
-                        <div>
-                            <div class="award-name">ISO 14001 — Environmentalni management</div>
-                            <div class="award-desc">Certifikovano 2023 — recyklace materialu, energeticka efektivita</div>
-                        </div>
-                    </div>
-                    <div class="award-item">
-                        <div class="award-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
-                        <div>
-                            <div class="award-name">Clen Svazu podnikatelu ve stavebnictvi</div>
-                            <div class="award-desc">Aktivni clenstvi od roku 2020</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="media-block">
-                <div class="block-title">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-                    Napsali o nas
-                </div>
-                <div class="media-list">
-                    <a href="#" class="media-item">
-                        <div class="media-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg></div>
-                        <div>
-                            <div class="media-source">Karlovarsky denik</div>
-                            <div class="media-headline">V Kraslicich vyrostl ubytovaci areal z bunek za sest tydnu — bydli v nem 70 lidi</div>
-                            <div class="media-date">12. kvetna 2019</div>
-                        </div>
-                    </a>
-                    <a href="#" class="media-item">
-                        <div class="media-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg></div>
-                        <div>
-                            <div class="media-source">Kladensky denik</div>
-                            <div class="media-headline">Modularni ubytovna pro 120 pracovniku: Jak funguji bunky v praxi?</div>
-                            <div class="media-date">8. zari 2021</div>
-                        </div>
-                    </a>
-                    <a href="#" class="media-item">
-                        <div class="media-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg></div>
-                        <div>
-                            <div class="media-source">Stavebni forum</div>
-                            <div class="media-headline">Modularni stavby jako investicni strategie — rozhovor s ECG Build</div>
-                            <div class="media-date">3. brezna 2023</div>
-                        </div>
-                    </a>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- VYKONNOST -->
-<section class="section section-performance" id="vykonnost">
-    <div class="container">
-        <div class="section-header">
-            <span class="section-tag">Vykonnost</span>
-            <h2>Prokazatelne <span class="text-gradient">vysledky</span></h2>
-            <p class="section-desc">Historicka vykonnost naseho fondu od zalozeni. Minule vynosy nejsou zarukou budoucich vysledku.</p>
-        </div>
-
-        <div class="performance-grid">
-            <div class="chart-container">
-                <canvas id="performanceChart"></canvas>
-            </div>
-            <div class="performance-stats">
-                <div class="perf-stat">
-                    <span class="perf-label">Kumulativni vynos (2021-2025)</span>
-                    <span class="perf-value text-gradient">+37.0 %</span>
-                </div>
-                <div class="perf-stat">
-                    <span class="perf-label">Prumerny rocni vynos</span>
-                    <span class="perf-value">7.4 %</span>
-                </div>
-                <div class="perf-stat">
-                    <span class="perf-label">Nejlepsi rok (2024)</span>
-                    <span class="perf-value">+9.4 %</span>
-                </div>
-                <div class="perf-stat">
-                    <span class="perf-label">Nejhorsi rok (2022)</span>
-                    <span class="perf-value negative">+3.2 %</span>
-                </div>
-                <div class="perf-stat">
-                    <span class="perf-label">Max. drawdown</span>
-                    <span class="perf-value negative">-3.8 %</span>
-                </div>
-                <div class="perf-stat">
-                    <span class="perf-label">Sharpe ratio</span>
-                    <span class="perf-value">0.87</span>
-                </div>
-            </div>
-        </div>
-
-        <div class="performance-table-wrap">
-            <table class="performance-table">
-                <thead>
-                    <tr>
-                        <th>Rok</th>
-                        <th>Q1</th>
-                        <th>Q2</th>
-                        <th>Q3</th>
-                        <th>Q4</th>
-                        <th>Celkem</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>2025</td>
-                        <td class="positive">+2.1 %</td>
-                        <td class="positive">+2.3 %</td>
-                        <td class="positive">+1.9 %</td>
-                        <td class="positive">+1.9 %</td>
-                        <td class="positive strong">+8.2 %</td>
-                    </tr>
-                    <tr>
-                        <td>2024</td>
-                        <td class="positive">+2.4 %</td>
-                        <td class="positive">+2.6 %</td>
-                        <td class="positive">+2.2 %</td>
-                        <td class="positive">+2.2 %</td>
-                        <td class="positive strong">+9.4 %</td>
-                    </tr>
-                    <tr>
-                        <td>2023</td>
-                        <td class="positive">+1.8 %</td>
-                        <td class="positive">+2.5 %</td>
-                        <td class="positive">+1.4 %</td>
-                        <td class="positive">+2.1 %</td>
-                        <td class="positive strong">+7.8 %</td>
-                    </tr>
-                    <tr>
-                        <td>2022</td>
-                        <td class="positive">+1.2 %</td>
-                        <td class="negative">-0.3 %</td>
-                        <td class="positive">+0.8 %</td>
-                        <td class="positive">+1.5 %</td>
-                        <td class="positive strong">+3.2 %</td>
-                    </tr>
-                    <tr>
-                        <td>2021</td>
-                        <td class="positive">+1.8 %</td>
-                        <td class="positive">+2.4 %</td>
-                        <td class="positive">+2.6 %</td>
-                        <td class="positive">+1.6 %</td>
-                        <td class="positive strong">+8.4 %</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-        <p class="disclaimer">* Uvedene vynosy jsou historicke a nepredstavuji zaruku budoucich vysledku. Hodnota investice muze klesat i rust. Investice je urcena pouze pro kvalifikovane investory ve smyslu zakona c. 240/2013 Sb.</p>
-    </div>
-</section>
-
-<!-- PORTFOLIO ANALYTICS -->
-<section class="section section-analytics" id="analytika">
-    <div class="container">
-        <div class="section-header">
-            <span class="section-tag">Analytika portfolia</span>
-            <h2>Detailni <span class="text-gradient">pohled na data</span></h2>
-            <p class="section-desc">Transparentni prehled o slozeni a vykonnosti naseho portfolia v realnem case.</p>
-        </div>
-
-        <div class="analytics-grid">
-            <!-- Portfolio Allocation Donut -->
-            <div class="analytics-card">
-                <h3>Alokace portfolia</h3>
-                <div class="chart-wrap">
-                    <canvas id="allocationChart"></canvas>
-                </div>
-            </div>
-
-            <!-- Sector Performance Bar Chart -->
-            <div class="analytics-card">
-                <h3>Vykonnost podle sektoru (2025)</h3>
-                <div class="chart-wrap">
-                    <canvas id="sectorChart"></canvas>
-                </div>
-            </div>
-
-            <!-- Monthly Returns Heatmap -->
-            <div class="analytics-card analytics-card-wide">
-                <h3>Mesicni vynosy - heatmapa</h3>
-                <div class="heatmap-container" id="heatmapContainer">
-                    <!-- Generated by JS -->
-                </div>
-            </div>
-        </div>
-
-        <!-- Market Ticker -->
-        <div class="market-ticker" id="marketTicker">
-            <div class="ticker-track" id="tickerTrack">
-                <!-- Filled by JS -->
-            </div>
-        </div>
-
-        <!-- Live-style counters -->
-        <div class="analytics-live" id="liveStats">
-            <div class="live-stat">
-                <span class="live-dot"></span>
-                <span class="live-label">NAV fondu</span>
-                <span class="live-value" id="liveNav">1.1847 CZK</span>
-            </div>
-            <div class="live-stat">
-                <span class="live-dot"></span>
-                <span class="live-label">Zmena dnes</span>
-                <span class="live-value" id="liveDayChange">+0.03 %</span>
-            </div>
-            <div class="live-stat">
-                <span class="live-dot"></span>
-                <span class="live-label">EUR/CZK</span>
-                <span class="live-value" id="liveEurCzk">--</span>
-            </div>
-            <div class="live-stat">
-                <span class="live-dot"></span>
-                <span class="live-label">Zmena YTD</span>
-                <span class="live-value positive" id="liveYtd">+6.9 %</span>
-            </div>
-            <div class="live-stat">
-                <span class="live-dot"></span>
-                <span class="live-label">Aktualizace</span>
-                <span class="live-value" id="liveTime">--:--:--</span>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- SECURITY -->
-<section class="section section-security">
-    <div class="container">
         <div class="security-grid">
             <div class="security-content">
-                <span class="section-tag">Bezpecnost</span>
-                <h2>Jak chranime <span class="text-gradient">vasi investici</span></h2>
                 <div class="security-item">
                     <div class="security-number">01</div>
                     <div>
-                        <h4>Zajisteni fyzickym aktivem</h4>
-                        <p>Kazda investice je zajistena realnymi modularnimi bunkami — ocel, izolace, beton. Bunky jsou prenosne, znovu pouzitelne a maji zivotnost 25+ let. Oceneni provadi nezavisly znalec.</p>
+                        <h4>Vstup již od 100 000 Kč</h4>
+                        <p>Žádné složité balíčky ani minimální limity v milionech. Spolupráce je otevřená od 100 000 Kč pro každého zájemce.</p>
                     </div>
                 </div>
                 <div class="security-item">
                     <div class="security-number">02</div>
                     <div>
-                        <h4>Diverzifikace projektu a regionu</h4>
-                        <p>Prostredky jsou rozlozeny do sesti projektu napric ctyrmi kraji CR — od ubytovacich arealu pres kontejnerove sklady az po kancelarske komplexy. Zadny projekt nepresahuje 15 % portfolia.</p>
+                        <h4>Směnka s fixním výnosem</h4>
+                        <p>Spolupráce je realizována formou směnky. Jasné podmínky, pevný výnos a sjednaný termín splatnosti.</p>
                     </div>
                 </div>
                 <div class="security-item">
                     <div class="security-number">03</div>
                     <div>
-                        <h4>Vlastni realizacni tym</h4>
-                        <p>Na rozdil od jinych fondu mame vlastni tym, ktery bunky navrhuje, dodava a instaluje. Nepredavame vase penize tretim stranam — kontrolujeme kazdy krok od vyroby po montaz.</p>
+                        <h4>Transparentní dokumentace</h4>
+                        <p>Ke každé spolupráci obdržíte kompletní sadu dokumentů — smlouvu, směnku, čestné prohlášení a prezentační materiály.</p>
                     </div>
                 </div>
                 <div class="security-item">
                     <div class="security-number">04</div>
                     <div>
-                        <h4>Pravidelny reporting</h4>
-                        <p>Mesicni report o stavu portfolia, ctvrletni detailni analyza a rocni auditovana ucetni zaverka.</p>
+                        <h4>Osobní přístup</h4>
+                        <p>Každého partnera bereme jako součást týmu. Osobní komunikace, pravidelné informace o vývoji společnosti.</p>
                     </div>
                 </div>
             </div>
@@ -934,200 +252,61 @@
                     <div class="shield-ring shield-ring-2"></div>
                     <div class="shield-ring shield-ring-3"></div>
                     <div class="shield-center">
-                        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg>
+                        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26"/></svg>
                     </div>
                 </div>
             </div>
         </div>
+
+        <p class="disclaimer">* Uvedené informace nepředstavují investiční doporučení ani nabídku ve smyslu zákona o podnikání na kapitálovém trhu. Každý zájemce by měl posoudit rizika individuálně.</p>
     </div>
 </section>
 
-<!-- ESG -->
-<section class="section section-esg" id="esg">
-    <div class="container">
-        <div class="section-header">
-            <span class="section-tag">Udrzitelnost</span>
-            <h2>Odpovedne <span class="text-gradient">investovani</span></h2>
-            <p class="section-desc">Modularni bunky jsou ze sve podstaty udrzitelne — vyrabi se v hale (min. odpad), jsou prenosne (zadne demolice) a recyklovatelne. Verime, ze odpovedly byznys je lepsi byznys.</p>
-        </div>
-
-        <div class="esg-grid">
-            <div class="esg-card esg-env">
-                <div class="esg-icon">
-                    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/><path d="M7 13.5s1.5 2 5 2 5-2 5-2"/><path d="M8 9.5c.5-1 1.5-1 2 0"/><path d="M14 9.5c.5-1 1.5-1 2 0"/></svg>
-                </div>
-                <div class="esg-letter">E</div>
-                <h3>Environment</h3>
-                <ul class="esg-list">
-                    <li>Vyrobni odpad o 60 % nizsi nez klasicka stavba</li>
-                    <li>Bunky jsou 95 % recyklovatelne (ocel, izolace)</li>
-                    <li>Prenosnost — zadne demolice, zadny stavebn odpad</li>
-                    <li>Energeticky efektivni izolace a vytapeni</li>
-                </ul>
-            </div>
-            <div class="esg-card esg-soc">
-                <div class="esg-icon">
-                    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-                </div>
-                <div class="esg-letter">S</div>
-                <h3>Social</h3>
-                <ul class="esg-list">
-                    <li>80+ pracovnich mist v regionech</li>
-                    <li>Spoluprace s lokalnymi dodavateli</li>
-                    <li>Kvalitni ubytovani pro pracovniky</li>
-                    <li>Investice mimo Prahu — podpora regionu</li>
-                </ul>
-            </div>
-            <div class="esg-card esg-gov">
-                <div class="esg-icon">
-                    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-                </div>
-                <div class="esg-letter">G</div>
-                <h3>Governance</h3>
-                <ul class="esg-list">
-                    <li>Eticky kodex a compliance program</li>
-                    <li>Nezavisly audit ucetni zaverky</li>
-                    <li>Transparentni reportovani investorum</li>
-                    <li>Anti-korupcni skoleni zamestnancu</li>
-                </ul>
-            </div>
-        </div>
-
-        <div class="esg-badges">
-            <div class="esg-badge">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
-                ISO 14001
-            </div>
-            <div class="esg-badge">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
-                ISO 9001:2015
-            </div>
-            <div class="esg-badge">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
-                95 % recyklovatelnost bunek
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- TEAM -->
+<!-- TÝM -->
 <section class="section section-team" id="tym">
     <div class="container">
         <div class="section-header">
-            <span class="section-tag">Nas tym</span>
-            <h2>Vedeni <span class="text-gradient">spolecnosti</span></h2>
-            <p class="section-desc">Za kazdym rozhodnutim stoji tym profesionalu s realnou praxi ve stavebnictvi, modularni vystavbe a financich. Ne teoretici — praktici, kteri postavili desitky projektu z bunek.</p>
+            <span class="section-tag">Náš tým</span>
+            <h2>Lidé za <span class="text-gradient">Nodis Star</span></h2>
+            <p class="section-desc">Malý tým s jasnou vizí. Každý z nás přináší unikátní zkušenosti, které společně posouvají Nodis Star vpřed.</p>
         </div>
         <div class="team-grid-v2">
 
             <a href="profile.html?m=fencl" class="team-card-v2">
                 <div class="tc-photo">
                     <div class="tc-photo-placeholder"><svg viewBox="0 0 120 120" fill="none"><circle cx="60" cy="45" r="22" fill="rgba(255,255,255,0.15)"/><ellipse cx="60" cy="110" rx="38" ry="30" fill="rgba(255,255,255,0.1)"/><text x="60" y="52" text-anchor="middle" fill="rgba(255,255,255,0.6)" font-size="20" font-weight="700" font-family="Inter,sans-serif">MF</text></svg></div>
-                    <div class="tc-badge">Zakladatel</div>
+                    <div class="tc-badge">Jednatel</div>
                 </div>
                 <div class="tc-body">
                     <h4>Miroslav Fencl</h4>
-                    <span class="tc-role">Zakladatel & predseda</span>
-                    <p class="tc-bio">Zakladatel Euro Ceramic Group (1999). 25+ let ve stavebnictvi. Od keramiky pres stavebni material az k modularnim bunkam. V roce 2021 zalozil ECG Build.</p>
-                    <span class="tc-phone"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg> +420 603 871 245</span>
+                    <span class="tc-role">Zakladatel & jednatel</span>
+                    <p class="tc-bio">Provozovatel turistického resortu v Thajsku. Průkopník modulární výstavby s praktickými zkušenostmi z jihovýchodní Asie.</p>
                     <span class="tc-link">Zobrazit profil <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg></span>
                 </div>
             </a>
 
-            <a href="profile.html?m=berger" class="team-card-v2">
+            <a href="profile.html?m=novak" class="team-card-v2">
                 <div class="tc-photo">
-                    <div class="tc-photo-placeholder"><svg viewBox="0 0 120 120" fill="none"><circle cx="60" cy="45" r="22" fill="rgba(255,255,255,0.15)"/><ellipse cx="60" cy="110" rx="38" ry="30" fill="rgba(255,255,255,0.1)"/><text x="60" y="52" text-anchor="middle" fill="rgba(255,255,255,0.6)" font-size="20" font-weight="700" font-family="Inter,sans-serif">TB</text></svg></div>
-                    <div class="tc-badge">CEO</div>
-                </div>
-                <div class="tc-body">
-                    <h4>Ing. Tomas Berger, MBA</h4>
-                    <span class="tc-role">Generalni reditel</span>
-                    <p class="tc-bio">18 let ve stavebnictvi. Driv ridici pozice ve Skanska a Metrostav. Ridi dodavky a montaz modularnich bunek na vsech nasich projektech.</p>
-                    <span class="tc-phone"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg> +420 731 284 059</span>
-                    <span class="tc-link">Zobrazit profil <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg></span>
-                </div>
-            </a>
-
-            <a href="profile.html?m=machova" class="team-card-v2">
-                <div class="tc-photo">
-                    <div class="tc-photo-placeholder"><svg viewBox="0 0 120 120" fill="none"><circle cx="60" cy="45" r="22" fill="rgba(255,255,255,0.15)"/><ellipse cx="60" cy="110" rx="38" ry="30" fill="rgba(255,255,255,0.1)"/><text x="60" y="52" text-anchor="middle" fill="rgba(255,255,255,0.6)" font-size="20" font-weight="700" font-family="Inter,sans-serif">KM</text></svg></div>
-                    <div class="tc-badge">Provoz</div>
-                </div>
-                <div class="tc-body">
-                    <h4>Ing. Katerina Machova</h4>
-                    <span class="tc-role">Provozni reditelka</span>
-                    <p class="tc-bio">14 let v provoznim rizeni a FM. Driv ISS a Sodexo. Ridi provoz vsech ubytovacich arealu a zabezpecuje servis nasazenych bunek.</p>
-                    <span class="tc-phone"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg> +420 608 413 762</span>
-                    <span class="tc-link">Zobrazit profil <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg></span>
-                </div>
-            </a>
-
-            <a href="profile.html?m=vlcek" class="team-card-v2">
-                <div class="tc-photo">
-                    <div class="tc-photo-placeholder"><svg viewBox="0 0 120 120" fill="none"><circle cx="60" cy="45" r="22" fill="rgba(255,255,255,0.15)"/><ellipse cx="60" cy="110" rx="38" ry="30" fill="rgba(255,255,255,0.1)"/><text x="60" y="52" text-anchor="middle" fill="rgba(255,255,255,0.6)" font-size="20" font-weight="700" font-family="Inter,sans-serif">PV</text></svg></div>
-                    <div class="tc-badge">Pravo</div>
-                </div>
-                <div class="tc-body">
-                    <h4>JUDr. Pavel Vlcek</h4>
-                    <span class="tc-role">Pravni reditel</span>
-                    <p class="tc-bio">16 let praxe ve stavebnim pravu. Driv Havel & Partners. Smlouvy s klienty, stavebni povoleni, pronajem pozemku pod bunky.</p>
-                    <span class="tc-phone"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg> +420 725 961 348</span>
-                    <span class="tc-link">Zobrazit profil <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg></span>
-                </div>
-            </a>
-
-            <a href="profile.html?m=prochazka" class="team-card-v2">
-                <div class="tc-photo">
-                    <div class="tc-photo-placeholder"><svg viewBox="0 0 120 120" fill="none"><circle cx="60" cy="45" r="22" fill="rgba(255,255,255,0.15)"/><ellipse cx="60" cy="110" rx="38" ry="30" fill="rgba(255,255,255,0.1)"/><text x="60" y="52" text-anchor="middle" fill="rgba(255,255,255,0.6)" font-size="20" font-weight="700" font-family="Inter,sans-serif">DP</text></svg></div>
-                    <div class="tc-badge">Akvizice</div>
-                </div>
-                <div class="tc-body">
-                    <h4>Ing. David Prochazka, MRICS</h4>
-                    <span class="tc-role">Reditel akvizic</span>
-                    <p class="tc-bio">12 let v akvizicich a asset managementu. Driv Penta RE a CTP. Vyhledava pozemky a klienty pro nasazeni bunek.</p>
-                    <span class="tc-phone"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg> +420 602 738 491</span>
-                    <span class="tc-link">Zobrazit profil <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg></span>
-                </div>
-            </a>
-
-            <a href="profile.html?m=dvorakova" class="team-card-v2">
-                <div class="tc-photo">
-                    <div class="tc-photo-placeholder"><svg viewBox="0 0 120 120" fill="none"><circle cx="60" cy="45" r="22" fill="rgba(255,255,255,0.15)"/><ellipse cx="60" cy="110" rx="38" ry="30" fill="rgba(255,255,255,0.1)"/><text x="60" y="52" text-anchor="middle" fill="rgba(255,255,255,0.6)" font-size="20" font-weight="700" font-family="Inter,sans-serif">LD</text></svg></div>
-                    <div class="tc-badge">Finance</div>
-                </div>
-                <div class="tc-body">
-                    <h4>Ing. Lucie Dvorakova</h4>
-                    <span class="tc-role">Financni reditelka</span>
-                    <p class="tc-bio">11 let ve financnim rizeni. Driv KPMG a Trigema. Financovani nakupu bunek, cash flow management a reporting investorum.</p>
-                    <span class="tc-phone"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg> +420 776 342 198</span>
-                    <span class="tc-link">Zobrazit profil <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg></span>
-                </div>
-            </a>
-
-            <a href="profile.html?m=horak" class="team-card-v2">
-                <div class="tc-photo">
-                    <div class="tc-photo-placeholder"><svg viewBox="0 0 120 120" fill="none"><circle cx="60" cy="45" r="22" fill="rgba(255,255,255,0.15)"/><ellipse cx="60" cy="110" rx="38" ry="30" fill="rgba(255,255,255,0.1)"/><text x="60" y="52" text-anchor="middle" fill="rgba(255,255,255,0.6)" font-size="20" font-weight="700" font-family="Inter,sans-serif">MH</text></svg></div>
-                    <div class="tc-badge">Investori</div>
-                </div>
-                <div class="tc-body">
-                    <h4>Mgr. Martin Horak</h4>
-                    <span class="tc-role">Reditel investicnich vztahu</span>
-                    <p class="tc-bio">9 let v private bankingu a sprave kapitalu. Driv J&T Banka a Ceska sporitelna Private Banking. Ziskal pro fond 18 z 24 soucasnych investoru.</p>
-                    <span class="tc-phone"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg> +420 739 512 684</span>
-                    <span class="tc-link">Zobrazit profil <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg></span>
-                </div>
-            </a>
-
-            <a href="profile.html?m=koubova" class="team-card-v2">
-                <div class="tc-photo">
-                    <div class="tc-photo-placeholder"><svg viewBox="0 0 120 120" fill="none"><circle cx="60" cy="45" r="22" fill="rgba(255,255,255,0.15)"/><ellipse cx="60" cy="110" rx="38" ry="30" fill="rgba(255,255,255,0.1)"/><text x="60" y="52" text-anchor="middle" fill="rgba(255,255,255,0.6)" font-size="20" font-weight="700" font-family="Inter,sans-serif">TK</text></svg></div>
+                    <div class="tc-photo-placeholder"><svg viewBox="0 0 120 120" fill="none"><circle cx="60" cy="45" r="22" fill="rgba(255,255,255,0.15)"/><ellipse cx="60" cy="110" rx="38" ry="30" fill="rgba(255,255,255,0.1)"/><text x="60" y="52" text-anchor="middle" fill="rgba(255,255,255,0.6)" font-size="20" font-weight="700" font-family="Inter,sans-serif">JN</text></svg></div>
                     <div class="tc-badge">Obchod</div>
                 </div>
                 <div class="tc-body">
-                    <h4>Ing. Tereza Koubova</h4>
-                    <span class="tc-role">Obchodni reditelka</span>
-                    <p class="tc-bio">8 let v obchodu. Driv Cushman & Wakefield a CBRE. Zajistuje klienty pro nase bunky a korporatni kontrakty. Drzi obsazenost na 97%.</p>
-                    <span class="tc-phone"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg> +420 604 287 356</span>
+                    <h4>Jan Novák</h4>
+                    <span class="tc-role">Obchodní ředitel</span>
+                    <p class="tc-bio">Vícelete zkušenosti v B2B obchodu a logistice. Zastřešuje komunikaci s klienty a partnerské vztahy.</p>
+                    <span class="tc-link">Zobrazit profil <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg></span>
+                </div>
+            </a>
+
+            <a href="profile.html?m=svoboda" class="team-card-v2">
+                <div class="tc-photo">
+                    <div class="tc-photo-placeholder"><svg viewBox="0 0 120 120" fill="none"><circle cx="60" cy="45" r="22" fill="rgba(255,255,255,0.15)"/><ellipse cx="60" cy="110" rx="38" ry="30" fill="rgba(255,255,255,0.1)"/><text x="60" y="52" text-anchor="middle" fill="rgba(255,255,255,0.6)" font-size="20" font-weight="700" font-family="Inter,sans-serif">PS</text></svg></div>
+                    <div class="tc-badge">Provoz</div>
+                </div>
+                <div class="tc-body">
+                    <h4>Petr Svoboda</h4>
+                    <span class="tc-role">Provozní ředitel</span>
+                    <p class="tc-bio">Specialista na výrobu a logistiku modulárních staveb. Zodpovědný za kvalitu, dodací lhůty a koordinaci výrobních procesů.</p>
                     <span class="tc-link">Zobrazit profil <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg></span>
                 </div>
             </a>
@@ -1136,172 +315,36 @@
     </div>
 </section>
 
-<!-- PROCESS -->
+<!-- PROCES -->
 <section class="section section-process">
     <div class="container">
         <div class="section-header">
-            <span class="section-tag">Proces</span>
-            <h2>Jak to <span class="text-gradient">funguje</span></h2>
+            <span class="section-tag">Jak to funguje</span>
+            <h2>Od prvního kontaktu <span class="text-gradient">k hotové buňce</span></h2>
         </div>
         <div class="process-grid">
             <div class="process-step">
                 <div class="process-number">1</div>
-                <h4>Uvodni konzultace</h4>
-                <p>Bezplatna schuzka, na ktere probereme vase cile, horizont a rizikovy profil.</p>
+                <h4>Úvodní konzultace</h4>
+                <p>Probereme vaše potřeby, účel využití a požadavky na velikost a vybavení modulární jednotky.</p>
             </div>
             <div class="process-connector"></div>
             <div class="process-step">
                 <div class="process-number">2</div>
-                <h4>Investicni navrh</h4>
-                <p>Pripravime individualni strategii a poskytneme kompletni dokumentaci vcetne statutu.</p>
+                <h4>Návrh a kalkulace</h4>
+                <p>Připravíme návrh buňky na míru včetně vizualizace, technické specifikace a cenové kalkulace.</p>
             </div>
             <div class="process-connector"></div>
             <div class="process-step">
                 <div class="process-number">3</div>
-                <h4>Podpis a vklad</h4>
-                <p>Po schvaleni podminek podpisete smlouvu a provedete vklad na segregovany ucet.</p>
+                <h4>Výroba</h4>
+                <p>Po odsouhlasení zahájíme výrobu. Průměrná doba výroby je 2–3 týdny včetně kompletního vybavení.</p>
             </div>
             <div class="process-connector"></div>
             <div class="process-step">
                 <div class="process-number">4</div>
-                <h4>Sprava a reporting</h4>
-                <p>Vas kapital pracuje. Dostavate pravidelne reporty a mate pristup k online portalu.</p>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- FAQ -->
-<section class="section section-faq" id="faq">
-    <div class="container">
-        <div class="section-header">
-            <span class="section-tag">FAQ</span>
-            <h2>Caste <span class="text-gradient">dotazy</span></h2>
-        </div>
-
-        <div class="faq-list">
-            <div class="faq-item">
-                <button class="faq-question" onclick="toggleFaq(this)">
-                    <span>Jaka je minimalni vyse investice?</span>
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
-                </button>
-                <div class="faq-answer">
-                    <p>Minimalni vstup do fondu je 1 000 000 CZK (standardni uroven). Pro pristup k premium sluzdam vcetne individualni strategie a prioritniho pristupu k novym projektum je minimum 5 000 000 CZK.</p>
-                </div>
-            </div>
-            <div class="faq-item">
-                <button class="faq-question" onclick="toggleFaq(this)">
-                    <span>Jak jsou moje penize zajisteny?</span>
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
-                </button>
-                <div class="faq-answer">
-                    <p>Kazda investice je zajistena realnym majetkem — nemovitostmi, pozemky a dlouhodobymi servisnimi smlouvami. Dodrzujeme konzervativni LTV ratio max. 60 % a vsechny nemovitosti jsou oceneny nezavislym znalcem.</p>
-                </div>
-            </div>
-            <div class="faq-item">
-                <button class="faq-question" onclick="toggleFaq(this)">
-                    <span>Jak casto dostavane vynosy?</span>
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
-                </button>
-                <div class="faq-answer">
-                    <p>Vynosy jsou vyplaceny ctvrtletne. Muzete si zvolit, zda chcete vynosy vyplacet na bankovni ucet, nebo je reinvestovat zpet do fondu pro vyssi slozeny urok.</p>
-                </div>
-            </div>
-            <div class="faq-item">
-                <button class="faq-question" onclick="toggleFaq(this)">
-                    <span>Mohu investici predcasne ukoncit?</span>
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
-                </button>
-                <div class="faq-answer">
-                    <p>Minimalni doba investice je 24 mesicu. Po teto dobe muzete pozadat o castecny nebo uplny vyber s 3mesicni vypovedni lhutou. Predcasne ukonceni je mozne, ale muze byt spojeno s poplatkem.</p>
-                </div>
-            </div>
-            <div class="faq-item">
-                <button class="faq-question" onclick="toggleFaq(this)">
-                    <span>Do jakych projektu investujete?</span>
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
-                </button>
-                <div class="faq-answer">
-                    <p>Investujeme do tri oblasti: modularni ubytovani z obytnych bunek (ubytovaci arealy, firemni ubytovny — 50 %), skladove kontejnery (kontejnerove sklady pro logistiku a prumysl — 30 %) a specialni sestavy a kancelare (modularni kancelare, sanitarni bunky, technicke zazemi — 20 %).</p>
-                </div>
-            </div>
-            <div class="faq-item">
-                <button class="faq-question" onclick="toggleFaq(this)">
-                    <span>Jak sleduji vyvoj sve investice?</span>
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
-                </button>
-                <div class="faq-answer">
-                    <p>Kazdy investor ma pristup k osobnimu online portalu, kde v realnem case vidi hodnotu sveho portfolia, alokaci do jednotlivych projektu, historii vynosu a muze stahovat mesicni reporty. Navic dostavate mesicni email s prehledem.</p>
-                </div>
-            </div>
-            <div class="faq-item">
-                <button class="faq-question" onclick="toggleFaq(this)">
-                    <span>Jste regulovani Ceskou narodni bankou?</span>
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
-                </button>
-                <div class="faq-answer">
-                    <p>Euro Ceramic Group s.r.o. je fond kvalifikovanych investoru ve smyslu zakona c. 240/2013 Sb. o investicnich spolecnostech a investicnich fondech. Fond podleha registracni povinnosti u CNB.</p>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- NOVINKY -->
-<section class="section section-news" id="novinky">
-    <div class="container">
-        <div class="section-header">
-            <span class="section-tag">Novinky</span>
-            <h2>Aktualne z <span class="text-gradient">ECG Build</span></h2>
-        </div>
-
-        <div class="news-grid">
-            <div class="news-card news-card-featured">
-                <div class="news-image">
-                    <span class="news-category">Projekt</span>
-                </div>
-                <div class="news-body">
-                    <div class="news-date">8. brezna 2026</div>
-                    <h3>Startujeme nas nejvetsi projekt — 60 bunek pro Brno-Slatina</h3>
-                    <p>Tripatrovy modularni komplex pro delnicke agentury v prumyslove zone. 150 luzek, vlastni sprava, kantyna. Zahajeni montaze planovano na Q3 2026.</p>
-                    <a href="#" class="news-link">Cist vice <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg></a>
-                </div>
-            </div>
-
-            <div class="news-card">
-                <div class="news-image news-image-sm">
-                    <span class="news-category">Vysledky</span>
-                </div>
-                <div class="news-body">
-                    <div class="news-date">1. brezna 2026</div>
-                    <h3>Rocni report 2025: Fond dosihl zhodnoceni 8.2 %</h3>
-                    <p>Publikovali jsme vyrocni zpravu za rok 2025. Portfolio 206 bunek generovalo stabilni prijem pri konzervativnim rizikovem profilu.</p>
-                    <a href="#" class="news-link">Cist vice <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg></a>
-                </div>
-            </div>
-
-            <div class="news-card">
-                <div class="news-image news-image-sm">
-                    <span class="news-category">Kontrakt</span>
-                </div>
-                <div class="news-body">
-                    <div class="news-date">15. unora 2026</div>
-                    <h3>Podepsali jsme 18mesicni kontrakt na stavebni zazemi Sokolov</h3>
-                    <p>26 bunek pro infrastrukturni stavbu — ubytovani, sanitarni zazemi, kancelare, sklad naradi. Po skonceni stavby se bunky presunou na dalsi projekt.</p>
-                    <a href="#" class="news-link">Cist vice <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg></a>
-                </div>
-            </div>
-
-            <div class="news-card">
-                <div class="news-image news-image-sm">
-                    <span class="news-category">Portfolio</span>
-                </div>
-                <div class="news-body">
-                    <div class="news-date">20. ledna 2026</div>
-                    <h3>Obsazenost nasich bunek dosahla 97 %</h3>
-                    <p>Vsechny dokoncene projekty v portfoliu jsou obsazeny na 97 % a vice. Nejlepsi vysledky hlasi Kraslice (100 %) a kontejnerovy sklad Plzen (98 %).</p>
-                    <a href="#" class="news-link">Cist vice <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg></a>
-                </div>
+                <h4>Dodání a instalace</h4>
+                <p>Hotovou buňku dopravíme na místo a zajistíme kompletní instalaci včetně připojení na sítě.</p>
             </div>
         </div>
     </div>
@@ -1311,9 +354,9 @@
 <section class="section section-cta">
     <div class="container">
         <div class="cta-box">
-            <h2>Pripraveni investovat <span class="text-gradient">s perspektivou?</span></h2>
-            <p>Domluvte si nezavaznou konzultaci. Ukazeme vam nase bunky, projedeme cisla a pripravime navrh na miru.</p>
-            <a href="#kontakt" class="btn btn-primary btn-lg">Domluvit schuzku</a>
+            <h2>Máte zájem o <span class="text-gradient">modulární buňku?</span></h2>
+            <p>Kontaktujte nás pro nezávaznou konzultaci. Připravíme návrh přesně podle vašich potřeb.</p>
+            <a href="#kontakt" class="btn btn-primary btn-lg">Kontaktovat nás</a>
         </div>
     </div>
 </section>
@@ -1323,44 +366,44 @@
     <div class="container">
         <div class="section-header">
             <span class="section-tag">Kontakt</span>
-            <h2>Spojte se <span class="text-gradient">s nami</span></h2>
+            <h2>Spojte se <span class="text-gradient">s námi</span></h2>
         </div>
         <div class="contact-grid">
             <div class="contact-info">
                 <div class="contact-item">
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
                     <div>
-                        <h4>Adresa</h4>
-                        <p>Namesti 14. rijna 1307/2<br>150 00 Praha 5 - Smichov</p>
-                    </div>
-                </div>
-                <div class="contact-item">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-                    <div>
-                        <h4>Telefon</h4>
-                        <p>+420 734 445 666</p>
+                        <h4>Sídlo</h4>
+                        <p>Hradecká 2526/3<br>Vinohrady, 130 00 Praha 3</p>
                     </div>
                 </div>
                 <div class="contact-item">
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
                     <div>
                         <h4>E-mail</h4>
-                        <p>invest@ecgbuild.cz</p>
+                        <p>info@nodisstar.cz</p>
                     </div>
                 </div>
                 <div class="contact-item">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
                     <div>
-                        <h4>Uredni hodiny</h4>
-                        <p>Po - Pt: 9:00 - 17:00</p>
+                        <h4>Telefon</h4>
+                        <p>+420 777 888 999</p>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                    <div>
+                        <h4>Dostupnost</h4>
+                        <p>Po–Pá: 8:00–17:00</p>
                     </div>
                 </div>
             </div>
             <form class="contact-form" id="contactForm">
                 <div class="form-row">
                     <div class="form-group">
-                        <label for="name">Jmeno a prijmeni</label>
-                        <input type="text" id="name" name="name" required placeholder="Jan Novak">
+                        <label for="name">Jméno a příjmení</label>
+                        <input type="text" id="name" name="name" required placeholder="Jan Novák">
                     </div>
                     <div class="form-group">
                         <label for="email">E-mail</label>
@@ -1373,25 +416,26 @@
                         <input type="tel" id="phone" name="phone" placeholder="+420 xxx xxx xxx">
                     </div>
                     <div class="form-group">
-                        <label for="amount">Planovana investice</label>
+                        <label for="amount">Co vás zajímá</label>
                         <select id="amount" name="amount">
-                            <option value="">Vyberte rozsah</option>
-                            <option value="1-3m">1 - 3 mil. CZK</option>
-                            <option value="3-5m">3 - 5 mil. CZK</option>
-                            <option value="5-10m">5 - 10 mil. CZK</option>
-                            <option value="10m+">10+ mil. CZK</option>
+                            <option value="">Vyberte</option>
+                            <option value="ubytovani">Turistické ubytování</option>
+                            <option value="kancelar">Kancelář / provozovna</option>
+                            <option value="rezidence">Rezidenční bydlení</option>
+                            <option value="investice">Investiční možnost</option>
+                            <option value="jine">Jiné</option>
                         </select>
                     </div>
                 </div>
                 <div class="form-group">
-                    <label for="message">Zprava</label>
-                    <textarea id="message" name="message" rows="4" placeholder="Jak vam muzeme pomoci?"></textarea>
+                    <label for="message">Zpráva</label>
+                    <textarea id="message" name="message" rows="4" placeholder="Popište nám vaše potřeby..."></textarea>
                 </div>
                 <div class="form-group form-checkbox">
                     <input type="checkbox" id="consent" required>
-                    <label for="consent">Souhlasim se zpracovanim osobnich udaju za ucelem kontaktovani. Vice informaci v nasich zasadach ochrany osobnich udaju.</label>
+                    <label for="consent">Souhlasím se zpracováním osobních údajů za účelem kontaktování.</label>
                 </div>
-                <button type="submit" class="btn btn-primary btn-lg btn-full">Odeslat poptavku</button>
+                <button type="submit" class="btn btn-primary btn-lg btn-full">Odeslat poptávku</button>
             </form>
         </div>
     </div>
@@ -1403,33 +447,37 @@
         <div class="footer-grid">
             <div class="footer-brand">
                 <a href="#" class="logo">
-                    <div class="logo-icon">ECG</div>
-                    <div class="logo-text">
-                        <span class="logo-name">ECG Build</span>
-                        <span class="logo-sub">Euro Ceramic Group</span>
-                    </div>
+                    <div class="logo-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26" fill="currentColor"/></svg></div>
+                    <span>Nodis <strong>Star</strong></span>
                 </a>
-                <p>Euro Ceramic Group s.r.o. — ceska spolecnost se zamerenem na development, modulární stavby a spravu nemovitosti. Fond je urcen kvalifikovanym investorum ve smyslu zakona c. 240/2013 Sb.</p>
+                <p>Nodis Star s.r.o. — česká společnost zaměřená na návrh, výrobu a dodávky modulárních buňkových jednotek pro široké spektrum využití.</p>
             </div>
             <div class="footer-links">
                 <h4>Navigace</h4>
-                <a href="#o-nas">O spolecnosti</a>
-                <a href="#historie">Historie</a>
-                <a href="#fond">Fond</a>
-                <a href="#vykonnost">Vykonnost</a>
-                <a href="#tym">Tym</a>
+                <a href="#o-nas">O nás</a>
+                <a href="#bunky">Naše buňky</a>
+                <a href="#investice">Investice</a>
+                <a href="#tym">Tým</a>
                 <a href="#kontakt">Kontakt</a>
             </div>
             <div class="footer-links">
-                <h4>Informace</h4>
-                <span>ICO: 25771850</span>
-                <span>Sidlo: Namesti 14. rijna 1307/2, 150 00 Praha 5</span>
-                <span>Zapsana u MS v Praze, sp. zn. C 68804</span>
+                <h4>Dokumenty</h4>
+                <a href="#">Smlouva o spolupráci</a>
+                <a href="#">Prezentační materiál</a>
+                <a href="#">Směnka — vzor</a>
+                <a href="#">Čestné prohlášení</a>
+                <a href="#">Zásady ochrany údajů</a>
+            </div>
+            <div class="footer-links">
+                <h4>Firemní údaje</h4>
+                <a href="#">IČO: 21300101</a>
+                <a href="#">Sídlo: Praha 3, Vinohrady</a>
+                <a href="#">DS: 3tduri7</a>
             </div>
         </div>
         <div class="footer-bottom">
-            <p>&copy; 2026 Euro Ceramic Group s.r.o. Vsechna prava vyhrazena.</p>
-            <p class="footer-disclaimer">Investice je urcena pouze pro kvalifikovane investory ve smyslu zakona c. 240/2013 Sb. Hodnota investice muze klesat i rust. Minule vynosy nejsou zarukou budoucich vysledku.</p>
+            <p>&copy; 2026 Nodis Star s.r.o. Všechna práva vyhrazena.</p>
+            <p class="footer-disclaimer">Uvedené informace nepředstavují investiční doporučení ani veřejnou nabídku cenných papírů. Každý zájemce by měl rizika posoudit individuálně.</p>
         </div>
     </div>
 </footer>
@@ -1439,12 +487,12 @@
     <div class="cookie-content">
         <div class="cookie-text">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-            <p>Tento web pouziva cookies pro zlepseni funkcnosti a analyzu navstevnosti. Pokracovanim v prohlizeni souhlasitee s jejich pouzitim.</p>
+            <p>Tento web používá cookies pro zlepšení funkčnosti a analýzu návštěvnosti.</p>
         </div>
         <div class="cookie-actions">
-            <button class="btn btn-primary" id="cookieAcceptAll">Prijmout vse</button>
-            <button class="btn btn-cookie-secondary" id="cookieNecessary">Jen nezbytne</button>
-            <button class="btn btn-cookie-link" id="cookieSettings">Nastaveni</button>
+            <button class="btn btn-primary" id="cookieAcceptAll">Přijmout vše</button>
+            <button class="btn btn-cookie-secondary" id="cookieNecessary">Jen nezbytné</button>
+            <button class="btn btn-cookie-link" id="cookieSettings">Nastavení</button>
         </div>
     </div>
 </div>

@@ -1,5 +1,5 @@
 /* ============================================================
-   ECG BUILD - JavaScript
+   NODIS STAR - JavaScript
    ============================================================ */
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -106,7 +106,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // ── Scroll reveal animations ──
     const revealElements = document.querySelectorAll(
-        '.about-card, .fund-card, .team-card, .security-item, .process-step, .perf-stat, .tier-card, .project-card, .award-item, .media-item, .timeline-item, .history-stat'
+        '.about-card, .fund-card, .team-card, .security-item, .process-step, .perf-stat, .tier-card'
     );
 
     // Track the sequential index of each element so stagger delays work
@@ -162,16 +162,16 @@ document.addEventListener('DOMContentLoaded', () => {
                     'Q1 22', 'Q2 22', 'Q3 22', 'Q4 22',
                     'Q1 23', 'Q2 23', 'Q3 23', 'Q4 23',
                     'Q1 24', 'Q2 24', 'Q3 24', 'Q4 24',
-                    'Q1 25', 'Q2 25', 'Q3 25', 'Q4 25'
+                    'Q1 25', 'Q2 25', 'Q3 25'
                 ],
                 datasets: [{
-                    label: 'Kumulativni vynos (%)',
+                    label: 'Kumulativní výnos (%)',
                     data: [
-                        1.8, 4.2, 6.8, 8.4,
-                        9.6, 9.3, 10.1, 11.6,
-                        13.4, 15.9, 17.3, 19.4,
-                        21.8, 24.4, 26.6, 28.8,
-                        30.9, 33.2, 35.1, 37.0
+                        3.2, 7.0, 11.1, 14.1,
+                        15.3, 15.0, 15.8, 17.3,
+                        19.1, 21.6, 23.0, 25.1,
+                        27.5, 30.6, 33.2, 35.4,
+                        37.5, 40.3, 42.2
                     ],
                     borderColor: '#c9a84c',
                     borderWidth: 2.5,
@@ -327,9 +327,9 @@ document.addEventListener('DOMContentLoaded', () => {
         new Chart(allocCanvas.getContext('2d'), {
             type: 'doughnut',
             data: {
-                labels: ['Modularni ubytovani', 'Skladove kontejnery', 'Specialni sestavy & kancelare', 'Hotovost'],
+                labels: ['Nemovitosti', 'ESG projekty', 'Finanční trhy', 'Hotovost'],
                 datasets: [{
-                    data: [50, 30, 15, 5],
+                    data: [45, 35, 15, 5],
                     backgroundColor: [
                         '#2d5a8e',
                         '#059669',
@@ -390,22 +390,22 @@ document.addEventListener('DOMContentLoaded', () => {
                 labels: ['Q1', 'Q2', 'Q3'],
                 datasets: [
                     {
-                        label: 'Modularni ubytovani',
-                        data: [3.2, 3.8, 2.9],
+                        label: 'Nemovitosti',
+                        data: [2.8, 3.1, 2.4],
                         backgroundColor: barGradient1,
                         borderRadius: 6,
                         borderSkipped: false,
                     },
                     {
-                        label: 'Skladove kontejnery',
-                        data: [2.1, 2.5, 2.2],
+                        label: 'ESG projekty',
+                        data: [3.5, 4.2, 3.1],
                         backgroundColor: barGradient2,
                         borderRadius: 6,
                         borderSkipped: false,
                     },
                     {
-                        label: 'Specialni sestavy & kancelare',
-                        data: [1.5, 1.9, 1.3],
+                        label: 'Finanční trhy',
+                        data: [1.2, 1.8, 0.9],
                         backgroundColor: barGradient3,
                         borderRadius: 6,
                         borderSkipped: false,
@@ -462,11 +462,11 @@ document.addEventListener('DOMContentLoaded', () => {
     if (heatmapContainer) {
         const months = ['Led', 'Uno', 'Bre', 'Dub', 'Kve', 'Cer', 'Cvc', 'Srp', 'Zar', 'Rij', 'Lis', 'Pro'];
         const years = {
-            '2025': [0.7, 0.8, 0.6, 0.8, 0.9, 0.6, 0.7, 0.6, 0.6, 0.6, 0.7, 0.6],
-            '2024': [0.7, 0.9, 0.8, 0.8, 1.0, 0.8, 0.7, 0.8, 0.7, 0.8, 0.7, 0.7],
-            '2023': [0.5, 0.6, 0.7, 0.8, 0.9, 0.8, 0.5, 0.4, 0.5, 0.7, 0.7, 0.7],
+            '2025': [0.8, 0.7, 0.6, 0.9, 1.0, 0.9, 1.0, 0.6, 0.3, null, null, null],
+            '2024': [0.6, 0.8, 1.0, 0.7, 1.2, 1.2, 0.9, 0.8, 0.9, 0.7, 0.8, 0.7],
+            '2023': [0.5, 0.6, 0.7, 0.4, 0.9, 1.0, 0.8, -0.2, 0.8, 0.6, 0.7, 0.8],
             '2022': [0.4, 0.5, 0.3, -0.1, -0.2, 0.0, 0.3, 0.2, 0.3, 0.5, 0.6, 0.4],
-            '2021': [0.6, 0.5, 0.7, 0.8, 0.8, 0.8, 0.9, 0.8, 0.9, 0.5, 0.6, 0.5],
+            '2021': [1.0, 1.1, 1.1, 0.9, 1.2, 1.5, 1.4, 1.2, 1.3, 0.9, 0.8, 0.8],
         };
 
         const getClass = (val) => {
@@ -688,7 +688,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 });
                 // Add fund NAV to ticker
                 html += `<span class="ticker-item">
-                    <span class="ticker-symbol">BF Fund NAV</span>
+                    <span class="ticker-symbol">VX Fund NAV</span>
                     <span class="ticker-price">${liveState.nav.toFixed(4)}</span>
                     <span class="ticker-change ${liveState.dayChange >= 0 ? 'up' : 'down'}">${liveState.dayChange >= 0 ? '+' : ''}${liveState.dayChange.toFixed(2)}%</span>
                 </span>`;
@@ -699,14 +699,6 @@ document.addEventListener('DOMContentLoaded', () => {
         renderTicker();
         setInterval(renderTicker, 8000);
     }
-
-    // ── FAQ toggle ──
-    window.toggleFaq = function(btn) {
-        const item = btn.parentElement;
-        const isOpen = item.classList.contains('faq-open');
-        document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('faq-open'));
-        if (!isOpen) item.classList.add('faq-open');
-    };
 
     // ── Initialize ──
     fetchEurCzk();
