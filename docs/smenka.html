@@ -11,133 +11,104 @@
             --primary: #1a2f4a; --primary-dark: #0c1829; --accent: #d4af37; --accent-dark: #b8962d;
             --text: #1a1f2e; --text-light: #556073; --bg: #fafbfc; --border: #dfe3ea;
         }
-        body { font-family: 'Inter', sans-serif; color: var(--text); background: #e8ebef; line-height: 1.7; font-size: 14px; -webkit-font-smoothing: antialiased; }
+        body { font-family: 'Inter', sans-serif; color: var(--text); background: #e8ebef; line-height: 1.5; font-size: 12px; -webkit-font-smoothing: antialiased; }
         .doc-actions { max-width: 800px; margin: 24px auto; padding: 0 24px; display: flex; gap: 12px; }
         .doc-actions a, .doc-actions button { display: inline-flex; align-items: center; gap: 8px; padding: 10px 20px; border-radius: 10px; font-size: 13px; font-weight: 600; font-family: inherit; text-decoration: none; cursor: pointer; border: none; transition: all 0.2s; }
         .btn-back { background: rgba(255,255,255,0.9); color: var(--text); border: 1px solid var(--border); }
         .btn-back:hover { border-color: var(--accent); color: var(--accent); }
         .btn-print { background: linear-gradient(135deg, var(--accent), var(--accent-dark)); color: var(--primary-dark); }
-        .btn-print:hover { box-shadow: 0 4px 16px rgba(212,175,55,0.4); }
 
         .doc-page { max-width: 800px; margin: 0 auto 40px; background: #fff; box-shadow: 0 2px 20px rgba(0,0,0,0.1); border-radius: 4px; overflow: hidden; position: relative; }
-        .doc-header { background: linear-gradient(135deg, var(--primary-dark), var(--primary)); padding: 32px 48px; display: flex; align-items: center; justify-content: space-between; }
-        .doc-header-logo { display: flex; align-items: center; gap: 14px; color: #fff; }
-        .doc-header-logo svg { color: var(--accent); }
-        .doc-header-logo span { font-size: 18px; font-weight: 600; }
+        .doc-header { background: linear-gradient(135deg, var(--primary-dark), var(--primary)); padding: 16px 32px; display: flex; align-items: center; justify-content: space-between; }
+        .doc-header-logo { display: flex; align-items: center; gap: 10px; color: #fff; }
+        .doc-header-logo span { font-size: 15px; font-weight: 600; }
         .doc-header-logo strong { font-weight: 800; }
-        .doc-header-meta { text-align: right; color: rgba(255,255,255,0.5); font-size: 11px; line-height: 1.6; }
+        .doc-header-meta { text-align: right; color: rgba(255,255,255,0.5); font-size: 10px; line-height: 1.5; }
         .doc-gold-line { height: 3px; background: linear-gradient(90deg, var(--accent), var(--accent-dark), var(--accent)); }
 
-        .doc-body { padding: 48px; position: relative; }
-        .watermark {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            opacity: 0.03;
-            pointer-events: none;
-        }
+        .doc-body { padding: 28px 36px 20px; position: relative; }
+        .watermark { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); opacity: 0.03; pointer-events: none; }
+
         .smenka-title {
             font-family: 'Playfair Display', serif;
-            font-size: 32px;
+            font-size: 26px;
             font-weight: 700;
             color: var(--primary-dark);
             text-align: center;
             letter-spacing: 6px;
             text-transform: uppercase;
-            margin-bottom: 8px;
+            margin-bottom: 4px;
         }
-        .smenka-num {
-            text-align: center;
-            font-size: 12px;
-            color: var(--text-light);
-            margin-bottom: 40px;
-        }
+        .smenka-num { text-align: center; font-size: 10px; color: var(--text-light); margin-bottom: 20px; }
 
         .smenka-frame {
             border: 2px solid var(--accent);
-            border-radius: 12px;
-            padding: 32px;
+            border-radius: 10px;
+            padding: 20px 24px;
             position: relative;
         }
         .smenka-frame::before {
             content: '';
             position: absolute;
-            inset: 4px;
+            inset: 3px;
             border: 1px solid rgba(212,175,55,0.2);
-            border-radius: 8px;
+            border-radius: 7px;
             pointer-events: none;
         }
-
         .smenka-text {
-            font-size: 14px;
-            line-height: 2;
-            margin-bottom: 32px;
+            font-size: 12px;
+            line-height: 1.8;
+            margin-bottom: 18px;
         }
         .smenka-text .blank {
             display: inline-block;
-            min-width: 180px;
+            min-width: 140px;
             border-bottom: 1px solid var(--primary);
-            margin: 0 4px;
+            margin: 0 2px;
             text-align: center;
             font-weight: 600;
             color: var(--accent-dark);
-        }
-
-        .smenka-section { margin-bottom: 24px; }
-        .smenka-section-title {
             font-size: 11px;
+        }
+        .smenka-section { margin-bottom: 14px; }
+        .smenka-section-title {
+            font-size: 9px;
             font-weight: 700;
             text-transform: uppercase;
             letter-spacing: 1.5px;
             color: var(--accent-dark);
-            margin-bottom: 12px;
-            padding-bottom: 6px;
+            margin-bottom: 6px;
+            padding-bottom: 4px;
             border-bottom: 1px solid var(--border);
         }
-        .field-row {
-            display: flex;
-            margin-bottom: 10px;
-            align-items: baseline;
-        }
-        .field-label {
-            width: 200px;
-            flex-shrink: 0;
-            font-size: 13px;
-            color: var(--text-light);
-            font-weight: 500;
-        }
-        .field-value {
-            flex: 1;
-            border-bottom: 1px solid var(--border);
-            min-height: 22px;
-            font-size: 13px;
-        }
+        .field-row { display: flex; margin-bottom: 6px; align-items: baseline; }
+        .field-label { width: 140px; flex-shrink: 0; font-size: 11px; color: var(--text-light); font-weight: 500; }
+        .field-value { flex: 1; border-bottom: 1px solid var(--border); min-height: 18px; font-size: 11px; }
 
         .smenka-sigs {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 48px;
-            margin-top: 40px;
+            gap: 32px;
+            margin-top: 20px;
         }
         .sig-block { text-align: center; }
-        .sig-label { font-size: 11px; color: var(--text-light); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 8px; }
-        .sig-line { border-bottom: 1px solid var(--text); height: 60px; margin-bottom: 8px; }
-        .sig-hint { font-size: 11px; color: var(--text-light); }
+        .sig-label { font-size: 9px; color: var(--text-light); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 4px; }
+        .sig-line { border-bottom: 1px solid var(--text); height: 40px; margin-bottom: 4px; }
+        .sig-hint { font-size: 10px; color: var(--text-light); }
 
-        .doc-footer { background: var(--bg); border-top: 1px solid var(--border); padding: 16px 48px; display: flex; justify-content: space-between; font-size: 10px; color: var(--text-light); }
+        .doc-footer { background: var(--bg); border-top: 1px solid var(--border); padding: 10px 32px; display: flex; justify-content: space-between; font-size: 9px; color: var(--text-light); }
 
         @media print {
             body { background: #fff; }
             .doc-actions { display: none; }
             .doc-page { box-shadow: none; margin: 0; max-width: none; border-radius: 0; }
-            @page { size: A4; margin: 15mm; }
+            @page { size: A4; margin: 10mm; }
             -webkit-print-color-adjust: exact; print-color-adjust: exact;
         }
         @media (max-width: 600px) {
-            .doc-body { padding: 24px 16px; }
-            .smenka-frame { padding: 20px 16px; }
-            .smenka-sigs { grid-template-columns: 1fr; gap: 24px; }
+            .doc-body { padding: 20px 16px; }
+            .smenka-frame { padding: 16px 12px; }
+            .smenka-sigs { grid-template-columns: 1fr; gap: 16px; }
             .field-row { flex-direction: column; gap: 2px; }
             .field-label { width: auto; }
         }
@@ -153,16 +124,16 @@
 <div class="doc-page">
     <div class="doc-header">
         <div class="doc-header-logo">
-            <svg width="28" height="28" viewBox="0 0 24 24" fill="none"><polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26" fill="currentColor" style="color:#d4af37"/></svg>
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26" fill="#d4af37"/></svg>
             <span>Nodis <strong>Star</strong></span>
         </div>
-        <div class="doc-header-meta">Nodis Star s.r.o.<br>IČO: 21300101 | DS: 3tduri7<br>Hradecká 2526/3, 130 00 Praha 3</div>
+        <div class="doc-header-meta">Nodis Star s.r.o. | IČO: 21300101<br>Hradecká 2526/3, 130 00 Praha 3</div>
     </div>
     <div class="doc-gold-line"></div>
 
     <div class="doc-body">
         <div class="watermark">
-            <svg width="300" height="300" viewBox="0 0 24 24" fill="none"><polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26" fill="#1a2f4a"/></svg>
+            <svg width="250" height="250" viewBox="0 0 24 24" fill="none"><polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26" fill="#1a2f4a"/></svg>
         </div>
 
         <div class="smenka-title">Směnka</div>
@@ -175,8 +146,8 @@
 
             <div class="smenka-section">
                 <div class="smenka-section-title">Místo a datum</div>
-                <div class="field-row"><span class="field-label">Místo platby:</span><span class="field-value" style="color:var(--text-light); font-size:12px; padding-left:8px;">Praha</span></div>
-                <div class="field-row"><span class="field-label">Místo vystavení:</span><span class="field-value" style="color:var(--text-light); font-size:12px; padding-left:8px;">Praha</span></div>
+                <div class="field-row"><span class="field-label">Místo platby:</span><span class="field-value" style="padding-left:6px;">Praha</span></div>
+                <div class="field-row"><span class="field-label">Místo vystavení:</span><span class="field-value" style="padding-left:6px;">Praha</span></div>
                 <div class="field-row"><span class="field-label">Datum vystavení:</span><span class="field-value"></span></div>
             </div>
 
@@ -205,7 +176,7 @@
 
     <div class="doc-footer">
         <span>Nodis Star s.r.o. | IČO: 21300101 | Hradecká 2526/3, 130 00 Praha 3</span>
-        <span>Směnka — vzor</span>
+        <span>Směnka</span>
     </div>
 </div>
 
