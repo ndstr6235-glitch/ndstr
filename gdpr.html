@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+    <title>Nodis Star | Zásady ochrany osobních údajů (GDPR)</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .gdpr-hero {
+            padding: 160px 0 60px;
+            background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 100%);
+            color: #fff;
+            text-align: center;
+        }
+        .gdpr-hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 42px;
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+        .gdpr-hero p {
+            color: rgba(255,255,255,0.7);
+            font-size: 17px;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        .gdpr-content {
+            padding: 80px 0 100px;
+        }
+        .gdpr-content .container {
+            max-width: 820px;
+        }
+        .gdpr-section {
+            margin-bottom: 48px;
+        }
+        .gdpr-section h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 26px;
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: 8px;
+            padding-bottom: 12px;
+            border-bottom: 2px solid var(--accent);
+            display: inline-block;
+        }
+        .gdpr-section h3 {
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--text);
+            margin: 24px 0 8px;
+        }
+        .gdpr-section p,
+        .gdpr-section li {
+            color: var(--text-light);
+            font-size: 16px;
+            line-height: 1.75;
+        }
+        .gdpr-section ul {
+            list-style: none;
+            padding-left: 0;
+            margin: 12px 0;
+        }
+        .gdpr-section ul li {
+            position: relative;
+            padding-left: 24px;
+            margin-bottom: 8px;
+        }
+        .gdpr-section ul li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 10px;
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--accent);
+        }
+        .gdpr-section a {
+            color: var(--accent-dark);
+            text-decoration: underline;
+            transition: var(--transition);
+        }
+        .gdpr-section a:hover {
+            color: var(--accent);
+        }
+        .gdpr-info-box {
+            background: var(--bg-alt);
+            border-left: 4px solid var(--accent);
+            border-radius: var(--radius-sm);
+            padding: 20px 24px;
+            margin: 16px 0;
+        }
+        .gdpr-info-box p {
+            margin: 4px 0;
+        }
+        .gdpr-toc {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 28px 32px;
+            margin-bottom: 48px;
+            box-shadow: var(--shadow);
+        }
+        .gdpr-toc h3 {
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--text);
+            margin-bottom: 12px;
+        }
+        .gdpr-toc ol {
+            padding-left: 20px;
+            margin: 0;
+        }
+        .gdpr-toc ol li {
+            margin-bottom: 6px;
+        }
+        .gdpr-toc ol li a {
+            color: var(--text-light);
+            text-decoration: none;
+            transition: var(--transition);
+            font-size: 15px;
+        }
+        .gdpr-toc ol li a:hover {
+            color: var(--accent-dark);
+        }
+        .gdpr-date {
+            font-size: 14px;
+            color: var(--text-muted);
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid var(--border);
+        }
+        @media (max-width: 768px) {
+            .gdpr-hero { padding: 130px 0 40px; }
+            .gdpr-hero h1 { font-size: 30px; }
+            .gdpr-content { padding: 50px 0 60px; }
+            .gdpr-section h2 { font-size: 22px; }
+            .gdpr-toc { padding: 20px 22px; }
+        }
+    </style>
+</head>
+<body>
+<div id="page-wrapper">
+
+<!-- NAVBAR -->
+<nav class="navbar" id="navbar">
+    <div class="container nav-container">
+        <a href="index.html" class="logo">
+            <div class="logo-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"><polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26" fill="currentColor"/></svg></div>
+            <span>Nodis <strong>Star</strong></span>
+        </a>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="index.html#o-nas">O nás</a></li>
+            <li><a href="index.html#bunky">Naše buňky</a></li>
+            <li><a href="index.html#spoluprace">Spolupráce</a></li>
+            <li><a href="index.html#tym">Tým</a></li>
+            <li><a href="index.html#kontakt">Kontakt</a></li>
+        </ul>
+        <a href="index.html#kontakt" class="btn btn-nav">Kontaktujte nás</a>
+        <button class="mobile-toggle" id="mobileToggle" aria-label="Menu">
+            <span></span><span></span><span></span>
+        </button>
+    </div>
+</nav>
+
+<!-- GDPR HERO -->
+<section class="gdpr-hero">
+    <div class="container">
+        <h1>Zásady ochrany <span class="text-gradient">osobních údajů</span></h1>
+        <p>Informace o zpracování osobních údajů v souladu s Nařízením Evropského parlamentu a Rady (EU) 2016/679 (GDPR)</p>
+    </div>
+</section>
+
+<!-- GDPR CONTENT -->
+<section class="gdpr-content">
+    <div class="container">
+
+        <!-- TABLE OF CONTENTS -->
+        <div class="gdpr-toc">
+            <h3>Obsah dokumentu</h3>
+            <ol>
+                <li><a href="#spravce">Správce osobních údajů</a></li>
+                <li><a href="#udaje">Jaké osobní údaje zpracováváme</a></li>
+                <li><a href="#ucel">Účel zpracování osobních údajů</a></li>
+                <li><a href="#zaklad">Právní základ zpracování</a></li>
+                <li><a href="#doba">Doba uchování osobních údajů</a></li>
+                <li><a href="#prijemci">Příjemci osobních údajů</a></li>
+                <li><a href="#prava">Práva subjektů údajů</a></li>
+                <li><a href="#cookies">Cookies</a></li>
+                <li><a href="#kontakt-spravce">Kontakt na správce</a></li>
+            </ol>
+        </div>
+
+        <!-- 1. SPRÁVCE -->
+        <div class="gdpr-section" id="spravce">
+            <h2>1. Správce osobních údajů</h2>
+            <p>Správcem osobních údajů ve smyslu Nařízení Evropského parlamentu a Rady (EU) 2016/679 o ochraně fyzických osob v souvislosti se zpracováním osobních údajů (dále jen "GDPR") je:</p>
+            <div class="gdpr-info-box">
+                <p><strong>Nodis Star s.r.o.</strong></p>
+                <p>IČO: 21300101</p>
+                <p>Sídlo: Hradecká 2526/3, Vinohrady (Praha 3), 130 00 Praha</p>
+                <p>Jednatel: Miroslav Fencl</p>
+                <p>Datová schránka: 3tduri7</p>
+                <p>E-mail: <a href="mailto:info@nodisstar.cz">info@nodisstar.cz</a></p>
+                <p>Telefon: <a href="tel:+420728733093">+420 728 733 093</a></p>
+            </div>
+            <p>Správce nejmenoval pověřence pro ochranu osobních údajů. Ve všech záležitostech týkajících se zpracování osobních údajů se můžete obracet přímo na správce prostřednictvím výše uvedených kontaktních údajů.</p>
+        </div>
+
+        <!-- 2. JAKÉ ÚDAJE -->
+        <div class="gdpr-section" id="udaje">
+            <h2>2. Jaké osobní údaje zpracováváme</h2>
+            <p>V rámci naší činnosti zpracováváme následující kategorie osobních údajů:</p>
+
+            <h3>Identifikační údaje</h3>
+            <ul>
+                <li>Jméno a příjmení</li>
+                <li>Název společnosti (u firemních klientů)</li>
+                <li>IČO a DIČ (u firemních klientů)</li>
+            </ul>
+
+            <h3>Kontaktní údaje</h3>
+            <ul>
+                <li>E-mailová adresa</li>
+                <li>Telefonní číslo</li>
+                <li>Adresa bydliště nebo sídla</li>
+            </ul>
+
+            <h3>Údaje z komunikace</h3>
+            <ul>
+                <li>Obsah e-mailových zpráv a dalších forem komunikace</li>
+                <li>Záznamy z kontaktních formulářů na webových stránkách</li>
+            </ul>
+
+            <h3>Technické údaje</h3>
+            <ul>
+                <li>IP adresa</li>
+                <li>Typ a verze prohlížeče</li>
+                <li>Údaje o zařízení</li>
+                <li>Údaje o chování na webových stránkách (cookies)</li>
+            </ul>
+        </div>
+
+        <!-- 3. ÚČEL -->
+        <div class="gdpr-section" id="ucel">
+            <h2>3. Účel zpracování osobních údajů</h2>
+            <p>Vaše osobní údaje zpracováváme pro následující účely:</p>
+            <ul>
+                <li><strong>Plnění smlouvy a jednání o smlouvě</strong> — zpracování poptávek, nabídek, uzavírání a plnění smluvních závazků souvisejících s dodávkou modulárních buňkových jednotek</li>
+                <li><strong>Komunikace s klienty a zájemci</strong> — odpovídání na dotazy zaslané prostřednictvím kontaktního formuláře, e-mailu nebo telefonu</li>
+                <li><strong>Plnění právních povinností</strong> — vedení účetnictví, daňové evidence a dalších zákonných povinností</li>
+                <li><strong>Oprávněné zájmy správce</strong> — ochrana práv a právních nároků správce, zlepšování kvality služeb, analytika návštěvnosti webových stránek</li>
+            </ul>
+        </div>
+
+        <!-- 4. PRÁVNÍ ZÁKLAD -->
+        <div class="gdpr-section" id="zaklad">
+            <h2>4. Právní základ zpracování</h2>
+            <p>Osobní údaje zpracováváme na základě následujících právních titulů dle čl. 6 odst. 1 GDPR:</p>
+            <ul>
+                <li><strong>Plnění smlouvy</strong> (čl. 6 odst. 1 písm. b) GDPR) — zpracování je nezbytné pro plnění smlouvy, jejíž smluvní stranou je subjekt údajů, nebo pro provedení opatření přijatých před uzavřením smlouvy na žádost subjektu údajů</li>
+                <li><strong>Plnění právní povinnosti</strong> (čl. 6 odst. 1 písm. c) GDPR) — zpracování je nezbytné pro splnění právní povinnosti, která se na správce vztahuje (zejména účetní a daňová legislativa)</li>
+                <li><strong>Oprávněný zájem</strong> (čl. 6 odst. 1 písm. f) GDPR) — zpracování je nezbytné pro účely oprávněných zájmů správce, například ochrana majetku, zabezpečení webových stránek a analytika návštěvnosti</li>
+                <li><strong>Souhlas</strong> (čl. 6 odst. 1 písm. a) GDPR) — pro zpracování cookies, které nejsou nezbytně nutné pro fungování webových stránek. Udělený souhlas lze kdykoliv odvolat</li>
+            </ul>
+        </div>
+
+        <!-- 5. DOBA UCHOVÁNÍ -->
+        <div class="gdpr-section" id="doba">
+            <h2>5. Doba uchování osobních údajů</h2>
+            <p>Osobní údaje uchováváme pouze po dobu nezbytně nutnou pro naplnění účelu zpracování:</p>
+            <ul>
+                <li><strong>Smluvní údaje</strong> — po dobu trvání smluvního vztahu a následně po dobu 10 let od ukončení smlouvy (z důvodu promlčecích lhůt a zákonných archivačních povinností)</li>
+                <li><strong>Účetní a daňové doklady</strong> — po dobu 10 let od konce zdaňovacího období, v němž se plnění uskutečnilo, v souladu se zákonem o účetnictví a daňovými předpisy</li>
+                <li><strong>Údaje z kontaktních formulářů</strong> — po dobu 3 let od posledního kontaktu, pokud nedojde k navázání smluvního vztahu</li>
+                <li><strong>Analytické cookies</strong> — maximálně po dobu 13 měsíců od udělení souhlasu</li>
+            </ul>
+            <p>Po uplynutí stanovené doby uchování jsou osobní údaje bezpečně vymazány nebo anonymizovány.</p>
+        </div>
+
+        <!-- 6. PŘÍJEMCI -->
+        <div class="gdpr-section" id="prijemci">
+            <h2>6. Příjemci osobních údajů</h2>
+            <p>Vaše osobní údaje mohou být předány následujícím kategoriím příjemců:</p>
+            <ul>
+                <li><strong>Poskytovatelé IT služeb</strong> — správa webových stránek, hosting, e-mailové služby</li>
+                <li><strong>Účetní a daňoví poradci</strong> — zpracování účetnictví a daňových povinností</li>
+                <li><strong>Právní poradci</strong> — v případě řešení právních záležitostí</li>
+                <li><strong>Orgány veřejné správy</strong> — pokud to vyžaduje zákon (finanční úřad, soudy apod.)</li>
+                <li><strong>Analytické nástroje</strong> — pro měření návštěvnosti webových stránek (na základě vašeho souhlasu)</li>
+            </ul>
+            <p>Osobní údaje nepředáváme do třetích zemí mimo Evropský hospodářský prostor (EHP), pokud to není nezbytné pro využití analytických nástrojů. V takovém případě zajišťujeme odpovídající úroveň ochrany v souladu s GDPR.</p>
+        </div>
+
+        <!-- 7. PRÁVA SUBJEKTŮ -->
+        <div class="gdpr-section" id="prava">
+            <h2>7. Práva subjektů údajů</h2>
+            <p>V souvislosti se zpracováním vašich osobních údajů máte následující práva:</p>
+
+            <h3>Právo na přístup (čl. 15 GDPR)</h3>
+            <p>Máte právo získat od správce potvrzení, zda osobní údaje, které se vás týkají, jsou či nejsou zpracovávány, a pokud ano, máte právo získat přístup k těmto údajům a dalším informacím o jejich zpracování.</p>
+
+            <h3>Právo na opravu (čl. 16 GDPR)</h3>
+            <p>Máte právo na to, aby správce bez zbytečného odkladu opravil nepřesné osobní údaje, které se vás týkají. S přihlédnutím k účelu zpracování máte rovněž právo na doplnění neúplných osobních údajů.</p>
+
+            <h3>Právo na výmaz (čl. 17 GDPR)</h3>
+            <p>Máte právo na to, aby správce bez zbytečného odkladu vymazal vaše osobní údaje, pokud je splněna některá z podmínek stanovených GDPR (např. údaje již nejsou potřebné pro účely, pro které byly zpracovány, nebo odvoláte souhlas se zpracováním).</p>
+
+            <h3>Právo na omezení zpracování (čl. 18 GDPR)</h3>
+            <p>Máte právo na to, aby správce omezil zpracování vašich osobních údajů v případech stanovených GDPR, například pokud popíráte přesnost osobních údajů nebo vznesete námitku proti zpracování.</p>
+
+            <h3>Právo na přenositelnost údajů (čl. 20 GDPR)</h3>
+            <p>Máte právo získat své osobní údaje ve strukturovaném, běžně používaném a strojově čitelném formátu a předat je jinému správci, pokud je zpracování založeno na souhlasu nebo na smlouvě a provádí se automatizovaně.</p>
+
+            <h3>Právo vznést námitku (čl. 21 GDPR)</h3>
+            <p>Máte právo kdykoliv vznést námitku proti zpracování osobních údajů, které je založeno na oprávněném zájmu správce. Správce osobní údaje dále nezpracovává, pokud neprokáže závažné oprávněné důvody pro zpracování.</p>
+
+            <h3>Právo odvolat souhlas</h3>
+            <p>Pokud je zpracování osobních údajů založeno na vašem souhlasu, máte právo tento souhlas kdykoliv odvolat. Odvoláním souhlasu není dotčena zákonnost zpracování vycházejícího ze souhlasu uděleného před jeho odvoláním.</p>
+
+            <h3>Právo podat stížnost</h3>
+            <p>Pokud se domníváte, že zpracováním vašich osobních údajů dochází k porušení GDPR, máte právo podat stížnost u dozorového úřadu, kterým je:</p>
+            <div class="gdpr-info-box">
+                <p><strong>Úřad pro ochranu osobních údajů</strong></p>
+                <p>Pplk. Sochora 27, 170 00 Praha 7</p>
+                <p>Web: <a href="https://www.uoou.cz" target="_blank" rel="noopener">www.uoou.cz</a></p>
+                <p>E-mail: <a href="mailto:posta@uoou.cz">posta@uoou.cz</a></p>
+            </div>
+        </div>
+
+        <!-- 8. COOKIES -->
+        <div class="gdpr-section" id="cookies">
+            <h2>8. Cookies</h2>
+            <p>Naše webové stránky používají soubory cookies, což jsou malé textové soubory, které se ukládají ve vašem prohlížeči při návštěvě webu.</p>
+
+            <h3>Nezbytné cookies</h3>
+            <p>Tyto cookies jsou nutné pro správné fungování webových stránek. Nelze je vypnout. Zahrnují například uchování vašeho rozhodnutí o souhlasu s cookies.</p>
+
+            <h3>Analytické cookies</h3>
+            <p>Pomáhají nám pochopit, jakým způsobem návštěvníci používají naše webové stránky. Data jsou sbírána anonymně a slouží ke zlepšení funkčnosti a obsahu stránek. Tyto cookies se ukládají pouze na základě vašeho souhlasu.</p>
+
+            <h3>Správa cookies</h3>
+            <p>Při první návštěvě webových stránek se zobrazí lišta pro správu cookies, kde můžete vyjádřit svůj souhlas či nesouhlas s používáním volitelných cookies. Své preference můžete kdykoli změnit v nastavení vašeho prohlížeče.</p>
+            <p>Většina webových prohlížečů umožňuje cookies kontrolovat prostřednictvím nastavení. Pokud cookies odmítnete, mohou být některé funkce webových stránek omezeny.</p>
+        </div>
+
+        <!-- 9. KONTAKT -->
+        <div class="gdpr-section" id="kontakt-spravce">
+            <h2>9. Kontakt na správce</h2>
+            <p>V případě jakýchkoliv dotazů, žádostí nebo podnětů týkajících se zpracování vašich osobních údajů se na nás neváhejte obrátit:</p>
+            <div class="gdpr-info-box">
+                <p><strong>Nodis Star s.r.o.</strong></p>
+                <p>Hradecká 2526/3, Vinohrady (Praha 3), 130 00 Praha</p>
+                <p>E-mail: <a href="mailto:info@nodisstar.cz">info@nodisstar.cz</a></p>
+                <p>Telefon: <a href="tel:+420728733093">+420 728 733 093</a></p>
+                <p>Datová schránka: 3tduri7</p>
+            </div>
+            <p>Na vaši žádost odpovíme bez zbytečného odkladu, nejpozději do 30 dnů od jejího doručení. Ve výjimečných případech může být tato lhůta prodloužena o další dva měsíce, o čemž vás budeme informovat.</p>
+        </div>
+
+        <p class="gdpr-date">Tyto zásady ochrany osobních údajů jsou účinné od 23. března 2026. Správce si vyhrazuje právo tyto zásady aktualizovat.</p>
+
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+    <div class="container">
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <a href="index.html" class="logo">
+                    <div class="logo-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26" fill="currentColor"/></svg></div>
+                    <span>Nodis <strong>Star</strong></span>
+                </a>
+                <p>Nodis Star s.r.o. — česká společnost zaměřená na návrh, výrobu a dodávky modulárních buňkových jednotek pro široké spektrum využití.</p>
+            </div>
+            <div class="footer-links">
+                <h4>Navigace</h4>
+                <a href="index.html#o-nas">O nás</a>
+                <a href="index.html#bunky">Naše buňky</a>
+                <a href="index.html#spoluprace">Spolupráce</a>
+                <a href="index.html#tym">Tým</a>
+                <a href="index.html#kontakt">Kontakt</a>
+            </div>
+            <div class="footer-links">
+                <h4>Dokumenty</h4>
+                <a href="docs/prezentace.html">Prezentace společnosti</a>
+                <a href="docs/smlouva.html">Smlouva o zápůjčce</a>
+                <a href="docs/cestne-prohlaseni.html">Čestné prohlášení</a>
+                <a href="gdpr.html">Zásady ochrany údajů</a>
+            </div>
+            <div class="footer-links">
+                <h4>Firemní údaje</h4>
+                <a href="#">IČO: 21300101</a>
+                <a href="#">Sídlo: Praha 3, Vinohrady</a>
+                <a href="#">DS: 3tduri7</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Nodis Star s.r.o. Všechna práva vyhrazena.</p>
+            <p class="footer-disclaimer">Obsah těchto stránek slouží k prezentačním účelům společnosti Nodis Star s.r.o.</p>
+        </div>
+    </div>
+</footer>
+
+</div><!-- /page-wrapper -->
+
+<!-- SCRIPTS -->
+<script src="script.js"></script>
+
+</body>
+</html>
