@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
     <title>Vizitka | Nodis Star</title>
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/qrcode-generator@1.4.4/qrcode.min.js"></script>
@@ -405,28 +406,28 @@ const MEMBERS = {
         name: 'Miroslav Fencl',
         initials: 'MF',
         role: 'Zakladatel & jednatel',
-        phone: '+420 777 888 999',
+        phone: '',
         email: 'fencl@nodisstar.cz',
     },
     novak: {
         name: 'Jan Novák',
         initials: 'JN',
         role: 'Obchodní ředitel',
-        phone: '+420 777 111 222',
+        phone: '+420 728 722 924',
         email: 'novak@nodisstar.cz',
     },
     svoboda: {
         name: 'Petr Svoboda',
         initials: 'PS',
         role: 'Provozní ředitel',
-        phone: '+420 777 333 444',
+        phone: '+420 728 733 093',
         email: 'svoboda@nodisstar.cz',
     },
     sojkova: {
         name: 'Lucie Sojková',
         initials: 'LS',
         role: 'Finanční manažerka',
-        phone: '+420 777 555 666',
+        phone: '+420 728 739 389',
         email: 'sojkova@nodisstar.cz',
     }
 };
@@ -448,9 +449,9 @@ if (member) {
     document.getElementById('vcardName').textContent = 'Nodis Star';
     document.getElementById('vcardRole').textContent = 'Modulární jednotky';
     document.getElementById('vcardInitials').textContent = 'NS';
-    document.getElementById('valPhone').textContent = '+420 777 888 999';
+    document.getElementById('valPhone').textContent = '+420 728 733 093';
     document.getElementById('valEmail').textContent = 'info@nodisstar.cz';
-    document.getElementById('rowPhone').href = 'tel:+420777888999';
+    document.getElementById('rowPhone').href = 'tel:+420728733093';
     document.getElementById('rowEmail').href = 'mailto:info@nodisstar.cz';
 }
 
@@ -476,7 +477,7 @@ try {
 
 // Download VCF
 document.getElementById('btnDownloadVcf').addEventListener('click', function() {
-    const m = member || { name: 'Nodis Star', phone: '+420777888999', email: 'info@nodisstar.cz', role: 'Modulární jednotky' };
+    const m = member || { name: 'Nodis Star', phone: '+420728733093', email: 'info@nodisstar.cz', role: 'Modulární jednotky' };
     const nameParts = m.name.replace(/\s*(Ing\.|JUDr\.|Ph\.D\.|MBA|,)\s*/g, ' ').trim().split(/\s+/);
     const lastName = nameParts.pop();
     const firstName = nameParts.join(' ');
