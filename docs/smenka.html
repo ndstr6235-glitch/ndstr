@@ -40,6 +40,12 @@
             margin-bottom: 4px;
         }
         .smenka-num { text-align: center; font-size: 10px; color: var(--text-light); margin-bottom: 20px; }
+        .smenka-num input {
+            border: none; border-bottom: 1px solid var(--border);
+            font-family: inherit; font-size: 10px; color: var(--text);
+            width: 120px; text-align: center; outline: none;
+            padding: 2px 4px; background: transparent;
+        }
 
         .smenka-frame {
             border: 2px solid var(--accent);
@@ -57,33 +63,48 @@
         }
         .smenka-text {
             font-size: 12px;
-            line-height: 1.8;
+            line-height: 2;
             margin-bottom: 18px;
         }
-        .smenka-text .blank {
+        .smenka-text .inline-field {
             display: inline-block;
-            min-width: 140px;
+            min-width: 150px;
+            border: none;
             border-bottom: 1px solid var(--primary);
-            margin: 0 2px;
-            text-align: center;
+            font-family: inherit;
+            font-size: 12px;
             font-weight: 600;
             color: var(--accent-dark);
-            font-size: 11px;
+            text-align: center;
+            outline: none;
+            padding: 1px 6px;
+            background: rgba(212,175,55,0.04);
+            border-radius: 2px 2px 0 0;
         }
+        .smenka-text .inline-field::placeholder { color: #bbb; font-weight: 400; font-size: 10px; }
+
         .smenka-section { margin-bottom: 14px; }
         .smenka-section-title {
-            font-size: 9px;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 1.5px;
-            color: var(--accent-dark);
-            margin-bottom: 6px;
-            padding-bottom: 4px;
-            border-bottom: 1px solid var(--border);
+            font-size: 9px; font-weight: 700; text-transform: uppercase;
+            letter-spacing: 1.5px; color: var(--accent-dark);
+            margin-bottom: 6px; padding-bottom: 4px; border-bottom: 1px solid var(--border);
         }
-        .field-row { display: flex; margin-bottom: 6px; align-items: baseline; }
+        .field-row { display: flex; margin-bottom: 6px; align-items: center; }
         .field-label { width: 140px; flex-shrink: 0; font-size: 11px; color: var(--text-light); font-weight: 500; }
-        .field-value { flex: 1; border-bottom: 1px solid var(--border); min-height: 18px; font-size: 11px; }
+        .field-input {
+            flex: 1;
+            border: none;
+            border-bottom: 1px solid var(--border);
+            font-family: inherit;
+            font-size: 11px;
+            color: var(--text);
+            padding: 3px 6px;
+            outline: none;
+            background: transparent;
+        }
+        .field-input:focus { border-bottom-color: var(--accent); }
+        .field-input::placeholder { color: #ccc; font-size: 10px; }
+        .field-input.prefilled { color: var(--text-light); }
 
         .smenka-sigs {
             display: grid;
@@ -98,12 +119,23 @@
 
         .doc-footer { background: var(--bg); border-top: 1px solid var(--border); padding: 10px 32px; display: flex; justify-content: space-between; font-size: 9px; color: var(--text-light); }
 
+        .help-text {
+            text-align: center;
+            font-size: 10px;
+            color: var(--accent-dark);
+            background: rgba(212,175,55,0.08);
+            padding: 8px 16px;
+            border-radius: 6px;
+            margin-bottom: 16px;
+        }
+
         @media print {
             body { background: #fff; }
-            .doc-actions { display: none; }
+            .doc-actions, .help-text { display: none; }
             .doc-page { box-shadow: none; margin: 0; max-width: none; border-radius: 0; }
             @page { size: A4; margin: 10mm; }
             -webkit-print-color-adjust: exact; print-color-adjust: exact;
+            .field-input, .inline-field { border-bottom-color: var(--border) !important; }
         }
         @media (max-width: 600px) {
             .doc-body { padding: 20px 16px; }
@@ -136,27 +168,29 @@
             <svg width="250" height="250" viewBox="0 0 24 24" fill="none"><polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26" fill="#1a2f4a"/></svg>
         </div>
 
+        <div class="help-text">Vyplňte údaje přímo v prohlížeči a poté klikněte na „Stáhnout PDF"</div>
+
         <div class="smenka-title">Směnka</div>
-        <div class="smenka-num">Číslo: ________________</div>
+        <div class="smenka-num">Číslo: <input type="text" placeholder="doplňte číslo"></div>
 
         <div class="smenka-frame">
             <div class="smenka-text">
-                Za tuto směnku zaplatím dne <span class="blank">datum splatnosti</span> na řad společnosti <strong>Nodis Star s.r.o.</strong>, IČO: 21300101, se sídlem Hradecká 2526/3, Vinohrady (Praha 3), 130 00 Praha, částku <span class="blank">částka v Kč</span> Kč (slovy: <span class="blank">částka slovy</span> korun českých).
+                Za tuto směnku zaplatím dne <input type="text" class="inline-field" placeholder="datum splatnosti" style="min-width:130px;"> na řad společnosti <strong>Nodis Star s.r.o.</strong>, IČO: 21300101, se sídlem Hradecká 2526/3, Vinohrady (Praha 3), 130 00 Praha, částku <input type="text" class="inline-field" placeholder="částka v Kč" style="min-width:120px;"> Kč (slovy: <input type="text" class="inline-field" placeholder="částka slovy" style="min-width:180px;"> korun českých).
             </div>
 
             <div class="smenka-section">
                 <div class="smenka-section-title">Místo a datum</div>
-                <div class="field-row"><span class="field-label">Místo platby:</span><span class="field-value" style="padding-left:6px;">Praha</span></div>
-                <div class="field-row"><span class="field-label">Místo vystavení:</span><span class="field-value" style="padding-left:6px;">Praha</span></div>
-                <div class="field-row"><span class="field-label">Datum vystavení:</span><span class="field-value"></span></div>
+                <div class="field-row"><span class="field-label">Místo platby:</span><input type="text" class="field-input prefilled" value="Praha"></div>
+                <div class="field-row"><span class="field-label">Místo vystavení:</span><input type="text" class="field-input prefilled" value="Praha"></div>
+                <div class="field-row"><span class="field-label">Datum vystavení:</span><input type="text" class="field-input" placeholder="DD.MM.RRRR"></div>
             </div>
 
             <div class="smenka-section">
                 <div class="smenka-section-title">Vystavitel</div>
-                <div class="field-row"><span class="field-label">Jméno a příjmení:</span><span class="field-value"></span></div>
-                <div class="field-row"><span class="field-label">Datum narození:</span><span class="field-value"></span></div>
-                <div class="field-row"><span class="field-label">Trvalé bydliště:</span><span class="field-value"></span></div>
-                <div class="field-row"><span class="field-label">Číslo OP:</span><span class="field-value"></span></div>
+                <div class="field-row"><span class="field-label">Jméno a příjmení:</span><input type="text" class="field-input" placeholder="celé jméno"></div>
+                <div class="field-row"><span class="field-label">Datum narození:</span><input type="text" class="field-input" placeholder="DD.MM.RRRR"></div>
+                <div class="field-row"><span class="field-label">Trvalé bydliště:</span><input type="text" class="field-input" placeholder="ulice, město, PSČ"></div>
+                <div class="field-row"><span class="field-label">Číslo OP:</span><input type="text" class="field-input" placeholder="číslo občanského průkazu"></div>
             </div>
 
             <div class="smenka-sigs">
