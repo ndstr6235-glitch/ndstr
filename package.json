@@ -2,6 +2,7 @@
   "name": "nodi-star-web",
   "private": true,
   "dependencies": {
+    "puppeteer": "^24.40.0",
     "resend": "^4.0.0"
   }
 }
