@@ -1,0 +1,7 @@
+{
+  "name": "nodi-star-web",
+  "private": true,
+  "dependencies": {
+    "resend": "^4.0.0"
+  }
+}

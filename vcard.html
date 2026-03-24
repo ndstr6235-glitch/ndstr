@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
-    <title>Vizitka | Nodis Star</title>
+    <title>Vizitka | Nodi Star</title>
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -330,9 +330,9 @@
                     <text x="60" y="52" text-anchor="middle" fill="rgba(255,255,255,0.6)" font-size="20" font-weight="700" font-family="Inter,sans-serif" id="vcardInitials">VC</text>
                 </svg>
             </div>
-            <h1 id="vcardName">Nodis Star</h1>
+            <h1 id="vcardName">Nodi Star</h1>
             <div class="role" id="vcardRole">Modulární jednotky</div>
-            <div class="company">Nodis Star s.r.o.</div>
+            <div class="company">Nodi Star s.r.o.</div>
         </div>
 
         <div class="vcard-body">
@@ -356,13 +356,13 @@
                         <div class="vcard-row-value" id="valEmail"></div>
                     </div>
                 </a>
-                <a href="https://nodisstar.cz" target="_blank" class="vcard-row">
+                <a href="https://nodistar.cz" target="_blank" class="vcard-row">
                     <div class="vcard-row-icon">
                         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
                     </div>
                     <div class="vcard-row-text">
                         <div class="vcard-row-label">Web</div>
-                        <div class="vcard-row-value">nodisstar.cz</div>
+                        <div class="vcard-row-value">nodistar.cz</div>
                     </div>
                 </a>
                 <div class="vcard-row">
@@ -395,7 +395,7 @@
         </div>
 
         <div class="vcard-footer">
-            <p>Nodis Star s.r.o. &mdash; <a href="https://nodisstar.cz">nodisstar.cz</a></p>
+            <p>Nodi Star s.r.o. &mdash; <a href="https://nodistar.cz">nodistar.cz</a></p>
         </div>
     </div>
 </div>
@@ -407,28 +407,28 @@ const MEMBERS = {
         initials: 'MF',
         role: 'Zakladatel & jednatel',
         phone: '',
-        email: 'fencl@nodisstar.cz',
+        email: 'fencl@nodistar.cz',
     },
     novak: {
         name: 'Jan Novák',
         initials: 'JN',
         role: 'Obchodní ředitel',
         phone: '+420 728 722 924',
-        email: 'novak@nodisstar.cz',
+        email: 'novak@nodistar.cz',
     },
     svoboda: {
         name: 'Petr Svoboda',
         initials: 'PS',
         role: 'Provozní ředitel',
         phone: '+420 728 733 093',
-        email: 'svoboda@nodisstar.cz',
+        email: 'svoboda@nodistar.cz',
     },
     sojkova: {
         name: 'Lucie Sojková',
         initials: 'LS',
         role: 'Finanční manažerka',
         phone: '+420 728 739 389',
-        email: 'sojkova@nodisstar.cz',
+        email: 'sojkova@nodistar.cz',
     }
 };
 
@@ -444,15 +444,15 @@ if (member) {
     document.getElementById('valEmail').textContent = member.email;
     document.getElementById('rowPhone').href = 'tel:' + member.phone.replace(/\s/g, '');
     document.getElementById('rowEmail').href = 'mailto:' + member.email;
-    document.title = member.name + ' | Nodis Star';
+    document.title = member.name + ' | Nodi Star';
 } else {
-    document.getElementById('vcardName').textContent = 'Nodis Star';
+    document.getElementById('vcardName').textContent = 'Nodi Star';
     document.getElementById('vcardRole').textContent = 'Modulární jednotky';
     document.getElementById('vcardInitials').textContent = 'NS';
     document.getElementById('valPhone').textContent = '+420 728 733 093';
-    document.getElementById('valEmail').textContent = 'info@nodisstar.cz';
+    document.getElementById('valEmail').textContent = 'info@nodistar.cz';
     document.getElementById('rowPhone').href = 'tel:+420728733093';
-    document.getElementById('rowEmail').href = 'mailto:info@nodisstar.cz';
+    document.getElementById('rowEmail').href = 'mailto:info@nodistar.cz';
 }
 
 // QR Code
@@ -477,7 +477,7 @@ try {
 
 // Download VCF
 document.getElementById('btnDownloadVcf').addEventListener('click', function() {
-    const m = member || { name: 'Nodis Star', phone: '+420728733093', email: 'info@nodisstar.cz', role: 'Modulární jednotky' };
+    const m = member || { name: 'Nodi Star', phone: '+420728733093', email: 'info@nodistar.cz', role: 'Modulární jednotky' };
     const nameParts = m.name.replace(/\s*(Ing\.|JUDr\.|Ph\.D\.|MBA|,)\s*/g, ' ').trim().split(/\s+/);
     const lastName = nameParts.pop();
     const firstName = nameParts.join(' ');
@@ -486,11 +486,11 @@ document.getElementById('btnDownloadVcf').addEventListener('click', function() {
         'VERSION:3.0',
         'N:' + lastName + ';' + firstName + ';;;',
         'FN:' + m.name,
-        'ORG:Nodis Star s.r.o.',
+        'ORG:Nodi Star s.r.o.',
         'TITLE:' + m.role,
         'TEL;TYPE=WORK,VOICE:' + m.phone.replace(/\s/g, ''),
         'EMAIL;TYPE=WORK:' + m.email,
-        'URL:https://nodisstar.cz',
+        'URL:https://nodistar.cz',
         'ADR;TYPE=WORK:;;Hradecká 2526/3;Praha;;130 00;Czech Republic',
         'END:VCARD'
     ].join('\r\n');
@@ -498,7 +498,7 @@ document.getElementById('btnDownloadVcf').addEventListener('click', function() {
     const url = URL.createObjectURL(blob);
     const a = document.createElement('a');
     a.href = url;
-    a.download = (memberId || 'nodis-star') + '.vcf';
+    a.download = (memberId || 'nodi-star') + '.vcf';
     a.click();
     URL.revokeObjectURL(url);
 });
@@ -507,7 +507,7 @@ document.getElementById('btnDownloadVcf').addEventListener('click', function() {
 document.getElementById('btnShare').addEventListener('click', function() {
     if (navigator.share) {
         navigator.share({
-            title: (member ? member.name : 'Nodis Star') + ' | Vizitka',
+            title: (member ? member.name : 'Nodi Star') + ' | Vizitka',
             url: window.location.href
         });
     } else {

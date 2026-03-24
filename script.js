@@ -1,5 +1,5 @@
 /* ============================================================
-   NODIS STAR - JavaScript
+   NODI STAR - JavaScript
    ============================================================ */
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -246,22 +246,48 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // ── Contact form (demo) ──
+    // ── Contact form ──
     const form = document.getElementById('contactForm');
     if (form) {
-        form.addEventListener('submit', e => {
+        form.addEventListener('submit', async e => {
             e.preventDefault();
             const btn = form.querySelector('button[type="submit"]');
             const originalText = btn.textContent;
-            btn.textContent = 'Odesláno!';
-            btn.style.background = '#059669';
+            btn.textContent = 'Odesílám...';
             btn.disabled = true;
+
+            const data = {
+                name: form.querySelector('#name')?.value,
+                email: form.querySelector('#email')?.value,
+                phone: form.querySelector('#phone')?.value,
+                interest: form.querySelector('#interest')?.value,
+                message: form.querySelector('#message')?.value,
+            };
+
+            try {
+                const res = await fetch('/api/contact', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(data),
+                });
+
+                if (res.ok) {
+                    btn.textContent = 'Odesláno!';
+                    btn.style.background = '#059669';
+                    form.reset();
+                } else {
+                    btn.textContent = 'Chyba při odesílání';
+                    btn.style.background = '#dc2626';
+                }
+            } catch {
+                btn.textContent = 'Chyba při odesílání';
+                btn.style.background = '#dc2626';
+            }
 
             setTimeout(() => {
                 btn.textContent = originalText;
                 btn.style.background = '';
                 btn.disabled = false;
-                form.reset();
             }, 3000);
         });
     }
