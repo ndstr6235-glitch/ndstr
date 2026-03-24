@@ -534,7 +534,6 @@
             <button class="nav-item" data-section="obsah" onclick="showSection('obsah')">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>
                 Obsah webu
-
             </button>
             <button class="nav-item" data-section="fond" onclick="showSection('fond')">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
@@ -930,9 +929,9 @@
                         <thead>
                             <tr>
                                 <th>Instrument</th>
-                                <th>Rezim</th>
+                                <th>Režim</th>
                                 <th>Cena (manual)</th>
-                                <th>Zmena % (manual)</th>
+                                <th>Změna % (manual)</th>
                                 <th>API</th>
                                 <th>Stav</th>
                             </tr>
@@ -967,27 +966,27 @@
 
             <div class="preview-note">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
-                Ovlada sekci "Kontakt" v paticce hlavni stranky - adresa, telefon, email a uredni hodiny.
+                Ovládá sekci "Kontakt" v patičce hlavní stránky — adresa, telefon, e-mail a úřední hodiny.
             </div>
 
             <div class="card">
-                <div class="card-title">Kontaktni informace</div>
+                <div class="card-title">Kontaktní informace</div>
                 <div class="form-grid">
                     <div class="form-group full">
-                        <label>Adresa <span class="label-hint">(pouzijte | pro zalomeni radku)</span></label>
-                        <input type="text" id="contact_address" placeholder="Vodickova 710/31|110 00 Praha 1">
+                        <label>Adresa <span class="label-hint">(použijte | pro zalomení řádku)</span></label>
+                        <input type="text" id="contact_address" placeholder="Hradecká 2526/3|130 00 Praha 3">
                     </div>
                     <div class="form-group">
                         <label>Telefon</label>
-                        <input type="tel" id="contact_phone" placeholder="+420 800 123 456">
+                        <input type="tel" id="contact_phone" placeholder="+420 728 733 093">
                     </div>
                     <div class="form-group">
                         <label>E-mail</label>
                         <input type="email" id="contact_email" placeholder="info@nodisstar.cz">
                     </div>
                     <div class="form-group full">
-                        <label>Uredni hodiny</label>
-                        <input type="text" id="contact_hours" placeholder="Po - Pt: 9:00 - 17:00">
+                        <label>Úřední hodiny</label>
+                        <input type="text" id="contact_hours" placeholder="Po — Pá: 9:00 — 17:00">
                     </div>
                 </div>
             </div>
@@ -1003,21 +1002,21 @@
              ════════════════════════════ -->
         <div class="admin-section" id="section-nastaveni">
             <div class="content-header">
-                <h1>Nastaveni</h1>
-                <p>Globalni nastaveni webu</p>
+                <h1>Nastavení</h1>
+                <p>Globální nastavení webu</p>
             </div>
 
             <div class="preview-note">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
-                Ovlada globalni prvky na hlavni strance - investorsky modal a cookie banner.
+                Ovládá globální prvky na hlavní stránce — informační modál a cookie banner.
             </div>
 
             <div class="card">
-                <div class="card-title">Zobrazeni prvku</div>
+                <div class="card-title">Zobrazení prvků</div>
                 <div class="toggle-row">
                     <div class="toggle-label">
-                        Zobrazit investorsky modal
-                        <small>Upozorneni pro nekvalikovane investory pri prvni navsteve</small>
+                        Zobrazit informační modál
+                        <small>Upozornění pro návštěvníky při první návštěvě</small>
                     </div>
                     <label class="toggle-switch">
                         <input type="checkbox" id="setting_show_modal" checked>
@@ -1027,7 +1026,7 @@
                 <div class="toggle-row">
                     <div class="toggle-label">
                         Zobrazit cookie banner
-                        <small>GDPR cookie consent bar ve spodni casti stranky</small>
+                        <small>GDPR cookie consent bar ve spodní části stránky</small>
                     </div>
                     <label class="toggle-switch">
                         <input type="checkbox" id="setting_show_cookies" checked>
@@ -1039,16 +1038,16 @@
             <div class="card">
                 <div class="card-title" style="color: var(--danger);">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
-                    Nebezpecna zona
+                    Nebezpečná zóna
                 </div>
                 <p style="font-size:14px; color: var(--text-light); margin-bottom: 16px;">
-                    Resetovani smaze VESKEROU konfiguraci z localStorage. Tato akce je nevratna.
+                    Resetování smaže VEŠKEROU konfiguraci z localStorage. Tato akce je nevratná.
                 </p>
-                <button class="btn btn-danger" onclick="resetAll()">Resetovat vsechna data</button>
+                <button class="btn btn-danger" onclick="resetAll()">Resetovat všechna data</button>
             </div>
 
             <div class="btn-group">
-                <button class="btn btn-primary" onclick="saveConfig()">Ulozit nastaveni</button>
+                <button class="btn btn-primary" onclick="saveConfig()">Uložit nastavení</button>
             </div>
         </div>
 
@@ -1073,45 +1072,45 @@
     const DEFAULT_CONFIG = {
         lastSave: null,
         content: {
-            hero_badge: 'Modularni bunkove jednotky',
-            hero_title: 'Moderni <span class="text-gradient">bydleni</span><br>z kontejneru',
-            hero_subtitle: 'Navrhujeme, vyrabime a dodavame modulární bunky pro ubytovani, kancelare i komercni vyuziti. Rychle, cenove dostupne a s modernim designem.',
-            about_desc: 'Nodis Star s.r.o. je ceska spolecnost zamerena na navrh, vyrobu a dodavky modularnich bunkovych jednotek. Zalozena v roce 2024 Miroslavem Fenclem na zaklade zkusenosti z Thajska.',
-            fund_desc: 'Nase bunky slouzi jako turisticke ubytovani, kancelare, provozovny i rezidencni bydleni.'
+            hero_badge: 'Modulární buňkové jednotky',
+            hero_title: 'Moderní <span class="text-gradient">bydlení</span><br>z kontejnerů',
+            hero_subtitle: 'Navrhujeme, vyrábíme a dodáváme modulární buňky pro ubytování, kanceláře i komerční využití. Rychle, cenově dostupně a s moderním designem.',
+            about_desc: 'Nodis Star s.r.o. je česká společnost zaměřená na návrh, výrobu a dodávky modulárních buňkových jednotek. Založena v roce 2024 Miroslavem Fenclem na základě zkušeností z Thajska.',
+            fund_desc: 'Naše buňky slouží jako turistické ubytování, kanceláře, provozovny i rezidenční bydlení.'
         },
         pillars: [
             {
-                name: 'Nemovitostni strategie',
-                return_range: '8-12 %',
-                desc: 'Akvizice nemovitosti pod trzni cenou, revitalizace a prodej. Zamerne na rezidencni a komercni nemovitosti v CR a SR.',
-                alloc: 45,
-                features: 'LTV max. 65 %|Zajisteni zastavnim pravem|Prumerna doba drzeni 6-18 mesicu|Podil na portfoliu: 45 %'
+                name: 'Turistické buňky',
+                return_range: 'od 450 000 Kč',
+                desc: 'Modulární ubytovací jednotky pro kempy, glamping a turistická střediska. Kompaktní design s plným vybavením.',
+                alloc: 40,
+                features: 'Kompaktní design|Plně vybavené|Rychlá instalace|Ideální pro glamping a kempy'
             },
             {
-                name: 'ESG a zelene projekty',
-                return_range: '10-15 %',
-                desc: 'Investice do technologii recyklace, obnovitelnych zdroju energie a cirkularni ekonomiky s pozitivnim dopadem na zivotni prostredi.',
+                name: 'Kancelářské buňky',
+                return_range: 'od 350 000 Kč',
+                desc: 'Kancelářské a komerční kontejnerové jednotky pro firmy, stavby a provozovny s moderním zázemím.',
                 alloc: 35,
-                features: 'Recyklace a pyrolyza plastu|Fotovoltaicke systemy|Technologie cisteni vody|Podil na portfoliu: 35 %'
+                features: 'Klimatizace a vytápění|Elektroinstalace|Modulární sestavy|Vhodné pro stavby i firmy'
             },
             {
-                name: 'Financni trhy',
-                return_range: '6-10 %',
-                desc: 'Systematicke strategie na financnich trzich vyuzivajici automatizovane obchodni systemy (AOS) s rizenymi riziky.',
-                alloc: 20,
-                features: 'Algoritmicke obchodovani|Menove pary a komodity|Maximalni drawdown 15 %|Podil na portfoliu: 20 %'
+                name: 'Rezidenční buňky',
+                return_range: 'od 600 000 Kč',
+                desc: 'Obytné kontejnerové domy pro trvalé bydlení s plným komfortem a moderním designem.',
+                alloc: 25,
+                features: 'Plná kuchyně a koupelna|Tepelná izolace|Moderní design|Možnost spojení více modulů'
             }
         ],
         tiers: [
             {
-                name: 'Standardni vstup',
-                amount: 'od 1 000 000 CZK',
-                features: 'Primy vstup do fondu|0 % vstupni poplatek|Mesicni reporting|Osobni portfolio manazer'
+                name: 'Standardní objednávka',
+                amount: 'od 1 kusu',
+                features: 'Výběr z katalogových modelů|Dodání do 8 týdnů|Doprava po celé ČR|Záruční servis'
             },
             {
-                name: 'Premium',
-                amount: 'od 5 000 000 CZK',
-                features: 'Vse ze Standardniho|Individualni investicni strategie|Prioritni pristup k novym projektum|Ctvrletni osobni konzultace'
+                name: 'Individuální projekt',
+                amount: 'dle dohody',
+                features: 'Návrh na míru|Vlastní dispozice a materiály|Osobní konzultace|Kompletní realizace na klíč'
             }
         ],
         performance: {
@@ -1132,17 +1131,17 @@
             }
         },
         team: [
-            { initials: 'MN', name: 'Ing. Martin Novak, MBA', role: 'CEO & zakladatel', bio: '15 let v investicnim bankovnictvi. Driv portfolio manazer ve spolecnostech CSOB Asset Management a J&T Banka.' },
-            { initials: 'PK', name: 'Ing. Petra Kralova, Ph.D.', role: 'Hlavni analytik', bio: '12 let v oblasti risk managementu. Doktorat z financni matematiky na UK. Specializace na kvantitativni analyzu.' },
-            { initials: 'JD', name: 'JUDr. Jan Dvorak', role: 'Pravni reditel', bio: '20 let praxe v oblasti korporatniho a investicniho prava. Driv partner v mezinarodni advokacni kancelari.' },
-            { initials: 'LS', name: 'Ing. Lukas Svoboda', role: 'Realitni reditel', bio: '10 let v developerskem sektoru. Rizeni akvizic v hodnote presahujici 2 mld. CZK. Certifikace RICS.' }
+            { initials: 'MF', name: 'Miroslav Fencl', role: 'CEO & zakladatel', bio: 'Zakladatel Nodis Star s.r.o. Zkušenosti z Thajska v oblasti modulární výstavby a kontejnerových řešení.' },
+            { initials: 'TM', name: 'Tomáš Marek', role: 'Vedoucí výroby', bio: 'Specialista na výrobu a montáž modulárních buněk. Dlouholetá praxe ve stavebnictví a projektovém řízení.' },
+            { initials: 'KN', name: 'Kateřina Nováková', role: 'Obchodní manažerka', bio: 'Zodpovědná za obchodní vztahy a komunikaci se zákazníky. Zkušenosti v B2B prodeji a marketingu.' },
+            { initials: 'PH', name: 'Petr Horák', role: 'Technický ředitel', bio: 'Zodpovědný za technický návrh a projektovou dokumentaci. Specializace na energeticky úsporná řešení.' }
         ],
         market: {
             refresh_interval: 60,
             items: [
                 { id: 'eurczk', name: 'EUR/CZK', mode: 'auto', price: '25.15', change: '+0.02', api_url: 'https://api.frankfurter.dev/v1/latest?base=EUR&symbols=CZK', api_note: 'Frankfurter API' },
                 { id: 'gold', name: 'Zlato (XAU/USD)', mode: 'auto', price: '2935', change: '+0.35', api_url: 'https://forex-data-feed.swissquote.com/public-quotes/bboquotes/instrument/XAU/USD', api_note: 'Swissquote API' },
-                { id: 'silver', name: 'Stribro (XAG/USD)', mode: 'auto', price: '32.50', change: '+0.18', api_url: 'https://forex-data-feed.swissquote.com/public-quotes/bboquotes/instrument/XAG/USD', api_note: 'Swissquote API' },
+                { id: 'silver', name: 'Stříbro (XAG/USD)', mode: 'auto', price: '32.50', change: '+0.18', api_url: 'https://forex-data-feed.swissquote.com/public-quotes/bboquotes/instrument/XAG/USD', api_note: 'Swissquote API' },
                 { id: 'btcusd', name: 'BTC/USD', mode: 'auto', price: '87200', change: '+1.25', api_url: 'https://api.coingecko.com/api/v3/simple/price?ids=bitcoin&vs_currencies=usd&include_24hr_change=true', api_note: 'CoinGecko API' },
                 { id: 'sp500', name: 'S&P 500', mode: 'manual', price: '5842', change: '+0.32', api_url: '', api_note: '' },
                 { id: 'dax', name: 'DAX', mode: 'manual', price: '19245', change: '+0.45', api_url: '', api_note: '' },
@@ -1151,10 +1150,10 @@
             ]
         },
         contact: {
-            address: 'Vodickova 710/31|110 00 Praha 1',
-            phone: '+420 800 123 456',
+            address: 'Hradecká 2526/3|130 00 Praha 3',
+            phone: '+420 728 733 093',
             email: 'info@nodisstar.cz',
-            hours: 'Po - Pt: 9:00 - 17:00'
+            hours: 'Po — Pá: 9:00 — 17:00'
         },
         settings: {
             show_modal: true,
@@ -1188,7 +1187,7 @@
             document.getElementById('adminLayout').classList.remove('hidden');
             loadConfig();
         } else {
-            document.getElementById('loginError').textContent = 'Nespravne heslo. Zkuste to znovu.';
+            document.getElementById('loginError').textContent = 'Nesprávné heslo. Zkuste to znovu.';
             document.getElementById('loginPassword').value = '';
             document.getElementById('loginPassword').focus();
         }
@@ -1245,18 +1244,18 @@
         config.lastSave = new Date().toISOString();
         localStorage.setItem(STORAGE_KEY, JSON.stringify(config));
         refreshDashboard();
-        showToast('Konfigurace uspesne ulozena!', 'success');
+        showToast('Konfigurace úspěšně uložena!', 'success');
     };
 
     window.resetAll = function() {
-        if (!confirm('Opravdu chcete smazat VESKEROU konfiguraci? Tato akce je nevratna!')) return;
+        if (!confirm('Opravdu chcete smazat VEŠKEROU konfiguraci? Tato akce je nevratná!')) return;
         localStorage.removeItem(STORAGE_KEY);
         localStorage.removeItem('vc_investor_dismissed');
         localStorage.removeItem('vc_cookie_consent');
         config = JSON.parse(JSON.stringify(DEFAULT_CONFIG));
         populateAllForms();
         refreshDashboard();
-        showToast('Vsechna data byla resetovana.', 'info');
+        showToast('Všechna data byla resetována.', 'info');
     };
 
     // ── Deep merge utility ──
@@ -1444,7 +1443,7 @@
             html += '<div class="team-edit-card">';
             html += '<div class="team-card-header">';
             html += '<div class="team-initials-preview" id="teamInitialsPreview_' + i + '">' + escHtml(member.initials) + '</div>';
-            html += '<div><strong>' + escHtml(member.name || 'Clen tymu ' + (i + 1)) + '</strong><br><small style="color:var(--text-muted)">' + escHtml(member.role || '') + '</small></div>';
+            html += '<div><strong>' + escHtml(member.name || 'Člen týmu ' + (i + 1)) + '</strong><br><small style="color:var(--text-muted)">' + escHtml(member.role || '') + '</small></div>';
             html += '</div>';
             html += '<div class="form-group"><label>Inicialy</label><input type="text" id="team_' + i + '_initials" value="' + escAttr(member.initials) + '" maxlength="3" oninput="updateTeamPreview(' + i + ')"></div>';
             html += '<div class="form-group"><label>Jmeno</label><input type="text" id="team_' + i + '_name" value="' + escAttr(member.name) + '"></div>';
@@ -1489,7 +1488,7 @@
             // Mode toggle
             html += '<td>';
             html += '<label class="toggle-switch" style="display:inline-block;vertical-align:middle;">';
-            html += '<input type="checkbox" id="market_' + i + '_auto" ' + (isAuto ? 'checked' : '') + ' onchange="toggleMarketMode(' + i + ')" ' + (!hasApi ? 'disabled title="API neni k dispozici"' : '') + '>';
+            html += '<input type="checkbox" id="market_' + i + '_auto" ' + (isAuto ? 'checked' : '') + ' onchange="toggleMarketMode(' + i + ')" ' + (!hasApi ? 'disabled title="API není k dispozici"' : '') + '>';
             html += '<span class="toggle-slider"></span>';
             html += '</label>';
             html += ' <span class="market-badge ' + (isAuto ? 'auto' : 'manual') + '" id="market_' + i + '_badge">' + (isAuto ? 'Auto' : 'Manual') + '</span>';
@@ -1544,12 +1543,12 @@
         const item = config.market.items[i];
         const resultEl = document.getElementById('market_' + i + '_result');
         if (!item.api_url) {
-            resultEl.textContent = 'Zadne API URL neni nastaveno.';
+            resultEl.textContent = 'Žádné API URL není nastaveno.';
             resultEl.className = 'api-result visible fail';
             return;
         }
 
-        resultEl.textContent = 'Testovani...';
+        resultEl.textContent = 'Testování...';
         resultEl.className = 'api-result visible';
 
         fetch(item.api_url)
@@ -1567,7 +1566,7 @@
                         info += ' (24h: ' + data.bitcoin.usd_24h_change.toFixed(2) + '%)';
                     }
                 } else {
-                    info = 'Odpoved OK: ' + JSON.stringify(data).substring(0, 100) + '...';
+                    info = 'Odpověď OK: ' + JSON.stringify(data).substring(0, 100) + '...';
                 }
                 resultEl.textContent = info;
                 resultEl.className = 'api-result visible ok';
@@ -1617,11 +1616,11 @@
         const manualMarkets = config.market.items.filter(m => m.mode === 'manual').map(m => m.name).join(', ');
 
         infoEl.innerHTML =
-            '<strong>Pilire fondu:</strong> ' + escHtml(pillarNames) + ' (celkova alokace: ' + totalAlloc + ' %)<br>' +
-            '<strong>Investicni urovne:</strong> ' + config.tiers.map(t => escHtml(t.name)).join(', ') + '<br>' +
-            '<strong>Auto data (API):</strong> ' + (autoMarkets || 'zadne') + '<br>' +
-            '<strong>Manualni data:</strong> ' + (manualMarkets || 'zadne') + '<br>' +
-            '<strong>Investor modal:</strong> ' + (config.settings.show_modal ? 'Zapnut' : 'Vypnut') +
+            '<strong>Produktové řady:</strong> ' + escHtml(pillarNames) + ' (celkový podíl: ' + totalAlloc + ' %)<br>' +
+            '<strong>Modely spolupráce:</strong> ' + config.tiers.map(t => escHtml(t.name)).join(', ') + '<br>' +
+            '<strong>Auto data (API):</strong> ' + (autoMarkets || 'žádné') + '<br>' +
+            '<strong>Manuální data:</strong> ' + (manualMarkets || 'žádné') + '<br>' +
+            '<strong>Informační modál:</strong> ' + (config.settings.show_modal ? 'Zapnut' : 'Vypnut') +
             ' &nbsp;|&nbsp; <strong>Cookie banner:</strong> ' + (config.settings.show_cookies ? 'Zapnut' : 'Vypnut') + '<br>' +
             '<strong>Refresh interval:</strong> ' + config.market.refresh_interval + 's';
     }
