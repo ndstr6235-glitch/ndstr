@@ -15,7 +15,7 @@ export default async function handler(req, res) {
 
     try {
         await resend.emails.send({
-            from: 'Nodi Star Web <onboarding@resend.dev>',
+            from: 'Nodi Star <info@nodistar.cz>',
             to: 'info@nodistar.cz',
             subject: `Nová poptávka od ${name}`,
             html: `
